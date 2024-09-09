@@ -1,4 +1,4 @@
-﻿using DM.Vehicle;
+﻿using DM.Car;
 using Sandbox;
 [CustomEditor( typeof( Wheel ) )]
 public class WheelControlWidget : ControlWidget

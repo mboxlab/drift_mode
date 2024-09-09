@@ -1,0 +1,582 @@
+{
+  "RootObject": {
+    "__guid": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+    "Flags": 0,
+    "Name": "car",
+    "Tags": "car",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Car",
+        "__guid": "68c75d59-4ec2-423b-8243-e416cd2b347e",
+        "AccelerationRate": 1,
+        "BrakingRate": 2,
+        "DecelerationRate": 2,
+        "Nametag": {
+          "_type": "component",
+          "component_id": "fb89b148-4cd9-4b57-9273-7d8d2ec1317b",
+          "go": "d6ccf001-5932-4402-b6df-2f6068628cba",
+          "component_type": "Nametag"
+        },
+        "Torque": 15000
+      },
+      {
+        "__type": "Sandbox.Rigidbody",
+        "__guid": "63f289fd-6e4a-4084-b6c5-b497bb5fbec5",
+        "AngularDamping": 1,
+        "Gravity": true,
+        "LinearDamping": 1,
+        "Locking": {},
+        "MassCenterOverride": "10,0,10",
+        "MassOverride": 1000,
+        "MotionEnabled": true,
+        "OverrideMassCenter": true,
+        "RigidbodyFlags": "DisableCollisionSounds",
+        "StartAsleep": false
+      },
+      {
+        "__type": "Sandbox.BoxCollider",
+        "__guid": "d9394def-1ad3-4a36-b0f0-a69361d079cb",
+        "Center": "0,0,25",
+        "IsTrigger": false,
+        "Scale": "120,50,30",
+        "Static": false
+      },
+      {
+        "__type": "CameraController",
+        "__guid": "87640b59-aa17-43cc-9fdf-0873c1c3979d",
+        "BobCycleTime": 5,
+        "BobDirection": "0,1,0.5",
+        "Boom": {
+          "_type": "gameobject",
+          "go": "b813da2b-460b-42b5-bdd8-f62b556fd189"
+        },
+        "CameraTarget": {
+          "_type": "gameobject",
+          "go": "a7552737-ddb9-4c5f-9ede-cc937f4c2a20"
+        },
+        "PitchLimits": "-50,50",
+        "VelocityFOVScale": 50
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "ce0fb670-0ba2-4ac0-b182-1c0fb4afcc32",
+        "Flags": 0,
+        "Name": "Model",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "8e4d9c6a-e979-4a95-9f16-a76b1e4be3de",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/cars/lada_2107/2107.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "7ad25a1a-171f-4f43-af08-1e2d3803fe1d",
+        "Flags": 0,
+        "Name": "Front Axle",
+        "Position": "42.5,0,8",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Steering",
+            "__guid": "8c5b0728-2c03-42eb-8006-df3c2a5fa171",
+            "MaxSteeringAngle": 35,
+            "Offset": "0,0,0",
+            "Rigidbody": {
+              "_type": "component",
+              "component_id": "63f289fd-6e4a-4084-b6c5-b497bb5fbec5",
+              "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+              "component_type": "Rigidbody"
+            },
+            "SteeringSmoothness": 10,
+            "Wheels": [
+              {
+                "_type": "gameobject",
+                "go": "8c9526f3-7634-43e5-812f-67d706b9022f"
+              },
+              {
+                "_type": "gameobject",
+                "go": "a67d5021-9e51-483f-a1b7-a628c5bb2909"
+              }
+            ]
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "8c9526f3-7634-43e5-812f-67d706b9022f",
+            "Flags": 0,
+            "Name": "Wheel Front Right",
+            "Position": "0,-21,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.Wheel",
+                "__guid": "d9bcb8c5-900a-4105-95f6-58a18758d894",
+                "Damper": {
+                  "BumpRate": 140,
+                  "ReboundRate": 140,
+                  "SlowBump": 2,
+                  "FastBump": 1,
+                  "BumpDivisionVelocity": 0.06,
+                  "SlowRebound": 2.24,
+                  "FastRebound": 0.16,
+                  "ReboundDivisionVelocity": 0.02
+                },
+                "ForwardFriction": {
+                  "PeakSlip": 1000,
+                  "Curve": [
+                    {
+                      "mode": "Linear"
+                    },
+                    {
+                      "x": 1,
+                      "y": 1
+                    }
+                  ]
+                },
+                "Mass": 20,
+                "Radius": 9,
+                "Rigidbody": {
+                  "_type": "component",
+                  "component_id": "63f289fd-6e4a-4084-b6c5-b497bb5fbec5",
+                  "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+                  "component_type": "Rigidbody"
+                },
+                "SideFriction": {
+                  "PeakSlip": 3000,
+                  "Curve": [
+                    {
+                      "mode": "Linear"
+                    },
+                    {
+                      "x": 1,
+                      "y": 1
+                    }
+                  ]
+                },
+                "Spring": {
+                  "ForceCurve": [
+                    {},
+                    {
+                      "x": 0.55803573,
+                      "y": 0.1534544
+                    },
+                    {
+                      "x": 1,
+                      "y": 1
+                    }
+                  ],
+                  "MaxForce": 22000,
+                  "MaxLength": 3
+                },
+                "Width": 6
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "42ce9a8b-70b6-4c35-97f0-5eb1b5d21b48",
+                "Flags": 0,
+                "Name": "Model",
+                "Position": "0,0,0",
+                "Rotation": "0,0,1,-0.00000004371139",
+                "Enabled": true,
+                "NetworkMode": 1,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "9859c032-ba03-4903-aab3-3cbd32e3378d",
+                    "BodyGroups": 18446744073709551615,
+                    "Model": "models/cars/lada_2107/wheel.vmdl",
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  },
+                  {
+                    "__type": "WheelMover",
+                    "__guid": "f193723c-9c07-43c3-9821-d94b235f90ad",
+                    "ReverseRotation": true,
+                    "Target": {
+                      "_type": "component",
+                      "component_id": "d9bcb8c5-900a-4105-95f6-58a18758d894",
+                      "go": "8c9526f3-7634-43e5-812f-67d706b9022f",
+                      "component_type": "Wheel"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "a67d5021-9e51-483f-a1b7-a628c5bb2909",
+            "Flags": 0,
+            "Name": "Wheel Front Left",
+            "Position": "0,21,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.Wheel",
+                "__guid": "94bffd70-88db-4df5-b211-cd0cd074b05b",
+                "Damper": {
+                  "BumpRate": 140,
+                  "ReboundRate": 140,
+                  "SlowBump": 2,
+                  "FastBump": 1,
+                  "BumpDivisionVelocity": 0.06,
+                  "SlowRebound": 2.24,
+                  "FastRebound": 0.16,
+                  "ReboundDivisionVelocity": 0.02
+                },
+                "ForwardFriction": {
+                  "PeakSlip": 1000,
+                  "Curve": [
+                    {
+                      "mode": "Linear"
+                    },
+                    {
+                      "x": 1,
+                      "y": 1
+                    }
+                  ]
+                },
+                "Mass": 20,
+                "Radius": 9,
+                "Rigidbody": {
+                  "_type": "component",
+                  "component_id": "63f289fd-6e4a-4084-b6c5-b497bb5fbec5",
+                  "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+                  "component_type": "Rigidbody"
+                },
+                "SideFriction": {
+                  "PeakSlip": 3000,
+                  "Curve": [
+                    {
+                      "mode": "Linear"
+                    },
+                    {
+                      "x": 1,
+                      "y": 1
+                    }
+                  ]
+                },
+                "Spring": {
+                  "ForceCurve": [
+                    {},
+                    {
+                      "x": 0.55803573,
+                      "y": 0.1534544
+                    },
+                    {
+                      "x": 1,
+                      "y": 1
+                    }
+                  ],
+                  "MaxForce": 22000,
+                  "MaxLength": 3
+                },
+                "Width": 6
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "1bc170b6-017d-4e41-98a4-3a935f33497f",
+                "Flags": 0,
+                "Name": "Model",
+                "Position": "0,0,0",
+                "Enabled": true,
+                "NetworkMode": 1,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "6437bbc3-1fe6-4272-bf30-32d27cbccaaa",
+                    "BodyGroups": 18446744073709551615,
+                    "Model": "models/cars/lada_2107/wheel.vmdl",
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  },
+                  {
+                    "__type": "WheelMover",
+                    "__guid": "34a585a9-a086-4181-aa4c-2f40f11a60ef",
+                    "ReverseRotation": false,
+                    "Target": {
+                      "_type": "component",
+                      "component_id": "94bffd70-88db-4df5-b211-cd0cd074b05b",
+                      "go": "a67d5021-9e51-483f-a1b7-a628c5bb2909",
+                      "component_type": "Wheel"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "ce1a3692-9cc8-471e-8460-bedc2caecdd5",
+        "Flags": 0,
+        "Name": "Rear Axle",
+        "Position": "-30,0,8",
+        "Enabled": true,
+        "Children": [
+          {
+            "__guid": "4eaa3d57-e9df-4268-b733-3e3ad411e6c7",
+            "Flags": 0,
+            "Name": "Wheel Rear Right",
+            "Position": "0,-21,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.Wheel",
+                "__guid": "7e2c100d-b122-4678-9e5b-5a7994af3a24",
+                "Damper": {
+                  "BumpRate": 140,
+                  "ReboundRate": 140,
+                  "SlowBump": 2,
+                  "FastBump": 1,
+                  "BumpDivisionVelocity": 0.06,
+                  "SlowRebound": 2.24,
+                  "FastRebound": 0.16,
+                  "ReboundDivisionVelocity": 0.02
+                },
+                "ForwardFriction": {
+                  "PeakSlip": 1000,
+                  "Curve": [
+                    {
+                      "mode": "Linear"
+                    },
+                    {
+                      "x": 1,
+                      "y": 1
+                    }
+                  ]
+                },
+                "Mass": 20,
+                "Radius": 9,
+                "Rigidbody": {
+                  "_type": "component",
+                  "component_id": "63f289fd-6e4a-4084-b6c5-b497bb5fbec5",
+                  "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+                  "component_type": "Rigidbody"
+                },
+                "SideFriction": {
+                  "PeakSlip": 3000,
+                  "Curve": [
+                    {
+                      "mode": "Linear"
+                    },
+                    {
+                      "x": 1,
+                      "y": 1
+                    }
+                  ]
+                },
+                "Spring": {
+                  "ForceCurve": [
+                    {},
+                    {
+                      "x": 0.55803573,
+                      "y": 0.1534544
+                    },
+                    {
+                      "x": 1,
+                      "y": 1
+                    }
+                  ],
+                  "MaxForce": 22000,
+                  "MaxLength": 3
+                },
+                "Width": 6
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "997ba493-f677-42f6-a9c0-7b79e25b0a5f",
+                "Flags": 0,
+                "Name": "Model",
+                "Position": "0,0,0",
+                "Rotation": "0,0,1,-0.00000004371139",
+                "Enabled": true,
+                "NetworkMode": 1,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "6b6c6635-3218-4702-bbd0-0d4a9be775c0",
+                    "BodyGroups": 18446744073709551615,
+                    "Model": "models/cars/lada_2107/wheel.vmdl",
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  },
+                  {
+                    "__type": "WheelMover",
+                    "__guid": "ddb05a78-7dc3-49ea-99d5-803bf944cee6",
+                    "ReverseRotation": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "fc04e594-0d78-49bb-bb9d-6a0887b8dae7",
+            "Flags": 0,
+            "Name": "Wheel Rear Left",
+            "Position": "0,21,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.Wheel",
+                "__guid": "63a8494a-344b-4ff6-938c-3e1dcc5b8619",
+                "Damper": {
+                  "BumpRate": 140,
+                  "ReboundRate": 140,
+                  "SlowBump": 2,
+                  "FastBump": 1,
+                  "BumpDivisionVelocity": 0.06,
+                  "SlowRebound": 2.24,
+                  "FastRebound": 0.16,
+                  "ReboundDivisionVelocity": 0.02
+                },
+                "ForwardFriction": {
+                  "PeakSlip": 1000,
+                  "Curve": [
+                    {
+                      "mode": "Linear"
+                    },
+                    {
+                      "x": 1,
+                      "y": 1
+                    }
+                  ]
+                },
+                "Mass": 20,
+                "Radius": 9,
+                "Rigidbody": {
+                  "_type": "component",
+                  "component_id": "63f289fd-6e4a-4084-b6c5-b497bb5fbec5",
+                  "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+                  "component_type": "Rigidbody"
+                },
+                "SideFriction": {
+                  "PeakSlip": 3000,
+                  "Curve": [
+                    {
+                      "mode": "Linear"
+                    },
+                    {
+                      "x": 1,
+                      "y": 1
+                    }
+                  ]
+                },
+                "Spring": {
+                  "ForceCurve": [
+                    {},
+                    {
+                      "x": 0.55803573,
+                      "y": 0.1534544
+                    },
+                    {
+                      "x": 1,
+                      "y": 1
+                    }
+                  ],
+                  "MaxForce": 22000,
+                  "MaxLength": 3
+                },
+                "Width": 6
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "f6bf03e8-e1bd-4bab-9b54-2946dd86fa68",
+                "Flags": 0,
+                "Name": "Model",
+                "Position": "0,0,0",
+                "Enabled": true,
+                "NetworkMode": 1,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "68793b34-c5e9-40d3-8eaa-f989bc37b2e1",
+                    "BodyGroups": 18446744073709551615,
+                    "Model": "models/cars/lada_2107/wheel.vmdl",
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  },
+                  {
+                    "__type": "WheelMover",
+                    "__guid": "cc27d75e-9dd6-4f94-9b1e-c04c41a4b76f",
+                    "ReverseRotation": false
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "b813da2b-460b-42b5-bdd8-f62b556fd189",
+        "Flags": 0,
+        "Name": "boom arm",
+        "Enabled": true,
+        "Children": [
+          {
+            "__guid": "a7552737-ddb9-4c5f-9ede-cc937f4c2a20",
+            "Flags": 0,
+            "Name": "camera position",
+            "Position": "-224.7686,0,45.50676",
+            "Enabled": true
+          }
+        ]
+      },
+      {
+        "__guid": "3152b35f-3a1a-433a-8f30-935f7e43556d",
+        "Flags": 0,
+        "Name": "Tag",
+        "Position": "0,0,40",
+        "Enabled": true,
+        "Children": [
+          {
+            "__guid": "d6ccf001-5932-4402-b6df-2f6068628cba",
+            "Flags": 0,
+            "Name": "Nametag",
+            "Position": "0,0,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.WorldPanel",
+                "__guid": "ad64aee6-6328-4826-a370-8c1a45f35e4e",
+                "HorizontalAlign": "Center",
+                "InteractionRange": 1000,
+                "LookAtCamera": true,
+                "PanelSize": "1024,280",
+                "RenderScale": 1,
+                "VerticalAlign": "Center"
+              },
+              {
+                "__type": "Nametag",
+                "__guid": "fb89b148-4cd9-4b57-9273-7d8d2ec1317b",
+                "Player": {
+                  "_type": "component",
+                  "component_id": "68c75d59-4ec2-423b-8243-e416cd2b347e",
+                  "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+                  "component_type": "Car"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

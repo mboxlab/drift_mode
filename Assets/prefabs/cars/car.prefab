@@ -37,9 +37,9 @@
       {
         "__type": "Sandbox.BoxCollider",
         "__guid": "d9394def-1ad3-4a36-b0f0-a69361d079cb",
-        "Center": "0,0,25",
+        "Center": "0,0,32.00003",
         "IsTrigger": false,
-        "Scale": "120,50,30",
+        "Scale": "158,50,41.59999",
         "Static": false
       },
       {
@@ -80,7 +80,7 @@
         "__guid": "7ad25a1a-171f-4f43-af08-1e2d3803fe1d",
         "Flags": 0,
         "Name": "Front Axle",
-        "Position": "42.5,0,8",
+        "Position": "55,0,12",
         "Enabled": true,
         "Components": [
           {
@@ -112,7 +112,7 @@
             "__guid": "8c9526f3-7634-43e5-812f-67d706b9022f",
             "Flags": 0,
             "Name": "Wheel Front Right",
-            "Position": "0,-21,0",
+            "Position": "0,-27,0",
             "Enabled": true,
             "Components": [
               {
@@ -141,7 +141,7 @@
                   ]
                 },
                 "Mass": 20,
-                "Radius": 9,
+                "Radius": 12,
                 "Rigidbody": {
                   "_type": "component",
                   "component_id": "63f289fd-6e4a-4084-b6c5-b497bb5fbec5",
@@ -175,7 +175,7 @@
                   "MaxForce": 22000,
                   "MaxLength": 3
                 },
-                "Width": 6
+                "Width": 8
               }
             ],
             "Children": [
@@ -215,7 +215,7 @@
             "__guid": "a67d5021-9e51-483f-a1b7-a628c5bb2909",
             "Flags": 0,
             "Name": "Wheel Front Left",
-            "Position": "0,21,0",
+            "Position": "0,27,0",
             "Enabled": true,
             "Components": [
               {
@@ -244,7 +244,7 @@
                   ]
                 },
                 "Mass": 20,
-                "Radius": 9,
+                "Radius": 12,
                 "Rigidbody": {
                   "_type": "component",
                   "component_id": "63f289fd-6e4a-4084-b6c5-b497bb5fbec5",
@@ -278,7 +278,7 @@
                   "MaxForce": 22000,
                   "MaxLength": 3
                 },
-                "Width": 6
+                "Width": 8
               }
             ],
             "Children": [
@@ -319,14 +319,14 @@
         "__guid": "ce1a3692-9cc8-471e-8460-bedc2caecdd5",
         "Flags": 0,
         "Name": "Rear Axle",
-        "Position": "-30,0,8",
+        "Position": "-40,0,12",
         "Enabled": true,
         "Children": [
           {
             "__guid": "4eaa3d57-e9df-4268-b733-3e3ad411e6c7",
             "Flags": 0,
             "Name": "Wheel Rear Right",
-            "Position": "0,-21,0",
+            "Position": "0,-27,0",
             "Enabled": true,
             "Components": [
               {
@@ -355,7 +355,7 @@
                   ]
                 },
                 "Mass": 20,
-                "Radius": 9,
+                "Radius": 12,
                 "Rigidbody": {
                   "_type": "component",
                   "component_id": "63f289fd-6e4a-4084-b6c5-b497bb5fbec5",
@@ -389,7 +389,7 @@
                   "MaxForce": 22000,
                   "MaxLength": 3
                 },
-                "Width": 6
+                "Width": 8
               }
             ],
             "Children": [
@@ -423,7 +423,7 @@
             "__guid": "fc04e594-0d78-49bb-bb9d-6a0887b8dae7",
             "Flags": 0,
             "Name": "Wheel Rear Left",
-            "Position": "0,21,0",
+            "Position": "0,27,0",
             "Enabled": true,
             "Components": [
               {
@@ -452,7 +452,7 @@
                   ]
                 },
                 "Mass": 20,
-                "Radius": 9,
+                "Radius": 12,
                 "Rigidbody": {
                   "_type": "component",
                   "component_id": "63f289fd-6e4a-4084-b6c5-b497bb5fbec5",
@@ -486,7 +486,7 @@
                   "MaxForce": 22000,
                   "MaxLength": 3
                 },
-                "Width": 6
+                "Width": 8
               }
             ],
             "Children": [

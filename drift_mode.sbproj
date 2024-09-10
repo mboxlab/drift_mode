@@ -5,7 +5,7 @@
   "Ident": "drift_mode",
   "Schema": 1,
   "IncludeSourceFiles": false,
-  "Resources": null,
+  "Resources": "",
   "PackageReferences": [],
   "EditorReferences": null,
   "IsWhitelistDisabled": false,

@@ -166,7 +166,7 @@
           "__guid": "642c0fe9-4f6f-4b26-9f07-cabf6b5516ac",
           "PlayerPrefab": {
             "_type": "gameobject",
-            "prefab": "prefabs/cars/car.prefab"
+            "prefab": "prefabs/cars/lada_2107.prefab"
           },
           "SpawnPoints": [],
           "StartServer": true
@@ -1148,6 +1148,25 @@
               "Static": false
             }
           ]
+        }
+      ]
+    },
+    {
+      "__guid": "0ca9066b-dee3-4383-90c9-625a564c16bd",
+      "Flags": 0,
+      "Name": "citizen",
+      "Position": "-37.89496,-242.6464,0",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "ea7eb932-7fac-40d3-ac70-acb4ca1d750e",
+          "BodyGroups": 341,
+          "Health": 0,
+          "IsStatic": false,
+          "Model": "models/citizen/citizen.vmdl",
+          "StartAsleep": false,
+          "Tint": "1,1,1,1"
         }
       ]
     }

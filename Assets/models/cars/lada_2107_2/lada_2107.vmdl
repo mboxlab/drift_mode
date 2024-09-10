@@ -1,0 +1,182 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc29:version{3cec427c-1b0e-4d48-a90a-0436f33a6041} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "black_mat.vmat"
+								to = "models/cars/lada_2107_2/black_mat.vmat"
+							},
+							{
+								from = "body.vmat"
+								to = "models/cars/lada_2107_2/body.vmat"
+							},
+							{
+								from = "body2.vmat"
+								to = "models/cars/lada_2107_2/body.vmat"
+							},
+							{
+								from = "bottom.vmat"
+								to = "models/cars/lada_2107_2/bottom.vmat"
+							},
+							{
+								from = "bumper 1.vmat"
+								to = "models/cars/lada_2107_2/bumper.vmat"
+							},
+							{
+								from = "bumper 2.vmat"
+								to = "models/cars/lada_2107_2/plastic.vmat"
+							},
+							{
+								from = "door_plating.vmat"
+								to = "models/cars/lada_2107_2/door_plating.vmat"
+							},
+							{
+								from = "f_glass 2.vmat"
+								to = "models/cars/lada_2107_2/f_glass2.vmat"
+							},
+							{
+								from = "f_lights.vmat"
+								to = "models/cars/lada_2107_2/f_glass2.vmat"
+							},
+							{
+								from = "glass 2.vmat"
+								to = "models/cars/lada_2107_2/glass.vmat"
+							},
+							{
+								from = "glass.vmat"
+								to = "models/cars/lada_2107_2/glass.vmat"
+							},
+							{
+								from = "f_glass.vmat"
+								to = "models/cars/lada_2107_2/glass.vmat"
+							},
+							{
+								from = "f_reflector.vmat"
+								to = "models/cars/lada_2107_2/mirror.vmat"
+							},
+							{
+								from = "rear_ligts.vmat"
+								to = "models/cars/lada_2107_2/f_glass2.vmat"
+							},
+							{
+								from = "rear_glass.vmat"
+								to = "models/cars/lada_2107_2/glass.vmat"
+							},
+							{
+								from = "logo_lock.vmat"
+								to = "models/cars/lada_2107_2/logo_lock.vmat"
+							},
+							{
+								from = "radiator.vmat"
+								to = "models/cars/lada_2107_2/radiator.vmat"
+							},
+							{
+								from = "mirror.vmat"
+								to = "models/cars/lada_2107_2/mirror.vmat"
+							},
+							{
+								from = "f_turn s.vmat"
+								to = "models/cars/lada_2107_2/f_glass2.vmat"
+							},
+							{
+								from = "grill.001.vmat"
+								to = "models/cars/lada_2107_2/chrome.vmat"
+							},
+							{
+								from = "grill.vmat"
+								to = "models/cars/lada_2107_2/bottom.vmat"
+							},
+							{
+								from = "interior 1.vmat"
+								to = "models/cars/lada_2107_2/interior1.vmat"
+							},
+							{
+								from = "material.039.vmat"
+								to = "models/cars/lada_2107_2/steering wheel.vmat"
+							},
+							{
+								from = "plastic.vmat"
+								to = "models/cars/lada_2107_2/black_mat.vmat"
+							},
+							{
+								from = "rear_reflector.vmat"
+								to = "models/cars/lada_2107_2/f_glass2.vmat"
+							},
+							{
+								from = "rep_signal_1.vmat"
+								to = "models/cars/lada_2107_2/turn.vmat"
+							},
+							{
+								from = "rep_signal_2.vmat"
+								to = "models/cars/lada_2107_2/turn.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = "materials/default.vmat"
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						filename = "models/cars/lada_2107_2/lada_2107.fbx"
+						import_translation = [ 0.0, 0.0, 0.0 ]
+						import_rotation = [ 0.0, -90.0, 0.0 ]
+						import_scale = 0.3937
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
+						parent_bone = ""
+						import_filter = 
+						{
+							exclude_by_default = true
+							exception_list = 
+							[
+								"Plane_004",
+								"Plane_005",
+								"Plane_006",
+								"Plane_007",
+								"Cylinder_002",
+								"Plane_009",
+								"Circle_002",
+								"Circle_003",
+								"Circle_004",
+								"Circle_005",
+								"Plane_107",
+								"Plane_108",
+								"Plane_010",
+								"Cube_001",
+								"Circle_001",
+								"Plane_008",
+								"Plane_003",
+								"Plane_002",
+								"Plane_093",
+								"Plane_095",
+								"Plane_090",
+								"Plane_094",
+							]
+						}
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		base_model_name = ""
+	}
+}

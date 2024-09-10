@@ -107,27 +107,27 @@ public partial class Wheel : Component
 		if ( !IsGrounded )
 			return;
 
-		//var worldVelocity = _rigidbody.GetVelocityAtPoint( Transform.Position );
-		//var suspensionCompression = (_groundTrace.Distance + Width / 2) - (Spring.MaxLength + Radius);
-
-		//var dampingForce = -190 * worldVelocity.z;
-		//var springForce = -8000 * suspensionCompression;
-		//var totalForce = (dampingForce + springForce) / Time.Delta;
-
-		//var suspensionForce = _groundTrace.Normal * totalForce;
-		//_rigidbody.ApplyForceAt( Transform.Position, suspensionForce );
-
 		var worldVelocity = _rigidbody.GetVelocityAtPoint( Transform.Position ).RotateAround( Vector3.Zero, _rigidbody.Transform.Rotation.Conjugate );
 		var suspensionCompression = (_groundTrace.Distance + Width / 2) - (Spring.MaxLength + Radius);
 
-
-		var dampingForce = -Damper.CalculateDamperForce( worldVelocity.z );
-		var springForce = Spring.MaxForce * Spring.ForceCurve.Evaluate( -suspensionCompression / Spring.MaxLength + 0.01f );
-
+		var dampingForce = -Damper.BumpRate * worldVelocity.z;
+		var springForce = -Spring.MaxForce * ((suspensionCompression + 0.01f) / Spring.MaxLength);
 		var totalForce = (dampingForce + springForce) / Time.Delta;
-		var suspensionForce = Vector3.Up * totalForce;
 
+		var suspensionForce = Transform.Rotation.Up * totalForce;
 		_rigidbody.ApplyForceAt( Transform.Position, suspensionForce );
+
+		//var worldVelocity = _rigidbody.GetVelocityAtPoint( Transform.Position ).RotateAround( Vector3.Zero, _rigidbody.Transform.Rotation.Conjugate );
+		//var suspensionCompression = (_groundTrace.Distance + Width / 2) - (Spring.MaxLength + Radius);
+
+
+		//var dampingForce = -Damper.CalculateDamperForce( worldVelocity.z );
+		//var springForce = Spring.MaxForce * Spring.ForceCurve.Evaluate( -suspensionCompression / Spring.MaxLength + 0.01f );
+
+		//var totalForce = (dampingForce + springForce) / Time.Delta;
+		//var suspensionForce = Vector3.Up * totalForce;
+
+		//_rigidbody.ApplyForceAt( Transform.Position, suspensionForce );
 	}
 
 	private void DoTrace()
@@ -165,7 +165,11 @@ public partial class Wheel : Component
 		for ( float i = 0; i < 45; i++ )
 		{
 
-			var endPos = startPos + down.RotateAround( Vector3.Zero, Quaternion.CreateFromAxisAngle( _rigidbody.Transform.Rotation.Right, MathX.DegreeToRadian( 70 - i / 45 * 140 ) ) ) * (Spring.MaxLength / 2 + Radius);
+			Rotation right = Rotation.FromAxis( _rigidbody.Transform.Rotation.Right, 70 - i / 45 * 140 );
+			Rotation up = Rotation.FromAxis( _rigidbody.Transform.Rotation.Up, Transform.LocalRotation.Yaw() );
+
+			var endPos = startPos + down.RotateAround( Vector3.Zero, right ).RotateAround( Vector3.Zero, up ) * (Spring.MaxLength / 2 + Radius);
+
 			var trace = Scene.Trace
 						.Radius( Width / 2 )
 						.IgnoreGameObjectHierarchy( GameObject.Root )

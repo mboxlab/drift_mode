@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace DM.Vehicle;
+namespace DM.Car;
 
 /// <summary>
 ///     Suspension spring.
@@ -18,7 +18,7 @@ public class Spring
 	public Spring()
 	{
 		MaxForce = 16000.0f;
-		MaxLength = 3f;
+		MaxLength = 12f;
 		ForceCurve = new Curve();
 	}
 	/// <summary>
@@ -43,12 +43,12 @@ public class Spring
 	public Curve ForceCurve { get; set; }
 
 	/// <summary>
-	///     Maximum force spring can exert.
+	///     Maximum force spring can exert in Nm.
 	/// </summary>
 	public float MaxForce { get; set; }
 
 	/// <summary>
-	///     Length of fully relaxed spring.
+	///     Length of fully relaxed spring in Inches.
 	/// </summary>
 	public float MaxLength { get; set; }
 

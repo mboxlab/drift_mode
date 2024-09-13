@@ -1,5 +1,7 @@
 using System;
 
+namespace DM.Car;
+
 /// <summary>
 /// I've pulled this out into its own component because I feel like we'll want different camera behaviors when we have weapons, building, etc..
 /// </summary>
@@ -27,22 +29,10 @@ public sealed class CameraController : Component
 	/// How far can we look up / down?
 	/// </summary>
 	[Property, Group( "Config" )]
-	public Vector2 PitchLimits { get; set; } = new( -50f, 50f );
+	public Vector2 PitchLimits { get; set; } = new( -10f, 50f );
 
 	[Property, Group( "Config" )]
-	public float VelocityFOVScale { get; set; } = 50f;
-
-	/// <summary>
-	/// Bobbing cycle time
-	/// </summary>
-	[Property, Group( "Config" )]
-	public float BobCycleTime { get; set; } = 5.0f;
-
-	/// <summary>
-	/// Bobbing direction
-	/// </summary>
-	[Property, Group( "Config" )]
-	public Vector3 BobDirection { get; set; } = new Vector3( 0.0f, 1.0f, 0.5f );
+	public float VelocityFOVScale { get; set; } = 500f;
 
 	protected override void OnStart()
 	{
@@ -54,7 +44,7 @@ public sealed class CameraController : Component
 	}
 
 	/// <summary>
-	/// Runs from <see cref="Player.OnUpdate"/>
+	/// Runs from <see cref="Car.OnUpdate"/>
 	/// </summary>
 	public void UpdateFromPlayer()
 	{
@@ -64,7 +54,8 @@ public sealed class CameraController : Component
 			return;
 		}
 
-		// Have an option for this later to scale?
+
+		CameraTarget.Transform.LocalPosition = CameraTarget.Transform.LocalPosition.WithX( Math.Min( -120, CameraTarget.Transform.LocalPosition.x + Input.MouseWheel.y * 10 ) );
 
 
 		Player.EyeAngles += Input.AnalogLook;
@@ -74,25 +65,25 @@ public sealed class CameraController : Component
 
 		Boom.Transform.Position = Boom.Transform.Position.LerpTo( Player.Rigidbody.Transform.Position, Time.Delta * 20 );
 
-		var targetFov = Preferences.FieldOfView + Player.Rigidbody.Velocity.Length / VelocityFOVScale;
+		float targetFov = Preferences.FieldOfView + Player.Rigidbody.Velocity.Length / VelocityFOVScale;
 
-		Scene.Camera.FieldOfView = Scene.Camera.FieldOfView.LerpTo( targetFov, Time.Delta * 10 );
-		Scene.Camera.Transform.Position = CameraTarget.Transform.Position.WithZ( Scene.Camera.Transform.Position.z );
-		Scene.Camera.Transform.Position = Scene.Camera.Transform.Position.LerpTo( CameraTarget.Transform.Position, Time.Delta * 12f );
+		Vector3 startPos = Boom.Transform.Position.WithZ( Boom.Transform.Position.z + 10 );
+		SceneTraceResult trace = Scene.Trace
+			.Sphere( 8f, startPos, CameraTarget.Transform.Position )
+			.IgnoreGameObjectHierarchy( GameObject.Root )
+			.Run();
+		Scene.Camera.FieldOfView = Scene.Camera.FieldOfView.LerpTo( MathX.Clamp( targetFov, 10, 100 ), Time.Delta * 10 );
 		Scene.Camera.Transform.Rotation = CameraTarget.Transform.Rotation;
+
+		Scene.Camera.Transform.Position = CameraTarget.Transform.Position.WithZ( Scene.Camera.Transform.Position.z );
+		//if ( trace.Hit && !trace.StartedSolid )
+		//	Scene.Camera.Transform.Position = trace.EndPosition;
+		//else
+		Scene.Camera.Transform.Position = Scene.Camera.Transform.Position.LerpTo( CameraTarget.Transform.Position, Time.Delta * 12f );
+
+
+
 	}
-
-	public float CalcRelativeYaw( float angle )
-	{
-		float length = CameraTarget.Transform.Rotation.Yaw() - angle;
-
-		float d = MathX.UnsignedMod( Math.Abs( length ), 360 );
-		float r = (d > 180) ? 360 - d : d;
-		r *= (length >= 0 && length <= 180) || (length <= -180 && length >= -360) ? 1 : -1;
-
-		return r;
-	}
-
 
 	Angles devCamAngles;
 

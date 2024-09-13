@@ -1,5 +1,4 @@
-﻿using DM.Vehicle;
-
+﻿using DM.Car;
 namespace DM.Ground;
 
 /// <summary>
@@ -8,17 +7,7 @@ namespace DM.Ground;
 /// can be created and attached to the WheelController. It only needs to implement the WheelCast() function
 /// and return the point nearest to the wheel center.
 /// </summary>
-public abstract class GroundDetection : Component
+public interface IGroundDetection
 {
-	/// <summary>
-	/// 
-	/// </summary>
-	/// <param name="origin">Origin of the wheel cast.</param>
-	/// <param name="direction">Direction of the wheel cast.</param>
-	/// <param name="distance">Distance the cast will travel.</param>
-	/// <param name="radius">Radius of the wheel.</param>
-	/// <param name="width">Width of the wheel.</param>
-	/// <param name="wheelHit">result of cast</param>
-	/// 
-	public abstract bool Cast( Vector3 origin, Vector3 direction, float distance, float radius, float width, ref WheelHit wheelHit );
+	public abstract GroundHit Cast( GameObject gameObject, Wheel wheel );
 }

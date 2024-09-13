@@ -1,10 +1,10 @@
-﻿using DM.Vehicle;
-using Sandbox;
-using static DM.Vehicle.Spring;
+﻿using Sandbox;
+using DM.Car;
 [CustomEditor( typeof( Spring ) )]
 public class SpringControlWidget : ControlWidget
 {
 	public override bool SupportsMultiEdit => true;
+	public override bool IncludeLabel => false;
 
 	public SpringControlWidget( SerializedProperty property ) : base( property )
 	{
@@ -13,12 +13,14 @@ public class SpringControlWidget : ControlWidget
 			Log.Error( "Couldn't get Spring" );
 		}
 		Layout = Layout.Column();
-		Layout.Margin = 4f;
+		Layout.Margin = 8f;
+		Layout.Add( new Label.Body( $" {ToolTip}" ) { Color = Color.White } );
+
 		Layout.Add( new Label( "Properties" ) );
 		Layout.Add( new Separator( 4 ) );
-		Layout.Add( new EnumControlWidget( obj.GetProperty( "State" ) ) { ToolTip = "Extension State", Enabled = false } );
+		Layout.Add( new EnumControlWidget( obj.GetProperty( "State" ) ) { ToolTip = "Extension State", ReadOnly = true } );
 		Layout.Add( new Separator( 4 ) );
-		Layout.Add( new FloatControlWidget( obj.GetProperty( "Length" ) ) { ToolTip = "Length", Enabled = false } );
+		Layout.Add( new FloatControlWidget( obj.GetProperty( "Length" ) ) { ToolTip = "Length", ReadOnly = true } );
 		Layout.Add( new Separator( 4 ) );
 		Layout.Add( new CurveControlWidget( obj.GetProperty( "ForceCurve" ) ) { ToolTip = "Curve" } );
 		Layout.Add( new Separator( 4 ) );

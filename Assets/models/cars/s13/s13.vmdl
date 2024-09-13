@@ -1,0 +1,185 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc29:version{3cec427c-1b0e-4d48-a90a-0436f33a6041} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "carpaint.vmat"
+								to = "materials/car/body.vmat"
+							},
+							{
+								from = "carpaint2.vmat"
+								to = "materials/car/body2.vmat"
+							},
+							{
+								from = "chrome.vmat"
+								to = "materials/car/chrome.vmat"
+							},
+							{
+								from = "chromerough.vmat"
+								to = "materials/car/chrome.vmat"
+							},
+							{
+								from = "chromerough2.vmat"
+								to = "materials/car/chrome.vmat"
+							},
+							{
+								from = "darkplastic.vmat"
+								to = "materials/car/plastic.vmat"
+							},
+							{
+								from = "exh.vmat"
+								to = "materials/car/chrome.vmat"
+							},
+							{
+								from = "exhd.vmat"
+								to = "materials/car/plastic.vmat"
+							},
+							{
+								from = "frontindi2.vmat"
+								to = "materials/car/plastic.vmat"
+							},
+							{
+								from = "grill.vmat"
+								to = "materials/car/chrome.vmat"
+							},
+							{
+								from = "windows.vmat"
+								to = "materials/car/windows.vmat"
+							},
+							{
+								from = "underbody.vmat"
+								to = "materials/car/black.vmat"
+							},
+							{
+								from = "taillight.vmat"
+								to = "models/cars/s13/materials/lightsnew4.vmat"
+							},
+							{
+								from = "tailalpha.vmat"
+								to = "materials/car/windows.vmat"
+							},
+							{
+								from = "plastic.vmat"
+								to = "materials/car/plastic_gray.vmat"
+							},
+							{
+								from = "headalpha1.vmat"
+								to = "materials/car/windows.vmat"
+							},
+							{
+								from = "headalpha3.vmat"
+								to = "materials/car/windows.vmat"
+							},
+							{
+								from = "headins2.vmat"
+								to = "models/cars/s13/materials/lights2.vmat"
+							},
+							{
+								from = "headinsi.vmat"
+								to = "models/cars/s13/materials/lights2.vmat"
+							},
+							{
+								from = "headlightinside.vmat"
+								to = "materials/car/plastic.vmat"
+							},
+							{
+								from = "plasticrough.vmat"
+								to = "materials/car/plastic_gray.vmat"
+							},
+							{
+								from = "plasticshiny.vmat"
+								to = "materials/car/chrome.vmat"
+							},
+							{
+								from = "plate.vmat"
+								to = "models/cars/s13/materials/plate.vmat"
+							},
+							{
+								from = "plateb.vmat"
+								to = "models/cars/s13/materials/plate.vmat"
+							},
+							{
+								from = "mirror.vmat"
+								to = "materials/car/chrome.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = "materials/default.vmat"
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						filename = "models/cars/s13/s13.obj"
+						import_translation = [ 0.0, 0.0, 0.0 ]
+						import_rotation = [ 0.0, 0.0, 0.0 ]
+						import_scale = 39.369999
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
+						parent_bone = ""
+						import_filter = 
+						{
+							exclude_by_default = true
+							exception_list = 
+							[
+								"s13",
+								"s14",
+								"s15",
+								"s16",
+								"s17",
+								"s18",
+								"s19",
+								"s20",
+								"s21",
+								"s22",
+								"s23",
+								"s24",
+								"s25",
+								"s26",
+								"s27",
+								"s28",
+								"s29",
+								"s30",
+								"s31",
+								"s32",
+								"s33",
+								"s34",
+								"s35",
+								"s36",
+								"s37",
+								"s38",
+								"s39",
+								"s40",
+								"s41",
+								"s42",
+								"s43",
+								"s44",
+								"s45",
+							]
+						}
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		base_model_name = ""
+	}
+}

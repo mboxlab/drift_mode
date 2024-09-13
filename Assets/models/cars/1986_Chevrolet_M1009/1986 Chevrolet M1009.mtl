@@ -1,0 +1,97 @@
+# Blender 4.2.1 LTS MTL File: 'None'
+# www.blender.org
+
+newmtl Body
+Ka 0.536364 0.536364 0.536364
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd A:/TEMP/1986 Chevrolet M1009/textures/Body_Base_color.jpg
+map_Ns A:/TEMP/1986 Chevrolet M1009/textures/Body_Roughness.jpg
+map_refl A:/TEMP/1986 Chevrolet M1009/textures/Body_Metallic.jpg
+map_Bump -bm 1.000000 A:/TEMP/1986 Chevrolet M1009/textures/Body_Normal_OpenGL.jpg
+
+newmtl Lights.004
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd A:/TEMP/1986 Chevrolet M1009/textures/Lights_BaseColor.jpg
+map_Ns A:/TEMP/1986 Chevrolet M1009/textures/Lights_Roughness copy.jpg
+map_refl A:/TEMP/1986 Chevrolet M1009/textures/Lights_Metallic copy.jpg
+map_Ke A:/TEMP/1986 Chevrolet M1009/textures/Lights_Emission copy.jpg
+
+newmtl Metal.004
+Ka 1.000000 1.000000 1.000000
+Kd 0.156830 0.156830 0.156830
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Ns A:/TEMP/1986 Chevrolet M1009/textures/Interior_Metalic_Roughness000.jpg
+map_refl A:/TEMP/1986 Chevrolet M1009/textures/Interior_Metalic_Metallic000.jpg
+map_Bump -bm 1.000000 A:/TEMP/1986 Chevrolet M1009/textures/Interior_Metalic_Normal_OpenGL000.jpg
+
+newmtl Metalic_Body_
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.000000 0.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_refl A:/TEMP/1986 Chevrolet M1009/textures/Interior_Metalic_Metallic.jpg
+map_Bump -bm 1.000000 A:/TEMP/1986 Chevrolet M1009/textures/Interior_Metalic_Normal_OpenGL.jpg
+
+newmtl Plastic
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd A:/TEMP/1986 Chevrolet M1009/textures/Interior_Plastic_Base_color.jpg
+map_Ns A:/TEMP/1986 Chevrolet M1009/textures/Interior_Plastic_Roughness.jpg
+map_refl A:/TEMP/1986 Chevrolet M1009/textures/Interior_Plastic_Metallic.jpg
+map_Bump -bm 1.000000 A:/TEMP/1986 Chevrolet M1009/textures/Interior_Plastic_Normal_OpenGL.jpg
+
+newmtl Second_body_Material_
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd A:/TEMP/1986 Chevrolet M1009/textures/Second_body_Material__Base_color.jpg
+map_Ns A:/TEMP/1986 Chevrolet M1009/textures/Second_body_Material__Roughness.jpg
+map_refl A:/TEMP/1986 Chevrolet M1009/textures/Second_body_Material__Metallic.jpg
+map_Bump -bm 1.000000 A:/TEMP/1986 Chevrolet M1009/textures/Second_body_Material__Normal_OpenGL.jpg
+
+newmtl Undercarriage
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd A:/TEMP/1986 Chevrolet M1009/textures/Undercarriage_Base_color.jpg
+map_Ns A:/TEMP/1986 Chevrolet M1009/textures/Undercarriage_Roughness.jpg
+map_refl A:/TEMP/1986 Chevrolet M1009/textures/Undercarriage_Metallic.jpg
+map_Bump -bm 1.000000 A:/TEMP/1986 Chevrolet M1009/textures/Undercarriage_Normal_OpenGL.jpg
+
+newmtl Windows
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd A:/TEMP/1986 Chevrolet M1009/textures/Windows_Base_color.jpg
+map_Ns A:/TEMP/1986 Chevrolet M1009/textures/Windows_Roughness.jpg
+map_refl A:/TEMP/1986 Chevrolet M1009/textures/Windows_Metallic.jpg
+map_Bump -bm 1.000000 A:/TEMP/1986 Chevrolet M1009/textures/Windows_Normal_OpenGL.jpg

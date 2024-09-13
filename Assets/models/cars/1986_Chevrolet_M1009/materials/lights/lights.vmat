@@ -1,0 +1,14 @@
+
+Layer0
+{
+	shader "shaders/complex.shader_c"
+
+	TextureColor "models/cars/1986_chevrolet_m1009/materials/lights/lights_basecolor.jpg"
+	TextureAmbientOcclusion "materials/default/default_ao.tga"
+	TextureNormal "materials/default/default_normal.tga"
+	TextureRoughness "models/cars/1986_chevrolet_m1009/materials/lights/lights_roughness.jpg"
+	F_METALNESS_TEXTURE 1
+	F_SPECULAR 1
+	TextureMetalness "models/cars/1986_chevrolet_m1009/materials/lights/lights_metallic.jpg"
+
+}

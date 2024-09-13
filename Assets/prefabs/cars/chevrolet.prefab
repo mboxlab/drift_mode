@@ -1,0 +1,958 @@
+{
+  "RootObject": {
+    "__guid": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+    "Flags": 0,
+    "Name": "chevrolet",
+    "Tags": "car",
+    "Enabled": true,
+    "NetworkMode": 1,
+    "Components": [
+      {
+        "__type": "DM.Car.Car",
+        "__guid": "68c75d59-4ec2-423b-8243-e416cd2b347e",
+        "BrakeTorque": 3000,
+        "MotorTorque": 1000,
+        "Nametag": {
+          "_type": "component",
+          "component_id": "fb89b148-4cd9-4b57-9273-7d8d2ec1317b",
+          "go": "d6ccf001-5932-4402-b6df-2f6068628cba",
+          "component_type": "Nametag"
+        }
+      },
+      {
+        "__type": "Sandbox.Rigidbody",
+        "__guid": "63f289fd-6e4a-4084-b6c5-b497bb5fbec5",
+        "AngularDamping": 0,
+        "Gravity": true,
+        "LinearDamping": 0,
+        "Locking": {},
+        "MassCenterOverride": "5,0,20",
+        "MassOverride": 2155,
+        "MotionEnabled": true,
+        "OverrideMassCenter": true,
+        "RigidbodyFlags": "DisableCollisionSounds",
+        "StartAsleep": false
+      },
+      {
+        "__type": "Sandbox.BoxCollider",
+        "__guid": "d9394def-1ad3-4a36-b0f0-a69361d079cb",
+        "Center": "-2.8,0,40",
+        "IsTrigger": false,
+        "Scale": "159,61.99998,46",
+        "Static": false
+      },
+      {
+        "__type": "DM.Car.CameraController",
+        "__guid": "87640b59-aa17-43cc-9fdf-0873c1c3979d",
+        "Boom": {
+          "_type": "gameobject",
+          "go": "b813da2b-460b-42b5-bdd8-f62b556fd189"
+        },
+        "CameraTarget": {
+          "_type": "gameobject",
+          "go": "a7552737-ddb9-4c5f-9ede-cc937f4c2a20"
+        },
+        "PitchLimits": "-50,50",
+        "VelocityFOVScale": 50
+      },
+      {
+        "__type": "DM.Car.WheelManager",
+        "__guid": "51afee7a-4875-45a7-91cb-a158e44ee238",
+        "Wheels": [],
+        "CombinedLoad": 0
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "ce0fb670-0ba2-4ac0-b182-1c0fb4afcc32",
+        "Flags": 0,
+        "Name": "Model",
+        "Position": "-2.8,0,0",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "8e4d9c6a-e979-4a95-9f16-a76b1e4be3de",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/cars/1986_chevrolet_m1009/1986 chevrolet m1009.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "7ad25a1a-171f-4f43-af08-1e2d3803fe1d",
+        "Flags": 0,
+        "Name": "Front Axle",
+        "Position": "47.1,0,18.79999",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "DM.Car.Steering",
+            "__guid": "8c5b0728-2c03-42eb-8006-df3c2a5fa171",
+            "MaxSteeringAngle": 35,
+            "MinSteeringAngle": 20,
+            "Offset": "0,0,0",
+            "Rigidbody": {
+              "_type": "component",
+              "component_id": "63f289fd-6e4a-4084-b6c5-b497bb5fbec5",
+              "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+              "component_type": "Rigidbody"
+            },
+            "SteeringSmoothness": 5,
+            "Wheels": [
+              {
+                "_type": "gameobject",
+                "go": "8c9526f3-7634-43e5-812f-67d706b9022f"
+              },
+              {
+                "_type": "gameobject",
+                "go": "a67d5021-9e51-483f-a1b7-a628c5bb2909"
+              }
+            ],
+            "WheelsComponent": []
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "8c9526f3-7634-43e5-812f-67d706b9022f",
+            "Flags": 0,
+            "Name": "Wheel Front Right",
+            "Position": "0,-31,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.Wheel",
+                "__guid": "d9bcb8c5-900a-4105-95f6-58a18758d894",
+                "ForceApplicationPointDistance": 0.8,
+                "FrictionCircleShape": 1.5,
+                "FrictionCircleStrength": 1,
+                "AngularVelocity": 0,
+                "AntiSquat": 0,
+                "AxleAngle": 0,
+                "BrakeTorque": 0,
+                "CounterTorque": 0,
+                "Damper": {
+                  "BumpRate": 3000,
+                  "ReboundRate": 3000,
+                  "SlowBump": 1.4,
+                  "FastBump": 0.6,
+                  "BumpDivisionVelocity": 0.06,
+                  "SlowRebound": 1.6,
+                  "FastRebound": 0.6,
+                  "ReboundDivisionVelocity": 0.05
+                },
+                "FrictionPreset": {
+                  "Stiffnes": 9,
+                  "ShapeFactor": 2.15,
+                  "PeakValue": 0.933,
+                  "CurvatureFactor": 0.871,
+                  "PeakSlip": 0.11999998,
+                  "Curve": [
+                    {},
+                    {
+                      "x": 0.02,
+                      "y": 0.34558323
+                    },
+                    {
+                      "x": 0.04,
+                      "y": 0.6144362
+                    },
+                    {
+                      "x": 0.06,
+                      "y": 0.784298
+                    },
+                    {
+                      "x": 0.08,
+                      "y": 0.8757074
+                    },
+                    {
+                      "x": 0.099999994,
+                      "y": 0.9177164
+                    },
+                    {
+                      "x": 0.11999999,
+                      "y": 0.93194467
+                    },
+                    {
+                      "x": 0.13999999,
+                      "y": 0.9313984
+                    },
+                    {
+                      "x": 0.15999998,
+                      "y": 0.9232628
+                    },
+                    {
+                      "x": 0.17999998,
+                      "y": 0.91138345
+                    },
+                    {
+                      "x": 0.19999997,
+                      "y": 0.89779854
+                    },
+                    {
+                      "x": 0.21999997,
+                      "y": 0.88358456
+                    },
+                    {
+                      "x": 0.31999996,
+                      "y": 0.8154602
+                    },
+                    {
+                      "x": 0.41999996,
+                      "y": 0.7573867
+                    },
+                    {
+                      "x": 0.52,
+                      "y": 0.7073634
+                    },
+                    {
+                      "x": 0.62,
+                      "y": 0.66314286
+                    },
+                    {
+                      "x": 0.72,
+                      "y": 0.6233362
+                    },
+                    {
+                      "x": 0.82000005,
+                      "y": 0.5870786
+                    },
+                    {
+                      "x": 0.9200001,
+                      "y": 0.553793
+                    },
+                    {
+                      "x": 1.0200001,
+                      "y": 0.52306664
+                    }
+                  ]
+                },
+                "Inertia": 53.403526,
+                "IsPower": true,
+                "Load": 0,
+                "LoadContribution": 0.25,
+                "LoadRating": 7000,
+                "Manager": {
+                  "_type": "component",
+                  "component_id": "51afee7a-4875-45a7-91cb-a158e44ee238",
+                  "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+                  "component_type": "WheelManager"
+                },
+                "Mass": 20,
+                "MotorTorque": 0,
+                "Radius": 14.500004,
+                "Rigidbody": {
+                  "_type": "component",
+                  "component_id": "63f289fd-6e4a-4084-b6c5-b497bb5fbec5",
+                  "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+                  "component_type": "Rigidbody"
+                },
+                "RollingResistanceTorque": 30,
+                "RPM": 0,
+                "Spring": {
+                  "ForceCurve": [
+                    {
+                      "mode": "Linear"
+                    },
+                    {
+                      "x": 1,
+                      "y": 1
+                    }
+                  ],
+                  "MaxForce": 22000,
+                  "MaxLength": 10
+                },
+                "SteerAngle": 0,
+                "SuspensionExtensionSpeedCoeff": 30,
+                "Visual": {
+                  "_type": "gameobject",
+                  "go": "8a64b6a5-bf4d-44ca-a19e-ab7d43dbc734"
+                },
+                "Width": 10.500004
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "8a64b6a5-bf4d-44ca-a19e-ab7d43dbc734",
+                "Flags": 0,
+                "Name": "Model",
+                "Position": "0,0,0",
+                "Enabled": true,
+                "Children": [
+                  {
+                    "__guid": "42ce9a8b-70b6-4c35-97f0-5eb1b5d21b48",
+                    "Flags": 0,
+                    "Name": "Model",
+                    "Position": "0,0,0",
+                    "Rotation": "0,0,1,-0.00000004371139",
+                    "Enabled": true,
+                    "Components": [
+                      {
+                        "__type": "Sandbox.ModelRenderer",
+                        "__guid": "9859c032-ba03-4903-aab3-3cbd32e3378d",
+                        "BodyGroups": 18446744073709551615,
+                        "Model": "models/cars/1986_chevrolet_m1009/wheel.vmdl",
+                        "RenderOptions": {
+                          "GameLayer": true,
+                          "OverlayLayer": false,
+                          "BloomLayer": false,
+                          "AfterUILayer": false
+                        },
+                        "RenderType": "On",
+                        "Tint": "1,1,1,1"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "a67d5021-9e51-483f-a1b7-a628c5bb2909",
+            "Flags": 0,
+            "Name": "Wheel Front Left",
+            "Position": "0,31,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.Wheel",
+                "__guid": "94bffd70-88db-4df5-b211-cd0cd074b05b",
+                "ForceApplicationPointDistance": 0.8,
+                "FrictionCircleShape": 1.5,
+                "FrictionCircleStrength": 1,
+                "AngularVelocity": 0,
+                "AntiSquat": 0,
+                "AxleAngle": 0,
+                "BrakeTorque": 0,
+                "CounterTorque": 0,
+                "Damper": {
+                  "BumpRate": 3000,
+                  "ReboundRate": 3000,
+                  "SlowBump": 1.4,
+                  "FastBump": 0.6,
+                  "BumpDivisionVelocity": 0.06,
+                  "SlowRebound": 1.6,
+                  "FastRebound": 0.6,
+                  "ReboundDivisionVelocity": 0.05
+                },
+                "FrictionPreset": {
+                  "Stiffnes": 9,
+                  "ShapeFactor": 2.15,
+                  "PeakValue": 0.933,
+                  "CurvatureFactor": 0.871,
+                  "PeakSlip": 0.11999998,
+                  "Curve": [
+                    {},
+                    {
+                      "x": 0.02,
+                      "y": 0.34558323
+                    },
+                    {
+                      "x": 0.04,
+                      "y": 0.6144362
+                    },
+                    {
+                      "x": 0.06,
+                      "y": 0.784298
+                    },
+                    {
+                      "x": 0.08,
+                      "y": 0.8757074
+                    },
+                    {
+                      "x": 0.099999994,
+                      "y": 0.9177164
+                    },
+                    {
+                      "x": 0.11999999,
+                      "y": 0.93194467
+                    },
+                    {
+                      "x": 0.13999999,
+                      "y": 0.9313984
+                    },
+                    {
+                      "x": 0.15999998,
+                      "y": 0.9232628
+                    },
+                    {
+                      "x": 0.17999998,
+                      "y": 0.91138345
+                    },
+                    {
+                      "x": 0.19999997,
+                      "y": 0.89779854
+                    },
+                    {
+                      "x": 0.21999997,
+                      "y": 0.88358456
+                    },
+                    {
+                      "x": 0.31999996,
+                      "y": 0.8154602
+                    },
+                    {
+                      "x": 0.41999996,
+                      "y": 0.7573867
+                    },
+                    {
+                      "x": 0.52,
+                      "y": 0.7073634
+                    },
+                    {
+                      "x": 0.62,
+                      "y": 0.66314286
+                    },
+                    {
+                      "x": 0.72,
+                      "y": 0.6233362
+                    },
+                    {
+                      "x": 0.82000005,
+                      "y": 0.5870786
+                    },
+                    {
+                      "x": 0.9200001,
+                      "y": 0.553793
+                    },
+                    {
+                      "x": 1.0200001,
+                      "y": 0.52306664
+                    }
+                  ]
+                },
+                "Inertia": 53.403526,
+                "IsPower": true,
+                "Load": 0,
+                "LoadContribution": 0.25,
+                "LoadRating": 7000,
+                "Manager": {
+                  "_type": "component",
+                  "component_id": "51afee7a-4875-45a7-91cb-a158e44ee238",
+                  "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+                  "component_type": "WheelManager"
+                },
+                "Mass": 20,
+                "MotorTorque": 0,
+                "Radius": 14.500004,
+                "Rigidbody": {
+                  "_type": "component",
+                  "component_id": "63f289fd-6e4a-4084-b6c5-b497bb5fbec5",
+                  "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+                  "component_type": "Rigidbody"
+                },
+                "RollingResistanceTorque": 30,
+                "RPM": 0,
+                "Spring": {
+                  "ForceCurve": [
+                    {
+                      "mode": "Linear"
+                    },
+                    {
+                      "x": 1,
+                      "y": 1
+                    }
+                  ],
+                  "MaxForce": 22000,
+                  "MaxLength": 10
+                },
+                "SteerAngle": 0,
+                "SuspensionExtensionSpeedCoeff": 30,
+                "Visual": {
+                  "_type": "gameobject",
+                  "go": "1bc170b6-017d-4e41-98a4-3a935f33497f"
+                },
+                "Width": 10.500004
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "1bc170b6-017d-4e41-98a4-3a935f33497f",
+                "Flags": 0,
+                "Name": "Model",
+                "Position": "0,0,0",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "6437bbc3-1fe6-4272-bf30-32d27cbccaaa",
+                    "BodyGroups": 18446744073709551615,
+                    "Model": "models/cars/1986_chevrolet_m1009/wheel.vmdl",
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "ce1a3692-9cc8-471e-8460-bedc2caecdd5",
+        "Flags": 0,
+        "Name": "Rear Axle",
+        "Position": "-47.1,0,18.79999",
+        "Enabled": true,
+        "Children": [
+          {
+            "__guid": "4eaa3d57-e9df-4268-b733-3e3ad411e6c7",
+            "Flags": 0,
+            "Name": "Wheel Rear Right",
+            "Position": "0,-31,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.Wheel",
+                "__guid": "7e2c100d-b122-4678-9e5b-5a7994af3a24",
+                "ForceApplicationPointDistance": 0.8,
+                "FrictionCircleShape": 1.5,
+                "FrictionCircleStrength": 1,
+                "AngularVelocity": 0,
+                "AntiSquat": 0,
+                "AxleAngle": 0,
+                "BrakeTorque": 0,
+                "CounterTorque": 0,
+                "Damper": {
+                  "BumpRate": 3000,
+                  "ReboundRate": 3000,
+                  "SlowBump": 1.4,
+                  "FastBump": 0.6,
+                  "BumpDivisionVelocity": 0.06,
+                  "SlowRebound": 1.6,
+                  "FastRebound": 0.6,
+                  "ReboundDivisionVelocity": 0.05
+                },
+                "FrictionPreset": {
+                  "Stiffnes": 9,
+                  "ShapeFactor": 2.15,
+                  "PeakValue": 0.933,
+                  "CurvatureFactor": 0.871,
+                  "PeakSlip": 0.11999998,
+                  "Curve": [
+                    {},
+                    {
+                      "x": 0.02,
+                      "y": 0.34558323
+                    },
+                    {
+                      "x": 0.04,
+                      "y": 0.6144362
+                    },
+                    {
+                      "x": 0.06,
+                      "y": 0.784298
+                    },
+                    {
+                      "x": 0.08,
+                      "y": 0.8757074
+                    },
+                    {
+                      "x": 0.099999994,
+                      "y": 0.9177164
+                    },
+                    {
+                      "x": 0.11999999,
+                      "y": 0.93194467
+                    },
+                    {
+                      "x": 0.13999999,
+                      "y": 0.9313984
+                    },
+                    {
+                      "x": 0.15999998,
+                      "y": 0.9232628
+                    },
+                    {
+                      "x": 0.17999998,
+                      "y": 0.91138345
+                    },
+                    {
+                      "x": 0.19999997,
+                      "y": 0.89779854
+                    },
+                    {
+                      "x": 0.21999997,
+                      "y": 0.88358456
+                    },
+                    {
+                      "x": 0.31999996,
+                      "y": 0.8154602
+                    },
+                    {
+                      "x": 0.41999996,
+                      "y": 0.7573867
+                    },
+                    {
+                      "x": 0.52,
+                      "y": 0.7073634
+                    },
+                    {
+                      "x": 0.62,
+                      "y": 0.66314286
+                    },
+                    {
+                      "x": 0.72,
+                      "y": 0.6233362
+                    },
+                    {
+                      "x": 0.82000005,
+                      "y": 0.5870786
+                    },
+                    {
+                      "x": 0.9200001,
+                      "y": 0.553793
+                    },
+                    {
+                      "x": 1.0200001,
+                      "y": 0.52306664
+                    }
+                  ]
+                },
+                "Inertia": 53.403526,
+                "IsPower": true,
+                "Load": 0,
+                "LoadContribution": 0.25,
+                "LoadRating": 7000,
+                "Manager": {
+                  "_type": "component",
+                  "component_id": "51afee7a-4875-45a7-91cb-a158e44ee238",
+                  "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+                  "component_type": "WheelManager"
+                },
+                "Mass": 20,
+                "MotorTorque": 0,
+                "Radius": 14.500004,
+                "Rigidbody": {
+                  "_type": "component",
+                  "component_id": "63f289fd-6e4a-4084-b6c5-b497bb5fbec5",
+                  "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+                  "component_type": "Rigidbody"
+                },
+                "RollingResistanceTorque": 30,
+                "RPM": 0,
+                "Spring": {
+                  "ForceCurve": [
+                    {
+                      "mode": "Linear"
+                    },
+                    {
+                      "x": 1,
+                      "y": 1
+                    }
+                  ],
+                  "MaxForce": 22000,
+                  "MaxLength": 10
+                },
+                "SteerAngle": 0,
+                "SuspensionExtensionSpeedCoeff": 30,
+                "Visual": {
+                  "_type": "gameobject",
+                  "go": "32f6d495-d4b0-4172-a98e-43a7daeb1dab"
+                },
+                "Width": 10.500004
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "32f6d495-d4b0-4172-a98e-43a7daeb1dab",
+                "Flags": 0,
+                "Name": "Model",
+                "Position": "0,0,0",
+                "Enabled": true,
+                "Children": [
+                  {
+                    "__guid": "997ba493-f677-42f6-a9c0-7b79e25b0a5f",
+                    "Flags": 0,
+                    "Name": "Model",
+                    "Position": "0,0,0",
+                    "Rotation": "0,0,1,-0.00000004371139",
+                    "Enabled": true,
+                    "Components": [
+                      {
+                        "__type": "Sandbox.ModelRenderer",
+                        "__guid": "6b6c6635-3218-4702-bbd0-0d4a9be775c0",
+                        "BodyGroups": 18446744073709551615,
+                        "Model": "models/cars/1986_chevrolet_m1009/wheel.vmdl",
+                        "RenderOptions": {
+                          "GameLayer": true,
+                          "OverlayLayer": false,
+                          "BloomLayer": false,
+                          "AfterUILayer": false
+                        },
+                        "RenderType": "On",
+                        "Tint": "1,1,1,1"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "fc04e594-0d78-49bb-bb9d-6a0887b8dae7",
+            "Flags": 0,
+            "Name": "Wheel Rear Left",
+            "Position": "0,31,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.Wheel",
+                "__guid": "63a8494a-344b-4ff6-938c-3e1dcc5b8619",
+                "ForceApplicationPointDistance": 0.8,
+                "FrictionCircleShape": 1.5,
+                "FrictionCircleStrength": 1,
+                "AngularVelocity": 0,
+                "AntiSquat": 0,
+                "AxleAngle": 0,
+                "BrakeTorque": 0,
+                "CounterTorque": 0,
+                "Damper": {
+                  "BumpRate": 3000,
+                  "ReboundRate": 3000,
+                  "SlowBump": 1.4,
+                  "FastBump": 0.6,
+                  "BumpDivisionVelocity": 0.06,
+                  "SlowRebound": 1.6,
+                  "FastRebound": 0.6,
+                  "ReboundDivisionVelocity": 0.05
+                },
+                "FrictionPreset": {
+                  "Stiffnes": 9,
+                  "ShapeFactor": 2.15,
+                  "PeakValue": 0.933,
+                  "CurvatureFactor": 0.871,
+                  "PeakSlip": 0.11999998,
+                  "Curve": [
+                    {},
+                    {
+                      "x": 0.02,
+                      "y": 0.34558323
+                    },
+                    {
+                      "x": 0.04,
+                      "y": 0.6144362
+                    },
+                    {
+                      "x": 0.06,
+                      "y": 0.784298
+                    },
+                    {
+                      "x": 0.08,
+                      "y": 0.8757074
+                    },
+                    {
+                      "x": 0.099999994,
+                      "y": 0.9177164
+                    },
+                    {
+                      "x": 0.11999999,
+                      "y": 0.93194467
+                    },
+                    {
+                      "x": 0.13999999,
+                      "y": 0.9313984
+                    },
+                    {
+                      "x": 0.15999998,
+                      "y": 0.9232628
+                    },
+                    {
+                      "x": 0.17999998,
+                      "y": 0.91138345
+                    },
+                    {
+                      "x": 0.19999997,
+                      "y": 0.89779854
+                    },
+                    {
+                      "x": 0.21999997,
+                      "y": 0.88358456
+                    },
+                    {
+                      "x": 0.31999996,
+                      "y": 0.8154602
+                    },
+                    {
+                      "x": 0.41999996,
+                      "y": 0.7573867
+                    },
+                    {
+                      "x": 0.52,
+                      "y": 0.7073634
+                    },
+                    {
+                      "x": 0.62,
+                      "y": 0.66314286
+                    },
+                    {
+                      "x": 0.72,
+                      "y": 0.6233362
+                    },
+                    {
+                      "x": 0.82000005,
+                      "y": 0.5870786
+                    },
+                    {
+                      "x": 0.9200001,
+                      "y": 0.553793
+                    },
+                    {
+                      "x": 1.0200001,
+                      "y": 0.52306664
+                    }
+                  ]
+                },
+                "Inertia": 53.403526,
+                "IsPower": true,
+                "Load": 0,
+                "LoadContribution": 0.25,
+                "LoadRating": 7000,
+                "Manager": {
+                  "_type": "component",
+                  "component_id": "51afee7a-4875-45a7-91cb-a158e44ee238",
+                  "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+                  "component_type": "WheelManager"
+                },
+                "Mass": 20,
+                "MotorTorque": 0,
+                "Radius": 14.500004,
+                "Rigidbody": {
+                  "_type": "component",
+                  "component_id": "63f289fd-6e4a-4084-b6c5-b497bb5fbec5",
+                  "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+                  "component_type": "Rigidbody"
+                },
+                "RollingResistanceTorque": 30,
+                "RPM": 0,
+                "Spring": {
+                  "ForceCurve": [
+                    {
+                      "mode": "Linear"
+                    },
+                    {
+                      "x": 1,
+                      "y": 1
+                    }
+                  ],
+                  "MaxForce": 22000,
+                  "MaxLength": 10
+                },
+                "SteerAngle": 0,
+                "SuspensionExtensionSpeedCoeff": 30,
+                "Visual": {
+                  "_type": "gameobject",
+                  "go": "f6bf03e8-e1bd-4bab-9b54-2946dd86fa68"
+                },
+                "Width": 10.500004
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "f6bf03e8-e1bd-4bab-9b54-2946dd86fa68",
+                "Flags": 0,
+                "Name": "Model",
+                "Position": "0,0,0",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "68793b34-c5e9-40d3-8eaa-f989bc37b2e1",
+                    "BodyGroups": 18446744073709551615,
+                    "Model": "models/cars/1986_chevrolet_m1009/wheel.vmdl",
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "b813da2b-460b-42b5-bdd8-f62b556fd189",
+        "Flags": 0,
+        "Name": "boom arm",
+        "Enabled": true,
+        "Children": [
+          {
+            "__guid": "a7552737-ddb9-4c5f-9ede-cc937f4c2a20",
+            "Flags": 0,
+            "Name": "camera position",
+            "Position": "-224.7686,0,45.50676",
+            "Enabled": true
+          }
+        ]
+      },
+      {
+        "__guid": "3152b35f-3a1a-433a-8f30-935f7e43556d",
+        "Flags": 0,
+        "Name": "Tag",
+        "Position": "0,0,80",
+        "Enabled": true,
+        "Children": [
+          {
+            "__guid": "d6ccf001-5932-4402-b6df-2f6068628cba",
+            "Flags": 0,
+            "Name": "Nametag",
+            "Position": "0,0,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.WorldPanel",
+                "__guid": "ad64aee6-6328-4826-a370-8c1a45f35e4e",
+                "HorizontalAlign": "Center",
+                "InteractionRange": 1000,
+                "LookAtCamera": true,
+                "PanelSize": "1024,280",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderScale": 1,
+                "VerticalAlign": "Center"
+              },
+              {
+                "__type": "Nametag",
+                "__guid": "fb89b148-4cd9-4b57-9273-7d8d2ec1317b",
+                "Player": {
+                  "_type": "component",
+                  "component_id": "68c75d59-4ec2-423b-8243-e416cd2b347e",
+                  "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+                  "component_type": "Car"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

@@ -1,0 +1,1271 @@
+{
+  "RootObject": {
+    "__guid": "95defb70-95ac-48ca-87c9-e03aeaf96e29",
+    "Flags": 0,
+    "Name": "dev_car",
+    "Tags": "car",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "CameraController",
+        "__guid": "d1667047-72fe-4f68-bda8-bc9521d45793",
+        "Boom": {
+          "_type": "gameobject",
+          "go": "a86958d9-748c-44b3-8446-f9e8715e5ab5"
+        },
+        "CameraTarget": {
+          "_type": "gameobject",
+          "go": "776c7d98-f77b-47e4-b669-e149f60f412f"
+        },
+        "PitchLimits": "0,50",
+        "VelocityFOVScale": 50
+      },
+      {
+        "__type": "Car",
+        "__guid": "c325000a-013e-458a-a1d9-f2456efc9624",
+        "AccelerationRate": 1,
+        "BrakingRate": 2,
+        "DecelerationRate": 3,
+        "Torque": 15000
+      },
+      {
+        "__type": "Sandbox.Rigidbody",
+        "__guid": "3f092cb5-4cae-4d4a-baec-56590d8d877f",
+        "AngularDamping": 0,
+        "Gravity": true,
+        "LinearDamping": 0,
+        "Locking": {},
+        "MassCenterOverride": "0,0,0",
+        "MassOverride": 1000,
+        "MotionEnabled": false,
+        "OverrideMassCenter": false,
+        "RigidbodyFlags": 0,
+        "StartAsleep": false
+      },
+      {
+        "__type": "Sandbox.BoxCollider",
+        "__guid": "e6d4fffc-e772-4e7e-944e-f65909a2de6f",
+        "Center": "0,0,35.70001",
+        "IsTrigger": false,
+        "Scale": "150,50,50",
+        "Static": false
+      },
+      {
+        "__type": "Steering",
+        "__guid": "62522e35-22ce-40d5-b5a5-dfeb9117e692",
+        "MaxSteeringAngle": 35,
+        "Offset": "0,0,0",
+        "Rigidbody": {
+          "_type": "component",
+          "component_id": "3f092cb5-4cae-4d4a-baec-56590d8d877f",
+          "go": "95defb70-95ac-48ca-87c9-e03aeaf96e29",
+          "component_type": "Rigidbody"
+        },
+        "SteeringSmoothness": 10,
+        "Wheels": [
+          {
+            "_type": "gameobject",
+            "go": "97a9c036-c68d-4646-af95-bf344b2ac092"
+          },
+          {
+            "_type": "gameobject",
+            "go": "28213188-e029-4c2c-acc8-25a462b107c8"
+          }
+        ],
+        "WheelsComponent": []
+      },
+      {
+        "__type": "DM.Car.WheelManager",
+        "__guid": "4e945f5f-4a82-4bff-9e55-d426c6ebf558",
+        "Wheels": [],
+        "CombinedLoad": 0
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "923b940c-f42c-4ab5-9235-be24ba001f83",
+        "Flags": 0,
+        "Name": "Model",
+        "Enabled": true,
+        "Children": [
+          {
+            "__guid": "0e9baf9e-af74-457d-ad77-ee1d27cc3950",
+            "Flags": 0,
+            "Name": "Model",
+            "Position": "-27.71429,0,43.89317",
+            "Scale": "1.890121,1,0.5088919",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "1c025eeb-937b-4149-9365-3bc71aa14c9c",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/dev/box.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              }
+            ]
+          },
+          {
+            "__guid": "afa42e82-0227-48e6-bf7a-495061414ac8",
+            "Flags": 0,
+            "Name": "Object",
+            "Position": "0,0,22.435",
+            "Scale": "3,1,0.5",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "87d612b5-4910-42e0-86a3-d2148595bf9a",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/dev/box.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "7414d1c1-f300-4cf7-a8cc-ebf0bf694a84",
+        "Flags": 0,
+        "Name": "WheelR1",
+        "Position": "-50,-32,10",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "DM.Car.Wheel",
+            "__guid": "8f8f2238-4d31-4d20-864d-be7eb26351d3",
+            "AngularVelocity": 0,
+            "BrakeTorque": 0,
+            "CounterTorque": 0,
+            "Damper": {
+              "BumpRate": 3000,
+              "ReboundRate": 3000,
+              "SlowBump": 1.4,
+              "FastBump": 0.6,
+              "BumpDivisionVelocity": 0.06,
+              "SlowRebound": 1.6,
+              "FastRebound": 0.6,
+              "ReboundDivisionVelocity": 0.05
+            },
+            "ForwardFriction": {
+              "Stiffnes": 12.5,
+              "ShapeFactor": 2.05,
+              "PeakValue": 0.925,
+              "CurvatureFactor": 0.97,
+              "PeakSlip": 0.11999998,
+              "Curve": [
+                {},
+                {
+                  "x": 0.02,
+                  "y": 0.4376108
+                },
+                {
+                  "x": 0.04,
+                  "y": 0.7198596
+                },
+                {
+                  "x": 0.06,
+                  "y": 0.8541289
+                },
+                {
+                  "x": 0.08,
+                  "y": 0.90695953
+                },
+                {
+                  "x": 0.099999994,
+                  "y": 0.92328006
+                },
+                {
+                  "x": 0.11999999,
+                  "y": 0.9243484
+                },
+                {
+                  "x": 0.13999999,
+                  "y": 0.91930234
+                },
+                {
+                  "x": 0.15999998,
+                  "y": 0.912013
+                },
+                {
+                  "x": 0.17999998,
+                  "y": 0.90412575
+                },
+                {
+                  "x": 0.19999997,
+                  "y": 0.89633125
+                },
+                {
+                  "x": 0.21999997,
+                  "y": 0.8889034
+                },
+                {
+                  "x": 0.31999996,
+                  "y": 0.85832757
+                },
+                {
+                  "x": 0.41999996,
+                  "y": 0.8356915
+                },
+                {
+                  "x": 0.52,
+                  "y": 0.81743735
+                },
+                {
+                  "x": 0.62,
+                  "y": 0.8017178
+                },
+                {
+                  "x": 0.72,
+                  "y": 0.7875889
+                },
+                {
+                  "x": 0.82000005,
+                  "y": 0.774535
+                },
+                {
+                  "x": 0.9200001,
+                  "y": 0.7622541
+                },
+                {
+                  "x": 1.0200001,
+                  "y": 0.7505608
+                }
+              ]
+            },
+            "Inertia": 0,
+            "Load": 0,
+            "LoadContribution": 0.25,
+            "LoadRating": 5400,
+            "Manager": {
+              "_type": "component",
+              "component_id": "4e945f5f-4a82-4bff-9e55-d426c6ebf558",
+              "go": "95defb70-95ac-48ca-87c9-e03aeaf96e29",
+              "component_type": "WheelManager"
+            },
+            "Mass": 15,
+            "MotorTorque": 0,
+            "Radius": 15.35,
+            "Rigidbody": {
+              "_type": "component",
+              "component_id": "3f092cb5-4cae-4d4a-baec-56590d8d877f",
+              "go": "95defb70-95ac-48ca-87c9-e03aeaf96e29",
+              "component_type": "Rigidbody"
+            },
+            "RollingResistanceTorque": 0,
+            "RPM": 0,
+            "SideFriction": {
+              "Stiffnes": 12.5,
+              "ShapeFactor": 2.05,
+              "PeakValue": 0.925,
+              "CurvatureFactor": 0.97,
+              "PeakSlip": 0.11999998,
+              "Curve": [
+                {},
+                {
+                  "x": 0.02,
+                  "y": 0.4376108
+                },
+                {
+                  "x": 0.04,
+                  "y": 0.7198596
+                },
+                {
+                  "x": 0.06,
+                  "y": 0.8541289
+                },
+                {
+                  "x": 0.08,
+                  "y": 0.90695953
+                },
+                {
+                  "x": 0.099999994,
+                  "y": 0.92328006
+                },
+                {
+                  "x": 0.11999999,
+                  "y": 0.9243484
+                },
+                {
+                  "x": 0.13999999,
+                  "y": 0.91930234
+                },
+                {
+                  "x": 0.15999998,
+                  "y": 0.912013
+                },
+                {
+                  "x": 0.17999998,
+                  "y": 0.90412575
+                },
+                {
+                  "x": 0.19999997,
+                  "y": 0.89633125
+                },
+                {
+                  "x": 0.21999997,
+                  "y": 0.8889034
+                },
+                {
+                  "x": 0.31999996,
+                  "y": 0.85832757
+                },
+                {
+                  "x": 0.41999996,
+                  "y": 0.8356915
+                },
+                {
+                  "x": 0.52,
+                  "y": 0.81743735
+                },
+                {
+                  "x": 0.62,
+                  "y": 0.8017178
+                },
+                {
+                  "x": 0.72,
+                  "y": 0.7875889
+                },
+                {
+                  "x": 0.82000005,
+                  "y": 0.774535
+                },
+                {
+                  "x": 0.9200001,
+                  "y": 0.7622541
+                },
+                {
+                  "x": 1.0200001,
+                  "y": 0.7505608
+                }
+              ]
+            },
+            "Spring": {
+              "ForceCurve": [
+                {
+                  "mode": "Linear"
+                },
+                {
+                  "x": 1,
+                  "y": 1
+                }
+              ],
+              "MaxForce": 16000,
+              "MaxLength": 10
+            },
+            "SteerAngle": 0,
+            "SuspensionExtensionSpeedCoeff": 6,
+            "Visual": {
+              "_type": "gameobject",
+              "go": "37d3ceb4-a274-47f2-82ef-1cdf700f230e"
+            },
+            "Width": 11.42
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "37d3ceb4-a274-47f2-82ef-1cdf700f230e",
+            "Flags": 0,
+            "Name": "Model",
+            "Position": "0,0,0",
+            "Scale": "1.3,1.3,1.7",
+            "Enabled": true,
+            "Children": [
+              {
+                "__guid": "4a806119-6686-4a4f-8850-542328d63d5b",
+                "Flags": 0,
+                "Name": "Object",
+                "Position": "0,0,0",
+                "Rotation": "0.7071068,0,0,0.7071068",
+                "Scale": "0.375,0.375,0.1",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "4383b3aa-dfbc-43fa-999c-af6e44b5011b",
+                    "BodyGroups": 18446744073709551615,
+                    "Model": "models/vidya/cylinder_white_64.vmdl",
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "97592a13-8a95-44ac-b289-33e9cebc8444",
+        "Flags": 0,
+        "Name": "WheelR0",
+        "Position": "-50,32,10",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "DM.Car.Wheel",
+            "__guid": "375f1abc-db38-48d9-94e1-35d32d5458e9",
+            "AngularVelocity": 0,
+            "BrakeTorque": 0,
+            "CounterTorque": 0,
+            "Damper": {
+              "BumpRate": 3000,
+              "ReboundRate": 3000,
+              "SlowBump": 1.4,
+              "FastBump": 0.6,
+              "BumpDivisionVelocity": 0.06,
+              "SlowRebound": 1.6,
+              "FastRebound": 0.6,
+              "ReboundDivisionVelocity": 0.05
+            },
+            "ForwardFriction": {
+              "Stiffnes": 12.5,
+              "ShapeFactor": 2.05,
+              "PeakValue": 0.925,
+              "CurvatureFactor": 0.97,
+              "PeakSlip": 1000,
+              "Curve": [
+                {},
+                {
+                  "x": 0.02,
+                  "y": 0.4376108
+                },
+                {
+                  "x": 0.04,
+                  "y": 0.7198596
+                },
+                {
+                  "x": 0.06,
+                  "y": 0.8541289
+                },
+                {
+                  "x": 0.08,
+                  "y": 0.90695953
+                },
+                {
+                  "x": 0.099999994,
+                  "y": 0.92328006
+                },
+                {
+                  "x": 0.11999999,
+                  "y": 0.9243484
+                },
+                {
+                  "x": 0.13999999,
+                  "y": 0.91930234
+                },
+                {
+                  "x": 0.15999998,
+                  "y": 0.912013
+                },
+                {
+                  "x": 0.17999998,
+                  "y": 0.90412575
+                },
+                {
+                  "x": 0.19999997,
+                  "y": 0.89633125
+                },
+                {
+                  "x": 0.21999997,
+                  "y": 0.8889034
+                },
+                {
+                  "x": 0.31999996,
+                  "y": 0.85832757
+                },
+                {
+                  "x": 0.41999996,
+                  "y": 0.8356915
+                },
+                {
+                  "x": 0.52,
+                  "y": 0.81743735
+                },
+                {
+                  "x": 0.62,
+                  "y": 0.8017178
+                },
+                {
+                  "x": 0.72,
+                  "y": 0.7875889
+                },
+                {
+                  "x": 0.82000005,
+                  "y": 0.774535
+                },
+                {
+                  "x": 0.9200001,
+                  "y": 0.7622541
+                },
+                {
+                  "x": 1.0200001,
+                  "y": 0.7505608
+                }
+              ]
+            },
+            "Inertia": 0,
+            "Load": 0,
+            "LoadContribution": 0.25,
+            "LoadRating": 5400,
+            "Manager": {
+              "_type": "component",
+              "component_id": "4e945f5f-4a82-4bff-9e55-d426c6ebf558",
+              "go": "95defb70-95ac-48ca-87c9-e03aeaf96e29",
+              "component_type": "WheelManager"
+            },
+            "Mass": 15,
+            "MotorTorque": 0,
+            "Radius": 15.35,
+            "Rigidbody": {
+              "_type": "component",
+              "component_id": "3f092cb5-4cae-4d4a-baec-56590d8d877f",
+              "go": "95defb70-95ac-48ca-87c9-e03aeaf96e29",
+              "component_type": "Rigidbody"
+            },
+            "RollingResistanceTorque": 0,
+            "RPM": 0,
+            "SideFriction": {
+              "Stiffnes": 12.5,
+              "ShapeFactor": 2.05,
+              "PeakValue": 0.925,
+              "CurvatureFactor": 0.97,
+              "PeakSlip": 1000,
+              "Curve": [
+                {},
+                {
+                  "x": 0.02,
+                  "y": 0.4376108
+                },
+                {
+                  "x": 0.04,
+                  "y": 0.7198596
+                },
+                {
+                  "x": 0.06,
+                  "y": 0.8541289
+                },
+                {
+                  "x": 0.08,
+                  "y": 0.90695953
+                },
+                {
+                  "x": 0.099999994,
+                  "y": 0.92328006
+                },
+                {
+                  "x": 0.11999999,
+                  "y": 0.9243484
+                },
+                {
+                  "x": 0.13999999,
+                  "y": 0.91930234
+                },
+                {
+                  "x": 0.15999998,
+                  "y": 0.912013
+                },
+                {
+                  "x": 0.17999998,
+                  "y": 0.90412575
+                },
+                {
+                  "x": 0.19999997,
+                  "y": 0.89633125
+                },
+                {
+                  "x": 0.21999997,
+                  "y": 0.8889034
+                },
+                {
+                  "x": 0.31999996,
+                  "y": 0.85832757
+                },
+                {
+                  "x": 0.41999996,
+                  "y": 0.8356915
+                },
+                {
+                  "x": 0.52,
+                  "y": 0.81743735
+                },
+                {
+                  "x": 0.62,
+                  "y": 0.8017178
+                },
+                {
+                  "x": 0.72,
+                  "y": 0.7875889
+                },
+                {
+                  "x": 0.82000005,
+                  "y": 0.774535
+                },
+                {
+                  "x": 0.9200001,
+                  "y": 0.7622541
+                },
+                {
+                  "x": 1.0200001,
+                  "y": 0.7505608
+                }
+              ]
+            },
+            "Spring": {
+              "ForceCurve": [
+                {
+                  "mode": "Linear"
+                },
+                {
+                  "x": 1,
+                  "y": 1
+                }
+              ],
+              "MaxForce": 16000,
+              "MaxLength": 10
+            },
+            "SteerAngle": 0,
+            "SuspensionExtensionSpeedCoeff": 6,
+            "Visual": {
+              "_type": "gameobject",
+              "go": "f9e17200-65c7-426c-b720-40744a8e50a4"
+            },
+            "Width": 11.42
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "f9e17200-65c7-426c-b720-40744a8e50a4",
+            "Flags": 0,
+            "Name": "Model",
+            "Position": "0,0,0",
+            "Scale": "1.3,1.3,1.7",
+            "Enabled": true,
+            "Children": [
+              {
+                "__guid": "0eec74c5-ff3e-4131-8ef8-4bfec464be30",
+                "Flags": 0,
+                "Name": "Object",
+                "Position": "0,0,0",
+                "Rotation": "0.7071068,0,0,0.7071068",
+                "Scale": "0.375,0.375,0.1",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "04994140-5b9b-410d-b924-722352875597",
+                    "BodyGroups": 18446744073709551615,
+                    "Model": "models/vidya/cylinder_white_64.vmdl",
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "97a9c036-c68d-4646-af95-bf344b2ac092",
+        "Flags": 0,
+        "Name": "WheelF1",
+        "Position": "50,-32,10",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "DM.Car.Wheel",
+            "__guid": "404c3131-9280-40e2-b555-b51b4a904038",
+            "AngularVelocity": 0,
+            "BrakeTorque": 0,
+            "CounterTorque": 0,
+            "Damper": {
+              "BumpRate": 3000,
+              "ReboundRate": 3000,
+              "SlowBump": 1.4,
+              "FastBump": 0.6,
+              "BumpDivisionVelocity": 0.06,
+              "SlowRebound": 1.6,
+              "FastRebound": 0.6,
+              "ReboundDivisionVelocity": 0.05
+            },
+            "ForwardFriction": {
+              "Stiffnes": 12.5,
+              "ShapeFactor": 2.05,
+              "PeakValue": 0.925,
+              "CurvatureFactor": 0.97,
+              "PeakSlip": 1000,
+              "Curve": [
+                {},
+                {
+                  "x": 0.02,
+                  "y": 0.4376108
+                },
+                {
+                  "x": 0.04,
+                  "y": 0.7198596
+                },
+                {
+                  "x": 0.06,
+                  "y": 0.8541289
+                },
+                {
+                  "x": 0.08,
+                  "y": 0.90695953
+                },
+                {
+                  "x": 0.099999994,
+                  "y": 0.92328006
+                },
+                {
+                  "x": 0.11999999,
+                  "y": 0.9243484
+                },
+                {
+                  "x": 0.13999999,
+                  "y": 0.91930234
+                },
+                {
+                  "x": 0.15999998,
+                  "y": 0.912013
+                },
+                {
+                  "x": 0.17999998,
+                  "y": 0.90412575
+                },
+                {
+                  "x": 0.19999997,
+                  "y": 0.89633125
+                },
+                {
+                  "x": 0.21999997,
+                  "y": 0.8889034
+                },
+                {
+                  "x": 0.31999996,
+                  "y": 0.85832757
+                },
+                {
+                  "x": 0.41999996,
+                  "y": 0.8356915
+                },
+                {
+                  "x": 0.52,
+                  "y": 0.81743735
+                },
+                {
+                  "x": 0.62,
+                  "y": 0.8017178
+                },
+                {
+                  "x": 0.72,
+                  "y": 0.7875889
+                },
+                {
+                  "x": 0.82000005,
+                  "y": 0.774535
+                },
+                {
+                  "x": 0.9200001,
+                  "y": 0.7622541
+                },
+                {
+                  "x": 1.0200001,
+                  "y": 0.7505608
+                }
+              ]
+            },
+            "Inertia": 0,
+            "Load": 0,
+            "LoadContribution": 0.25,
+            "LoadRating": 5400,
+            "Manager": {
+              "_type": "component",
+              "component_id": "4e945f5f-4a82-4bff-9e55-d426c6ebf558",
+              "go": "95defb70-95ac-48ca-87c9-e03aeaf96e29",
+              "component_type": "WheelManager"
+            },
+            "Mass": 15,
+            "MotorTorque": 0,
+            "Radius": 15.35,
+            "Rigidbody": {
+              "_type": "component",
+              "component_id": "3f092cb5-4cae-4d4a-baec-56590d8d877f",
+              "go": "95defb70-95ac-48ca-87c9-e03aeaf96e29",
+              "component_type": "Rigidbody"
+            },
+            "RollingResistanceTorque": 0,
+            "RPM": 0,
+            "SideFriction": {
+              "Stiffnes": 12.5,
+              "ShapeFactor": 2.05,
+              "PeakValue": 0.925,
+              "CurvatureFactor": 0.97,
+              "PeakSlip": 1000,
+              "Curve": [
+                {},
+                {
+                  "x": 0.02,
+                  "y": 0.4376108
+                },
+                {
+                  "x": 0.04,
+                  "y": 0.7198596
+                },
+                {
+                  "x": 0.06,
+                  "y": 0.8541289
+                },
+                {
+                  "x": 0.08,
+                  "y": 0.90695953
+                },
+                {
+                  "x": 0.099999994,
+                  "y": 0.92328006
+                },
+                {
+                  "x": 0.11999999,
+                  "y": 0.9243484
+                },
+                {
+                  "x": 0.13999999,
+                  "y": 0.91930234
+                },
+                {
+                  "x": 0.15999998,
+                  "y": 0.912013
+                },
+                {
+                  "x": 0.17999998,
+                  "y": 0.90412575
+                },
+                {
+                  "x": 0.19999997,
+                  "y": 0.89633125
+                },
+                {
+                  "x": 0.21999997,
+                  "y": 0.8889034
+                },
+                {
+                  "x": 0.31999996,
+                  "y": 0.85832757
+                },
+                {
+                  "x": 0.41999996,
+                  "y": 0.8356915
+                },
+                {
+                  "x": 0.52,
+                  "y": 0.81743735
+                },
+                {
+                  "x": 0.62,
+                  "y": 0.8017178
+                },
+                {
+                  "x": 0.72,
+                  "y": 0.7875889
+                },
+                {
+                  "x": 0.82000005,
+                  "y": 0.774535
+                },
+                {
+                  "x": 0.9200001,
+                  "y": 0.7622541
+                },
+                {
+                  "x": 1.0200001,
+                  "y": 0.7505608
+                }
+              ]
+            },
+            "Spring": {
+              "ForceCurve": [
+                {
+                  "mode": "Linear"
+                },
+                {
+                  "x": 1,
+                  "y": 1
+                }
+              ],
+              "MaxForce": 16000,
+              "MaxLength": 10
+            },
+            "SteerAngle": 0,
+            "SuspensionExtensionSpeedCoeff": 6,
+            "Visual": {
+              "_type": "gameobject",
+              "go": "58222f48-c1c7-4b63-bfa7-e5e6406959b1"
+            },
+            "Width": 11.42
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "58222f48-c1c7-4b63-bfa7-e5e6406959b1",
+            "Flags": 0,
+            "Name": "Model",
+            "Position": "0,0,0",
+            "Scale": "1.3,1.3,1.7",
+            "Enabled": true,
+            "Children": [
+              {
+                "__guid": "3a0ce153-b6a4-4569-9d91-3957a4de215c",
+                "Flags": 0,
+                "Name": "Object",
+                "Position": "0,0,0",
+                "Rotation": "0.7071068,0,0,0.7071068",
+                "Scale": "0.375,0.375,0.1",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "164bfeeb-3c98-488b-b5ad-cba556208f01",
+                    "BodyGroups": 18446744073709551615,
+                    "Model": "models/vidya/cylinder_white_64.vmdl",
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "28213188-e029-4c2c-acc8-25a462b107c8",
+        "Flags": 0,
+        "Name": "WheelF0",
+        "Position": "50,32,10",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "DM.Car.Wheel",
+            "__guid": "f15d76ff-c5ea-42e5-a73a-53cfb881b0e2",
+            "AngularVelocity": 0,
+            "BrakeTorque": 0,
+            "CounterTorque": 0,
+            "Damper": {
+              "BumpRate": 3000,
+              "ReboundRate": 3000,
+              "SlowBump": 1.4,
+              "FastBump": 0.6,
+              "BumpDivisionVelocity": 0.06,
+              "SlowRebound": 1.6,
+              "FastRebound": 0.6,
+              "ReboundDivisionVelocity": 0.05
+            },
+            "ForwardFriction": {
+              "Stiffnes": 12.5,
+              "ShapeFactor": 2.05,
+              "PeakValue": 0.925,
+              "CurvatureFactor": 0.97,
+              "PeakSlip": 0.11999998,
+              "Curve": [
+                {},
+                {
+                  "x": 0.02,
+                  "y": 0.4376108
+                },
+                {
+                  "x": 0.04,
+                  "y": 0.7198596
+                },
+                {
+                  "x": 0.06,
+                  "y": 0.8541289
+                },
+                {
+                  "x": 0.08,
+                  "y": 0.90695953
+                },
+                {
+                  "x": 0.099999994,
+                  "y": 0.92328006
+                },
+                {
+                  "x": 0.11999999,
+                  "y": 0.9243484
+                },
+                {
+                  "x": 0.13999999,
+                  "y": 0.91930234
+                },
+                {
+                  "x": 0.15999998,
+                  "y": 0.912013
+                },
+                {
+                  "x": 0.17999998,
+                  "y": 0.90412575
+                },
+                {
+                  "x": 0.19999997,
+                  "y": 0.89633125
+                },
+                {
+                  "x": 0.21999997,
+                  "y": 0.8889034
+                },
+                {
+                  "x": 0.31999996,
+                  "y": 0.85832757
+                },
+                {
+                  "x": 0.41999996,
+                  "y": 0.8356915
+                },
+                {
+                  "x": 0.52,
+                  "y": 0.81743735
+                },
+                {
+                  "x": 0.62,
+                  "y": 0.8017178
+                },
+                {
+                  "x": 0.72,
+                  "y": 0.7875889
+                },
+                {
+                  "x": 0.82000005,
+                  "y": 0.774535
+                },
+                {
+                  "x": 0.9200001,
+                  "y": 0.7622541
+                },
+                {
+                  "x": 1.0200001,
+                  "y": 0.7505608
+                }
+              ]
+            },
+            "Inertia": 0,
+            "Load": 0,
+            "LoadContribution": 0.25,
+            "LoadRating": 5400,
+            "Manager": {
+              "_type": "component",
+              "component_id": "4e945f5f-4a82-4bff-9e55-d426c6ebf558",
+              "go": "95defb70-95ac-48ca-87c9-e03aeaf96e29",
+              "component_type": "WheelManager"
+            },
+            "Mass": 15,
+            "MotorTorque": 0,
+            "Radius": 15.35,
+            "Rigidbody": {
+              "_type": "component",
+              "component_id": "3f092cb5-4cae-4d4a-baec-56590d8d877f",
+              "go": "95defb70-95ac-48ca-87c9-e03aeaf96e29",
+              "component_type": "Rigidbody"
+            },
+            "RollingResistanceTorque": 0,
+            "RPM": 0,
+            "SideFriction": {
+              "Stiffnes": 12.5,
+              "ShapeFactor": 2.05,
+              "PeakValue": 0.925,
+              "CurvatureFactor": 0.97,
+              "PeakSlip": 1000,
+              "Curve": [
+                {},
+                {
+                  "x": 0.02,
+                  "y": 0.4376108
+                },
+                {
+                  "x": 0.04,
+                  "y": 0.7198596
+                },
+                {
+                  "x": 0.06,
+                  "y": 0.8541289
+                },
+                {
+                  "x": 0.08,
+                  "y": 0.90695953
+                },
+                {
+                  "x": 0.099999994,
+                  "y": 0.92328006
+                },
+                {
+                  "x": 0.11999999,
+                  "y": 0.9243484
+                },
+                {
+                  "x": 0.13999999,
+                  "y": 0.91930234
+                },
+                {
+                  "x": 0.15999998,
+                  "y": 0.912013
+                },
+                {
+                  "x": 0.17999998,
+                  "y": 0.90412575
+                },
+                {
+                  "x": 0.19999997,
+                  "y": 0.89633125
+                },
+                {
+                  "x": 0.21999997,
+                  "y": 0.8889034
+                },
+                {
+                  "x": 0.31999996,
+                  "y": 0.85832757
+                },
+                {
+                  "x": 0.41999996,
+                  "y": 0.8356915
+                },
+                {
+                  "x": 0.52,
+                  "y": 0.81743735
+                },
+                {
+                  "x": 0.62,
+                  "y": 0.8017178
+                },
+                {
+                  "x": 0.72,
+                  "y": 0.7875889
+                },
+                {
+                  "x": 0.82000005,
+                  "y": 0.774535
+                },
+                {
+                  "x": 0.9200001,
+                  "y": 0.7622541
+                },
+                {
+                  "x": 1.0200001,
+                  "y": 0.7505608
+                }
+              ]
+            },
+            "Spring": {
+              "ForceCurve": [
+                {
+                  "mode": "Linear"
+                },
+                {
+                  "x": 1,
+                  "y": 1
+                }
+              ],
+              "MaxForce": 16000,
+              "MaxLength": 10
+            },
+            "SteerAngle": 0,
+            "SuspensionExtensionSpeedCoeff": 6,
+            "Visual": {
+              "_type": "gameobject",
+              "go": "f48fce14-b888-48b0-a104-9c5edb41a03e"
+            },
+            "Width": 11.42
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "f48fce14-b888-48b0-a104-9c5edb41a03e",
+            "Flags": 0,
+            "Name": "Model",
+            "Position": "0,0,0",
+            "Scale": "1.3,1.3,1.7",
+            "Enabled": true,
+            "Children": [
+              {
+                "__guid": "3ec8850a-1655-414d-8f8c-4f34c86ce22f",
+                "Flags": 0,
+                "Name": "Object",
+                "Position": "0,0,0",
+                "Rotation": "0.7071068,0,0,0.7071068",
+                "Scale": "0.375,0.375,0.1",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "f35eaef6-07ae-464f-8ed1-60f44bfe14dd",
+                    "BodyGroups": 18446744073709551615,
+                    "Model": "models/vidya/cylinder_white_64.vmdl",
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "a86958d9-748c-44b3-8446-f9e8715e5ab5",
+        "Flags": 0,
+        "Name": "boom arm",
+        "Enabled": true,
+        "Children": [
+          {
+            "__guid": "776c7d98-f77b-47e4-b669-e149f60f412f",
+            "Flags": 0,
+            "Name": "target",
+            "Position": "-400,0,30",
+            "Enabled": true
+          }
+        ]
+      }
+    ],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [
+    "vidya.model-cylinder64"
+  ],
+  "__version": 1
+}

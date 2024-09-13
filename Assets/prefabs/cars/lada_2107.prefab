@@ -29,7 +29,7 @@
         "Locking": {},
         "MassCenterOverride": "10,0,10",
         "MassOverride": 1000,
-        "MotionEnabled": true,
+        "MotionEnabled": false,
         "OverrideMassCenter": true,
         "RigidbodyFlags": "DisableCollisionSounds",
         "StartAsleep": false
@@ -175,6 +175,11 @@
                   "MaxForce": 22000,
                   "MaxLength": 3
                 },
+                "SuspensionExtensionSpeedCoeff": 6,
+                "Visual": {
+                  "_type": "gameobject",
+                  "go": "42ce9a8b-70b6-4c35-97f0-5eb1b5d21b48"
+                },
                 "Width": 8
               }
             ],
@@ -199,13 +204,7 @@
                   {
                     "__type": "WheelMover",
                     "__guid": "f193723c-9c07-43c3-9821-d94b235f90ad",
-                    "ReverseRotation": true,
-                    "Target": {
-                      "_type": "component",
-                      "component_id": "d9bcb8c5-900a-4105-95f6-58a18758d894",
-                      "go": "8c9526f3-7634-43e5-812f-67d706b9022f",
-                      "component_type": "Wheel"
-                    }
+                    "ReverseRotation": false
                   }
                 ]
               }
@@ -278,6 +277,11 @@
                   "MaxForce": 22000,
                   "MaxLength": 3
                 },
+                "SuspensionExtensionSpeedCoeff": 6,
+                "Visual": {
+                  "_type": "gameobject",
+                  "go": "1bc170b6-017d-4e41-98a4-3a935f33497f"
+                },
                 "Width": 8
               }
             ],
@@ -301,13 +305,7 @@
                   {
                     "__type": "WheelMover",
                     "__guid": "34a585a9-a086-4181-aa4c-2f40f11a60ef",
-                    "ReverseRotation": false,
-                    "Target": {
-                      "_type": "component",
-                      "component_id": "94bffd70-88db-4df5-b211-cd0cd074b05b",
-                      "go": "a67d5021-9e51-483f-a1b7-a628c5bb2909",
-                      "component_type": "Wheel"
-                    }
+                    "ReverseRotation": false
                   }
                 ]
               }
@@ -389,6 +387,11 @@
                   "MaxForce": 22000,
                   "MaxLength": 3
                 },
+                "SuspensionExtensionSpeedCoeff": 6,
+                "Visual": {
+                  "_type": "gameobject",
+                  "go": "997ba493-f677-42f6-a9c0-7b79e25b0a5f"
+                },
                 "Width": 8
               }
             ],
@@ -413,7 +416,7 @@
                   {
                     "__type": "WheelMover",
                     "__guid": "ddb05a78-7dc3-49ea-99d5-803bf944cee6",
-                    "ReverseRotation": true
+                    "ReverseRotation": false
                   }
                 ]
               }
@@ -485,6 +488,11 @@
                   ],
                   "MaxForce": 22000,
                   "MaxLength": 3
+                },
+                "SuspensionExtensionSpeedCoeff": 6,
+                "Visual": {
+                  "_type": "gameobject",
+                  "go": "f6bf03e8-e1bd-4bab-9b54-2946dd86fa68"
                 },
                 "Width": 8
               }

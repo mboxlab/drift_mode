@@ -55,6 +55,8 @@ public abstract class BaseGearbox : Component
 		int isShifting = CanShift() ? 1 : 0;
 
 		Torque = Clutch.Torque * Ratio * isShifting;
+		Axles.ForEach( x => x.Think() );
+
 		RPM = Axles.MaxBy( x => x.AverageRPM ).AverageRPM * Ratio;
 	}
 }

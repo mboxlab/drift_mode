@@ -2,6 +2,8 @@
 using System;
 
 namespace DM.Car;
+
+[Category( "Vehicles" )]
 public sealed class Car : Component
 {
 	[RequireComponent] public Rigidbody Rigidbody { get; set; }

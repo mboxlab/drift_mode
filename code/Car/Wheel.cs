@@ -8,7 +8,7 @@ namespace DM.Car;
 public partial class Wheel : Component
 {
 
-	GroundHit groundHit;
+	public GroundHit groundHit;
 	public bool IsGrounded => groundHit.Hit;
 
 	private bool _lowSpeedReferenceIsSet;
@@ -41,7 +41,6 @@ public partial class Wheel : Component
 			return;
 
 		groundHit = GroundDetection.Cast( GameObject, this );
-
 
 		PrevAngularVelocity = AngularVelocity;
 		Spring.PrevLength = Spring.Length;

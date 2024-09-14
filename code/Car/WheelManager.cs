@@ -1,5 +1,9 @@
-﻿namespace DM.Car;
+﻿using DM.Ground;
+using System;
 
+namespace DM.Car;
+
+[Category( "Vehicles" )]
 public class WheelManager : Component
 {
 	private float combinedLoad;
@@ -7,7 +11,6 @@ public class WheelManager : Component
 
 	[Property] public float CombinedLoad { get => combinedLoad; }
 	[Property] public List<Wheel> Wheels = new();
-	[Property] public ParticleSphereEmitter Emitter;
 
 	protected override void OnStart()
 	{
@@ -17,20 +20,23 @@ public class WheelManager : Component
 
 	protected override void OnFixedUpdate()
 	{
-		UpdateCombinedLoad();
-	}
-
-
-	private void UpdateCombinedLoad()
-	{
 		combinedLoad = 0f;
 		for ( int i = 0; i < _wheelCount; i++ )
 		{
 			Wheel wheel = Wheels[i];
 			combinedLoad += wheel.Load;
+			SetupPreset( wheel );
 		}
 	}
-
+	private static void SetupPreset( Wheel wheel )
+	{
+		Enum.TryParse( wheel.groundHit.Surface.ResourceName, true, out FrictionPreset.PresetsEnum presetName );
+		var newPreset = FrictionPreset.Presets[presetName];
+		if ( newPreset is not null )
+			wheel.FrictionPreset = FrictionPreset.Presets[presetName];
+		else
+			wheel.FrictionPreset = FrictionPreset.Asphalt;
+	}
 
 	public void Register( Wheel wheel )
 	{

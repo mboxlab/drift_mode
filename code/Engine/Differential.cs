@@ -20,7 +20,7 @@ public class Differential : Component
 		float rwav = LeftWheel.AngularVelocity;
 		return (lwav + rwav) / 2;
 	}
-	protected override void OnFixedUpdate()
+	public void Think()
 	{
 
 		float lwav = LeftWheel.AngularVelocity;

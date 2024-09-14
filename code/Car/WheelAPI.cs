@@ -54,7 +54,7 @@ public partial class Wheel
 		set
 		{
 			activePresetEnum = value;
-			FrictionPreset.To( FrictionPreset.Presets[value] );
+			FrictionPreset.Apply( FrictionPreset.Presets[value] );
 		}
 	}
 	[Property, Group( "Components" )] public FrictionPreset FrictionPreset { get; set; } = FrictionPreset.Asphalt;

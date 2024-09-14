@@ -1,5 +1,7 @@
 using System;
 namespace DM.Car;
+
+[Category( "Vehicles" )]
 public sealed class Steering : Component
 {
 	[Property] public List<GameObject> Wheels { get; set; }

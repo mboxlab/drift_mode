@@ -5,6 +5,7 @@ namespace DM.Car;
 /// <summary>
 /// I've pulled this out into its own component because I feel like we'll want different camera behaviors when we have weapons, building, etc..
 /// </summary>
+[Category( "Vehicles" )]
 public sealed class CameraController : Component
 {
 	/// <summary>

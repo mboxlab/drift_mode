@@ -1,5 +1,7 @@
 using System;
 namespace DM.Engine;
+
+[Category( "Audio" )]
 public sealed class SoundInterpolator : Component
 {
 	[Property] public GameObject Parent { get; set; }

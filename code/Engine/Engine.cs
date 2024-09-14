@@ -1,5 +1,6 @@
 ﻿
 using System;
+using AltCurves;
 
 namespace DM.Engine;
 [Category( "Vehicles" )]
@@ -34,7 +35,7 @@ public partial class Engine : Component
 		inertia = 0.5f * (flywheelMass * FlywheelRadius * FlywheelRadius);
 	}
 	[Property, ReadOnly] public float Inertia { get => inertia; }
-	[Property] public Curve TorqueMap { get; set; }
+	[Property] public AltCurve TorqueMap { get; set; }
 	[Property, ReadOnly] public float Torque { get; private set; }
 
 	protected override void OnStart()
@@ -47,10 +48,10 @@ public partial class Engine : Component
 	{
 		if ( IsProxy )
 			return;
-		float rpmFrac = Math.Clamp( RPM / MaxRPM, 0, 1 );
+		//float rpmFrac = Math.Clamp( RPM / MaxRPM, 0, 1 );
 		float friction = StartFriction - RPM * FrictionCoeff;
 
-		float maxInitialTorque = TorqueMap.Evaluate( rpmFrac ) - friction;
+		float maxInitialTorque = TorqueMap.Evaluate( RPM );
 
 
 		// Calculate idle fade

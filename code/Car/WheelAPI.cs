@@ -13,10 +13,16 @@ public partial class Wheel
 	[Property] public bool IsPower { get; set; }
 	[Property] public float BrakeTorque { get; set; }
 
-	[Description( "The amount of torque returned by the wheel.\r\nUnder no-slip conditions this will be equal to the torque that was input.\r\nWhen there is wheel spin, the value will be less than the input torque." )]
+	/// <summary>
+	/// The amount of torque returned by the wheel.
+	/// Under no-slip conditions this will be equal to the torque that was input.
+	/// When there is wheel spin, the value will be less than the input torque.
+	/// </summary>
 	[Property, ReadOnly] public float CounterTorque { get; private set; }
 
-	[Description( "Current angular velocity of the wheel in rad/s." )]
+	/// <summary>
+	/// Current angular velocity of the wheel in rad/s.
+	/// </summary>
 	[Property, ReadOnly] public float AngularVelocity { get; set; }
 	public float PrevAngularVelocity { get; set; }
 
@@ -111,4 +117,30 @@ public partial class Wheel
 	/// </summary>
 	[Property, Range( -1, 1 )] public float AntiSquat { get; set; }
 	[Property, Sync] public float AxleAngle { get; set; }
+
+	/// <summary>
+	/// Higher the number, higher the effect of longitudinal friction on lateral friction.
+	/// If 1, when wheels are locked up or there is wheel spin it will be impossible to steer.
+	/// If 0 doughnuts or power slides will be impossible.
+	/// The 'accurate' value is 1 but might not be desirable for arcade games.
+	/// </summary>
+	[Range( 0, 1 )]
+	[Property] private readonly float FrictionCircleStrength = 1f;
+
+	/// <summary>
+	/// Higher values have more pronounced slip circle effect as the lateral friction will be
+	/// decreased with smaller amounts of longitudinal slip (wheel spin).
+	/// Realistic is ~1.5-2.
+	/// </summary>
+	[Range( 0.0001f, 3f )]
+	[Property] private readonly float FrictionCircleShape = 1.75f;
+
+	/// <summary>
+	/// Distance as a percentage of the max spring length. Value of 1 means that the friction force will
+	/// be applied 1 max spring length above the contact point, and value of 0 means that it will be applied at the
+	/// ground level. Value can be >1.
+	/// Can be used instead of the anti-roll bar to prevent the vehicle from tipping over in corners
+	/// and can be useful in low framerate applications where anti-roll bar might induce jitter.
+	/// </summary>
+	[Property] public float ForceApplicationPointDistance = 0.8f;
 }

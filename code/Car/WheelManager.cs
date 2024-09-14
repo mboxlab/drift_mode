@@ -7,6 +7,7 @@ public class WheelManager : Component
 
 	[Property] public float CombinedLoad { get => combinedLoad; }
 	[Property] public List<Wheel> Wheels = new();
+	[Property] public ParticleSphereEmitter Emitter;
 
 	protected override void OnStart()
 	{

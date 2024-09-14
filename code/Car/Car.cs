@@ -35,30 +35,21 @@ public sealed class Car : Component
 
 	protected override void OnFixedUpdate()
 	{
-		if ( IsProxy ) return;
-
-		float verticalInput = Input.AnalogMove.x;
-		float targetTorque = verticalInput * MotorTorque;
-
+		if ( IsProxy )
+			return;
 
 		IsBraking = Input.Down( "Brake" );
 
 		foreach ( Wheel wheel in _wheels )
-		{
-
-
-			wheel.ApplyMotorTorque( targetTorque - wheel.RPM );
-
 			wheel.ApplyBrakeTorque( IsBraking ? BrakeTorque : 0f );
-
-		}
 
 		if ( FlyMode ) DoFlyMode();
 
 	}
 	protected override void OnUpdate()
 	{
-		if ( IsProxy ) return;
+		if ( IsProxy )
+			return;
 
 		base.OnUpdate();
 
@@ -91,7 +82,7 @@ public sealed class Car : Component
 
 		float speed = 350.0f;
 
-		if ( Input.Down( "run" ) )
+		if ( Input.Down( "Clutch" ) )
 		{
 			speed = 750.0f;
 		}

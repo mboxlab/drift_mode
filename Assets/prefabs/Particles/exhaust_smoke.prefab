@@ -1,0 +1,182 @@
+{
+  "RootObject": {
+    "__guid": "a9f0a06b-3e4f-40c2-a3f3-03ef2d8c7233",
+    "Flags": 0,
+    "Name": "exhaust_smoke",
+    "Tags": "particles",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Sandbox.ParticleEffect",
+        "__guid": "82ed04bf-da4a-45ba-8520-fbcf24b528c1",
+        "__version": 1,
+        "Alpha": {
+          "Type": "Curve",
+          "CurveA": [
+            {
+              "in": -0.7169809,
+              "out": 0.7169809
+            },
+            {
+              "x": 0.21854475,
+              "y": 0.087903224,
+              "in": -0.16019809,
+              "out": 0.16019809
+            },
+            {
+              "x": 1
+            }
+          ],
+          "Constants": "1,0,0,0"
+        },
+        "ApplyAlpha": true,
+        "ApplyColor": true,
+        "ApplyRotation": true,
+        "ApplyShape": true,
+        "Bounce": {
+          "Constants": "1,0,0,0"
+        },
+        "Brightness": {
+          "Constants": "5,0,0,0"
+        },
+        "Bumpiness": {},
+        "Collision": false,
+        "CollisionRadius": 1,
+        "Damping": {
+          "Constants": "5,0,0,0"
+        },
+        "DieOnCollisionChance": {},
+        "Force": true,
+        "ForceDirection": "-1,0,0",
+        "ForceScale": {
+          "Constants": "750,0,0,0"
+        },
+        "Friction": {
+          "Constants": "1,0,0,0"
+        },
+        "Gradient": {
+          "Type": "Range",
+          "Evaluation": "Particle",
+          "GradientA": {
+            "color": [
+              {
+                "t": 0.5,
+                "c": "1,1,1,1"
+              }
+            ],
+            "alpha": []
+          },
+          "GradientB": {
+            "color": [
+              {
+                "t": 0.5,
+                "c": "1,1,1,1"
+              }
+            ],
+            "alpha": []
+          },
+          "ConstantA": "0.71628,0.71628,0.71628,1",
+          "ConstantB": "1,1,1,1"
+        },
+        "Lifetime": {
+          "Constants": "1,8,0,0"
+        },
+        "MaxParticles": 5000,
+        "OrbitalForce": {},
+        "OrbitalPull": {},
+        "PerParticleTimeScale": {
+          "Constants": "1,0.4,0,0"
+        },
+        "Pitch": {},
+        "PreWarm": 0,
+        "PushStrength": {},
+        "Roll": {
+          "Type": "Range",
+          "Evaluation": "Particle",
+          "Constants": "0,360,0,0"
+        },
+        "Scale": {
+          "Type": "Curve",
+          "CurveA": {
+            "rangey": "0,100",
+            "frames": [
+              {
+                "y": 0.10000002
+              },
+              {
+                "x": 1,
+                "y": 0.5
+              }
+            ]
+          },
+          "Constants": "10,60,0,0"
+        },
+        "SequenceId": {},
+        "SequenceSpeed": {
+          "Constants": "0.5,0,0,0"
+        },
+        "SequenceTime": {
+          "Constants": "1,0,0,0"
+        },
+        "SheetSequence": true,
+        "Space": "Local",
+        "StartDelay": {},
+        "StartVelocity": {
+          "Constants": "0,70,0,0"
+        },
+        "Stretch": {},
+        "TimeScale": 1,
+        "Tint": "1,1,1,1",
+        "Yaw": {}
+      },
+      {
+        "__type": "Sandbox.ParticleSpriteRenderer",
+        "__guid": "de65ffc7-f22f-441b-b893-958d840c1f5e",
+        "Additive": false,
+        "Alignment": "LookAtCamera",
+        "BlurAmount": 0.5,
+        "BlurOpacity": 0.91,
+        "BlurSpacing": 0.73,
+        "DepthFeather": 0,
+        "FaceVelocity": true,
+        "FogStrength": 1,
+        "LeadingTrail": true,
+        "Lighting": false,
+        "MotionBlur": false,
+        "Opaque": false,
+        "RenderOptions": {
+          "GameLayer": true,
+          "OverlayLayer": false,
+          "BloomLayer": false,
+          "AfterUILayer": false
+        },
+        "RotationOffset": 0,
+        "Scale": 1,
+        "Shadows": false,
+        "SortMode": "Unsorted",
+        "Texture": "materials/particle/smoke1/smoke1.vtex"
+      },
+      {
+        "__type": "Sandbox.ParticleBoxEmitter",
+        "__guid": "3ef1a216-5a77-4133-befe-bbeaefc649ce",
+        "Burst": 0,
+        "Delay": 0,
+        "DestroyOnEnd": false,
+        "Duration": 10,
+        "Loop": true,
+        "OnEdge": false,
+        "Rate": 50,
+        "RateOverDistance": 0,
+        "Size": "8,8,8"
+      }
+    ],
+    "Children": [],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

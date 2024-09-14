@@ -29,13 +29,12 @@ public sealed class Steering : Component
 
 		foreach ( Wheel wheel in WheelsComponent )
 		{
-			//float corr = (float)((360 / (Math.PI * 2)) * Math.Acos( Transform.Rotation.Right.Dot( Rigidbody.Velocity.Normal ) ) - 90f);
+			float clamp = Math.Max( Rigidbody.Velocity.Length * 0.001f, 1f );
+			float corr = (float)((360 / (Math.PI * 2)) * Math.Acos( Transform.Rotation.Right.Dot( Rigidbody.Velocity.Normal ) ) - 90f);
 
-			float corr = Math.Max( Rigidbody.Velocity.Length * 0.001f, 1f );
-			float steerAngle = MathX.Lerp( MaxSteeringAngle, MinSteeringAngle, corr * 0.04f ) * Input.AnalogMove.y;
-			var targetRotation = Rotation.FromYaw( Math.Clamp( steerAngle, -MaxSteeringAngle, MaxSteeringAngle ) ) * Rotation.From( Offset );
-			wheel.SteerAngle = wheel.SteerAngle.LerpDegreesTo( steerAngle, Time.Delta * SteeringSmoothness ); // Rotation.Slerp( wheel.Transform.LocalRotation, targetRotation, Time.Delta * SteeringSmoothness );
-																											  //wheel.SteerAngle = MathX.Lerp( wheel.SteerAngle, MaxSteeringAngle * Input.AnalogMove.y, Time.Delta * SteeringSmoothness );
+			float steerAngle = MathX.Lerp( MaxSteeringAngle, MinSteeringAngle, clamp * 0.04f ) * Input.AnalogMove.y;
+
+			wheel.SteerAngle = wheel.SteerAngle.LerpDegreesTo( steerAngle + corr / 2, Time.Delta * SteeringSmoothness );
 		}
 	}
 }

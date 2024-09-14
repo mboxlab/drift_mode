@@ -57,7 +57,7 @@
           "GroupName": "Movement"
         },
         {
-          "Name": "Run",
+          "Name": "Clutch",
           "KeyboardCode": "shift",
           "GamepadCode": "LeftJoystickButton",
           "GroupName": "Movement"
@@ -75,13 +75,13 @@
           "GroupName": "Movement"
         },
         {
-          "Name": "attack1",
+          "Name": "GearUp",
           "KeyboardCode": "mouse1",
           "GamepadCode": "RightTrigger",
           "GroupName": "Actions"
         },
         {
-          "Name": "attack2",
+          "Name": "GearDown",
           "KeyboardCode": "mouse2",
           "GamepadCode": "LeftTrigger",
           "GroupName": "Actions"

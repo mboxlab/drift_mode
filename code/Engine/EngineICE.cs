@@ -1,6 +1,7 @@
 ﻿
 using System;
 using AltCurves;
+using DM.Car;
 
 namespace DM.Engine;
 [Category( "Vehicles" )]
@@ -16,6 +17,7 @@ public partial class EngineICE : Component
 	public const float IDLE_FADE_START_OFFSET = 300f;
 	public const float IDLE_FADE_END_OFFSET = 600f;
 	[Property] public Rigidbody Body { get; set; }
+	[Property] public Steering Steering { get; set; }
 	[Property] public SoundInterpolator Interpolator { get; set; }
 	[Property] public float MaxRPM { get; set; } = 7000;
 	[Property] public float IdleRPM { get; set; } = 800;
@@ -43,6 +45,12 @@ public partial class EngineICE : Component
 		base.OnStart();
 		Interpolator.MaxValue = MaxRPM;
 
+	}
+	protected override void OnDisabled()
+	{
+		base.OnDisabled();
+		Interpolator.Enabled = false;
+		Steering.Enabled = false;
 	}
 	protected override void OnFixedUpdate()
 	{

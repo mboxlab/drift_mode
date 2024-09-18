@@ -32,7 +32,12 @@ public sealed class Car : Component
 		CharacterName = Connection.Local.DisplayName;
 		_wheels = Components.GetAll<Wheel>( FindMode.EverythingInSelfAndDescendants ).ToList();
 	}
+	protected override void OnDisabled()
+	{
+		base.OnDisabled();
 
+		Engine.Enabled = false;
+	}
 	protected override void OnFixedUpdate()
 	{
 		if ( IsProxy )

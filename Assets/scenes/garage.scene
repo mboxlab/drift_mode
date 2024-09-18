@@ -95,6 +95,10 @@
           "__guid": "8cdfdfa2-8365-4a5a-99d4-a5135bd183c3",
           "__enabled": false,
           "Scale": 0.2
+        },
+        {
+          "__type": "DM.UI.InteractiveCamera",
+          "__guid": "0f1b9ade-48bb-4ea8-9107-338d504b946f"
         }
       ]
     },

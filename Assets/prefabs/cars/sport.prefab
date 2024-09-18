@@ -2,7 +2,7 @@
   "RootObject": {
     "__guid": "9129ed10-c30b-4dd2-9800-b160f93b3376",
     "Flags": 0,
-    "Name": "s13",
+    "Name": "sport",
     "Tags": "car",
     "Enabled": true,
     "NetworkMode": 1,
@@ -11,7 +11,12 @@
         "__type": "DM.Car.Car",
         "__guid": "68c75d59-4ec2-423b-8243-e416cd2b347e",
         "BrakeTorque": 3000,
-        "MotorTorque": 2000,
+        "Engine": {
+          "_type": "component",
+          "component_id": "f1a7ba2e-b8af-45fb-b1d1-488871ec9a36",
+          "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+          "component_type": "EngineICE"
+        },
         "Nametag": {
           "_type": "component",
           "component_id": "fb89b148-4cd9-4b57-9273-7d8d2ec1317b",
@@ -42,28 +47,8 @@
         "Static": false
       },
       {
-        "__type": "DM.Car.CameraController",
-        "__guid": "87640b59-aa17-43cc-9fdf-0873c1c3979d",
-        "Boom": {
-          "_type": "gameobject",
-          "go": "b813da2b-460b-42b5-bdd8-f62b556fd189"
-        },
-        "CameraTarget": {
-          "_type": "gameobject",
-          "go": "a7552737-ddb9-4c5f-9ede-cc937f4c2a20"
-        },
-        "PitchLimits": "-50,50",
-        "VelocityFOVScale": 50
-      },
-      {
-        "__type": "DM.Car.WheelManager",
-        "__guid": "51afee7a-4875-45a7-91cb-a158e44ee238",
-        "Wheels": [],
-        "CombinedLoad": 0
-      },
-      {
-        "__type": "DM.Engine.Engine",
-        "__guid": "7bbbf5ad-479c-4a04-9ee6-30a51c4e314e",
+        "__type": "DM.Engine.EngineICE",
+        "__guid": "f1a7ba2e-b8af-45fb-b1d1-488871ec9a36",
         "Body": {
           "_type": "component",
           "component_id": "63f289fd-6e4a-4084-b6c5-b497bb5fbec5",
@@ -96,53 +81,32 @@
         "Torque": 0,
         "TorqueMap": {
           "_ace_v": 1,
-          "poi": "Linear",
           "keys": [
             {
-              "x": 3000,
-              "y": 110
-            },
-            {
-              "x": 3200,
-              "y": 191,
-              "ti": 0.09692796,
-              "to": 0.09692796,
-              "tm": "Mirrored"
-            },
-            {
-              "x": 3500,
-              "y": 223,
-              "ti": 0.10846154,
-              "to": 0.10846154
-            },
-            {
-              "x": 4500,
-              "y": 332,
-              "ti": 0.08933333,
-              "to": 0.08933333
-            },
-            {
-              "x": 5000,
-              "y": 357,
-              "ti": -0.012666667,
-              "to": -0.012666667
-            },
-            {
-              "x": 6000,
-              "y": 313,
-              "ti": -0.1519227,
-              "to": -0.1519227,
-              "tm": "Mirrored"
-            },
-            {
-              "x": 6250,
-              "y": 211,
-              "ti": -0.21045803,
-              "to": -0.21045803,
-              "tm": "Mirrored"
+              "y": 300
             }
           ]
         }
+      },
+      {
+        "__type": "DM.Car.CameraController",
+        "__guid": "87640b59-aa17-43cc-9fdf-0873c1c3979d",
+        "Boom": {
+          "_type": "gameobject",
+          "go": "b813da2b-460b-42b5-bdd8-f62b556fd189"
+        },
+        "CameraTarget": {
+          "_type": "gameobject",
+          "go": "a7552737-ddb9-4c5f-9ede-cc937f4c2a20"
+        },
+        "PitchLimits": "-50,50",
+        "VelocityFOVScale": 50
+      },
+      {
+        "__type": "DM.Car.WheelManager",
+        "__guid": "51afee7a-4875-45a7-91cb-a158e44ee238",
+        "Wheels": [],
+        "CombinedLoad": 0
       },
       {
         "__type": "DM.Engine.Gearbox.ManualGearbox",
@@ -163,9 +127,9 @@
         },
         "Engine": {
           "_type": "component",
-          "component_id": "7bbbf5ad-479c-4a04-9ee6-30a51c4e314e",
+          "component_id": "f1a7ba2e-b8af-45fb-b1d1-488871ec9a36",
           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
-          "component_type": "Engine"
+          "component_type": "EngineICE"
         },
         "Gear": 0,
         "Ratio": 0,
@@ -189,9 +153,9 @@
         "Damping": 1,
         "Engine": {
           "_type": "component",
-          "component_id": "7bbbf5ad-479c-4a04-9ee6-30a51c4e314e",
+          "component_id": "f1a7ba2e-b8af-45fb-b1d1-488871ec9a36",
           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
-          "component_type": "Engine"
+          "component_type": "EngineICE"
         },
         "Gearbox": {
           "_type": "component",
@@ -233,7 +197,8 @@
             "__type": "Sandbox.ModelRenderer",
             "__guid": "8e4d9c6a-e979-4a95-9f16-a76b1e4be3de",
             "BodyGroups": 18446744073709551615,
-            "Model": "models/cars/s13/s13.vmdl",
+            "MaterialOverride": "models/cars/sport/materials/polygonstreetracer_veh_tex_05_race_grey.vmat",
+            "Model": "models/cars/sport/sm_veh_sports_01.vmdl",
             "RenderOptions": {
               "GameLayer": true,
               "OverlayLayer": false,
@@ -242,6 +207,256 @@
             },
             "RenderType": "On",
             "Tint": "1,1,1,1"
+          },
+          {
+            "__type": "DM.Car.CarDresser",
+            "__guid": "f0ec5012-65de-40cb-aed7-b57d29a5c706",
+            "BodyRenderer": {
+              "_type": "component",
+              "component_id": "8e4d9c6a-e979-4a95-9f16-a76b1e4be3de",
+              "go": "ce0fb670-0ba2-4ac0-b182-1c0fb4afcc32",
+              "component_type": "ModelRenderer"
+            },
+            "Poses": [
+              {
+                "_type": "gameobject",
+                "go": "c22851a5-6ced-4966-9c8c-539ed6d934a7"
+              },
+              {
+                "_type": "gameobject",
+                "go": "7ca06956-84fe-4c7a-b806-dad8d9a988d6"
+              },
+              {
+                "_type": "gameobject",
+                "go": "961b9a83-03fd-4eab-8bd6-415777e10dd5"
+              },
+              {
+                "_type": "gameobject",
+                "go": "a988307f-3dc5-4bfd-b9ef-21d81e1f71aa"
+              },
+              {
+                "_type": "gameobject",
+                "go": "2cb66ab1-2f24-4697-83c5-6bdb14e821c1"
+              },
+              {
+                "_type": "gameobject",
+                "go": "1beb832b-1b0a-48e2-8215-6adefc74cdd6"
+              }
+            ]
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "c22851a5-6ced-4966-9c8c-539ed6d934a7",
+            "Flags": 0,
+            "Name": "engine",
+            "Position": "64.15572,0,5.144224",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.PartsList",
+                "__guid": "a4fefd18-5667-403a-ab9a-a5e916527a13",
+                "Parts": [
+                  "models/carparts/enignes/sm_veh_attach_engine_01.vmdl",
+                  "models/carparts/enignes/sm_veh_attach_engine_02.vmdl",
+                  "models/carparts/enignes/sm_veh_attach_engine_03.vmdl",
+                  "models/carparts/enignes/sm_veh_attach_engine_04.vmdl"
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "7ca06956-84fe-4c7a-b806-dad8d9a988d6",
+            "Flags": 0,
+            "Name": "bonnet",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.PartsList",
+                "__guid": "6cdedf40-5471-4d45-8c19-4d3d78aa40ae",
+                "Parts": [
+                  "models/cars/sport/parts/bonnets/sm_veh_sports_01_bonnet_01.vmdl",
+                  "models/cars/sport/parts/bonnets/sm_veh_sports_01_bonnet_02.vmdl",
+                  "models/cars/sport/parts/bonnets/sm_veh_sports_01_bonnet_03.vmdl",
+                  "models/cars/sport/parts/bonnets/sm_veh_sports_01_bonnet_04.vmdl"
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "961b9a83-03fd-4eab-8bd6-415777e10dd5",
+            "Flags": 0,
+            "Name": "sideskirts",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.PartsList",
+                "__guid": "3a73e1dc-ed9a-4de8-88c7-31507414df0c",
+                "Parts": [
+                  "models/cars/sport/parts/side_srirts/sm_veh_sports_01_side_skirts_01.vmdl",
+                  "models/cars/sport/parts/side_srirts/sm_veh_sports_01_side_skirts_02.vmdl",
+                  "models/cars/sport/parts/side_srirts/sm_veh_sports_01_side_skirts_03.vmdl",
+                  "models/cars/sport/parts/side_srirts/sm_veh_sports_01_side_skirts_04.vmdl"
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "a988307f-3dc5-4bfd-b9ef-21d81e1f71aa",
+            "Flags": 0,
+            "Name": "frontbumper",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.PartsList",
+                "__guid": "3a57868b-aec8-4e02-bf78-fc128aafd202",
+                "Parts": [
+                  "models/cars/sport/parts/front_bumpers/sm_veh_sports_01_front_bumper_01.vmdl",
+                  "models/cars/sport/parts/front_bumpers/sm_veh_sports_01_front_bumper_02.vmdl",
+                  "models/cars/sport/parts/front_bumpers/sm_veh_sports_01_front_bumper_03.vmdl",
+                  "models/cars/sport/parts/front_bumpers/sm_veh_sports_01_front_bumper_04.vmdl"
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "2cb66ab1-2f24-4697-83c5-6bdb14e821c1",
+            "Flags": 0,
+            "Name": "rearbumper",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.PartsList",
+                "__guid": "ea1535cb-6b9b-447d-9fa0-3bb885b5cf1c",
+                "Parts": [
+                  "models/cars/sport/parts/rear_bumpers/sm_veh_sports_01_rear_bumper_01.vmdl",
+                  "models/cars/sport/parts/rear_bumpers/sm_veh_sports_01_rear_bumper_02.vmdl",
+                  "models/cars/sport/parts/rear_bumpers/sm_veh_sports_01_rear_bumper_03.vmdl",
+                  "models/cars/sport/parts/rear_bumpers/sm_veh_sports_01_rear_bumper_04.vmdl"
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "1beb832b-1b0a-48e2-8215-6adefc74cdd6",
+            "Flags": 0,
+            "Name": "fenders",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.PartsList",
+                "__guid": "45452b19-3976-4c00-bfeb-2266e317b6c8",
+                "Parts": [
+                  null,
+                  "models/cars/sport/parts/fenders/sm_veh_sports_01_fenders_02.vmdl",
+                  "models/cars/sport/parts/fenders/sm_veh_sports_01_fenders_03.vmdl",
+                  "models/cars/sport/parts/fenders/sm_veh_sports_01_fenders_04.vmdl"
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "91748fb6-48b2-4eef-b7ba-fdb482c4e710",
+            "Flags": 0,
+            "Name": "wheels",
+            "Position": "0,0,15",
+            "Enabled": true,
+            "Children": [
+              {
+                "__guid": "1bc170b6-017d-4e41-98a4-3a935f33497f",
+                "Flags": 0,
+                "Name": "Wheel Front Left",
+                "Position": "57.60001,32,0",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "6437bbc3-1fe6-4272-bf30-32d27cbccaaa",
+                    "BodyGroups": 18446744073709551615,
+                    "Model": "models/cars/sport/wheel.vmdl",
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  }
+                ]
+              },
+              {
+                "__guid": "42ce9a8b-70b6-4c35-97f0-5eb1b5d21b48",
+                "Flags": 0,
+                "Name": "Wheel Front Right",
+                "Position": "57.60001,-32.00001,0",
+                "Rotation": "0,0,1,-0.00000004371139",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "9859c032-ba03-4903-aab3-3cbd32e3378d",
+                    "BodyGroups": 18446744073709551615,
+                    "Model": "models/cars/sport/wheel.vmdl",
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  }
+                ]
+              },
+              {
+                "__guid": "f6bf03e8-e1bd-4bab-9b54-2946dd86fa68",
+                "Flags": 0,
+                "Name": "Wheel Rear Left",
+                "Position": "-54.19997,32,0",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "68793b34-c5e9-40d3-8eaa-f989bc37b2e1",
+                    "BodyGroups": 18446744073709551615,
+                    "Model": "models/cars/sport/wheel.vmdl",
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  }
+                ]
+              },
+              {
+                "__guid": "997ba493-f677-42f6-a9c0-7b79e25b0a5f",
+                "Flags": 0,
+                "Name": "Wheel Rear Right",
+                "Position": "-54.19997,-32.00001,0",
+                "Rotation": "0,0,1,-0.00000004371139",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "6b6c6635-3218-4702-bbd0-0d4a9be775c0",
+                    "BodyGroups": 18446744073709551615,
+                    "Model": "models/cars/sport/wheel.vmdl",
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  }
+                ]
+              }
+            ]
           }
         ]
       },
@@ -249,7 +464,7 @@
         "__guid": "7ad25a1a-171f-4f43-af08-1e2d3803fe1d",
         "Flags": 0,
         "Name": "Front Axle",
-        "Position": "48.9,0,14",
+        "Position": "57.60001,0,15",
         "Enabled": true,
         "Components": [
           {
@@ -283,7 +498,7 @@
             "__guid": "a67d5021-9e51-483f-a1b7-a628c5bb2909",
             "Flags": 0,
             "Name": "Wheel Front Left",
-            "Position": "0,29.5,0",
+            "Position": "0,32,0",
             "Enabled": true,
             "Components": [
               {
@@ -292,6 +507,7 @@
                 "ForceApplicationPointDistance": 0.8,
                 "FrictionCircleShape": 1.5,
                 "FrictionCircleStrength": 1,
+                "IsLeft": true,
                 "ActivePresetEnum": "Asphalt",
                 "AngularVelocity": 0,
                 "AntiSquat": 0,
@@ -399,7 +615,7 @@
                     ]
                   }
                 },
-                "Inertia": 34.178253,
+                "Inertia": 49.783997,
                 "IsPower": false,
                 "Load": 0,
                 "LoadContribution": 0.25,
@@ -412,7 +628,7 @@
                 },
                 "Mass": 20,
                 "MotorTorque": 0,
-                "Radius": 11.600002,
+                "Radius": 14,
                 "Rigidbody": {
                   "_type": "component",
                   "component_id": "63f289fd-6e4a-4084-b6c5-b497bb5fbec5",
@@ -478,38 +694,13 @@
                 ],
                 "Wireframe": false
               }
-            ],
-            "Children": [
-              {
-                "__guid": "1bc170b6-017d-4e41-98a4-3a935f33497f",
-                "Flags": 0,
-                "Name": "Model",
-                "Position": "0,0,0",
-                "Enabled": true,
-                "Components": [
-                  {
-                    "__type": "Sandbox.ModelRenderer",
-                    "__guid": "6437bbc3-1fe6-4272-bf30-32d27cbccaaa",
-                    "BodyGroups": 18446744073709551615,
-                    "Model": "models/cars/s13/wheel.vmdl",
-                    "RenderOptions": {
-                      "GameLayer": true,
-                      "OverlayLayer": false,
-                      "BloomLayer": false,
-                      "AfterUILayer": false
-                    },
-                    "RenderType": "On",
-                    "Tint": "1,1,1,1"
-                  }
-                ]
-              }
             ]
           },
           {
             "__guid": "8c9526f3-7634-43e5-812f-67d706b9022f",
             "Flags": 0,
             "Name": "Wheel Front Right",
-            "Position": "0,-29.5,0",
+            "Position": "0,-32.00001,0",
             "Enabled": true,
             "Components": [
               {
@@ -518,6 +709,7 @@
                 "ForceApplicationPointDistance": 0.8,
                 "FrictionCircleShape": 1.5,
                 "FrictionCircleStrength": 1,
+                "IsLeft": false,
                 "ActivePresetEnum": "Asphalt",
                 "AngularVelocity": 0,
                 "AntiSquat": 0,
@@ -625,7 +817,7 @@
                     ]
                   }
                 },
-                "Inertia": 34.178253,
+                "Inertia": 49.783997,
                 "IsPower": false,
                 "Load": 0,
                 "LoadContribution": 0.25,
@@ -638,7 +830,7 @@
                 },
                 "Mass": 20,
                 "MotorTorque": 0,
-                "Radius": 11.600002,
+                "Radius": 14,
                 "Rigidbody": {
                   "_type": "component",
                   "component_id": "63f289fd-6e4a-4084-b6c5-b497bb5fbec5",
@@ -662,44 +854,9 @@
                 "SuspensionExtensionSpeedCoeff": 30,
                 "Visual": {
                   "_type": "gameobject",
-                  "go": "8a64b6a5-bf4d-44ca-a19e-ab7d43dbc734"
+                  "go": "42ce9a8b-70b6-4c35-97f0-5eb1b5d21b48"
                 },
                 "Width": 8.000002
-              }
-            ],
-            "Children": [
-              {
-                "__guid": "8a64b6a5-bf4d-44ca-a19e-ab7d43dbc734",
-                "Flags": 0,
-                "Name": "Model",
-                "Position": "0,0,0",
-                "Enabled": true,
-                "Children": [
-                  {
-                    "__guid": "42ce9a8b-70b6-4c35-97f0-5eb1b5d21b48",
-                    "Flags": 0,
-                    "Name": "Model",
-                    "Position": "0,0,0",
-                    "Rotation": "0,0,1,-0.00000004371139",
-                    "Enabled": true,
-                    "Components": [
-                      {
-                        "__type": "Sandbox.ModelRenderer",
-                        "__guid": "9859c032-ba03-4903-aab3-3cbd32e3378d",
-                        "BodyGroups": 18446744073709551615,
-                        "Model": "models/cars/s13/wheel.vmdl",
-                        "RenderOptions": {
-                          "GameLayer": true,
-                          "OverlayLayer": false,
-                          "BloomLayer": false,
-                          "AfterUILayer": false
-                        },
-                        "RenderType": "On",
-                        "Tint": "1,1,1,1"
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }
@@ -709,7 +866,7 @@
         "__guid": "ce1a3692-9cc8-471e-8460-bedc2caecdd5",
         "Flags": 0,
         "Name": "Rear Axle",
-        "Position": "-48.89998,0,14",
+        "Position": "-54.19997,0,15",
         "Enabled": true,
         "Components": [
           {
@@ -744,7 +901,7 @@
             "__guid": "fc04e594-0d78-49bb-bb9d-6a0887b8dae7",
             "Flags": 0,
             "Name": "Wheel Rear Left",
-            "Position": "0,29.5,0",
+            "Position": "0,32,0",
             "Enabled": true,
             "Components": [
               {
@@ -753,6 +910,7 @@
                 "ForceApplicationPointDistance": 0.8,
                 "FrictionCircleShape": 1.5,
                 "FrictionCircleStrength": 1,
+                "IsLeft": true,
                 "ActivePresetEnum": "Asphalt",
                 "AngularVelocity": 0,
                 "AntiSquat": 0,
@@ -860,7 +1018,7 @@
                     ]
                   }
                 },
-                "Inertia": 34.178253,
+                "Inertia": 49.783997,
                 "IsPower": true,
                 "Load": 0,
                 "LoadContribution": 0.25,
@@ -873,7 +1031,7 @@
                 },
                 "Mass": 20,
                 "MotorTorque": 0,
-                "Radius": 11.600002,
+                "Radius": 14,
                 "Rigidbody": {
                   "_type": "component",
                   "component_id": "63f289fd-6e4a-4084-b6c5-b497bb5fbec5",
@@ -901,38 +1059,13 @@
                 },
                 "Width": 8.000002
               }
-            ],
-            "Children": [
-              {
-                "__guid": "f6bf03e8-e1bd-4bab-9b54-2946dd86fa68",
-                "Flags": 0,
-                "Name": "Model",
-                "Position": "0,0,0",
-                "Enabled": true,
-                "Components": [
-                  {
-                    "__type": "Sandbox.ModelRenderer",
-                    "__guid": "68793b34-c5e9-40d3-8eaa-f989bc37b2e1",
-                    "BodyGroups": 18446744073709551615,
-                    "Model": "models/cars/s13/wheel.vmdl",
-                    "RenderOptions": {
-                      "GameLayer": true,
-                      "OverlayLayer": false,
-                      "BloomLayer": false,
-                      "AfterUILayer": false
-                    },
-                    "RenderType": "On",
-                    "Tint": "1,1,1,1"
-                  }
-                ]
-              }
             ]
           },
           {
             "__guid": "4eaa3d57-e9df-4268-b733-3e3ad411e6c7",
             "Flags": 0,
             "Name": "Wheel Rear Right",
-            "Position": "0,-29.5,0",
+            "Position": "0,-32.00001,0",
             "Enabled": true,
             "Components": [
               {
@@ -941,6 +1074,7 @@
                 "ForceApplicationPointDistance": 0.8,
                 "FrictionCircleShape": 1.5,
                 "FrictionCircleStrength": 1,
+                "IsLeft": false,
                 "ActivePresetEnum": "Asphalt",
                 "AngularVelocity": 0,
                 "AntiSquat": 0,
@@ -1048,7 +1182,7 @@
                     ]
                   }
                 },
-                "Inertia": 34.178253,
+                "Inertia": 49.783997,
                 "IsPower": true,
                 "Load": 0,
                 "LoadContribution": 0.25,
@@ -1061,7 +1195,7 @@
                 },
                 "Mass": 20,
                 "MotorTorque": 0,
-                "Radius": 11.600002,
+                "Radius": 14,
                 "Rigidbody": {
                   "_type": "component",
                   "component_id": "63f289fd-6e4a-4084-b6c5-b497bb5fbec5",
@@ -1085,44 +1219,9 @@
                 "SuspensionExtensionSpeedCoeff": 30,
                 "Visual": {
                   "_type": "gameobject",
-                  "go": "32f6d495-d4b0-4172-a98e-43a7daeb1dab"
+                  "go": "997ba493-f677-42f6-a9c0-7b79e25b0a5f"
                 },
                 "Width": 8.000002
-              }
-            ],
-            "Children": [
-              {
-                "__guid": "32f6d495-d4b0-4172-a98e-43a7daeb1dab",
-                "Flags": 0,
-                "Name": "Model",
-                "Position": "0,0,0",
-                "Enabled": true,
-                "Children": [
-                  {
-                    "__guid": "997ba493-f677-42f6-a9c0-7b79e25b0a5f",
-                    "Flags": 0,
-                    "Name": "Model",
-                    "Position": "0,0,0",
-                    "Rotation": "0,0,1,-0.00000004371139",
-                    "Enabled": true,
-                    "Components": [
-                      {
-                        "__type": "Sandbox.ModelRenderer",
-                        "__guid": "6b6c6635-3218-4702-bbd0-0d4a9be775c0",
-                        "BodyGroups": 18446744073709551615,
-                        "Model": "models/cars/s13/wheel.vmdl",
-                        "RenderOptions": {
-                          "GameLayer": true,
-                          "OverlayLayer": false,
-                          "BloomLayer": false,
-                          "AfterUILayer": false
-                        },
-                        "RenderType": "On",
-                        "Tint": "1,1,1,1"
-                      }
-                    ]
-                  }
-                ]
               }
             ]
           }

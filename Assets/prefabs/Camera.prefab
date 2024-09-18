@@ -1,0 +1,83 @@
+{
+  "RootObject": {
+    "__guid": "328c3218-21d4-4cbf-b967-0d6a1fce8199",
+    "Flags": 0,
+    "Name": "camera",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Sandbox.CameraComponent",
+        "__guid": "86276d75-537c-4eea-a16c-75e4cbdc43d9",
+        "BackgroundColor": "0.33333,0.46275,0.52157,1",
+        "ClearFlags": "All",
+        "FieldOfView": 100,
+        "IsMainCamera": true,
+        "Orthographic": false,
+        "OrthographicHeight": 1204,
+        "Priority": 1,
+        "RenderExcludeTags": "",
+        "RenderTags": "",
+        "TargetEye": "None",
+        "Viewport": "0,0,1,1",
+        "ZFar": 10000,
+        "ZNear": 10
+      },
+      {
+        "__type": "Sandbox.Bloom",
+        "__guid": "24bdf8c4-a9f3-4f8a-a31c-737b8d7a1e5f",
+        "BloomColor": {
+          "color": [
+            {
+              "c": "1,1,1,1"
+            },
+            {
+              "t": 1,
+              "c": "1,1,1,1"
+            }
+          ],
+          "alpha": []
+        },
+        "BloomCurve": [
+          {
+            "y": 0.5
+          },
+          {
+            "x": 1,
+            "y": 1
+          }
+        ],
+        "Mode": "Additive",
+        "Strength": 0.5,
+        "Threshold": 0.5,
+        "ThresholdWidth": 0.5
+      },
+      {
+        "__type": "Sandbox.Tonemapping",
+        "__guid": "3fe3bf87-c41e-406c-aeb4-d4e9ba7eb24b",
+        "__version": 1,
+        "AutoExposureEnabled": true,
+        "ExposureBias": 2,
+        "ExposureCompensation": 0,
+        "ExposureMethod": "RGB",
+        "MaximumExposure": 2,
+        "MinimumExposure": 1,
+        "Mode": "Legacy",
+        "Rate": 1
+      },
+      {
+        "__type": "Sandbox.Sharpen",
+        "__guid": "8cdfdfa2-8365-4a5a-99d4-a5135bd183c3",
+        "__enabled": false,
+        "Scale": 0.2
+      }
+    ],
+    "Children": [],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

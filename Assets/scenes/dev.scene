@@ -56,80 +56,6 @@
       ]
     },
     {
-      "__guid": "13738b26-8452-4dc1-a3e2-d382aa263a02",
-      "Flags": 0,
-      "Name": "Camera",
-      "Position": "-61.28972,-272.1199,15.82807",
-      "Rotation": "0,0,0.6877456,0.7259518",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.CameraComponent",
-          "__guid": "5e4b297e-811e-482f-8a76-8fdbf70b40aa",
-          "BackgroundColor": "0.33333,0.46275,0.52157,1",
-          "ClearFlags": "All",
-          "FieldOfView": 60,
-          "IsMainCamera": true,
-          "Orthographic": false,
-          "OrthographicHeight": 1204,
-          "Priority": 1,
-          "RenderExcludeTags": "",
-          "RenderTags": "",
-          "TargetEye": "None",
-          "Viewport": "0,0,1,1",
-          "ZFar": 10000,
-          "ZNear": 10
-        },
-        {
-          "__type": "Sandbox.Bloom",
-          "__guid": "30fba310-a6d9-4a92-927a-ae04136dd9c1",
-          "BloomColor": {
-            "color": [
-              {
-                "c": "1,1,1,1"
-              },
-              {
-                "t": 1,
-                "c": "1,1,1,1"
-              }
-            ],
-            "alpha": []
-          },
-          "BloomCurve": [
-            {
-              "y": 0.5
-            },
-            {
-              "x": 1,
-              "y": 1
-            }
-          ],
-          "Mode": "Additive",
-          "Strength": 0.5,
-          "Threshold": 0.5,
-          "ThresholdWidth": 0.5
-        },
-        {
-          "__type": "Sandbox.Tonemapping",
-          "__guid": "28bc7a3c-e3e7-4173-bbc4-5169665c1664",
-          "__version": 1,
-          "AutoExposureEnabled": true,
-          "ExposureBias": 2,
-          "ExposureCompensation": 0,
-          "ExposureMethod": "RGB",
-          "MaximumExposure": 2,
-          "MinimumExposure": 1,
-          "Mode": "Legacy",
-          "Rate": 1
-        },
-        {
-          "__type": "Sandbox.Sharpen",
-          "__guid": "f8ddc921-61ab-41f7-879e-eefa5a9b4ef2",
-          "Scale": 0.2
-        }
-      ]
-    },
-    {
       "__guid": "6e0024c6-b7c6-4738-92bf-41d47ec266a5",
       "Flags": 0,
       "Name": "Networking",
@@ -140,7 +66,7 @@
           "__guid": "642c0fe9-4f6f-4b26-9f07-cabf6b5516ac",
           "PlayerPrefab": {
             "_type": "gameobject",
-            "prefab": "prefabs/cars/chevrolet.prefab"
+            "prefab": "prefabs/cars/sport.prefab"
           },
           "SpawnPoints": [],
           "StartServer": true

@@ -1,0 +1,287 @@
+{
+  "__guid": "b8283389-6160-46d3-a2f7-884d6f6ab99e",
+  "GameObjects": [
+    {
+      "__guid": "340eaa9a-fdf9-43d3-a1d0-4d930d15304f",
+      "Flags": 0,
+      "Name": "garage",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "d413e019-ba17-498e-8aba-254563b15f80",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/map/garage.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "328c3218-21d4-4cbf-b967-0d6a1fce8199",
+      "Flags": 0,
+      "Name": "Camera",
+      "Position": "147.0141,55.76822,92.13364",
+      "Rotation": "0.2131514,0.03758436,-0.9614639,0.1695321",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.CameraComponent",
+          "__guid": "86276d75-537c-4eea-a16c-75e4cbdc43d9",
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "All",
+          "FieldOfView": 100,
+          "IsMainCamera": true,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 621,
+          "ZNear": 10
+        },
+        {
+          "__type": "Sandbox.Bloom",
+          "__guid": "24bdf8c4-a9f3-4f8a-a31c-737b8d7a1e5f",
+          "BloomColor": {
+            "color": [
+              {
+                "c": "1,1,1,1"
+              },
+              {
+                "t": 1,
+                "c": "1,1,1,1"
+              }
+            ],
+            "alpha": []
+          },
+          "BloomCurve": [
+            {
+              "y": 0.5
+            },
+            {
+              "x": 1,
+              "y": 1
+            }
+          ],
+          "Mode": "Additive",
+          "Strength": 0.5,
+          "Threshold": 0.5,
+          "ThresholdWidth": 0.5
+        },
+        {
+          "__type": "Sandbox.Tonemapping",
+          "__guid": "3fe3bf87-c41e-406c-aeb4-d4e9ba7eb24b",
+          "__version": 1,
+          "AutoExposureEnabled": true,
+          "ExposureBias": 2,
+          "ExposureCompensation": 0,
+          "ExposureMethod": "RGB",
+          "MaximumExposure": 2,
+          "MinimumExposure": 1,
+          "Mode": "Legacy",
+          "Rate": 1
+        },
+        {
+          "__type": "Sandbox.Sharpen",
+          "__guid": "8cdfdfa2-8365-4a5a-99d4-a5135bd183c3",
+          "__enabled": false,
+          "Scale": 0.2
+        }
+      ]
+    },
+    {
+      "__guid": "8021f74e-34d9-4272-9406-27099e2bcd85",
+      "Flags": 0,
+      "Name": "Networking",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.NetworkHelper",
+          "__guid": "e3837424-9369-41cf-9bd2-fad842a0dc5c",
+          "PlayerPrefab": {
+            "_type": "gameobject",
+            "prefab": "prefabs/cars/sport.prefab"
+          },
+          "SpawnPoints": [
+            {
+              "_type": "gameobject",
+              "go": "57154d5c-5938-4f86-9794-6ed227ab4ac0"
+            }
+          ],
+          "StartServer": true
+        }
+      ]
+    },
+    {
+      "__guid": "fabb4040-997c-4a13-adcf-918158e958fe",
+      "Flags": 0,
+      "Name": "Sun",
+      "Rotation": "-0.0729315,0.4822396,0.1305433,0.8631827",
+      "Tags": "light_directional,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.DirectionalLight",
+          "__guid": "88c706bc-6175-482c-a89b-d2696a76f659",
+          "FogMode": "Disabled",
+          "FogStrength": 1,
+          "LightColor": "0.94419,0.97767,1,1",
+          "Shadows": true,
+          "SkyColor": "0.2532,0.32006,0.35349,1"
+        }
+      ]
+    },
+    {
+      "__guid": "1523ee22-fe52-4ac5-bb06-5bed208f0c92",
+      "Flags": 0,
+      "Name": "floor",
+      "Position": "0,0,16.25488",
+      "Scale": "4.3,2.3,1",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "9beb37a2-2aa8-4a8a-9639-31391aae00b7",
+          "__enabled": false,
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/dev/plane.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.PlaneCollider",
+          "__guid": "a2c1e048-6ca5-4a49-a7e8-6ef51e5ea3ba",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50",
+          "Static": true,
+          "Surface": "materials/ground/dirt/dirt.surface"
+        }
+      ]
+    },
+    {
+      "__guid": "57154d5c-5938-4f86-9794-6ed227ab4ac0",
+      "Flags": 0,
+      "Name": "Spawnpoint",
+      "Position": "0,0,20",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SpawnPoint",
+          "__guid": "db1d92e8-c84a-4b0b-89ec-ea057176a577",
+          "Color": "0.8902,0.31765,0.05098,1"
+        }
+      ]
+    },
+    {
+      "__guid": "33c676cf-3b57-498a-a0af-766dd0260d23",
+      "Flags": 0,
+      "Name": "Spot Light (2)",
+      "Position": "175.1708,0,140.2538",
+      "Rotation": "0,0.9128343,0,0.4083302",
+      "Tags": "light_spot,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SpotLight",
+          "__guid": "b655af12-f3ad-4257-8ab1-d7795faf20dd",
+          "Attenuation": 1,
+          "ConeInner": 15,
+          "ConeOuter": 45,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Radius": 500,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "__guid": "b018eb4e-c9fb-460a-b298-6c222c6d2a56",
+      "Flags": 0,
+      "Name": "Spot Light (1)",
+      "Position": "88.0249,0,140.2538",
+      "Rotation": "0,0.7071068,0,0.7071068",
+      "Tags": "light_spot,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SpotLight",
+          "__guid": "d2cfc5a8-1b79-4a81-96cd-ecc5f579e859",
+          "Attenuation": 1,
+          "ConeInner": 15,
+          "ConeOuter": 45,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Radius": 500,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "__guid": "6e777993-46c3-4b55-a70b-fa48a4e1dc9a",
+      "Flags": 0,
+      "Name": "Spot Light",
+      "Position": "-7.049666,0,140.2538",
+      "Rotation": "0,0.7071068,0,0.7071068",
+      "Tags": "light_spot,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SpotLight",
+          "__guid": "065c1d0c-ed78-42fb-9318-2fcad7e8bd83",
+          "Attenuation": 1,
+          "ConeInner": 15,
+          "ConeOuter": 45,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Radius": 500,
+          "Shadows": true
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "NetworkInterpolation": true,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "garage",
+  "Description": "",
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

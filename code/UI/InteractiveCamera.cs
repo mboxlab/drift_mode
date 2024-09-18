@@ -5,6 +5,7 @@ namespace DM.UI;
 public sealed class InteractiveCamera : Component
 {
 	private Rotation TargetRotation;
+	private Rotation _lerpedRotation;
 
 	protected override void OnStart()
 	{
@@ -16,7 +17,7 @@ public sealed class InteractiveCamera : Component
 		base.OnUpdate();
 
 		Mouse.Visible = true;
-
-		Transform.Rotation = Rotation.Lerp( TargetRotation, Scene.Camera.ScreenPixelToRay( Mouse.Position ).Forward.EulerAngles, 0.02f );
+		_lerpedRotation = Rotation.Lerp( _lerpedRotation, Scene.Camera.ScreenPixelToRay( Mouse.Position ).Forward.EulerAngles, 0.15f );
+		Transform.Rotation = Rotation.Lerp( TargetRotation, _lerpedRotation, 0.08f );
 	}
 }

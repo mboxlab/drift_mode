@@ -1,10 +1,11 @@
 {
-  "__guid": "b8283389-6160-46d3-a2f7-884d6f6ab99e",
+  "__guid": "2d735ca9-9096-4964-9346-7c7305bfcda1",
   "GameObjects": [
     {
       "__guid": "0968cdba-3c09-4c14-a44a-e619e292a78b",
       "Flags": 0,
       "Name": "sm_bld_repairshop_large_01",
+      "Rotation": "0,0,0.008726535,0.9999619",
       "Enabled": true,
       "Components": [
         {
@@ -27,8 +28,8 @@
       "__guid": "328c3218-21d4-4cbf-b967-0d6a1fce8199",
       "Flags": 0,
       "Name": "Camera",
-      "Position": "138.4064,122.718,85.64766",
-      "Rotation": "-0.1166974,-0.05434494,0.8989791,-0.4186466",
+      "Position": "167.0613,104.5462,91.91659",
+      "Rotation": "-0.09312487,-0.04336742,0.9017258,-0.4199257",
       "Enabled": true,
       "Components": [
         {
@@ -99,6 +100,14 @@
         {
           "__type": "DM.UI.InteractiveCamera",
           "__guid": "0f1b9ade-48bb-4ea8-9107-338d504b946f"
+        },
+        {
+          "__type": "Sandbox.AmbientOcclusion",
+          "__guid": "b76b12f6-9ee9-41ee-b104-36c59aebf929",
+          "FalloffDistance": 1,
+          "Intensity": 12,
+          "Quality": "High",
+          "Radius": 32
         }
       ]
     },
@@ -170,121 +179,6 @@
               "prefab": "prefabs/cars/sport.prefab"
             }
           ]
-        }
-      ]
-    },
-    {
-      "__guid": "33c676cf-3b57-498a-a0af-766dd0260d23",
-      "Flags": 0,
-      "Name": "Spot Light (2)",
-      "Position": "175.1708,0,140.2538",
-      "Rotation": "0,0.9128343,0,0.4083302",
-      "Tags": "light_spot,light",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.SpotLight",
-          "__guid": "b655af12-f3ad-4257-8ab1-d7795faf20dd",
-          "Attenuation": 1,
-          "ConeInner": 15,
-          "ConeOuter": 45,
-          "FogMode": "Enabled",
-          "FogStrength": 1,
-          "LightColor": "0.91373,0.98039,1,1",
-          "Radius": 500,
-          "Shadows": true
-        }
-      ]
-    },
-    {
-      "__guid": "d1a53d06-13c2-41cc-a0b3-f2b2962407bb",
-      "Flags": 0,
-      "Name": "Spot Light (3)",
-      "Position": "-69.78725,-72.57204,329.0674",
-      "Rotation": "0,0.7071068,0,0.7071068",
-      "Tags": "light_spot,light",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.SpotLight",
-          "__guid": "32a91113-1782-474a-9487-8f3c007289d8",
-          "Attenuation": 0.16,
-          "ConeInner": 74.48,
-          "ConeOuter": 86.99,
-          "FogMode": "Disabled",
-          "FogStrength": 1,
-          "LightColor": "0.91373,0.98039,1,1",
-          "Radius": 500,
-          "Shadows": true
-        }
-      ]
-    },
-    {
-      "__guid": "b018eb4e-c9fb-460a-b298-6c222c6d2a56",
-      "Flags": 0,
-      "Name": "Spot Light (1)",
-      "Position": "79.38146,92.26694,101.7252",
-      "Rotation": "-0.3483186,0.9097735,0.080736,0.2108743",
-      "Tags": "light_spot,light",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.SpotLight",
-          "__guid": "d2cfc5a8-1b79-4a81-96cd-ecc5f579e859",
-          "Attenuation": 0.51,
-          "ConeInner": 28.7,
-          "ConeOuter": 53.93,
-          "FogMode": "Enabled",
-          "FogStrength": 1,
-          "LightColor": "0.91373,0.98039,1,1",
-          "Radius": 500,
-          "Shadows": true
-        }
-      ]
-    },
-    {
-      "__guid": "83f04dc2-61a1-437f-8b3e-04bf54297153",
-      "Flags": 0,
-      "Name": "Spot Light (4)",
-      "Position": "61.59152,-376.842,147.2815",
-      "Rotation": "0,0.7071068,0,0.7071068",
-      "Tags": "light_spot,light",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.SpotLight",
-          "__guid": "9e5d6b66-de17-42a9-9574-a26c378651c2",
-          "Attenuation": 1,
-          "ConeInner": 28.25,
-          "ConeOuter": 35.62,
-          "FogMode": "Enabled",
-          "FogStrength": 1,
-          "LightColor": "0.91373,0.98039,1,1",
-          "Radius": 500,
-          "Shadows": true
-        }
-      ]
-    },
-    {
-      "__guid": "6e777993-46c3-4b55-a70b-fa48a4e1dc9a",
-      "Flags": 0,
-      "Name": "Spot Light",
-      "Position": "-7.049666,0,140.2538",
-      "Rotation": "0,0.7071068,0,0.7071068",
-      "Tags": "light_spot,light",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.SpotLight",
-          "__guid": "065c1d0c-ed78-42fb-9318-2fcad7e8bd83",
-          "Attenuation": 1,
-          "ConeInner": 15,
-          "ConeOuter": 45,
-          "FogMode": "Enabled",
-          "FogStrength": 1,
-          "LightColor": "0.91373,0.98039,1,1",
-          "Radius": 500,
-          "Shadows": true
         }
       ]
     },
@@ -448,30 +342,6 @@
       ]
     },
     {
-      "__guid": "e9d7e3ce-0bd1-446f-a557-15f147b0616a",
-      "Flags": 0,
-      "Name": "sm_prop_shelves_tall_01",
-      "Position": "-143.7979,-434.9335,24.11731",
-      "Rotation": "0,0,0.7071067,0.7071068",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "269dbfcd-041f-43c0-8678-460e23c99a21",
-          "BodyGroups": 18446744073709551615,
-          "Model": "models/map/props/sm_prop_shelves_tall_01.vmdl",
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        }
-      ]
-    },
-    {
       "__guid": "baac8998-6e86-4a10-a7eb-d0764705c89a",
       "Flags": 0,
       "Name": "sm_prop_screwtray_01",
@@ -523,7 +393,7 @@
       "__guid": "38c31770-bfb5-4525-8aa2-ef4dbd248182",
       "Flags": 0,
       "Name": "sm_prop_enginerusted_01",
-      "Position": "-216.7224,-431.3012,25.11874",
+      "Position": "-209.7236,-430.9198,25.11874",
       "Rotation": "0,0,0.1978187,0.9802386",
       "Enabled": true,
       "Components": [
@@ -732,6 +602,283 @@
           },
           "RenderType": "On",
           "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "32cef87c-bfaf-4698-bd3f-d5879187d7f8",
+      "Flags": 0,
+      "Name": "sm_prop_shelves_tall_01 (1)",
+      "Position": "-280.6467,-259.381,24.11732",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "f0a1c915-eed9-44bf-b550-4f33649d80c7",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/map/props/sm_prop_shelves_tall_01.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "b090647f-938d-4b31-a7a1-b0e679f02167",
+      "Flags": 0,
+      "Name": "sm_prop_shelves_tall_01 (2)",
+      "Position": "-144.6457,-431.8913,24.11732",
+      "Rotation": "0,0,0.7071068,0.7071068",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "dfcec435-2642-4e20-b97f-d1728ed999d4",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/map/props/sm_prop_shelves_tall_01.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "2877656f-894d-4b4d-b31c-ce7abce382e9",
+      "Flags": 0,
+      "Name": "sm_prop_shelves_tall_01",
+      "Position": "-280.6467,-366.591,24.11732",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "77a0f128-31dc-49c5-94bb-27a9553bc455",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/map/props/sm_prop_shelves_tall_01.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "a527ce21-b203-44e7-b127-99f4a4f708f4",
+      "Flags": 0,
+      "Name": "Spot Light (7)",
+      "Position": "219.8924,223.741,209.2838",
+      "Rotation": "0.3904485,0.161729,-0.8373191,0.3468289",
+      "Tags": "light_spot,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SpotLight",
+          "__guid": "67ae6c75-c0bc-4f57-a998-febcfd70cb1f",
+          "Attenuation": 1,
+          "ConeInner": 37.31,
+          "ConeOuter": 45,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Radius": 1024,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "__guid": "589146bc-9d1f-48e9-a8c0-9706343c67b5",
+      "Flags": 0,
+      "Name": "Spot Light (4)",
+      "Position": "219.8924,-402.1592,209.2838",
+      "Rotation": "-0.3904484,0.1617291,0.8373192,0.346829",
+      "Tags": "light_spot,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SpotLight",
+          "__guid": "a041f4db-4492-46aa-a61d-cc6216d47140",
+          "Attenuation": 1,
+          "ConeInner": 37.31,
+          "ConeOuter": 45,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Radius": 1024,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "__guid": "1093e70a-eb40-49be-993c-5481e9165f02",
+      "Flags": 0,
+      "Name": "Spot Light (1)",
+      "Position": "219.8924,-202,209.2838",
+      "Rotation": "-0.4226183,0.00000001847323,0.9063078,-0.00000003961598",
+      "Tags": "light_spot,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SpotLight",
+          "__guid": "c5b22b2d-a4e1-4725-abf2-2844e95c3995",
+          "Attenuation": 1,
+          "ConeInner": 37.31,
+          "ConeOuter": 45,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Radius": 1024,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "__guid": "f547a42f-c375-4c16-a79f-196be9374437",
+      "Flags": 0,
+      "Name": "Spot Light (2)",
+      "Position": "-279.0316,19.5,209.2838",
+      "Rotation": "0.00000004721246,0.4226184,-0.00000002201554,0.9063077",
+      "Tags": "light_spot,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SpotLight",
+          "__guid": "7c0e6d43-b7cf-4305-b791-88f51c7babf8",
+          "Attenuation": 1,
+          "ConeInner": 37.31,
+          "ConeOuter": 45,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Radius": 1024,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "__guid": "2be60423-5c58-4092-8aa3-144c281f9051",
+      "Flags": 0,
+      "Name": "Spot Light (3)",
+      "Position": "-279.0316,-202,209.2838",
+      "Rotation": "0.00000004721248,0.4226184,-0.00000002201555,0.9063078",
+      "Tags": "light,light_spot",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SpotLight",
+          "__guid": "c7d5e2ee-86d9-4377-a054-d9b9db9d4637",
+          "Attenuation": 1,
+          "ConeInner": 37.31,
+          "ConeOuter": 45,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Radius": 1024,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "__guid": "0ddd2119-d26e-4f46-93ef-cee9cd472cbc",
+      "Flags": 0,
+      "Name": "Spot Light",
+      "Position": "219.8924,19.5,209.2838",
+      "Rotation": "-0.4226183,0.00000001847323,0.9063079,-0.00000003961598",
+      "Tags": "light_spot,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SpotLight",
+          "__guid": "ab8d2af8-dd38-49df-9089-a467d722345d",
+          "Attenuation": 1,
+          "ConeInner": 37.31,
+          "ConeOuter": 45,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Radius": 1024,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "__guid": "6f9093de-4d06-4567-9a31-c88019e9890d",
+      "Flags": 0,
+      "Name": "Spot Light (6)",
+      "Position": "-279.032,223.741,209.2838",
+      "Rotation": "0.1617292,0.3904484,-0.3468291,0.8373191",
+      "Tags": "light_spot,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SpotLight",
+          "__guid": "b1e4d6b3-7017-4498-b420-2455dddbf930",
+          "Attenuation": 1,
+          "ConeInner": 37.31,
+          "ConeOuter": 45,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Radius": 1024,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "__guid": "0473e3cf-17d6-4cd0-88b8-d2008bf3b26c",
+      "Flags": 0,
+      "Name": "Spot Light (5)",
+      "Position": "-279.032,-402.1592,209.2838",
+      "Rotation": "-0.161729,0.3904485,0.346829,0.8373191",
+      "Tags": "light_spot,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SpotLight",
+          "__guid": "99e4640b-9c86-4c67-bbf9-dbb41b97a363",
+          "Attenuation": 1,
+          "ConeInner": 37.31,
+          "ConeOuter": 45,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Radius": 1024,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "__guid": "46884b18-09bb-49d7-8f07-a92c934cc8f3",
+      "Flags": 0,
+      "Name": "Spot Light (8)",
+      "Position": "161.8136,85.48184,211.9294",
+      "Rotation": "-0.408218,-0.1093816,0.875426,-0.2345697",
+      "Tags": "light_spot,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SpotLight",
+          "__guid": "b6de8d61-7e46-4d88-baea-e026088ae7b3",
+          "Attenuation": 1,
+          "ConeInner": 24,
+          "ConeOuter": 32,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.29804,0.27451,1,1",
+          "Radius": 1024,
+          "Shadows": true
         }
       ]
     }

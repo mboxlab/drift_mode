@@ -164,6 +164,7 @@
         {
           "__type": "DM.Car.CarSelector",
           "__guid": "09195db0-f369-4da4-b3e2-55ec1f73122a",
+          "car": 0,
           "Cars": [
             {
               "_type": "gameobject",

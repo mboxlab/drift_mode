@@ -18,7 +18,7 @@ public abstract class BaseGearbox : Component
 			CalcRatio();
 		}
 	}
-	[Property] public Engine Engine { get; set; }
+	[Property] public EngineICE Engine { get; set; }
 	[Property] public Clutch Clutch { get; set; }
 	[Property] public List<Differential> Axles { get; set; }
 	[Property] public float[] Ratios { get; set; }

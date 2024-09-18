@@ -11,7 +11,7 @@ public class Clutch : Component
 	[Property, ReadOnly] public float Torque { get; set; } = 0;
 	[Property] public float Stiffness { get; set; } = 1;
 	[Property] public float Damping { get; set; } = 1;
-	[Property] public Engine Engine { get; set; }
+	[Property] public EngineICE Engine { get; set; }
 	[Property] public BaseGearbox Gearbox { get; set; }
 	[Property] public bool Clutching { get => clutching; }
 	internal void Think()
@@ -23,12 +23,11 @@ public class Clutch : Component
 
 		int gearboxRatioNotZero = Gearbox.Ratio != 0 ? 1 : 0;
 
-		float slip = ((engineRPM - gearboxRPM) * Engine.RPM_TO_RAD) * gearboxRatioNotZero;
+		float slip = ((engineRPM - gearboxRPM) * EngineICE.RPM_TO_RAD) * gearboxRatioNotZero;
 
 		float tslip = (Engine.Torque) * gearboxRatioNotZero;
 
-
-		TargetTorque = (slip * Stiffness) * (1 - (Clutching ? 1 : 0));
+		TargetTorque = (tslip + slip * Stiffness) * (1 - (Clutching ? 1 : 0));
 
 		Torque = MathX.Lerp( Torque, TargetTorque, Damping );
 

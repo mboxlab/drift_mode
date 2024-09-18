@@ -1,5 +1,5 @@
 
-using System;
+using DM.Engine;
 
 namespace DM.Car;
 
@@ -8,9 +8,8 @@ public sealed class Car : Component
 {
 	[RequireComponent] public Rigidbody Rigidbody { get; set; }
 	[RequireComponent] public CameraController CameraController { get; set; }
-
-	[Property, Group( "Vehicle" )] public float MotorTorque { get; set; } = 1000f;
 	[Property, Group( "Vehicle" )] public float BrakeTorque { get; set; } = 3000f;
+	[Property, Group( "Components" )] public EngineICE Engine { get; set; }
 
 	/// <summary>
 	/// The player's nametag
@@ -31,7 +30,6 @@ public sealed class Car : Component
 			Nametag.GameObject.Enabled = IsProxy;
 		}
 		CharacterName = Connection.Local.DisplayName;
-
 		_wheels = Components.GetAll<Wheel>( FindMode.EverythingInSelfAndDescendants ).ToList();
 	}
 
@@ -55,6 +53,8 @@ public sealed class Car : Component
 
 		base.OnUpdate();
 
+		Engine.InputThrottle = Input.AnalogMove.x;
+
 		if ( Game.IsEditor )
 		{
 			if ( Input.Pressed( "devcam" ) )
@@ -74,7 +74,6 @@ public sealed class Car : Component
 				Transform.Rotation = Transform.Rotation.Angles().WithRoll( 0 ).ToRotation();
 			}
 		}
-		CameraController.UpdateFromPlayer();
 	}
 	void DoFlyMode()
 	{

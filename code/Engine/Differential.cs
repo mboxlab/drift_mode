@@ -36,7 +36,7 @@ public class Differential : Component
 		lwav = LeftWheel.AngularVelocity;
 		rwav = LeftWheel.AngularVelocity;
 
-		AverageRPM = (lwav + rwav) / 2 * Engine.RAD_TO_RPM * FinalDrive;
+		AverageRPM = (lwav + rwav) / 2 * EngineICE.RAD_TO_RPM * FinalDrive;
 	}
 
 }

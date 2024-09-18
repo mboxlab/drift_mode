@@ -30,7 +30,7 @@ public class WheelManager : Component
 	}
 	private static void SetupPreset( Wheel wheel )
 	{
-		Enum.TryParse( wheel.groundHit.Surface.ResourceName, true, out FrictionPreset.PresetsEnum presetName );
+		Enum.TryParse( wheel.groundHit.Surface?.ResourceName, true, out FrictionPreset.PresetsEnum presetName );
 		var newPreset = FrictionPreset.Presets[presetName];
 		if ( newPreset is not null )
 			wheel.FrictionPreset = FrictionPreset.Presets[presetName];

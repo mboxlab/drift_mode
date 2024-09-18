@@ -42,13 +42,13 @@ public sealed class CameraController : Component
 			var prefab = ResourceLibrary.Get<PrefabFile>( "prefabs/camera.prefab" );
 			SceneUtility.GetPrefabScene( prefab ).Clone( position: CameraTarget.Transform.Position, rotation: CameraTarget.Transform.Rotation );
 		}
+		else Enabled = false;
 	}
 
-	/// <summary>
-	/// Runs from <see cref="Car.OnUpdate"/>
-	/// </summary>
-	public void UpdateFromPlayer()
+	protected override void OnUpdate()
 	{
+		base.OnUpdate();
+
 		if ( Player.DevCam )
 		{
 			DoDevCam();

@@ -10,6 +10,8 @@ public partial class Wheel : Component
 
 	public GroundHit groundHit;
 	public bool IsGrounded => groundHit.Hit;
+	[Property]
+	public bool IsLeft;
 
 	private bool _lowSpeedReferenceIsSet;
 	private Vector3 _lowSpeedReferencePosition;
@@ -108,9 +110,14 @@ public partial class Wheel : Component
 	{
 		AxleAngle = AxleAngle % 360.0f + AngularVelocity.RadianToDegree() * Time.Delta;
 		Visual.Transform.LocalPosition = Visual.Transform.LocalPosition.WithZ( -Spring.Length );
-
-		var axleRotation = Rotation.FromAxis( Vector3.Right, -AxleAngle );
+		if ( !IsLeft )
+		{
+			var steerRotation = Rotation.FromAxis( Vector3.Up, SteerAngle );
+			transformRotation = Transform.Rotation.RotateAroundAxis( Vector3.Up, 180 ) * steerRotation;
+		}
+		var axleRotation = Rotation.FromAxis( Vector3.Right, -AxleAngle * (IsLeft ? 1 : -1) );
 		Visual.Transform.Rotation = transformRotation * axleRotation;
+
 	}
 
 	public void ApplyMotorTorque( float motorTorque )

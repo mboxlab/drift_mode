@@ -4,7 +4,7 @@ using AltCurves;
 
 namespace DM.Engine;
 [Category( "Vehicles" )]
-public partial class Engine : Component
+public partial class EngineICE : Component
 {
 
 	private float inertia;
@@ -25,7 +25,7 @@ public partial class Engine : Component
 	[Property] public float FrictionCoeff { get; set; } = 0.02f;
 	[Property] public float LimiterDuration { get; set; } = 0.03f;
 	[Property, ReadOnly] public float RPM { get; set; } = 0f;
-	[Property, Range( 0, 1 )] public float InputThrottle { get => Input.AnalogMove.x; }
+	[Property, Range( 0, 1 )] public float InputThrottle { get; set; }
 	[Property, ReadOnly] private float MasterThrottle { get; set; } = 0f;
 	[Property] public Clutch Clutch { get; set; }
 

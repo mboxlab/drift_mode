@@ -78,6 +78,12 @@
         "MaxRPM": 7000,
         "RPM": 0,
         "StartFriction": 0.05,
+        "Steering": {
+          "_type": "component",
+          "component_id": "8c5b0728-2c03-42eb-8006-df3c2a5fa171",
+          "go": "7ad25a1a-171f-4f43-af08-1e2d3803fe1d",
+          "component_type": "Steering"
+        },
         "Torque": 0,
         "TorqueMap": {
           "_ace_v": 1,

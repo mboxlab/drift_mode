@@ -2,16 +2,16 @@
   "__guid": "b8283389-6160-46d3-a2f7-884d6f6ab99e",
   "GameObjects": [
     {
-      "__guid": "340eaa9a-fdf9-43d3-a1d0-4d930d15304f",
+      "__guid": "0968cdba-3c09-4c14-a44a-e619e292a78b",
       "Flags": 0,
-      "Name": "garage",
+      "Name": "sm_bld_repairshop_large_01",
       "Enabled": true,
       "Components": [
         {
           "__type": "Sandbox.ModelRenderer",
-          "__guid": "d413e019-ba17-498e-8aba-254563b15f80",
+          "__guid": "9e03f5e7-cfaa-4973-a254-0bf177c4120f",
           "BodyGroups": 18446744073709551615,
-          "Model": "models/map/garage.vmdl",
+          "Model": "models/map/sm_bld_repairshop_large_01.vmdl",
           "RenderOptions": {
             "GameLayer": true,
             "OverlayLayer": false,
@@ -27,8 +27,8 @@
       "__guid": "328c3218-21d4-4cbf-b967-0d6a1fce8199",
       "Flags": 0,
       "Name": "Camera",
-      "Position": "147.0141,55.76822,92.13364",
-      "Rotation": "0.2131514,0.03758436,-0.9614639,0.1695321",
+      "Position": "138.4064,122.718,85.64766",
+      "Rotation": "-0.1166974,-0.05434494,0.8989791,-0.4186466",
       "Enabled": true,
       "Components": [
         {
@@ -36,7 +36,7 @@
           "__guid": "86276d75-537c-4eea-a16c-75e4cbdc43d9",
           "BackgroundColor": "0.33333,0.46275,0.52157,1",
           "ClearFlags": "All",
-          "FieldOfView": 100,
+          "FieldOfView": 90,
           "IsMainCamera": true,
           "Orthographic": false,
           "OrthographicHeight": 1204,
@@ -45,7 +45,7 @@
           "RenderTags": "",
           "TargetEye": "None",
           "Viewport": "0,0,1,1",
-          "ZFar": 621,
+          "ZFar": 1621,
           "ZNear": 10
         },
         {
@@ -105,8 +105,8 @@
       "Enabled": true,
       "Components": [
         {
-          "__type": "Sandbox.NetworkHelper",
-          "__guid": "e3837424-9369-41cf-9bd2-fad842a0dc5c",
+          "__type": "Sandbox.CarSpawner",
+          "__guid": "e84b9c23-b975-466f-be3c-cbc092a4f90d",
           "PlayerPrefab": {
             "_type": "gameobject",
             "prefab": "prefabs/cars/sport.prefab"
@@ -144,8 +144,7 @@
       "__guid": "1523ee22-fe52-4ac5-bb06-5bed208f0c92",
       "Flags": 0,
       "Name": "floor",
-      "Position": "0,0,16.25488",
-      "Scale": "4.3,2.3,1",
+      "Position": "0,0,24",
       "Enabled": true,
       "Components": [
         {
@@ -168,7 +167,7 @@
           "__guid": "a2c1e048-6ca5-4a49-a7e8-6ef51e5ea3ba",
           "Center": "0,0,0",
           "IsTrigger": false,
-          "Scale": "50,50",
+          "Scale": "663.6,1256.701",
           "Static": true,
           "Surface": "materials/ground/dirt/dirt.surface"
         }
@@ -178,7 +177,7 @@
       "__guid": "57154d5c-5938-4f86-9794-6ed227ab4ac0",
       "Flags": 0,
       "Name": "Spawnpoint",
-      "Position": "0,0,20",
+      "Position": "0,0,25",
       "Enabled": true,
       "Components": [
         {
@@ -212,20 +211,66 @@
       ]
     },
     {
-      "__guid": "b018eb4e-c9fb-460a-b298-6c222c6d2a56",
+      "__guid": "d1a53d06-13c2-41cc-a0b3-f2b2962407bb",
       "Flags": 0,
-      "Name": "Spot Light (1)",
-      "Position": "88.0249,0,140.2538",
+      "Name": "Spot Light (3)",
+      "Position": "-69.78725,-72.57204,329.0674",
       "Rotation": "0,0.7071068,0,0.7071068",
       "Tags": "light_spot,light",
       "Enabled": true,
       "Components": [
         {
           "__type": "Sandbox.SpotLight",
+          "__guid": "32a91113-1782-474a-9487-8f3c007289d8",
+          "Attenuation": 0.16,
+          "ConeInner": 74.48,
+          "ConeOuter": 86.99,
+          "FogMode": "Disabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Radius": 500,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "__guid": "b018eb4e-c9fb-460a-b298-6c222c6d2a56",
+      "Flags": 0,
+      "Name": "Spot Light (1)",
+      "Position": "79.38146,92.26694,101.7252",
+      "Rotation": "-0.3483186,0.9097735,0.080736,0.2108743",
+      "Tags": "light_spot,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SpotLight",
           "__guid": "d2cfc5a8-1b79-4a81-96cd-ecc5f579e859",
+          "Attenuation": 0.51,
+          "ConeInner": 28.7,
+          "ConeOuter": 53.93,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Radius": 500,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "__guid": "83f04dc2-61a1-437f-8b3e-04bf54297153",
+      "Flags": 0,
+      "Name": "Spot Light (4)",
+      "Position": "61.59152,-376.842,147.2815",
+      "Rotation": "0,0.7071068,0,0.7071068",
+      "Tags": "light_spot,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SpotLight",
+          "__guid": "9e5d6b66-de17-42a9-9574-a26c378651c2",
           "Attenuation": 1,
-          "ConeInner": 15,
-          "ConeOuter": 45,
+          "ConeInner": 28.25,
+          "ConeOuter": 35.62,
           "FogMode": "Enabled",
           "FogStrength": 1,
           "LightColor": "0.91373,0.98039,1,1",
@@ -254,6 +299,453 @@
           "LightColor": "0.91373,0.98039,1,1",
           "Radius": 500,
           "Shadows": true
+        }
+      ]
+    },
+    {
+      "__guid": "38fcbcfb-46c0-4357-b5d4-832d86bfe756",
+      "Flags": 0,
+      "Name": "sm_prop_mechaniclift_01",
+      "Position": "-98.59192,-285.4138,24.26154",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "d5258c21-7cf8-4dcb-b654-9fc64a17a575",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/map/props/sm_prop_mechaniclift_01.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "d085653e-f6a7-4a9d-8be0-67b284af52d2",
+      "Flags": 0,
+      "Name": "sm_prop_enginecrane_01",
+      "Position": "-182.5269,-177.7823,24.45125",
+      "Rotation": "0,0,-0.1305262,0.9914449",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "d89eaf04-10f0-4169-bf86-1fb3258d5505",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/map/props/sm_prop_enginecrane_01.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "a4417b3c-8343-4e78-8a84-45e51b4c91c0",
+      "Flags": 0,
+      "Name": "wheel01 (3)",
+      "Position": "-239.811,82.91164,33.20061",
+      "Rotation": "-0.8982412,0.2858953,0.04228181,0.3311177",
+      "Enabled": true,
+      "__Prefab": "prefabs/car parts/wheel01.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "cbe82677-ccdb-4e5f-b002-7fc6097e36ae",
+      "Flags": 0,
+      "Name": "wheel01 (2)",
+      "Position": "-243.9592,60.93031,45.16407",
+      "Rotation": "-0.6935643,0.09130948,-0.09327204,0.7084713",
+      "Enabled": true,
+      "__Prefab": "prefabs/car parts/wheel01.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "74fabfcd-0eb1-4f15-858b-1c238db1a1ce",
+      "Flags": 0,
+      "Name": "wheel01 (1)",
+      "Position": "-244.1645,60.16434,34.32911",
+      "Rotation": "-0.6800041,0.08952424,-0.09498684,0.7214966",
+      "Enabled": true,
+      "__Prefab": "prefabs/car parts/wheel01.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "776fe3fa-e74b-41cd-9742-b7dbc676fef6",
+      "Flags": 0,
+      "Name": "wheel01",
+      "Position": "-244.1645,62.18043,25.36796",
+      "Rotation": "-0.7071067,0,0,0.7071068",
+      "Enabled": true,
+      "__Prefab": "prefabs/car parts/wheel01.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "2038696f-39bd-4cb1-9a8e-55d66049cfb5",
+      "Flags": 0,
+      "Name": "sm_prop_workbench_01",
+      "Position": "-30.18459,-430.0643,24.00001",
+      "Rotation": "0,0,0.7071067,0.7071068",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "17104b43-5239-49b0-8d5d-43123d91635a",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/map/props/sm_prop_workbench_01.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "9eec50cb-0b0c-4cce-a880-d333f891fc5a",
+      "Flags": 0,
+      "Name": "sm_prop_worktable_01",
+      "Position": "80.57918,-431.8759,23.99998",
+      "Rotation": "0,0,0.7071067,0.7071068",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "6cb23cc1-141b-4542-b8f5-a64aad92d6e2",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/map/props/sm_prop_worktable_01.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "04c2d35a-e46d-44b2-bd63-501e789bd89c",
+      "Flags": 0,
+      "Name": "sm_prop_worktable_vice_01",
+      "Position": "112.168,-424.3521,60.87569",
+      "Rotation": "0,0,0.7071067,0.7071068",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "2eb86a29-ca83-4a90-af86-a904b604134b",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/map/props/sm_prop_worktable_vice_01.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "e9d7e3ce-0bd1-446f-a557-15f147b0616a",
+      "Flags": 0,
+      "Name": "sm_prop_shelves_tall_01",
+      "Position": "-143.7979,-434.9335,24.11731",
+      "Rotation": "0,0,0.7071067,0.7071068",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "269dbfcd-041f-43c0-8678-460e23c99a21",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/map/props/sm_prop_shelves_tall_01.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "baac8998-6e86-4a10-a7eb-d0764705c89a",
+      "Flags": 0,
+      "Name": "sm_prop_screwtray_01",
+      "Position": "63.92001,-448.6774,82.99067",
+      "Rotation": "0,0,0.7071067,0.7071068",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "5578f663-e5ce-40ed-9bf9-528a7bc29368",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/map/props/sm_prop_screwtray_01.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "aa43eac3-1052-45a1-87eb-32f1c3d56a55",
+      "Flags": 0,
+      "Name": "sm_prop_oilcan_02",
+      "Position": "-73.07279,-434.0777,64.28563",
+      "Rotation": "0,0,-0.2291441,0.9733925",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "6d3baf97-cf60-4394-a323-44df6a36d4ca",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/map/props/sm_prop_oilcan_02.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "38c31770-bfb5-4525-8aa2-ef4dbd248182",
+      "Flags": 0,
+      "Name": "sm_prop_enginerusted_01",
+      "Position": "-216.7224,-431.3012,25.11874",
+      "Rotation": "0,0,0.1978187,0.9802386",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "438f1634-1805-4051-b80e-2aa958fe053e",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/map/props/sm_prop_enginerusted_01.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "631660a9-5bb2-4efc-a3a2-7a8a76a63e98",
+      "Flags": 0,
+      "Name": "sm_prop_chair_01",
+      "Position": "111.5711,-378.2939,24.02419",
+      "Rotation": "0,0,-0.1393028,0.9902498",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "5cd16b80-d1ef-4ab0-9a0a-ba5fe42fc997",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/map/props/sm_prop_chair_01.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "a361b69a-f733-45a3-9df7-871d1a842b7b",
+      "Flags": 0,
+      "Name": "sm_prop_carjack_01",
+      "Position": "-242.4063,33.30347,24.01584",
+      "Rotation": "0,0,0.07613504,0.9970975",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "966769db-cf01-448c-985b-f910092a2e33",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/map/props/sm_prop_carjack_01.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "05c62256-15a8-4124-836b-65e6eaba4bb2",
+      "Flags": 0,
+      "Name": "sm_prop_carbattery_01",
+      "Position": "10.84332,-422.8608,63.87557",
+      "Rotation": "0,0,0.6976547,0.7164342",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "7fff21aa-6156-4869-b6bc-3f80c9204aa2",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/map/props/sm_prop_carbattery_01.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "8a00a8be-9989-42b5-9b52-0e1a21983351",
+      "Flags": 0,
+      "Name": "sm_prop_gascan_01",
+      "Position": "-76.62471,66.84155,23.39222",
+      "Rotation": "0,0,-0.258819,0.9659258",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "fe8747da-d1d2-436d-8e4a-393fb7c3021b",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/map/props/sm_prop_gascan_01.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "44ecdc1e-8769-4a38-9e6b-52fe4b2c4169",
+      "Flags": 0,
+      "Name": "sm_prop_fan_02",
+      "Position": "156.7089,-372.7058,24.01026",
+      "Rotation": "0,0,0.9497421,0.3130333",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "e32d86de-73cb-46cc-85bb-053874cf70df",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/map/props/sm_prop_fan_02.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "18120ff0-4dcd-4ebe-8f02-de0b9407b656",
+      "Flags": 0,
+      "Name": "sm_prop_socketset_01",
+      "Position": "-24.42523,-433.8839,64.30788",
+      "Rotation": "0,0,0.6778286,0.73522",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "f500d695-0a8f-4b45-8076-7ce34d975401",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/map/props/sm_prop_socketset_01.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "50069325-a50f-46f7-892c-33b6361b5ad1",
+      "Flags": 0,
+      "Name": "sm_prop_suspension_01",
+      "Position": "-48.23485,-220.6588,37.11582",
+      "Rotation": "0.138541,0,0,0.9903567",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "019df0b7-727a-4ece-826a-fe8790b9c42a",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/map/props/sm_prop_suspension_01.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "4f585200-43eb-43c7-99e2-37d75d7abf25",
+      "Flags": 0,
+      "Name": "sm_prop_barrel_pump_01",
+      "Position": "-262.5051,-45.92877,24.11494",
+      "Rotation": "0,0,-0.9750102,-0.2221602",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "9bfcde45-54ba-4fc0-b120-02c0b59e2490",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/map/props/sm_prop_barrel_pump_01.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
         }
       ]
     }

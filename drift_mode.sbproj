@@ -22,7 +22,7 @@
     "PerMapRanking": false,
     "LeaderboardType": "None",
     "CsProjName": "",
-    "StartupScene": "scenes/dev.scene",
+    "StartupScene": "scenes/garage.scene",
     "ControlModes": {},
     "InputSettings": {
       "Actions": [
@@ -227,7 +227,6 @@
       ],
       "__guid": "05b490fd-6a62-4f75-93a1-b988ce85d8af"
     },
-    "MapStartupScene": "scenes/dev.scene",
     "LaunchMode": "Normal"
   }
 }

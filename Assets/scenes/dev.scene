@@ -92,63 +92,6 @@
         }
       ],
       "Children": []
-    },
-    {
-      "__guid": "2e9778b3-a725-42f1-82c7-c4c3ecdb8fd4",
-      "Flags": 0,
-      "Name": "SkidManager",
-      "Position": "0,69.01833,55.03969",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "DM.Car.Skidmarks",
-          "__guid": "24dc1865-3411-4dc4-8b48-ebd4aca9cf59",
-          "ModelRenderer": {
-            "_type": "component",
-            "component_id": "ab40f8eb-ac9b-4ea6-80dd-18cf99f2db0d",
-            "go": "2e9778b3-a725-42f1-82c7-c4c3ecdb8fd4",
-            "component_type": "ModelRenderer"
-          },
-          "SkidmarksMaterial": "materials/ground/skid.vmat"
-        },
-        {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "ab40f8eb-ac9b-4ea6-80dd-18cf99f2db0d",
-          "BodyGroups": 18446744073709551615,
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        }
-      ]
-    },
-    {
-      "__guid": "b667bdcd-3b37-4332-9b81-785067ece018",
-      "Flags": 0,
-      "Name": "Terrain",
-      "Position": "278.2983,-1357.955,-4.200001",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.Terrain",
-          "__guid": "4dae1a8c-0f56-4fc3-970a-5531b621c80b",
-          "__version": 1,
-          "ClipMapLodExtentTexels": 256,
-          "ClipMapLodLevels": 6,
-          "DebugView": "None",
-          "EnableCollision": true,
-          "IsTrigger": false,
-          "RenderType": "Off",
-          "Static": true,
-          "Storage": "test.terrain",
-          "TerrainHeight": 10000,
-          "TerrainSize": 19968
-        }
-      ]
     }
   ],
   "SceneProperties": {

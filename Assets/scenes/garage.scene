@@ -103,29 +103,6 @@
       ]
     },
     {
-      "__guid": "8021f74e-34d9-4272-9406-27099e2bcd85",
-      "Flags": 0,
-      "Name": "Networking",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.CarSpawner",
-          "__guid": "e84b9c23-b975-466f-be3c-cbc092a4f90d",
-          "PlayerPrefab": {
-            "_type": "gameobject",
-            "prefab": "prefabs/cars/sport.prefab"
-          },
-          "SpawnPoints": [
-            {
-              "_type": "gameobject",
-              "go": "57154d5c-5938-4f86-9794-6ed227ab4ac0"
-            }
-          ],
-          "StartServer": true
-        }
-      ]
-    },
-    {
       "__guid": "fabb4040-997c-4a13-adcf-918158e958fe",
       "Flags": 0,
       "Name": "Sun",
@@ -180,14 +157,19 @@
     {
       "__guid": "57154d5c-5938-4f86-9794-6ed227ab4ac0",
       "Flags": 0,
-      "Name": "Spawnpoint",
+      "Name": "Car selector",
       "Position": "0,0,25",
       "Enabled": true,
       "Components": [
         {
-          "__type": "Sandbox.SpawnPoint",
-          "__guid": "db1d92e8-c84a-4b0b-89ec-ea057176a577",
-          "Color": "0.8902,0.31765,0.05098,1"
+          "__type": "DM.Car.CarSelector",
+          "__guid": "09195db0-f369-4da4-b3e2-55ec1f73122a",
+          "Cars": [
+            {
+              "_type": "gameobject",
+              "prefab": "prefabs/cars/sport.prefab"
+            }
+          ]
         }
       ]
     },

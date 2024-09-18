@@ -55,7 +55,7 @@ public sealed class CarSpawner : Component, Component.INetworkListener
 
 		// Spawn this object and make the client the owner
 		var player = PlayerPrefab.Clone( startLocation, name: $"Player - {channel.DisplayName}" );
-		player.NetworkSpawn( channel );
+
 		player.Components.Get<Rigidbody>().MotionEnabled = false;
 		player.Components.Get<Car>().Enabled = false;
 	}

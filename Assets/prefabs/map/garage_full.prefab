@@ -1,0 +1,645 @@
+{
+  "RootObject": {
+    "__guid": "38c31770-bfb5-4525-8aa2-ef4dbd248182",
+    "Flags": 0,
+    "Name": "garage_full",
+    "Enabled": true,
+    "Children": [
+      {
+        "__guid": "6d996394-5311-417d-84d6-fac1868bfdf7",
+        "Flags": 0,
+        "Name": "sm_prop_fan_02",
+        "Position": "156.7089,-372.7058,24.01026",
+        "Rotation": "0,0,0.9497421,0.3130333",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "f4ac21e9-b8fd-4774-8ab4-a87271789c61",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/map/props/sm_prop_fan_02.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "020923b5-5205-4d79-8790-cb4911496b1a",
+        "Flags": 0,
+        "Name": "sm_prop_gascan_01",
+        "Position": "-76.62471,66.84155,23.39222",
+        "Rotation": "0,0,-0.258819,0.9659258",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "e541b029-995f-4b31-a2c3-2de983674b96",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/map/props/sm_prop_gascan_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "de81c6a0-9aee-4e25-bfa5-13df0f8c41e6",
+        "Flags": 0,
+        "Name": "sm_prop_carbattery_01",
+        "Position": "10.84332,-422.8608,63.87557",
+        "Rotation": "0,0,0.6976547,0.7164342",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "37e75d44-c550-48f0-80c6-9ed4875d9863",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/map/props/sm_prop_carbattery_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "a15e19f2-e6a9-409f-9b42-6f7a32f0426c",
+        "Flags": 0,
+        "Name": "sm_prop_carjack_01",
+        "Position": "-242.4063,33.30347,24.01584",
+        "Rotation": "0,0,0.07613504,0.9970975",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "08d4719d-13c9-4056-b3ea-3075916ed188",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/map/props/sm_prop_carjack_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "58464386-8751-40c6-aca5-09db6405af1a",
+        "Flags": 0,
+        "Name": "sm_prop_chair_01",
+        "Position": "111.5711,-378.2939,24.02419",
+        "Rotation": "0,0,-0.1393028,0.9902498",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "21ad99de-7f83-416e-ace7-cbc0bee655ec",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/map/props/sm_prop_chair_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "2a757bdf-002f-41df-b8d7-37d994f719d5",
+        "Flags": 0,
+        "Name": "sm_prop_enginerusted_01",
+        "Position": "-209.7236,-430.9198,25.11874",
+        "Rotation": "0,0,0.1978187,0.9802386",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "39a0f15d-f6f6-494d-8ce9-222e899470f1",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/map/props/sm_prop_enginerusted_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "f6f9500b-b607-40d7-822d-0aba25d2ff8f",
+        "Flags": 0,
+        "Name": "sm_prop_oilcan_02",
+        "Position": "-73.07279,-434.0777,64.28563",
+        "Rotation": "0,0,-0.2291441,0.9733925",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "61d6ab7b-20c8-47ab-b292-baaf991a870b",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/map/props/sm_prop_oilcan_02.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "daa2e109-6d2c-4d87-bfe4-c0b8fb56f2e4",
+        "Flags": 0,
+        "Name": "sm_prop_screwtray_01",
+        "Position": "63.92001,-448.6774,82.99067",
+        "Rotation": "0,0,0.7071067,0.7071068",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "1c5aa37a-6546-412a-9110-f2fd2532842e",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/map/props/sm_prop_screwtray_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "bb74247d-c6a4-4872-a6f5-9b911c241ec2",
+        "Flags": 0,
+        "Name": "sm_prop_worktable_vice_01",
+        "Position": "112.168,-424.3521,60.87569",
+        "Rotation": "0,0,0.7071067,0.7071068",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "f2c6d3bd-28f4-499c-9f65-6724d93720b5",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/map/props/sm_prop_worktable_vice_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "6197aa16-6531-4871-a3c5-db0350353c3d",
+        "Flags": 0,
+        "Name": "sm_prop_worktable_01",
+        "Position": "80.57918,-431.8759,23.99998",
+        "Rotation": "0,0,0.7071067,0.7071068",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "92df759b-a6ed-41dc-b0ad-7bfd8685e0e2",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/map/props/sm_prop_worktable_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "90b089dd-104a-46fb-ac10-c5f45d3a6aec",
+        "Flags": 0,
+        "Name": "sm_prop_workbench_01",
+        "Position": "-30.18459,-430.0643,24.00001",
+        "Rotation": "0,0,0.7071067,0.7071068",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "a248184e-d200-45f1-9f6a-44b34740d34e",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/map/props/sm_prop_workbench_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "109d69c5-f51c-4961-9bcb-9caa68e25f76",
+        "Flags": 0,
+        "Name": "wheel01",
+        "Position": "-244.1645,62.18043,25.36796",
+        "Rotation": "-0.7071067,0,0,0.7071068",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "a3aa24a4-54b3-441f-93a8-05a60387ec47",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/carparts/wheels/sm_veh_attach_wheel_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          },
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "c89a9cda-644c-4e53-a0a0-2fb8f2dbc211",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/carparts/tyres/sm_veh_attach_tyre_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "d9662cd8-cd40-478c-9bfe-5052c7d2c8a2",
+        "Flags": 0,
+        "Name": "wheel01 (1)",
+        "Position": "-244.1645,60.16434,34.32911",
+        "Rotation": "-0.6800041,0.08952424,-0.09498684,0.7214966",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "ab1273c4-2e32-43bb-b81e-fec5f41e91b1",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/carparts/wheels/sm_veh_attach_wheel_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          },
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "179fcab9-6cf2-4b67-b75f-09e688a275d1",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/carparts/tyres/sm_veh_attach_tyre_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "028dab88-5cc3-4a7d-a8af-1dd7754a93b6",
+        "Flags": 0,
+        "Name": "wheel01 (2)",
+        "Position": "-243.9592,60.93031,45.16407",
+        "Rotation": "-0.6935643,0.09130948,-0.09327204,0.7084713",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "bdc8afe3-b9ba-48fb-bc2f-241c92726359",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/carparts/wheels/sm_veh_attach_wheel_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          },
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "8238afd0-4b70-47dd-b944-5b11c946ee21",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/carparts/tyres/sm_veh_attach_tyre_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "f109ad2d-b3b9-410c-9ed4-ea70d0ba611c",
+        "Flags": 0,
+        "Name": "wheel01 (3)",
+        "Position": "-239.811,82.91164,33.20061",
+        "Rotation": "-0.8982412,0.2858953,0.04228181,0.3311177",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "bee7ae5e-4d8b-43f6-99bc-19631b32afcf",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/carparts/wheels/sm_veh_attach_wheel_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          },
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "d10aa28c-2b51-442c-9898-bd4723dddccb",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/carparts/tyres/sm_veh_attach_tyre_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "2e93850c-d663-4c60-9a14-b8580742f85f",
+        "Flags": 0,
+        "Name": "sm_prop_enginecrane_01",
+        "Position": "-182.5269,-177.7823,24.45125",
+        "Rotation": "0,0,-0.1305262,0.9914449",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "82f4e1d7-c054-4ae9-aab7-c64e283ff797",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/map/props/sm_prop_enginecrane_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "af8ee728-29c5-498e-a117-6c44466afdc6",
+        "Flags": 0,
+        "Name": "sm_prop_mechaniclift_01",
+        "Position": "-98.59192,-285.4138,24.26154",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "96611fd4-2eee-4810-9600-4983a3930303",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/map/props/sm_prop_mechaniclift_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "84cd9d2a-634d-42d6-85f9-b6c485accf88",
+        "Flags": 0,
+        "Name": "sm_prop_socketset_01",
+        "Position": "-24.42523,-433.8839,64.30788",
+        "Rotation": "0,0,0.6778286,0.73522",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "d9556f0a-0f79-4295-aeb8-1190d7b24599",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/map/props/sm_prop_socketset_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "ce512a49-8ff7-4b38-9336-a84eff1a4fbc",
+        "Flags": 0,
+        "Name": "sm_prop_suspension_01",
+        "Position": "-48.23485,-220.6588,37.11582",
+        "Rotation": "0.138541,0,0,0.9903567",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "40755244-942f-4510-a66f-a2fbee60a13f",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/map/props/sm_prop_suspension_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "4bed660c-8974-483b-b81f-250336c31239",
+        "Flags": 0,
+        "Name": "sm_prop_barrel_pump_01",
+        "Position": "-262.5051,-45.92877,24.11494",
+        "Rotation": "0,0,-0.9750102,-0.2221602",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "741d2e7a-a57c-4a3a-b51d-24f81ea9e168",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/map/props/sm_prop_barrel_pump_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "9c13c8d0-5743-484f-82de-30638f27950e",
+        "Flags": 0,
+        "Name": "sm_prop_shelves_tall_01 (1)",
+        "Position": "-280.6467,-259.381,24.11732",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "2639553d-a50b-4570-8299-e4283247ed6a",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/map/props/sm_prop_shelves_tall_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "4b99fc70-4bc3-4a65-bc44-10999400eeab",
+        "Flags": 0,
+        "Name": "sm_prop_shelves_tall_01 (2)",
+        "Position": "-144.6457,-431.8913,24.11732",
+        "Rotation": "0,0,0.7071068,0.7071068",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "2d708f4c-a90a-4e44-883e-a60636bafb6a",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/map/props/sm_prop_shelves_tall_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "56cc2d86-f032-487f-9960-78de1d932649",
+        "Flags": 0,
+        "Name": "sm_prop_shelves_tall_01",
+        "Position": "-280.6467,-366.591,24.11732",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "30ec102a-ac54-4472-a030-52a3c79c95bf",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/map/props/sm_prop_shelves_tall_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "68df0617-0d7b-4355-b4e9-156610cfce24",
+        "Flags": 0,
+        "Name": "sm_bld_repairshop_large_01",
+        "Rotation": "0,0,0.008726535,0.9999619",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "e839f1c0-6009-4d64-abf3-0cdb189c9261",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/map/sm_bld_repairshop_large_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      }
+    ],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

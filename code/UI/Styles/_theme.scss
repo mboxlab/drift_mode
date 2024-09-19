@@ -61,17 +61,10 @@ label, text, .label {
     border-radius: 0px 2px 2px 0px;
     left: 0px;
     transition: all 0.1s;
-    border-image: url( /ui/Transparent center/panel-transparent-center-015.png ) 8 fill;
-    border-image-tint: rgba( white, 0.2 );
 
     label {
         font-size: 16px;
         text-shadow: 1px 1px 2px rgba( black, 0.75 );
-    }
-
-    &.active {
-        border-image: url( /ui/Transparent center/panel-transparent-center-010.png ) 8 fill;
-        border-image-tint: rgba( white, 0.2 );
     }
 
     &.with-icon {
@@ -95,9 +88,7 @@ label, text, .label {
 
     &:not( .inactive ) {
         &:hover {
-            border-image-tint: rgba( white, 0.4 );
             left: 8px;
-            sound-in: ui.button.over;
         }
     }
 }
@@ -116,10 +107,6 @@ label, text, .label {
     height: 40px;
     font-size: 16px;
 
-    &:not( .no-background ) {
-        border-image: url( /ui/Transparent center/panel-transparent-center-015.png ) 8 fill;
-        border-image-tint: rgba( white, 0.2 );
-    }
 }
 
 .column {

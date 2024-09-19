@@ -177,7 +177,19 @@
           "Cars": [
             {
               "_type": "gameobject",
+              "prefab": "prefabs/cars/sedan.prefab"
+            },
+            {
+              "_type": "gameobject",
               "prefab": "prefabs/cars/sport.prefab"
+            },
+            {
+              "_type": "gameobject",
+              "prefab": "prefabs/cars/exotic.prefab"
+            },
+            {
+              "_type": "gameobject",
+              "prefab": "prefabs/cars/muscle.prefab"
             }
           ]
         }
@@ -237,8 +249,36 @@
       "Position": "-239.811,82.91164,33.20061",
       "Rotation": "-0.8982412,0.2858953,0.04228181,0.3311177",
       "Enabled": true,
-      "__Prefab": "prefabs/car parts/wheel01.prefab",
-      "__PrefabVariables": {}
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "5e47296b-1643-44ac-80ed-2e749e632998",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/carparts/wheels/sm_veh_attach_wheel_01.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "fd62900b-cfa2-4c4a-adac-6b32529c25eb",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/carparts/tyres/sm_veh_attach_tyre_01.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
     },
     {
       "__guid": "cbe82677-ccdb-4e5f-b002-7fc6097e36ae",
@@ -247,8 +287,36 @@
       "Position": "-243.9592,60.93031,45.16407",
       "Rotation": "-0.6935643,0.09130948,-0.09327204,0.7084713",
       "Enabled": true,
-      "__Prefab": "prefabs/car parts/wheel01.prefab",
-      "__PrefabVariables": {}
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "950b810a-7efd-481b-a218-fc963af633be",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/carparts/wheels/sm_veh_attach_wheel_01.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "2c438b94-b12a-4890-a41e-af28875c420e",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/carparts/tyres/sm_veh_attach_tyre_01.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
     },
     {
       "__guid": "74fabfcd-0eb1-4f15-858b-1c238db1a1ce",
@@ -257,8 +325,36 @@
       "Position": "-244.1645,60.16434,34.32911",
       "Rotation": "-0.6800041,0.08952424,-0.09498684,0.7214966",
       "Enabled": true,
-      "__Prefab": "prefabs/car parts/wheel01.prefab",
-      "__PrefabVariables": {}
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "0370dae7-d74a-4aab-a83b-70efa195654b",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/carparts/wheels/sm_veh_attach_wheel_01.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "0215f14c-8859-43f7-bf23-04e4c58453f5",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/carparts/tyres/sm_veh_attach_tyre_01.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
     },
     {
       "__guid": "776fe3fa-e74b-41cd-9742-b7dbc676fef6",
@@ -267,8 +363,36 @@
       "Position": "-244.1645,62.18043,25.36796",
       "Rotation": "-0.7071067,0,0,0.7071068",
       "Enabled": true,
-      "__Prefab": "prefabs/car parts/wheel01.prefab",
-      "__PrefabVariables": {}
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "0f76047b-8538-4f55-a0a0-0e2077a1a59e",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/carparts/wheels/sm_veh_attach_wheel_01.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "f4bea32d-2617-46ad-bd91-53c73b002a47",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/carparts/tyres/sm_veh_attach_tyre_01.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
     },
     {
       "__guid": "2038696f-39bd-4cb1-9a8e-55d66049cfb5",
@@ -400,7 +524,7 @@
       "Components": [
         {
           "__type": "Sandbox.ModelRenderer",
-          "__guid": "438f1634-1805-4051-b80e-2aa958fe053e",
+          "__guid": "8a7ea4a1-c68e-4baa-839d-04b6b843e7d6",
           "BodyGroups": 18446744073709551615,
           "Model": "models/map/props/sm_prop_enginerusted_01.vmdl",
           "RenderOptions": {
@@ -880,6 +1004,27 @@
           "LightColor": "0.29804,0.27451,1,1",
           "Radius": 1024,
           "Shadows": true
+        }
+      ]
+    },
+    {
+      "__guid": "24aedbc2-fe79-46a9-a8c3-9710e0e086d4",
+      "Flags": 0,
+      "Name": "Screen",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ScreenPanel",
+          "__guid": "3ed725f7-b1e1-4f85-8684-95712d100377",
+          "AutoScreenScale": true,
+          "Opacity": 1,
+          "Scale": 1,
+          "ScaleStrategy": "ConsistentHeight",
+          "ZIndex": 100
+        },
+        {
+          "__type": "DM.UI.MainMenu",
+          "__guid": "825bdc94-3e2f-48cc-8b1d-3e3b8e2edf8c"
         }
       ]
     }

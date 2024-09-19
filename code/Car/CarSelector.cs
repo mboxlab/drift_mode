@@ -18,20 +18,21 @@ public sealed class CarSelector : Component
 		if ( Input.Pressed( "Left" ) )
 		{
 			car = (car + 1) % Cars.Count;
-			ChangeCar( Cars[car] );
+			if ( ActiveCar.IsValid() )
+			{
+				ChangeCar( Cars[car] );
+			}
 		}
 	}
 
 	private void ChangeCar( GameObject newCar )
 	{
 		ActiveCar?.Destroy();
-
 		GameObject car = newCar.Clone();
-		car.Name = "Car";
+		car.Name = newCar.Name;
 		car.Transform.Position = Transform.Position;
 		car.Components.Get<Rigidbody>().MotionEnabled = false;
 		car.Components.Get<Car>().Enabled = false;
 		ActiveCar = car;
 	}
-
 }

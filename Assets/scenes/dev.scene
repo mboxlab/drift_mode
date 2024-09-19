@@ -66,7 +66,7 @@
           "__guid": "642c0fe9-4f6f-4b26-9f07-cabf6b5516ac",
           "PlayerPrefab": {
             "_type": "gameobject",
-            "prefab": "prefabs/cars/sport.prefab"
+            "prefab": "prefabs/cars/muscle.prefab"
           },
           "SpawnPoints": [],
           "StartServer": true

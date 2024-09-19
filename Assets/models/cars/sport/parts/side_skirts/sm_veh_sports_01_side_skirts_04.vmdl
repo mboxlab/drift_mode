@@ -23,7 +23,7 @@
 				[
 					{
 						_class = "RenderMeshFile"
-						filename = "models/cars/sport/parts/side_srirts/sm_veh_sports_01_side_skirts_04.fbx"
+						filename = "models/cars/sport/parts/side_skirts/sm_veh_sports_01_side_skirts_04.fbx"
 						import_translation = [ 0.0, 0.0, 0.0 ]
 						import_rotation = [ 0.0, 0.0, 0.0 ]
 						import_scale = 1.0

@@ -47,7 +47,7 @@ public partial class Wheel
 	[Description( "Maximum load the tire is rated for in [N]. \r\nUsed to calculate friction.Default value is adequate for most cars but\r\nlarger and heavier vehicles such as semi trucks will use higher values.\r\nA good rule of the thumb is that this value should be 2x the Load\r\nwhile vehicle is stationary." )]
 	[Property] public float LoadRating { get; set; } = 5400;
 
-	[Property, Group( "Components" )]
+	[Property, Group( "Friction" )]
 	public FrictionPreset.PresetsEnum ActivePresetEnum
 	{
 		get => activePresetEnum;
@@ -57,10 +57,10 @@ public partial class Wheel
 			FrictionPreset.Apply( FrictionPreset.Presets[value] );
 		}
 	}
-	[Property, Group( "Components" )] public FrictionPreset FrictionPreset { get; set; } = FrictionPreset.Asphalt;
+	[Property, Group( "Friction" )] public FrictionPreset FrictionPreset { get; set; } = FrictionPreset.Asphalt;
 
-	public Friction ForwardFriction { get; set; } = new();
-	public Friction SideFriction { get; set; } = new();
+	[Property, Group( "Friction" )] public Friction ForwardFriction { get; set; } = new();
+	[Property, Group( "Friction" )] public Friction SideFriction { get; set; } = new();
 	[Property, Group( "Components" )] public Spring Spring { get; set; } = new();
 	[Property, Group( "Components" )] public Damper Damper { get; set; } = new();
 	[Property, Group( "Components" )] public Rigidbody Rigidbody { get; set; }

@@ -463,19 +463,19 @@ public partial class Wheel : Component
 		//	Collider visual
 		//	
 
-		var circlePosition = Visual.Transform.LocalPosition;
+		Gizmo.Transform = Transform.World;
 		Gizmo.Draw.LineThickness = 1.0f;
 		Gizmo.Draw.Color = Color.Yellow;
 		var offset = Vector3.Right * Width / 2;
-		Gizmo.Draw.LineCylinder( circlePosition - offset, circlePosition + offset, Radius, Radius, 16 );
+		Gizmo.Draw.LineCylinder( Vector3.Zero - offset, Vector3.Zero + offset, Radius, Radius, 16 );
 
 		for ( float i = 0; i < 16; i++ )
 		{
 
-			var pos = circlePosition + Vector3.Up.RotateAround( Vector3.Zero, new Angles( i / 16 * 360, 0, 0 ) ) * Radius;
+			var pos = Vector3.Zero + Vector3.Up.RotateAround( Vector3.Zero, new Angles( i / 16 * 360, 0, 0 ) ) * Radius;
 
 			Gizmo.Draw.Line( pos - offset, pos + offset );
-			var pos2 = circlePosition + Vector3.Up.RotateAround( Vector3.Zero, new Angles( (i + 1) / 16 * 360, 0, 0 ) ) * Radius;
+			var pos2 = Vector3.Zero + Vector3.Up.RotateAround( Vector3.Zero, new Angles( (i + 1) / 16 * 360, 0, 0 ) ) * Radius;
 			Gizmo.Draw.Line( pos - offset, pos2 + offset );
 		}
 
@@ -484,7 +484,7 @@ public partial class Wheel : Component
 			Vector3 localPoint = Transform.World.PointToLocal( groundHit.Point );
 			Gizmo.Draw.LineThickness = 3.0f;
 			Gizmo.Draw.Color = Color.Green;
-			Gizmo.Draw.Line( circlePosition, localPoint );
+			Gizmo.Draw.Line( Vector3.Zero, localPoint );
 			Gizmo.Draw.Color = Color.White;
 
 			Gizmo.Draw.Line( -localPoint, -localPoint + groundHit.Normal * Radius );

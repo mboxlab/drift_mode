@@ -203,7 +203,7 @@
             "__type": "Sandbox.ModelRenderer",
             "__guid": "8e4d9c6a-e979-4a95-9f16-a76b1e4be3de",
             "BodyGroups": 18446744073709551615,
-            "MaterialOverride": "models/cars/sport/materials/polygonstreetracer_veh_tex_05_race_grey.vmat",
+            "MaterialOverride": "materials/car/paint/polygonstreetracer_texture_01_a.vmat",
             "Model": "models/cars/sport/sm_veh_sports_01.vmdl",
             "RenderOptions": {
               "GameLayer": true,
@@ -299,10 +299,10 @@
                 "__type": "DM.Car.PartsList",
                 "__guid": "3a73e1dc-ed9a-4de8-88c7-31507414df0c",
                 "Parts": [
-                  "models/cars/sport/parts/side_srirts/sm_veh_sports_01_side_skirts_01.vmdl",
-                  "models/cars/sport/parts/side_srirts/sm_veh_sports_01_side_skirts_02.vmdl",
-                  "models/cars/sport/parts/side_srirts/sm_veh_sports_01_side_skirts_03.vmdl",
-                  "models/cars/sport/parts/side_srirts/sm_veh_sports_01_side_skirts_04.vmdl"
+                  "models/cars/sport/parts/side_skirts/sm_veh_sports_01_side_skirts_01.vmdl",
+                  "models/cars/sport/parts/side_skirts/sm_veh_sports_01_side_skirts_02.vmdl",
+                  "models/cars/sedan/parts/side_skirts/sm_veh_sedan_01_side_skirts_03.vmdl",
+                  "models/cars/sedan/parts/side_skirts/sm_veh_sedan_01_side_skirts_04.vmdl"
                 ]
               }
             ]
@@ -530,6 +530,9 @@
                   "FastRebound": 0.6,
                   "ReboundDivisionVelocity": 0.05
                 },
+                "ForwardFriction": {
+                  "Grip": 1
+                },
                 "FrictionPreset": {
                   "Stiffnes": 9,
                   "ShapeFactor": 2.15,
@@ -643,6 +646,9 @@
                 },
                 "RollingResistanceTorque": 30,
                 "RPM": 0,
+                "SideFriction": {
+                  "Grip": 1
+                },
                 "Spring": {
                   "ForceCurve": [
                     {},
@@ -732,6 +738,9 @@
                   "FastRebound": 0.6,
                   "ReboundDivisionVelocity": 0.05
                 },
+                "ForwardFriction": {
+                  "Grip": 1
+                },
                 "FrictionPreset": {
                   "Stiffnes": 9,
                   "ShapeFactor": 2.15,
@@ -845,6 +854,9 @@
                 },
                 "RollingResistanceTorque": 30,
                 "RPM": 0,
+                "SideFriction": {
+                  "Grip": 1
+                },
                 "Spring": {
                   "ForceCurve": [
                     {},
@@ -933,6 +945,9 @@
                   "FastRebound": 0.6,
                   "ReboundDivisionVelocity": 0.05
                 },
+                "ForwardFriction": {
+                  "Grip": 1
+                },
                 "FrictionPreset": {
                   "Stiffnes": 9,
                   "ShapeFactor": 2.15,
@@ -1046,6 +1061,9 @@
                 },
                 "RollingResistanceTorque": 30,
                 "RPM": 0,
+                "SideFriction": {
+                  "Grip": 1
+                },
                 "Spring": {
                   "ForceCurve": [
                     {},
@@ -1097,6 +1115,9 @@
                   "FastRebound": 0.6,
                   "ReboundDivisionVelocity": 0.05
                 },
+                "ForwardFriction": {
+                  "Grip": 1
+                },
                 "FrictionPreset": {
                   "Stiffnes": 9,
                   "ShapeFactor": 2.15,
@@ -1210,6 +1231,9 @@
                 },
                 "RollingResistanceTorque": 30,
                 "RPM": 0,
+                "SideFriction": {
+                  "Grip": 1
+                },
                 "Spring": {
                   "ForceCurve": [
                     {},

@@ -5,15 +5,13 @@ namespace DM.Engine;
 [Category( "Vehicles" )]
 public class Clutch : Component
 {
-	private bool clutching => Input.Down( "Clutch" );
-
 	[Property, ReadOnly] public float TargetTorque { get; set; } = 0;
 	[Property, ReadOnly] public float Torque { get; set; } = 0;
 	[Property] public float Stiffness { get; set; } = 1;
 	[Property] public float Damping { get; set; } = 1;
 	[Property] public EngineICE Engine { get; set; }
 	[Property] public BaseGearbox Gearbox { get; set; }
-	[Property, Sync] public bool Clutching { get => clutching; }
+	[Property, Sync] public bool Clutching { get; set; }
 	internal void Think()
 	{
 

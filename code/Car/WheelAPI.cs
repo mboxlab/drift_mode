@@ -7,7 +7,7 @@ public partial class Wheel
 {
 	private FrictionPreset.PresetsEnum activePresetEnum = FrictionPreset.PresetsEnum.Asphalt;
 
-	[Property] public float SteerAngle { get; set; }
+	[Property, Sync] public float SteerAngle { get; set; }
 	[Property] public WheelManager Manager { get; set; }
 	[Property] public float MotorTorque { get; set; }
 	[Property] public bool IsPower { get; set; }
@@ -23,7 +23,7 @@ public partial class Wheel
 	/// <summary>
 	/// Current angular velocity of the wheel in rad/s.
 	/// </summary>
-	[Property, ReadOnly] public float AngularVelocity { get; set; }
+	[Property, ReadOnly, Sync] public float AngularVelocity { get; set; }
 	public float PrevAngularVelocity { get; set; }
 
 	[Property, ReadOnly]
@@ -116,7 +116,7 @@ public partial class Wheel
 	///     Higher value will result in less vehicle squat/dive under acceleration/braking.
 	/// </summary>
 	[Property, Range( -1, 1 )] public float AntiSquat { get; set; }
-	[Property, Sync] public float AxleAngle { get; set; }
+	[Property, ReadOnly, Sync] public float AxleAngle { get; set; }
 
 	/// <summary>
 	/// Higher the number, higher the effect of longitudinal friction on lateral friction.

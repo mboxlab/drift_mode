@@ -37,16 +37,21 @@ public sealed class CameraController : Component
 
 	protected override void OnStart()
 	{
+		if ( IsProxy )
+			return;
+
 		if ( !(Scene?.Camera?.IsValid() ?? false) )
 		{
 			var prefab = ResourceLibrary.Get<PrefabFile>( "prefabs/camera.prefab" );
 			SceneUtility.GetPrefabScene( prefab ).Clone( position: CameraTarget.Transform.Position, rotation: CameraTarget.Transform.Rotation );
 		}
-		else Enabled = false;
 	}
 
 	protected override void OnUpdate()
 	{
+		if ( IsProxy )
+			return;
+
 		base.OnUpdate();
 
 		if ( Player.DevCam )
@@ -68,11 +73,11 @@ public sealed class CameraController : Component
 
 		float targetFov = Preferences.FieldOfView + Player.Rigidbody.Velocity.Length / VelocityFOVScale;
 
-		Vector3 startPos = Boom.Transform.Position.WithZ( Boom.Transform.Position.z + 10 );
-		SceneTraceResult trace = Scene.Trace
-			.Sphere( 8f, startPos, CameraTarget.Transform.Position )
-			.IgnoreGameObjectHierarchy( GameObject.Root )
-			.Run();
+		//Vector3 startPos = Boom.Transform.Position.WithZ( Boom.Transform.Position.z + 10 );
+		//SceneTraceResult trace = Scene.Trace
+		//	.Sphere( 8f, startPos, CameraTarget.Transform.Position )
+		//	.IgnoreGameObjectHierarchy( GameObject.Root )
+		//	.Run();
 		Scene.Camera.FieldOfView = Scene.Camera.FieldOfView.LerpTo( MathX.Clamp( targetFov, 10, 100 ), Time.Delta * 10 );
 		Scene.Camera.Transform.Rotation = CameraTarget.Transform.Rotation;
 

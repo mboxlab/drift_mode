@@ -27,7 +27,7 @@ public partial class EngineICE : Component
 	[Property] public float FrictionCoeff { get; set; } = 0.02f;
 	[Property] public float LimiterDuration { get; set; } = 0.03f;
 	[Property, ReadOnly] public float RPM { get; set; } = 0f;
-	[Property, Range( 0, 1 )] public float InputThrottle { get; set; }
+	[Property, Range( 0, 1 ), Sync] public float InputThrottle { get; set; }
 	[Property, ReadOnly] private float MasterThrottle { get; set; } = 0f;
 	[Property] public Clutch Clutch { get; set; }
 
@@ -54,8 +54,7 @@ public partial class EngineICE : Component
 	}
 	protected override void OnFixedUpdate()
 	{
-		if ( IsProxy )
-			return;
+
 		//float rpmFrac = Math.Clamp( RPM / MaxRPM, 0, 1 );
 		float friction = StartFriction - RPM * FrictionCoeff;
 
@@ -93,6 +92,8 @@ public partial class EngineICE : Component
 
 	private void ApplyBodyForce()
 	{
+		if ( IsProxy )
+			return;
 		float tiltForce = Torque / 2;
 		Body.ApplyImpulseAt( Body.PhysicsBody.MassCenter + Body.Transform.Rotation.Right * 39.37f, Body.Transform.Rotation.Up * tiltForce );
 		Body.ApplyImpulseAt( Body.PhysicsBody.MassCenter + Body.Transform.Rotation.Left * 39.37f, Body.Transform.Rotation.Down * tiltForce );

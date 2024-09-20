@@ -21,7 +21,7 @@ public sealed class Car : Component
 
 	private List<Wheel> _wheels;
 	public Angles EyeAngles { get; set; }
-	public bool IsBraking { get; set; }
+	[Sync] public bool IsBraking { get; set; }
 
 	protected override void OnEnabled()
 	{

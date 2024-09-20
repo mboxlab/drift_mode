@@ -22,7 +22,11 @@ public partial class Wheel : Component
 	private Vector3 FrictionForce;
 	private Vector3 SuspensionForce;
 
-
+	private Vector3 referenceError = 0;
+	private Vector3 correctiveForce = 0;
+	private Vector3 currentPosition = 0;
+	Vector3 localPosition = 0;
+	[Sync] private float SpringLength { get; set; }
 	private MultiRayCastGroundDetection GroundDetection { get; } = new();
 
 	protected override void OnEnabled()
@@ -37,7 +41,6 @@ public partial class Wheel : Component
 	private Rotation transformRotation;
 	protected override void OnFixedUpdate()
 	{
-
 		ApplyVisuals();
 		if ( IsProxy )
 			return;
@@ -46,6 +49,7 @@ public partial class Wheel : Component
 
 		PrevAngularVelocity = AngularVelocity;
 		Spring.PrevLength = Spring.Length;
+		
 		var steerRotation = Rotation.FromAxis( Vector3.Up, SteerAngle );
 		transformRotation = Transform.Rotation * steerRotation;
 
@@ -106,15 +110,22 @@ public partial class Wheel : Component
 			SideFriction.Speed = 0f;
 		}
 	}
+
 	private void ApplyVisuals()
 	{
-		AxleAngle = AxleAngle % 360.0f + AngularVelocity.RadianToDegree() * Time.Delta;
-		Visual.Transform.LocalPosition = Visual.Transform.LocalPosition.WithZ( -Spring.Length );
-		if ( !IsLeft )
+		if ( !IsProxy )
 		{
-			var steerRotation = Rotation.FromAxis( Vector3.Up, SteerAngle );
-			transformRotation = Transform.Rotation.RotateAroundAxis( Vector3.Up, 180 ) * steerRotation;
+			AxleAngle = AxleAngle % 360.0f + AngularVelocity.RadianToDegree() * Time.Delta;
+			SpringLength = -Spring.Length;
 		}
+
+		Visual.Transform.LocalPosition = Visual.Transform.LocalPosition.WithZ( SpringLength );
+		var steerRotation = Rotation.FromAxis( Vector3.Up, SteerAngle );
+		if ( !IsLeft )
+			transformRotation = Transform.Rotation.RotateAroundAxis( Vector3.Up, 180 ) * steerRotation;
+		else
+			transformRotation = Transform.Rotation * steerRotation;
+
 		var axleRotation = Rotation.FromAxis( Vector3.Right, -AxleAngle * (IsLeft ? 1 : -1) );
 		Visual.Transform.Rotation = transformRotation * axleRotation;
 
@@ -127,7 +138,6 @@ public partial class Wheel : Component
 
 	public void ApplyBrakeTorque( float brakeTorque ) => BrakeTorque = brakeTorque;
 
-	Vector3 localPosition = 0;
 	protected void UpdateSuspension()
 	{
 
@@ -187,9 +197,6 @@ public partial class Wheel : Component
 		}
 
 	}
-	private Vector3 referenceError = 0;
-	private Vector3 correctiveForce = 0;
-	private Vector3 currentPosition = 0;
 
 	protected void UpdateFriction()
 	{

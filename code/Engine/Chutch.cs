@@ -13,7 +13,7 @@ public class Clutch : Component
 	[Property] public float Damping { get; set; } = 1;
 	[Property] public EngineICE Engine { get; set; }
 	[Property] public BaseGearbox Gearbox { get; set; }
-	[Property] public bool Clutching { get => clutching; }
+	[Property, Sync] public bool Clutching { get => clutching; }
 	internal void Think()
 	{
 

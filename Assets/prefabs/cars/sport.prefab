@@ -43,7 +43,7 @@
         "__guid": "d9394def-1ad3-4a36-b0f0-a69361d079cb",
         "Center": "-1,0,30",
         "IsTrigger": false,
-        "Scale": "174,61.99998,40",
+        "Scale": "198.9001,61.99998,40",
         "Static": false
       },
       {
@@ -486,17 +486,20 @@
               "component_type": "Rigidbody"
             },
             "SteeringSmoothness": 5,
-            "Wheels": [
+            "WheelsComponent": [
               {
-                "_type": "gameobject",
-                "go": "8c9526f3-7634-43e5-812f-67d706b9022f"
+                "_type": "component",
+                "component_id": "94bffd70-88db-4df5-b211-cd0cd074b05b",
+                "go": "a67d5021-9e51-483f-a1b7-a628c5bb2909",
+                "component_type": "Wheel"
               },
               {
-                "_type": "gameobject",
-                "go": "a67d5021-9e51-483f-a1b7-a628c5bb2909"
+                "_type": "component",
+                "component_id": "d9bcb8c5-900a-4105-95f6-58a18758d894",
+                "go": "8c9526f3-7634-43e5-812f-67d706b9022f",
+                "component_type": "Wheel"
               }
-            ],
-            "WheelsComponent": []
+            ]
           }
         ],
         "Children": [

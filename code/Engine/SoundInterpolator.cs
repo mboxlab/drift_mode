@@ -15,13 +15,13 @@ public sealed class SoundInterpolator : Component
 	private float smoothValue = 0;
 	private float smoothVolume = 0;
 	private float realMaxValue = 0;
-	protected override void OnEnabled()
+	protected override void OnStart()
 	{
-		base.OnEnabled();
 		LoadSoundsAsync();
 	}
 	protected override void OnUpdate()
 	{
+
 		smoothValue = smoothValue * (1 - 0.2f) + Value * (realMaxValue / MaxValue) * 0.2f;
 		smoothVolume = smoothVolume * (1 - 0.1f) + Volume * 0.1f;
 

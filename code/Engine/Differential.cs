@@ -12,9 +12,9 @@ public class Differential : Component
 	[Property] public BaseGearbox Gearbox { get; set; }
 	[Property] public Wheel LeftWheel { get; set; }
 	[Property] public Wheel RightWheel { get; set; }
-	[Property, ReadOnly] public float LinearVelocity { get => GetVel(); }
+	[Property, ReadOnly] public float LinearVelocity { get => GetVelocity(); }
 
-	private float GetVel()
+	private float GetVelocity()
 	{
 		float lwav = LeftWheel.AngularVelocity;
 		float rwav = LeftWheel.AngularVelocity;
@@ -30,8 +30,11 @@ public class Differential : Component
 		float simmetric = Gearbox.Torque * DistributionCoeff * FinalDrive;
 		float _lock = (lwav - rwav) / 2 * inertia * Time.Delta;
 
-		LeftWheel.ApplyMotorTorque( simmetric );
-		RightWheel.ApplyMotorTorque( simmetric );
+		if ( !IsProxy )
+		{
+			LeftWheel.ApplyMotorTorque( simmetric );
+			RightWheel.ApplyMotorTorque( simmetric );
+		}
 
 		lwav = LeftWheel.AngularVelocity;
 		rwav = LeftWheel.AngularVelocity;

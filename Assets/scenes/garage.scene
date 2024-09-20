@@ -25,6 +25,14 @@
       ]
     },
     {
+      "__guid": "808995d9-c62a-4b13-a449-3714c9dc1164",
+      "Flags": 0,
+      "Name": "Camera Origin",
+      "Position": "167.0613,104.5462,91.91659",
+      "Rotation": "-0.09312487,-0.04336742,0.9017258,-0.4199257",
+      "Enabled": true
+    },
+    {
       "__guid": "328c3218-21d4-4cbf-b967-0d6a1fce8199",
       "Flags": 0,
       "Name": "Camera",
@@ -98,16 +106,53 @@
           "Scale": 0.2
         },
         {
-          "__type": "DM.UI.InteractiveCamera",
-          "__guid": "0f1b9ade-48bb-4ea8-9107-338d504b946f"
-        },
-        {
           "__type": "Sandbox.AmbientOcclusion",
           "__guid": "b76b12f6-9ee9-41ee-b104-36c59aebf929",
           "FalloffDistance": 1,
           "Intensity": 12,
           "Quality": "High",
           "Radius": 32
+        },
+        {
+          "__type": "DM.UI.InteractiveCamera",
+          "__guid": "0f1b9ade-48bb-4ea8-9107-338d504b946f",
+          "Origin": {
+            "_type": "gameobject",
+            "go": "808995d9-c62a-4b13-a449-3714c9dc1164"
+          }
+        }
+      ]
+    },
+    {
+      "__guid": "57154d5c-5938-4f86-9794-6ed227ab4ac0",
+      "Flags": 0,
+      "Name": "Car Selector",
+      "Position": "0,0,25",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "DM.Car.CarSelector",
+          "__guid": "09195db0-f369-4da4-b3e2-55ec1f73122a",
+          "ActiveCarBounds": {},
+          "car": 0,
+          "Cars": [
+            {
+              "_type": "gameobject",
+              "prefab": "prefabs/cars/sedan.prefab"
+            },
+            {
+              "_type": "gameobject",
+              "prefab": "prefabs/cars/sport.prefab"
+            },
+            {
+              "_type": "gameobject",
+              "prefab": "prefabs/cars/exotic.prefab"
+            },
+            {
+              "_type": "gameobject",
+              "prefab": "prefabs/cars/muscle.prefab"
+            }
+          ]
         }
       ]
     },
@@ -160,38 +205,6 @@
           "Scale": "663.6,1256.701",
           "Static": true,
           "Surface": "materials/ground/dirt/dirt.surface"
-        }
-      ]
-    },
-    {
-      "__guid": "57154d5c-5938-4f86-9794-6ed227ab4ac0",
-      "Flags": 0,
-      "Name": "Car selector",
-      "Position": "0,0,25",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "DM.Car.CarSelector",
-          "__guid": "09195db0-f369-4da4-b3e2-55ec1f73122a",
-          "car": 0,
-          "Cars": [
-            {
-              "_type": "gameobject",
-              "prefab": "prefabs/cars/sedan.prefab"
-            },
-            {
-              "_type": "gameobject",
-              "prefab": "prefabs/cars/sport.prefab"
-            },
-            {
-              "_type": "gameobject",
-              "prefab": "prefabs/cars/exotic.prefab"
-            },
-            {
-              "_type": "gameobject",
-              "prefab": "prefabs/cars/muscle.prefab"
-            }
-          ]
         }
       ]
     },
@@ -1025,6 +1038,32 @@
         {
           "__type": "DM.UI.MainMenu",
           "__guid": "825bdc94-3e2f-48cc-8b1d-3e3b8e2edf8c"
+        }
+      ]
+    },
+    {
+      "__guid": "5c6d5855-23f0-4af2-8e44-75805bfa5c31",
+      "Flags": 0,
+      "Name": "Poster",
+      "Position": "-291.397,-120.5464,104.047",
+      "Rotation": "-0.006170592,0.7070798,0.006170592,0.7070798",
+      "Scale": "0.97789,0.645622,0.645622",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "2b296f53-8a6c-435f-91f4-8e577cce6c47",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/poster.vmat",
+          "Model": "models/dev/plane.vmdl",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
         }
       ]
     }

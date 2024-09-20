@@ -33,7 +33,7 @@
           "GroupName": "Movement"
         },
         {
-          "Name": "Backward",
+          "Name": "Brake",
           "KeyboardCode": "S",
           "GamepadCode": "None",
           "GroupName": "Movement"
@@ -51,7 +51,7 @@
           "GroupName": "Movement"
         },
         {
-          "Name": "Brake",
+          "Name": "HandBrake",
           "KeyboardCode": "space",
           "GamepadCode": "A",
           "GroupName": "Movement"

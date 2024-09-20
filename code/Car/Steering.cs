@@ -26,7 +26,7 @@ public sealed class Steering : Component
 		SteerAngle = MathX.Lerp( MaxSteeringAngle, MinSteeringAngle, clamp * 0.04f ) * Input.AnalogMove.y;
 
 		foreach ( Wheel wheel in WheelsComponent )
-			wheel.SteerAngle = wheel.SteerAngle.LerpDegreesTo( SteerAngle + corr / 2, Time.Delta * SteeringSmoothness );
+			wheel.SteerAngle = wheel.SteerAngle.LerpDegreesTo( Math.Clamp( SteerAngle + corr / 2, -MaxSteeringAngle, MaxSteeringAngle ), Time.Delta * SteeringSmoothness );
 
 	}
 }

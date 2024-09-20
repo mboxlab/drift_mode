@@ -49,7 +49,7 @@ public partial class Wheel : Component
 
 		PrevAngularVelocity = AngularVelocity;
 		Spring.PrevLength = Spring.Length;
-		
+
 		var steerRotation = Rotation.FromAxis( Vector3.Up, SteerAngle );
 		transformRotation = Transform.Rotation * steerRotation;
 
@@ -202,10 +202,6 @@ public partial class Wheel : Component
 	{
 		var motorTorque = MotorTorque;
 		var brakeTorque = BrakeTorque;
-
-		CounterTorque = 0;
-		ForwardFriction.Force = 0;
-		SideFriction.Force = 0;
 
 		float allWheelLoadSum = Manager.CombinedLoad;
 
@@ -434,13 +430,12 @@ public partial class Wheel : Component
 		// Apply the forces
 		if ( IsGrounded )
 		{
-			FrictionForce.x = (hitSidewaysDirection.x * SideFriction.Force + hitForwardDirection.x * ForwardFriction.Force).MeterToInch();
-			FrictionForce.y = (hitSidewaysDirection.y * SideFriction.Force + hitForwardDirection.y * ForwardFriction.Force).MeterToInch();
-			FrictionForce.z = (hitSidewaysDirection.z * SideFriction.Force + hitForwardDirection.z * ForwardFriction.Force).MeterToInch();
+			FrictionForce.x = (hitSidewaysDirection.x * SideFriction.Force + hitForwardDirection.x * ForwardFriction.Force);
+			FrictionForce.y = (hitSidewaysDirection.y * SideFriction.Force + hitForwardDirection.y * ForwardFriction.Force);
+			FrictionForce.z = (hitSidewaysDirection.z * SideFriction.Force + hitForwardDirection.z * ForwardFriction.Force);
 			// Avoid adding calculated friction when using native friction
 			Vector3 forcePosition = groundHit.Point + transformRotation.Up * ForceApplicationPointDistance * Spring.MaxLength;
-			Rigidbody.ApplyForceAt( forcePosition, FrictionForce );
-
+			Rigidbody.ApplyImpulseAt( forcePosition, FrictionForce );
 		}
 		else
 		{

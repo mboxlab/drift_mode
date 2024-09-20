@@ -22,6 +22,7 @@ public sealed class Car : Component
 	private List<Wheel> _wheels;
 	public Angles EyeAngles { get; set; }
 	[Sync] public bool IsBraking { get; set; }
+	[Sync] public bool IsHandBraking { get; set; }
 
 	protected override void OnEnabled()
 	{
@@ -45,8 +46,16 @@ public sealed class Car : Component
 
 		IsBraking = Input.Down( "Brake" );
 
+		IsHandBraking = Input.Down( "HandBrake" );
 		foreach ( Wheel wheel in _wheels )
+		{
 			wheel.ApplyBrakeTorque( IsBraking ? BrakeTorque : 0f );
+			if ( IsHandBraking && wheel.IsPower )
+				wheel.ApplyBrakeTorque( 10000000f );
+		}
+
+		Engine.Clutch.Clutching = Input.Down( "Clutch" ) || IsHandBraking;
+
 
 		if ( FlyMode ) DoFlyMode();
 

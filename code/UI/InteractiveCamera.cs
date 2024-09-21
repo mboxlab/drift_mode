@@ -8,30 +8,38 @@ public sealed class InteractiveCamera : Component
 	public bool IsLooking = false;
 	public bool IsAnimated = false;
 
-	private CarSelector CarSelector;
+	[Property] private CarSelector CarSelector { get; set; }
 
 	private Vector3 LookPosition;
 	private Rotation LookRotation;
-
+	private Vector3 CarCenter;
+	private GameObject LookObject;
 	protected override void OnStart()
 	{
 		base.OnStart();
-
-		CarSelector = Scene.GetAllComponents<CarSelector>().First();
+		CarSelector.OnCarChanged += OnCarChanged;
 	}
 
+	void OnCarChanged( GameObject car )
+	{
+
+		LookObject = CarSelector.ActiveCar;
+		CarCenter = Vector3.Up * CarSelector.ActiveCarCenter.z / 1.5f;
+		if ( IsLooking )
+			LookObject.Components.Get<PartNameManager>().RenderNames = true;
+		else
+			LookObject.Components.Get<PartNameManager>().RenderNames = false;
+
+	}
 	protected override void OnUpdate()
 	{
 		base.OnUpdate();
-
-		GameObject car = CarSelector.ActiveCar;
-		Vector3 center = CarSelector.ActiveCarBounds.Center / 1.5f;
 
 		if ( IsLooking )
 		{
 			if ( IsAnimated )
 			{
-				LookPosition = car.Transform.Position + center + LookRotation.Backward * 230f;
+				LookPosition = LookObject.Transform.Position + CarCenter + LookRotation.Backward * 230f;
 
 				Transform.Position = Vector3.Lerp( Transform.Position, LookPosition, Time.Delta * 16f );
 				Transform.Rotation = Rotation.Lerp( Transform.Rotation, LookRotation, Time.Delta * 16f );
@@ -44,8 +52,9 @@ public sealed class InteractiveCamera : Component
 				if ( Input.Pressed( "GearUp" ) )
 				{
 					IsLooking = false;
+					LookObject.Components.Get<PartNameManager>().RenderNames = false;
 					IsAnimated = true;
-					LookRotation = (car.Transform.Position + center - Origin.Transform.Position).EulerAngles.ToRotation();
+					LookRotation = (LookObject.Transform.Position + CarCenter - Origin.Transform.Position).EulerAngles.ToRotation();
 					return;
 				}
 
@@ -61,7 +70,7 @@ public sealed class InteractiveCamera : Component
 				}
 
 				Transform.Rotation = Rotation.Lerp( Transform.Rotation, LookRotation, Time.Delta * 16f );
-				Transform.Position = car.Transform.Position + center + Transform.Rotation.Backward * 230f;
+				Transform.Position = LookObject.Transform.Position + CarCenter + Transform.Rotation.Backward * 230f;
 			}
 		}
 		else
@@ -74,6 +83,7 @@ public sealed class InteractiveCamera : Component
 				SceneTraceResult result = Scene.Trace.Ray( ray, 65536f ).WithTag( "car" ).Run();
 				if ( result.Hit && Input.Pressed( "GearUp" ) )
 				{
+					LookObject.Components.Get<PartNameManager>().RenderNames = true;
 					IsLooking = true;
 					IsAnimated = true;
 					return;
@@ -98,9 +108,7 @@ public sealed class InteractiveCamera : Component
 
 				float dot = Transform.Rotation.Forward.Dot( LookRotation.Forward );
 				if ( dot < 0.5f )
-				{
-					Transform.Position = car.Transform.Position + center + Transform.Rotation.Backward * 230f;
-				}
+					Transform.Position = LookObject.Transform.Position + CarCenter + Transform.Rotation.Backward * 230f;
 				else
 				{
 					Transform.Position = Vector3.Lerp( Transform.Position, LookPosition, Time.Delta * 11f );

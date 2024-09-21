@@ -1,0 +1,28 @@
+@using Sandbox;
+@using System;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root>
+	<div class="title" onclick=OnClick>@Name</div>
+</root>
+
+@code
+{
+
+	[Property] public string Name { get; set; }
+
+	protected override void OnUpdate()
+	{
+		base.OnUpdate();
+		Panel.Style.Opacity = MathF.Pow(Transform.Rotation.Forward.Dot(Scene.Camera.Transform.Rotation.Backward), 0.6f);
+	}
+	public void OnClick()
+	{
+		Log.Info("awdwad");
+	}
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine(Name);
+}

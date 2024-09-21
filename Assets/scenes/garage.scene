@@ -1,5 +1,5 @@
 {
-  "__guid": "2d735ca9-9096-4964-9346-7c7305bfcda1",
+  "__guid": "3ea55270-6622-4711-b0be-e29ae2fd6abe",
   "GameObjects": [
     {
       "__guid": "808995d9-c62a-4b13-a449-3714c9dc1164",
@@ -93,10 +93,22 @@
         {
           "__type": "DM.UI.InteractiveCamera",
           "__guid": "0f1b9ade-48bb-4ea8-9107-338d504b946f",
+          "CarSelector": {
+            "_type": "component",
+            "component_id": "09195db0-f369-4da4-b3e2-55ec1f73122a",
+            "go": "57154d5c-5938-4f86-9794-6ed227ab4ac0",
+            "component_type": "CarSelector"
+          },
           "Origin": {
             "_type": "gameobject",
             "go": "808995d9-c62a-4b13-a449-3714c9dc1164"
           }
+        },
+        {
+          "__type": "Sandbox.WorldInput",
+          "__guid": "b7f721a7-75d2-423d-9c68-0c003a6e2e7d",
+          "LeftMouseAction": "Attack1",
+          "RightMouseAction": "Attack2"
         }
       ]
     },
@@ -110,38 +122,28 @@
         {
           "__type": "DM.Car.CarSelector",
           "__guid": "09195db0-f369-4da4-b3e2-55ec1f73122a",
-          "ActiveCarBounds": {},
-          "car": 0,
           "Cars": [
             {
               "_type": "gameobject",
-              "prefab": "prefabs/cars/sedan.prefab"
+              "prefab": "prefabs/cars/in_garage/g_sport.prefab"
             },
             {
               "_type": "gameobject",
-              "prefab": "prefabs/cars/sport.prefab"
-            },
-            {
-              "_type": "gameobject",
-              "prefab": "prefabs/cars/exotic.prefab"
-            },
-            {
-              "_type": "gameobject",
-              "prefab": "prefabs/cars/muscle.prefab"
+              "prefab": "prefabs/cars/in_garage/g_sedan.prefab"
             }
           ]
         }
       ]
     },
     {
-      "__guid": "1173907a-038f-4fbd-9f85-a92c8e6a8549",
+      "__guid": "4e086460-8942-4695-a3d1-cc17ed11c63e",
       "Flags": 0,
       "Name": "Map",
       "Enabled": true,
       "Components": [
         {
           "__type": "Sandbox.MapInstance",
-          "__guid": "e418b800-6ca7-496b-9e51-411d51aed05a",
+          "__guid": "3fe32129-1f29-4ba5-91d2-597131d34213",
           "__version": 1,
           "EnableCollision": true,
           "MapName": "maps/garage.vmap",

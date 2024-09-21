@@ -99,16 +99,15 @@
             "go": "57154d5c-5938-4f86-9794-6ed227ab4ac0",
             "component_type": "CarSelector"
           },
+          "MouseVisible": true,
           "Origin": {
             "_type": "gameobject",
             "go": "808995d9-c62a-4b13-a449-3714c9dc1164"
           }
         },
         {
-          "__type": "Sandbox.WorldInput",
-          "__guid": "b7f721a7-75d2-423d-9c68-0c003a6e2e7d",
-          "LeftMouseAction": "Attack1",
-          "RightMouseAction": "Attack2"
+          "__type": "MouseWorldInput",
+          "__guid": "06f75ca2-24da-40cb-96cd-bc33a6df52ad"
         }
       ]
     },

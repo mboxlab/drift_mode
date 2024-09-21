@@ -5,7 +5,6 @@
     "Name": "g_sport",
     "Tags": "car",
     "Enabled": true,
-    "NetworkMode": 1,
     "Components": [
       {
         "__type": "Sandbox.BoxCollider",
@@ -150,7 +149,10 @@
                       {
                         "__type": "PartName",
                         "__guid": "a6009e54-9d3b-489b-a282-4cfa42bccca7",
-                        "Name": "Bonnet"
+                        "AngleClamp": 45,
+                        "Distance": 100,
+                        "Name": "Bonnet",
+                        "RotationClamp": "0.258819,-0.00000001131334,-0.9659258,-0.00000004222196"
                       }
                     ]
                   }
@@ -209,7 +211,10 @@
                       {
                         "__type": "PartName",
                         "__guid": "9db02ca0-80b0-4071-a9ce-927deea71f98",
-                        "Name": "Side skirts"
+                        "AngleClamp": 45,
+                        "Distance": 100,
+                        "Name": "Side skirts",
+                        "RotationClamp": "0,-0,-0.7071068,0.7071068"
                       }
                     ]
                   },
@@ -240,7 +245,10 @@
                       {
                         "__type": "PartName",
                         "__guid": "e59ea489-3f1e-41e5-b80e-5fa9539f278c",
-                        "Name": "Side skirts"
+                        "AngleClamp": 45,
+                        "Distance": 100,
+                        "Name": "Side skirts",
+                        "RotationClamp": "0,0,0.7071068,0.7071068"
                       }
                     ]
                   }
@@ -287,7 +295,7 @@
                         "LookAtCamera": true,
                         "PanelSize": "512,128",
                         "RenderOptions": {
-                          "GameLayer": true,
+                          "GameLayer": false,
                           "OverlayLayer": true,
                           "BloomLayer": false,
                           "AfterUILayer": false
@@ -298,7 +306,10 @@
                       {
                         "__type": "PartName",
                         "__guid": "b4bfba6c-db5c-4e6c-9973-774bd4ffdb90",
-                        "Name": "Bumper"
+                        "AngleClamp": 90,
+                        "Distance": 100,
+                        "Name": "Bumper",
+                        "RotationClamp": "0,0,1,-0.00000004371139"
                       }
                     ]
                   }
@@ -357,7 +368,10 @@
                       {
                         "__type": "PartName",
                         "__guid": "4259d8e3-319e-41a7-81ff-358ba076df63",
-                        "Name": "Bumper"
+                        "AngleClamp": 45,
+                        "Distance": 100,
+                        "Name": "Bumper",
+                        "RotationClamp": "0,0,0,1"
                       }
                     ]
                   }
@@ -416,7 +430,10 @@
                       {
                         "__type": "PartName",
                         "__guid": "36074918-38b6-4785-ae87-49506e48ad8c",
-                        "Name": "Fenders"
+                        "AngleClamp": 45,
+                        "Distance": 130,
+                        "Name": "Fenders",
+                        "RotationClamp": "0,0,-0.7071068,0.7071068"
                       }
                     ]
                   },
@@ -447,7 +464,10 @@
                       {
                         "__type": "PartName",
                         "__guid": "9129ebcd-6089-4d0e-9ad0-da5ee98b1f43",
-                        "Name": "Fenders"
+                        "AngleClamp": 45,
+                        "Distance": 130,
+                        "Name": "Fenders",
+                        "RotationClamp": "0,0,0.7071068,0.7071068"
                       }
                     ]
                   },
@@ -478,7 +498,10 @@
                       {
                         "__type": "PartName",
                         "__guid": "b5dbb065-cc84-4892-a353-fbe182c87130",
-                        "Name": "Fenders"
+                        "AngleClamp": 45,
+                        "Distance": 130,
+                        "Name": "Fenders",
+                        "RotationClamp": "0,0,0.7071068,0.7071068"
                       }
                     ]
                   },
@@ -509,7 +532,10 @@
                       {
                         "__type": "PartName",
                         "__guid": "09a34c58-1f07-4e9d-ba0e-d20ed68313a5",
-                        "Name": "Fenders"
+                        "AngleClamp": 45,
+                        "Distance": 130,
+                        "Name": "Fenders",
+                        "RotationClamp": "0,0,-0.7071068,0.7071068"
                       }
                     ]
                   }
@@ -523,6 +549,13 @@
             "Name": "wheels",
             "Position": "0,0,13",
             "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.PartsList",
+                "__guid": "26e825bc-243b-40d8-a9fc-c86f3614dbae",
+                "Parts": []
+              }
+            ],
             "Children": [
               {
                 "__guid": "1bc170b6-017d-4e41-98a4-3a935f33497f",
@@ -574,7 +607,10 @@
                       {
                         "__type": "PartName",
                         "__guid": "69d123ad-6613-4088-a7fb-18e842c80bb0",
-                        "Name": "Wheels"
+                        "AngleClamp": 45,
+                        "Distance": 100,
+                        "Name": "Wheels",
+                        "RotationClamp": "0,-0,-0.7071068,0.7071068"
                       }
                     ]
                   }
@@ -631,7 +667,10 @@
                       {
                         "__type": "PartName",
                         "__guid": "df098a30-ce25-41c8-a3c3-6821f47975b6",
-                        "Name": "Wheels"
+                        "AngleClamp": 45,
+                        "Distance": 100,
+                        "Name": "Wheels",
+                        "RotationClamp": "0,0,0.7071068,0.7071068"
                       }
                     ]
                   }
@@ -687,7 +726,10 @@
                       {
                         "__type": "PartName",
                         "__guid": "170c3242-44d1-4d3d-b2b2-d697dff4fe0a",
-                        "Name": "Wheels"
+                        "AngleClamp": 45,
+                        "Distance": 100,
+                        "Name": "Wheels",
+                        "RotationClamp": "0,-0,-0.7071068,0.7071068"
                       }
                     ]
                   }
@@ -744,7 +786,10 @@
                       {
                         "__type": "PartName",
                         "__guid": "7f80adad-a6b6-4105-b701-c2fedce318fa",
-                        "Name": "Wheels"
+                        "AngleClamp": 45,
+                        "Distance": 100,
+                        "Name": "Wheels",
+                        "RotationClamp": "0,0,0.7071068,0.7071068"
                       }
                     ]
                   }

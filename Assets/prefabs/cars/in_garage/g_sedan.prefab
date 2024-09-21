@@ -5,7 +5,6 @@
     "Name": "g_sedan",
     "Tags": "car",
     "Enabled": true,
-    "NetworkMode": 1,
     "Components": [
       {
         "__type": "Sandbox.BoxCollider",

@@ -26,8 +26,6 @@ public sealed class CarSelector : Component
 
 	protected override void OnUpdate()
 	{
-		if ( !InteractiveCamera.IsLooking ) return;
-
 		if ( Input.Pressed( "Left" ) )
 		{
 			car = (car + 1) % Cars.Count;
@@ -47,6 +45,6 @@ public sealed class CarSelector : Component
 		ActiveCar = car;
 		ActiveCarBounds = car.GetBounds();
 		ActiveCarCenter = ActiveCarBounds.Center;
-		OnCarChanged.Invoke( car );
+		OnCarChanged?.Invoke( car );
 	}
 }

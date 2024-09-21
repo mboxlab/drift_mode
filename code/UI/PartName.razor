@@ -1,29 +1,49 @@
 @using Sandbox;
 @using System;
 @using Sandbox.UI;
+@using DM.UI;
 @inherits PanelComponent
 
 <root>
-	<div class="title" onclick=OnClick>@Name</div>
+	<div class="title" onclick=@( () => OnClick() )>@Name</div>
 </root>
 
 @code
 {
-
+	[Property] public GameObject ParentPart { get; set; }
 	[Property] public string Name { get; set; }
+	[Property] public float Distance { get; set; } = 100f;
+	[Property] public float AngleClamp { get; set; } = 45f;
+	[Property] public Rotation RotationClamp { get; set; }
 
 	protected override void OnUpdate()
 	{
 		base.OnUpdate();
-		Panel.Style.Opacity = MathF.Pow(Transform.Rotation.Forward.Dot(Scene.Camera.Transform.Rotation.Backward), 0.6f);
+
+		Panel.Style.Opacity = MathF.Pow(Math.Clamp(Transform.Rotation.Forward.Dot(Scene.Camera.Transform.Rotation.Backward), 0.001f, 1f), 0.6f);
 		Panel.Style.Opacity -= Transform.Position.DistanceSquared(Scene.Camera.Transform.Position) / 100000f;
+
 	}
+
 	public void OnClick()
 	{
-		Log.Info("awdwad");
+		if (Panel.Style.Opacity == 0) return;
+		InteractiveCamera camera = Scene.Camera.GameObject.Components.Get<InteractiveCamera>();
+		camera.SetFocus(this);
 	}
+
+
 	/// <summary>
 	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
 	/// </summary>
 	protected override int BuildHash() => System.HashCode.Combine(Name);
+
+	protected override void DrawGizmos()
+	{
+		if (!Gizmo.IsSelected)
+			return;
+
+		Gizmo.Transform = Scene.Transform.World;
+		Gizmo.Draw.Arrow(Transform.Position + RotationClamp.Backward * 30f, Transform.Position, 3f, 1f);
+	}
 }

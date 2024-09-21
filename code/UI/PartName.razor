@@ -16,6 +16,7 @@
 	{
 		base.OnUpdate();
 		Panel.Style.Opacity = MathF.Pow(Transform.Rotation.Forward.Dot(Scene.Camera.Transform.Rotation.Backward), 0.6f);
+		Panel.Style.Opacity -= Transform.Position.DistanceSquared(Scene.Camera.Transform.Position) / 100000f;
 	}
 	public void OnClick()
 	{

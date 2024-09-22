@@ -1,14 +1,17 @@
 ﻿
 namespace DM.Car;
+
+using System;
 using DM.UI;
 
 public sealed class CarSelector : Component
 {
-	[Property] public GameObject Lift { get; set; }
-	[Property] public GameObject ActiveCar { get; set; }
-	[Property] public BBox ActiveCarBounds { get; set; }
 	[Property] public List<GameObject> Cars { get; set; }
-	[Property] public int car { get; set; }
+	public Action<GameObject> OnCarChanged { get; set; }
+	public GameObject ActiveCar { get; set; }
+	public BBox ActiveCarBounds { get; set; }
+	public Vector3 ActiveCarCenter { get; set; }
+	public int car { get; set; }
 
 	private InteractiveCamera InteractiveCamera;
 
@@ -23,8 +26,6 @@ public sealed class CarSelector : Component
 
 	protected override void OnUpdate()
 	{
-		if ( !InteractiveCamera.IsLooking ) return;
-
 		if ( Input.Pressed( "Left" ) )
 		{
 			car = (car + 1) % Cars.Count;
@@ -41,10 +42,9 @@ public sealed class CarSelector : Component
 		GameObject car = newCar.Clone();
 		car.Name = newCar.Name;
 		car.Transform.Position = Transform.Position;
-		car.Components.Get<Rigidbody>().MotionEnabled = false;
-		car.Components.Get<Car>().Enabled = false;
-		car.Components.Get<CameraController>().Destroy();
 		ActiveCar = car;
 		ActiveCarBounds = car.GetBounds();
+		ActiveCarCenter = ActiveCarBounds.Center;
+		OnCarChanged?.Invoke( car );
 	}
 }

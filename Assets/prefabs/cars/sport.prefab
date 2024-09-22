@@ -5,7 +5,6 @@
     "Name": "sport",
     "Tags": "car",
     "Enabled": true,
-    "NetworkMode": 1,
     "Components": [
       {
         "__type": "DM.Car.Car",

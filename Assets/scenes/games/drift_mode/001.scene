@@ -2,26 +2,6 @@
   "__guid": "9b04fdd3-0e57-4f6d-832e-9816c47238b0",
   "GameObjects": [
     {
-      "__guid": "3f513828-b679-4f32-bafa-74134b1d0526",
-      "Flags": 0,
-      "Name": "Map",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.MapInstance",
-          "__guid": "f92dce95-e6ec-482e-9bc3-217626e4e9bf",
-          "__version": 1,
-          "EnableCollision": true,
-          "MapName": "maps/games/drift_mode/001.vmap",
-          "NoOrigin": false,
-          "OnMapLoaded": null,
-          "OnMapUnloaded": null,
-          "UseMapFromLaunch": false
-        }
-      ],
-      "Children": []
-    },
-    {
       "__guid": "7fd34353-eb3b-4644-b32a-d5298b24113a",
       "Flags": 0,
       "Name": "Networking",
@@ -38,6 +18,26 @@
           "StartServer": true
         }
       ]
+    },
+    {
+      "__guid": "c05d385b-67f8-4eac-9dbb-c0d29884c638",
+      "Flags": 0,
+      "Name": "Map",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.MapInstance",
+          "__guid": "cb20562e-6ad8-470f-b345-407d65526b57",
+          "__version": 1,
+          "EnableCollision": true,
+          "MapName": "maps/games/drift_mode/002.vmap",
+          "NoOrigin": false,
+          "OnMapLoaded": null,
+          "OnMapUnloaded": null,
+          "UseMapFromLaunch": false
+        }
+      ],
+      "Children": []
     }
   ],
   "SceneProperties": {

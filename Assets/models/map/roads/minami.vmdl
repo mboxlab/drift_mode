@@ -1,0 +1,642 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc29:version{3cec427c-1b0e-4d48-a90a-0436f33a6041} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "background.vmat"
+								to = "materials/map/minami/googlemap.vmat"
+							},
+							{
+								from = "eb_complex04.vmat"
+								to = "materials/map/minami/ebisu_mstand_complex04.vmat"
+							},
+							{
+								from = "eb_complex03.vmat"
+								to = "materials/map/minami/ebisu_complex03.vmat"
+							},
+							{
+								from = "eb_complex011.vmat"
+								to = "materials/map/minami/ebisu_complex011.vmat"
+							},
+							{
+								from = "eb_mspeaker.vmat"
+								to = "materials/map/minami/eb_m_speaker.vmat"
+							},
+							{
+								from = "eb_line.vmat"
+								to = "materials/map/minami/eb_m_line.vmat"
+							},
+							{
+								from = "eb_line_dead_start.vmat"
+								to = "materials/map/minami/eb_m_line.vmat"
+							},
+							{
+								from = "alpha_eb_line_dead.vmat"
+								to = "materials/map/minami/eb_m_line.vmat"
+							},
+							{
+								from = "eb_grass.vmat"
+								to = "materials/map/minami/eb_m_dirt.vmat"
+							},
+							{
+								from = "eb_mstand_vscreen.vmat"
+								to = "materials/map/minami/ebisu_mstand_vscreen01.vmat"
+							},
+							{
+								from = "eb_complex02.vmat"
+								to = "materials/map/minami/ebisu_complex02.vmat"
+							},
+							{
+								from = "eb_complex01.vmat"
+								to = "materials/map/minami/ebisu_complex01.vmat"
+							},
+							{
+								from = "eb_mstand_beasteye.vmat"
+								to = "materials/map/minami/ebisu_mstand_beasteye.vmat"
+							},
+							{
+								from = "eb_concrete_side.vmat"
+								to = "materials/map/minami/ebisu_concrete_side.vmat"
+							},
+							{
+								from = "eb_concrete_side_1.vmat"
+								to = "materials/map/minami/ebisu_concrete_side_logo.vmat"
+							},
+							{
+								from = "eb_cone.vmat"
+								to = "materials/map/minami/cone.vmat"
+							},
+							{
+								from = "eb_mfence.vmat"
+								to = "materials/map/minami/ebisu_fence.vmat"
+							},
+							{
+								from = "alpha_eb_mfence01.vmat"
+								to = "materials/map/minami/eb_m_fence01.vmat"
+							},
+							{
+								from = "eb_mgreen02.vmat"
+								to = "materials/map/minami/ebisu_minami_green02.vmat"
+							},
+							{
+								from = "eb_kbuilding.vmat"
+								to = "materials/map/minami/ebisu_kbuilding01.vmat"
+							},
+							{
+								from = "eb_kbuilding_complex02.vmat"
+								to = "materials/map/minami/ebisu_kbuilding_complex02.vmat"
+							},
+							{
+								from = "eb_kbuilding02.vmat"
+								to = "materials/map/minami/ebisu_kbuilding02.vmat"
+							},
+							{
+								from = "eb_kbuilding_sign022.vmat"
+								to = "materials/map/minami/ebisu_kartbuilding_sign022.vmat"
+							},
+							{
+								from = "otpo_06.vmat"
+								to = "materials/map/minami/otpo_06.vmat"
+							},
+							{
+								from = "eb_mkerb_dead_start.vmat"
+								to = "materials/map/minami/eb_m_kerb_dead_start.vmat"
+							},
+							{
+								from = "eb_mkerb.vmat"
+								to = "materials/map/minami/eb_m_kerb.vmat"
+							},
+							{
+								from = "eb_mkerb_dead.vmat"
+								to = "materials/map/minami/eb_m_kerb_dead.vmat"
+							},
+							{
+								from = "eb_mkerb_concrete.vmat"
+								to = "materials/map/minami/eb_m_kerb_concrete1.vmat"
+							},
+							{
+								from = "eb_mkerb_start.vmat"
+								to = "materials/map/minami/eb_m_kerb_start.vmat"
+							},
+							{
+								from = "eb_mkerb_contrete_start.vmat"
+								to = "materials/map/minami/eb_m_kerb_concrete_start1.vmat"
+							},
+							{
+								from = "eb_mtrackedge1.vmat"
+								to = "materials/map/minami/eb_m_trackedge.vmat"
+							},
+							{
+								from = "1road_bridge.001.vmat"
+								to = "materials/map/minami/road_tarmac004.vmat"
+							},
+							{
+								from = "road_tarmac04.vmat"
+								to = "materials/map/minami/road_tarmac004.vmat"
+							},
+							{
+								from = "eb_roadpark_dark.vmat"
+								to = "materials/map/minami/sand.vmat"
+							},
+							{
+								from = "alpha_eb_msupport.vmat"
+								to = "materials/map/minami/ebisu_msupport01.vmat"
+							},
+							{
+								from = "eb_woodblue.vmat"
+								to = "materials/map/minami/ebisu_woodblue01.vmat"
+							},
+							{
+								from = "eb_kbuilding_sign025.vmat"
+								to = "materials/map/minami/ebisu_kartbuilding_sign022.vmat"
+							},
+							{
+								from = "oz_wall.vmat"
+								to = "materials/map/minami/concrete_detail4.vmat"
+							},
+							{
+								from = "cone.vmat"
+								to = "materials/map/minami/co_cone_orange_001.vmat"
+							},
+							{
+								from = "scoretowscaf01.vmat"
+								to = "materials/map/minami/concrete_detail4.vmat"
+							},
+							{
+								from = "alpha_material_#198.vmat"
+								to = "materials/map/minami/starttowerbeams.vmat"
+							},
+							{
+								from = "oz_wall_2.vmat"
+								to = "materials/map/minami/concrete_detail4.vmat"
+							},
+							{
+								from = "concretewall.vmat"
+								to = "materials/map/minami/concrete034_2k_c.vmat"
+							},
+							{
+								from = "eb_mwall_purple.vmat"
+								to = "materials/map/minami/eb_m_wall_purple.vmat"
+							},
+							{
+								from = "tyreyellow.vmat"
+								to = "materials/map/minami/tyreyellow.vmat"
+							},
+							{
+								from = "eb_mwall.vmat"
+								to = "materials/map/minami/ebisu_minami_wall.vmat"
+							},
+							{
+								from = "eb_mwall_orange.vmat"
+								to = "materials/map/minami/eb_m_wall_orange.vmat"
+							},
+							{
+								from = "eb_mwall_black.vmat"
+								to = "materials/map/minami/eb_m_wall_black1.vmat"
+							},
+							{
+								from = "alpha_otpt_02.vmat"
+								to = "materials/map/minami/otpt_02.vmat"
+							},
+							{
+								from = "trunk.vmat"
+								to = "materials/map/minami/trunk.vmat"
+							},
+							{
+								from = "alpha_otpt01.vmat"
+								to = "materials/map/minami/otpt_04.vmat"
+							},
+							{
+								from = "alpha_otpt_tree.vmat"
+								to = "materials/map/minami/otpt_03.vmat"
+							},
+							{
+								from = "alpha_otpt_tree.001.vmat"
+								to = "materials/map/minami/otpt_03.vmat"
+							},
+							{
+								from = "alpha_bushes.vmat"
+								to = "materials/map/minami/bbgrass_d.vmat"
+							},
+							{
+								from = "alpha_bushes1.vmat"
+								to = "materials/map/minami/bushes_new.vmat"
+							},
+							{
+								from = "material.002.vmat"
+								to = "materials/map/minami/concrete_detail4.vmat"
+							},
+							{
+								from = "material.004.vmat"
+								to = "materials/map/minami/concrete_detail4.vmat"
+							},
+							{
+								from = "esda_logos.vmat"
+								to = "materials/map/minami/banner template.vmat"
+							},
+							{
+								from = "alpha_esda_clip_boxes.vmat"
+								to = "materials/map/minami/esda_clip_box.vmat"
+							},
+							{
+								from = "starting_dont_cross_line.vmat"
+								to = "materials/map/minami/eb_m_line.vmat"
+							},
+							{
+								from = "alpha_branch5.vmat"
+								to = "materials/map/minami/branch5.vmat"
+							},
+							{
+								from = "alpha_eb_mfence01.004.vmat"
+								to = "materials/map/minami/eb_m_fence01.vmat"
+							},
+							{
+								from = "eb_mfence.004.vmat"
+								to = "materials/map/minami/ebisu_fence.vmat"
+							},
+							{
+								from = "logo-repeat.003.vmat"
+								to = "materials/map/minami/logo-repeat.vmat"
+							},
+							{
+								from = "material.003.vmat"
+								to = "materials/map/minami/pngwing.vmat"
+							},
+							{
+								from = "aspspec.vmat"
+								to = "materials/map/minami/asphalt015_2k.vmat"
+							},
+							{
+								from = "wood_plank.vmat"
+								to = "materials/map/minami/wood_plank.vmat"
+							},
+							{
+								from = "braking_zone.vmat"
+								to = "materials/map/minami/eb_m_line.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = "materials/default.vmat"
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						filename = "models/map/roads/minami.fbx"
+						import_translation = [ 0.0, 0.0, 0.0 ]
+						import_rotation = [ 0.0, 0.0, 0.0 ]
+						import_scale = 1.0
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
+						parent_bone = ""
+						import_filter = 
+						{
+							exclude_by_default = true
+							exception_list = 
+							[
+								"0GARAGE_SUB0",
+								"0GARAGE_SUB1",
+								"0GARAGElong_SUB0",
+								"0GARAGElong_SUB1",
+								"0LIGHTPOLE",
+								"0LINE_SUB0",
+								"0LINE_SUB1",
+								"0LINE_SUB2",
+								"0OUTGRASS",
+								"0STANDBUILDING_SUB0",
+								"0STANDBUILDING_SUB1",
+								"0STANDBUILDING_SUB2",
+								"0STANDBUILDING_SUB4",
+								"0STANDBUILDING_SUB5",
+								"0STANDBUILDING_SUB6",
+								"1BLOCKWALL002",
+								"1BLOCKWALL003",
+								"1BLOCKWALL005",
+								"1BLOCKWALL006",
+								"1CONE5",
+								"1CONE6",
+								"1CONE7",
+								"1CONE8",
+								"1CONE009",
+								"1CONE010",
+								"1CONE011",
+								"1FENCE_SUB0",
+								"1FENCE_SUB1",
+								"1FENCE_SUB002",
+								"1FENCE_SUB003",
+								"1FENCE_SUB004",
+								"1FENCE_SUB005",
+								"1FENCE_SUB006",
+								"1FENCE_SUB007",
+								"1FENCE_SUB008",
+								"1FENCE_SUB009",
+								"1FENCE_SUB010",
+								"1FENCE_SUB011",
+								"1FENCE_SUB012",
+								"1FENCE_SUB013",
+								"1FENCE_SUB014",
+								"1FENCE_SUB015",
+								"1FENCE_SUB016",
+								"1FENCE_SUB017",
+								"1FENCE_SUB018",
+								"1FENCE_SUB019",
+								"1FENCE_SUB020",
+								"1FENCE_SUB021",
+								"1FENCE_SUB022",
+								"1FENCE_SUB023",
+								"1FENCE_SUB024",
+								"1FENCE_SUB025",
+								"1FENCE_SUB026",
+								"1FENCE_SUB027",
+								"1FENCE_SUB028",
+								"1FENCE_SUB029",
+								"1FENCE_SUB030",
+								"1FENCE_SUB031",
+								"1FENCE_SUB032",
+								"1FENCE_SUB033",
+								"1FENCE_SUB034",
+								"1GARAGEcoll",
+								"1GREEN",
+								"1KARTBUILDING_SUB0",
+								"1KARTBUILDING_SUB1",
+								"1KARTBUILDING_SUB2",
+								"1KARTBUILDING_SUB3",
+								"1KARTBUILDING_SUB4",
+								"1KARTBUILDING_SUB5",
+								"1KERB_SUB0",
+								"1KERB_SUB1",
+								"1KERB_SUB2",
+								"1KERB_SUB3",
+								"1KERB_SUB5",
+								"1KERB_SUB6",
+								"1ROAD_BRIDGE_SUB0",
+								"1ROAD_SUB1",
+								"1SAND_SUB01",
+								"1SAND_SUB02",
+								"1SECONDARYBUILDING_SUB0",
+								"1SECONDARYBUILDING_SUB1",
+								"1STANDBUILDINGcoll_SUB0",
+								"1STANDBUILDINGcoll_SUB1",
+								"1STANDBUILDINGcoll_SUB3",
+								"1STANDBUILDINGcoll_SUB4",
+								"1TRIBUNE_SUB0",
+								"1TRIBUNE_SUB1",
+								"1TRIBUNE_SUB2",
+								"1TRIBUNE_SUB003",
+								"1TRIBUNE_SUB004",
+								"1TRIBUNE_SUB008",
+								"1TRIBUNE_SUB009",
+								"1TRIBUNE_SUB010",
+								"1WALL_BARR",
+								"1WALL_cones_061_ESDA001",
+								"1WALL_cones_065",
+								"1WALL_cones_066",
+								"1WALL_cones_067",
+								"1WALL_cones_068",
+								"1WALL_cones_069",
+								"1WALL_cones_073",
+								"1WALL_cones_077",
+								"1WALL_cones_078",
+								"1WALL_cones_079",
+								"1WALL_ESDA_Start_Line_Tower002",
+								"1WALL_ESDA_Start_Line_Tower003",
+								"1WALL_ESDA_Start_Line_Tower004",
+								"1WALL_ESDA_Start_Line_Tower005",
+								"1WALL_ESDA_Start_Line_Tower006",
+								"1WALL_ESDA_Start_Line_Tower007",
+								"1WALL_ESDA_Start_Line_Tower008",
+								"1WALL_ESDA_Start_Line_Tower009",
+								"1WALL_ESDA_Start_Line_Tower012",
+								"1WALL_ESDA_Start_Line_Tower013",
+								"1WALL_ESDA_Start_Line_Tower014",
+								"1WALL_ESDA_Start_Line_Tower015",
+								"1WALL_OZ_LAST",
+								"1WALL_SUB0",
+								"1WALL_SUB01",
+								"1WALL_SUB1",
+								"1WALL_SUB02",
+								"1WALL_SUB2",
+								"1WALL_SUB03",
+								"1WALL_SUB3",
+								"1WALL_SUB04",
+								"1WALL_SUB4",
+								"1WALL_SUB05",
+								"1WALL_SUB06",
+								"1WALL_SUB07",
+								"1WALL_SUB08",
+								"1WALL_SUB09",
+								"1WALL_SUB10",
+								"1WALL_SUB11",
+								"1WALL_SUB12",
+								"1WALL_SUB13",
+								"1WALL_SUB14",
+								"1WALL_SUB15",
+								"1WALL_SUB16",
+								"1WALL_SUB17",
+								"1WALL_SUB18",
+								"1WALL_SUB19",
+								"1WALL_SUB20",
+								"1WALL_SUB21",
+								"1WALL_SUB22",
+								"1WALL_SUB23",
+								"1WALL_SUB24",
+								"1WALL_SUB25",
+								"1WALL_SUB25_1",
+								"1WALL_SUB26",
+								"1WALL_SUB27",
+								"1WALL_SUB28",
+								"1WALL_SUB29",
+								"1WALL_SUB30",
+								"1WALL_SUB031",
+								"1WALL_SUB032",
+								"1WALL_SUB033",
+								"1WALL_SUB034",
+								"1WALL_SUB035",
+								"1WALL_SUB036",
+								"2GARAGEcoll",
+								"b",
+								"B_001",
+								"b_001_001",
+								"b_002",
+								"b_002_001",
+								"b_003",
+								"b_004",
+								"bbgrass_mid_13_kslayer005",
+								"bushes53_kslayer518",
+								"bushes53_kslayer533",
+								"bushes53_kslayer543",
+								"Cube_001",
+								"Cube_001_Cube",
+								"Cube_002_Cube",
+								"Cube_003_Cube",
+								"Cube_004_Cube",
+								"Cube_005_Cube",
+								"Cube_006_Cube",
+								"Cube_007_Cube",
+								"Cube_008_Cube",
+								"Cube_009_Cube",
+								"Cube_010_Cube",
+								"Cube_011_Cube",
+								"Cube_012_Cube",
+								"Cube_013_Cube",
+								"Cube_014_Cube",
+								"Cube_015_Cube",
+								"Cube_016_Cube",
+								"Cube_017_Cube",
+								"Cube_018_Cube",
+								"Cube_019_Cube",
+								"Cube_020_Cube",
+								"Cube_021_Cube",
+								"Cube_022_Cube",
+								"Cube_023_Cube",
+								"Cube_024_Cube",
+								"Cube_025_Cube_033",
+								"Cube_026_Cube",
+								"Cube_027_Cube",
+								"Cube_028_Cube",
+								"Cube_029_Cube_033",
+								"Cube_030_Cube_002",
+								"Cube_031_Cube",
+								"Cube_032_Cube_033",
+								"Cube_033_Cube_034",
+								"Cube_034",
+								"Cube_035_Cube_034",
+								"Cube_036_Cube_035",
+								"Cube_037_Cube_035",
+								"Cube_038_Cube_035",
+								"Cube_039_Cube_036",
+								"Cube_040_Cube_036",
+								"Cube_041_Cube_036",
+								"Cube_042_Cube_001",
+								"Cube_043_Cube_003",
+								"Cube_044_Cube_004",
+								"Cube_045_Cube_005",
+								"Cube_046_Cube_006",
+								"Cube_047_Cube_007",
+								"Cube_048_Cube_008",
+								"Cube_049_Cube_009",
+								"Cube_050_Cube_010",
+								"Cube_051_Cube_011",
+								"Cube_052_Cube_012",
+								"Cube_053_Cube_013",
+								"Cube_054_Cube_024",
+								"Cube_055_Cube_024",
+								"Cube_056_Cube_025",
+								"Cube_057_Cube_017",
+								"Cube_058_Cube_018",
+								"Cube_059_Cube_019",
+								"Cube_060_Cube_020",
+								"Cube_061_Cube_021",
+								"Cube_062_Cube_022",
+								"Cube_063_Cube_026",
+								"Cube_064_Cube_048",
+								"Cube_065_Cube_029",
+								"Cube_066_Cube_030",
+								"Cube_067_Cube_049",
+								"Cube_068_Cube_032",
+								"Cube_069_Cube_050",
+								"Cube_070_Cube_044",
+								"Cube_071_Cube_039",
+								"Cube_072_Cube_040",
+								"Cube_073_Cube_041",
+								"Cube_074_Cube_042",
+								"Cube_075_Cube_045",
+								"Cube_076_Cube_046",
+								"Cube_077_Cube_047",
+								"ESDA_BANNER",
+								"Esda_Clip_Box_004",
+								"ESDA_Dont_Cross_Line_Initiation_Line",
+								"GRASS_1",
+								"inside_clip_Marks",
+								"inside_clip_Marks001",
+								"leaves_3d_new_37",
+								"leaves_3d_new_041",
+								"leaves_3d_new_043",
+								"leaves_3d_new_051",
+								"nocol_1FENCE_SUB1_1FENCE_SUB1_EB_MFENCE01_002_1FENCE_SUB1_1",
+								"nocol_1FENCE_SUB1_1FENCE_SUB1_EB_MFENCE01_003_1FENCE_SUB1_1",
+								"Objet001",
+								"Objet005",
+								"Objet007",
+								"Objet015",
+								"Plane",
+								"Plane_001",
+								"Plane_002",
+								"Plane_002_Plane",
+								"Plane_004",
+								"Plane_005",
+								"Plane_Plane_006",
+								"rb_1CONE_1CONE",
+								"rb_ESDA_Inside_Clip_1_ESDA_Inside_Clip_1",
+								"rb_ESDA_Inside_Clip_002_ESDA_Inside_Clip_002",
+								"road_1ROAD_BRIDGE_SUB1_1ROAD_BRIDGE_SUB1",
+								"seats_hi",
+								"Starting_Restart_Initiation_Line001",
+								"Starting_Restart_Initiation_Line002",
+								"Starting_Restart_Initiation_Line003",
+								"Starting_Restart_Initiation_Line005",
+								"Starting_Restart_Initiation_Line006",
+								"flag",
+								"flag__1_",
+								"flag__2_",
+								"flag__3_",
+								"flag__4_",
+								"flag__5_",
+								"flag__6_",
+								"flag__7_",
+								"flag__8_",
+								"flag__9_",
+								"flag__10_",
+								"flag__11_",
+								"flag__12_",
+								"flag__13_",
+								"flag__14_",
+								"flag__15_",
+								"flag__16_",
+								"flag__17_",
+								"flag__18_",
+								"flag__19_",
+								"flag__20_",
+							]
+						}
+					},
+				]
+			},
+			{
+				_class = "ModelModifierList"
+				children = 
+				[
+					{
+						_class = "ModelModifier_ScaleAndMirror"
+						scale = 39.369999
+						mirror_x = false
+						mirror_y = false
+						mirror_z = false
+						flip_bone_forward = false
+						swap_left_and_right_bones = false
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		base_model_name = ""
+	}
+}

@@ -1,11 +1,12 @@
 ﻿using DM.Ground;
 using System;
+
 namespace DM.Car;
 
 [Category( "Vehicles" )]
 [Title( "Car Wheel" )]
 [Icon( "sync" )]
-public partial class Wheel : Component
+public partial class Wheel : Stereable
 {
 
 	public GroundHit groundHit;

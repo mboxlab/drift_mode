@@ -12,14 +12,19 @@ public struct GroundHit
 	public GroundHit( SceneTraceResult ray ) : this()
 	{
 		Normal = ray.Normal;
-		Point = ray.HitPosition;
+		if ( ray.HitPosition == Vector3.Zero )
+			Point = ray.EndPosition;
+		else
+			Point = ray.HitPosition;
+
 		Surface = ray.Surface;
 		StartPosition = ray.StartPosition;
 		EndPosition = ray.EndPosition;
+		HitPosition = ray.HitPosition;
 		Hit = ray.Hit;
-		Distance = ray.Distance;
+		Distance = HitPosition.Distance(ray.StartPosition);
 		Body = ray.Body;
-		Collider = ray.GameObject.Components?.Get<Collider>();
+		//Collider = ray.GameObject.Components?.Get<Collider>();
 	}
 
 	/// <summary>
@@ -41,6 +46,7 @@ public struct GroundHit
 	public Surface Surface { get; }
 	public Vector3 StartPosition { get; }
 	public Vector3 EndPosition { get; }
+	public Vector3 HitPosition { get; }
 	public bool Hit { get; set; } = false;
-	public float Distance { get; }
+	public float Distance { get; set; }
 }

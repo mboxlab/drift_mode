@@ -11,15 +11,9 @@
 				[
 					{
 						_class = "DefaultMaterialGroup"
-						remaps = 
-						[
-							{
-								from = "toolwall1:streetracershdsg1.vmat"
-								to = "materials/car/paint/polygonstreetracer_texture_01_a.vmat"
-							},
-						]
-						use_global_default = false
-						global_default_material = ""
+						remaps = [  ]
+						use_global_default = true
+						global_default_material = "materials/car/paint/polygonstreetracer_texture_01_a.vmat"
 					},
 				]
 			},
@@ -29,7 +23,7 @@
 				[
 					{
 						_class = "RenderMeshFile"
-						filename = "models/map/props/sm_prop_oilspill_03.fbx"
+						filename = "models/carparts/wheels/sm_veh_attach_wheel_06.fbx"
 						import_translation = [ 0.0, 0.0, 0.0 ]
 						import_rotation = [ 0.0, 0.0, 0.0 ]
 						import_scale = 1.0
@@ -42,7 +36,7 @@
 							exclude_by_default = true
 							exception_list = 
 							[
-								"SM_Prop_OilSpill_03",
+								"SM_Veh_Attach_Wheel_06",
 							]
 						}
 					},

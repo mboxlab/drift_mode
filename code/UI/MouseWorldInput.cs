@@ -1,9 +1,9 @@
 ﻿public sealed class MouseWorldInput : Component
 {
-	private Vector2 _mousePosition { get; set; }
-	private bool _mouseVisible { get; set; }
+	private static Vector2 _mousePosition { get; set; }
+	private static bool _mouseVisible { get; set; }
 
-	public Vector2 MousePosition { get { return _mousePosition; } }
+	public static Vector2 MousePosition { get { return _mousePosition; } }
 	public static Sandbox.UI.WorldInput Input { get; } = new();
 	protected override void OnUpdate()
 	{

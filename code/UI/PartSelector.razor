@@ -1,0 +1,63 @@
+@using System;
+@using Sandbox;
+@using Sandbox.UI;
+@using DM.Car;
+@using DM.UI;
+@inherits PanelComponent
+
+<root>
+	@if ( InteractiveCamera.Target == Object.Parent )
+	{
+		<div class="title" onclick=@( () => OnClick() )>@Part.Name</div>
+	}
+	else if ( InteractiveCamera.Target == Object )
+	{
+		
+	}
+</root>
+
+@code
+{
+	[Property] public Part Part;
+
+	private InteractiveObject Object;
+
+	private void OnClick()
+	{
+		if ( Panel.Style.Opacity == 0f ) return;
+		InteractiveCamera.Instance.Focus( Object );
+	}
+
+	protected override void OnStart()
+	{
+		base.OnStart();
+
+		Object = Components.Get<InteractiveObject>();
+	}
+
+	private int i = -1;
+	protected override void OnUpdate()
+	{
+		base.OnUpdate();
+
+		if ( InteractiveCamera.Target == Object )
+		{
+			if ( Input.Pressed( "Left" ) || Input.Pressed( "Right" ) )
+			{
+				List<Model> models = Part.Models;
+				i = i - (Input.Pressed("Left") ? 1 : 0) + (Input.Pressed("Right") ? 1 : 0);
+				Part.Index = i % (models.IndexOf(models.Last()) + 1);
+			}
+		}
+		else
+		{
+			float dot = MathF.Max(0, Object.Rotation.Forward.Dot(InteractiveCamera.Instance.Transform.Rotation.Forward));
+			Panel.Style.Opacity = MathF.Max(0f, dot * dot * dot);
+		}
+	}
+
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine( InteractiveCamera.Target );
+}

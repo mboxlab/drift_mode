@@ -15,7 +15,7 @@
 						[
 							{
 								from = "contructionbase.vmat"
-								to = "materials/bricks.vmat"
+								to = "materials/garage/bricks/bricks.vmat"
 							},
 							{
 								from = "lambert6.vmat"

@@ -28,8 +28,7 @@
 	public void OnClick()
 	{
 		if (Panel.Style.Opacity == 0) return;
-		InteractiveCamera camera = Scene.Camera.GameObject.Components.Get<InteractiveCamera>();
-		camera.SetFocus(this);
+		InteractiveCamera.Instance.Focus( GameObject );
 	}
 
 

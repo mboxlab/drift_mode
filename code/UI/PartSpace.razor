@@ -1,0 +1,48 @@
+@using System;
+@using Sandbox;
+@using Sandbox.UI;
+@using DM.Car;
+@using DM.UI;
+@inherits PanelComponent
+
+<root>
+	@if (InteractiveCamera.Target == Object.Parent)
+	{
+		<div class="title" onclick=@( () => OnClick() )>@Name</div>
+	}
+</root>
+
+@code
+{
+	[Property] public string Name;
+
+	private InteractiveObject Object;
+
+	private void OnClick()
+	{
+		if ( Panel.Style.Opacity == 0f ) return;
+		InteractiveCamera.Instance.Focus(Object);
+	}
+
+	protected override void OnStart()
+	{
+		base.OnStart();
+
+		Object = Components.Get<InteractiveObject>();
+	}
+
+	protected override void OnUpdate()
+	{
+		base.OnUpdate();
+
+		float dot = MathF.Max(0, Object.Rotation.Forward.Dot(InteractiveCamera.Instance.Transform.Rotation.Forward));
+		dot *= dot * dot;
+
+		Panel.Style.Opacity = MathF.Max(0f, dot);
+	}
+
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine(InteractiveCamera.Target);
+}

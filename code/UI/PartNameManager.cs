@@ -4,7 +4,7 @@ namespace DM.UI;
 public sealed class PartNameManager : Component
 {
 	[Property] public List<PartName> PartNames;
-	private bool rendernames = false;
+	private bool rendernames = true;
 
 	protected override void OnAwake()
 	{

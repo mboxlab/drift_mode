@@ -15,20 +15,16 @@
         "Static": false
       },
       {
-        "__type": "DM.UI.PartNameManager",
-        "__guid": "09233244-ab7f-4daf-87ee-d0eceb2c00d9",
-        "PartNames": []
-      },
-      {
         "__type": "DM.UI.InteractiveObject",
         "__guid": "013e2f4a-d8f4-4554-8acc-95c7d9b68b8f",
         "ClampEqual": false,
-        "Clamping": false,
+        "Clamping": true,
         "Distance": 200,
         "LocalAngles": "0,0,0",
         "LocalPosition": "0,0,40",
-        "ClampMax": "0,0,0",
-        "ClampMin": "0,0,0"
+        "TriggerAnimation": true,
+        "ClampMax": "45,180,0",
+        "ClampMin": "-10,-180,0"
       }
     ],
     "Children": [
@@ -233,8 +229,9 @@
                           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                           "component_type": "InteractiveObject"
                         },
-                        "ClampMax": "-15,-25,0",
-                        "ClampMin": "15,25,0"
+                        "TriggerAnimation": true,
+                        "ClampMax": "15,25,0",
+                        "ClampMin": "-15,-25,0"
                       }
                     ]
                   }
@@ -318,6 +315,7 @@
                           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                           "component_type": "InteractiveObject"
                         },
+                        "TriggerAnimation": true,
                         "ClampMax": "20,50,0",
                         "ClampMin": "-2,-50,0"
                       }
@@ -371,6 +369,7 @@
                           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                           "component_type": "InteractiveObject"
                         },
+                        "TriggerAnimation": true,
                         "ClampMax": "20,50,0",
                         "ClampMin": "-2,-50,0"
                       }
@@ -455,6 +454,7 @@
                           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                           "component_type": "InteractiveObject"
                         },
+                        "TriggerAnimation": true,
                         "ClampMax": "20,60,0",
                         "ClampMin": "-5,-60,0"
                       }
@@ -540,6 +540,7 @@
                           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                           "component_type": "InteractiveObject"
                         },
+                        "TriggerAnimation": true,
                         "ClampMax": "20,60,0",
                         "ClampMin": "-10,-60,0"
                       }
@@ -625,6 +626,7 @@
                           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                           "component_type": "InteractiveObject"
                         },
+                        "TriggerAnimation": true,
                         "ClampMax": "40,50,0",
                         "ClampMin": "-20,-50,0"
                       }
@@ -678,6 +680,7 @@
                           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                           "component_type": "InteractiveObject"
                         },
+                        "TriggerAnimation": true,
                         "ClampMax": "40,50,0",
                         "ClampMin": "-20,-50,0"
                       }
@@ -731,6 +734,7 @@
                           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                           "component_type": "InteractiveObject"
                         },
+                        "TriggerAnimation": true,
                         "ClampMax": "40,50,0",
                         "ClampMin": "-20,-50,0"
                       }
@@ -784,6 +788,7 @@
                           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                           "component_type": "InteractiveObject"
                         },
+                        "TriggerAnimation": true,
                         "ClampMax": "40,50,0",
                         "ClampMin": "-20,-50,0"
                       }
@@ -858,6 +863,7 @@
                               "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                               "component_type": "InteractiveObject"
                             },
+                            "TriggerAnimation": true,
                             "ClampMax": "30,60,0",
                             "ClampMin": "-5,-60,0"
                           }
@@ -910,6 +916,7 @@
                               "go": "d96c8e88-1073-4a42-968e-0071c404122d",
                               "component_type": "InteractiveObject"
                             },
+                            "TriggerAnimation": false,
                             "ClampMax": "30,60,0",
                             "ClampMin": "-5,-60,0"
                           }
@@ -962,6 +969,7 @@
                               "go": "d96c8e88-1073-4a42-968e-0071c404122d",
                               "component_type": "InteractiveObject"
                             },
+                            "TriggerAnimation": false,
                             "ClampMax": "30,60,0",
                             "ClampMin": "-5,-60,0"
                           }
@@ -992,6 +1000,7 @@
                       "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                       "component_type": "InteractiveObject"
                     },
+                    "TriggerAnimation": true,
                     "ClampMax": "0,0,0",
                     "ClampMin": "0,0,0"
                   }
@@ -1047,6 +1056,7 @@
                               "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                               "component_type": "InteractiveObject"
                             },
+                            "TriggerAnimation": true,
                             "ClampMax": "30,60,0",
                             "ClampMin": "-5,-60,0"
                           }
@@ -1099,6 +1109,7 @@
                               "go": "c0ae9b62-6e18-4fe5-aad7-f9706d3ff0fa",
                               "component_type": "InteractiveObject"
                             },
+                            "TriggerAnimation": false,
                             "ClampMax": "30,60,0",
                             "ClampMin": "-5,-60,0"
                           }
@@ -1151,6 +1162,7 @@
                               "go": "c0ae9b62-6e18-4fe5-aad7-f9706d3ff0fa",
                               "component_type": "InteractiveObject"
                             },
+                            "TriggerAnimation": false,
                             "ClampMax": "30,60,0",
                             "ClampMin": "-5,-60,0"
                           }
@@ -1182,6 +1194,7 @@
                       "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                       "component_type": "InteractiveObject"
                     },
+                    "TriggerAnimation": true,
                     "ClampMax": "0,0,0",
                     "ClampMin": "0,0,0"
                   }
@@ -1191,7 +1204,7 @@
                     "__guid": "06028156-a3ad-4e2b-b096-3e79865a98a8",
                     "Flags": 0,
                     "Name": "poses",
-                    "Position": "0,0.000009843805,0",
+                    "Position": "0,0,0",
                     "Rotation": "0,0,0.7071068,0.7071068",
                     "Enabled": true,
                     "Children": [
@@ -1237,6 +1250,7 @@
                               "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                               "component_type": "InteractiveObject"
                             },
+                            "TriggerAnimation": true,
                             "ClampMax": "30,60,0",
                             "ClampMin": "-5,-60,0"
                           }
@@ -1289,6 +1303,7 @@
                               "go": "c7f92410-6d0a-4e96-8edb-b085d4abd55e",
                               "component_type": "InteractiveObject"
                             },
+                            "TriggerAnimation": false,
                             "ClampMax": "30,60,0",
                             "ClampMin": "-5,-60,0"
                           }
@@ -1341,6 +1356,7 @@
                               "go": "c7f92410-6d0a-4e96-8edb-b085d4abd55e",
                               "component_type": "InteractiveObject"
                             },
+                            "TriggerAnimation": false,
                             "ClampMax": "30,60,0",
                             "ClampMin": "-5,-60,0"
                           }
@@ -1371,6 +1387,7 @@
                       "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                       "component_type": "InteractiveObject"
                     },
+                    "TriggerAnimation": true,
                     "ClampMax": "0,0,0",
                     "ClampMin": "0,0,0"
                   }
@@ -1426,6 +1443,7 @@
                               "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                               "component_type": "InteractiveObject"
                             },
+                            "TriggerAnimation": true,
                             "ClampMax": "30,60,0",
                             "ClampMin": "-5,-60,0"
                           }
@@ -1478,6 +1496,7 @@
                               "go": "d3bdcd2f-cafb-4fa7-8677-2128c258c625",
                               "component_type": "InteractiveObject"
                             },
+                            "TriggerAnimation": false,
                             "ClampMax": "30,60,0",
                             "ClampMin": "-5,-60,0"
                           }
@@ -1530,6 +1549,7 @@
                               "go": "d3bdcd2f-cafb-4fa7-8677-2128c258c625",
                               "component_type": "InteractiveObject"
                             },
+                            "TriggerAnimation": false,
                             "ClampMax": "30,60,0",
                             "ClampMin": "-5,-60,0"
                           }
@@ -1552,5 +1572,6 @@
   "DontBreakAsTemplate": false,
   "ResourceVersion": 1,
   "__references": [],
+  "IsValid": true,
   "__version": 1
 }

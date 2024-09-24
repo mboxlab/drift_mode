@@ -2,6 +2,70 @@
   "__guid": "a9812438-ab50-47f2-839a-81d2e0a11d70",
   "GameObjects": [
     {
+      "__guid": "dcacabee-446a-442a-bfab-7a8bcba10d67",
+      "Flags": 0,
+      "Name": "Music - WIP",
+      "Enabled": true,
+      "Children": [
+        {
+          "__guid": "d51552bd-2e7c-476f-b703-a4d1841180e0",
+          "Flags": 0,
+          "Name": "Object",
+          "Position": "220,241.25,180",
+          "Enabled": true
+        },
+        {
+          "__guid": "9147da70-fff0-4a87-a302-0259a40bc423",
+          "Flags": 0,
+          "Name": "Object (1)",
+          "Position": "-275,241.25,180",
+          "Enabled": true
+        },
+        {
+          "__guid": "61c05c99-be12-4ff3-95a9-691ecabfce24",
+          "Flags": 0,
+          "Name": "Object (2)",
+          "Position": "220,19.5,180",
+          "Enabled": true
+        },
+        {
+          "__guid": "954d84a8-5098-42fe-a8ea-0768abc8d663",
+          "Flags": 0,
+          "Name": "Object (3)",
+          "Position": "-275,19.5,180",
+          "Enabled": true
+        },
+        {
+          "__guid": "8b267f2e-757a-42e8-9c7c-74a744ed6383",
+          "Flags": 0,
+          "Name": "Object (4)",
+          "Position": "220,-202.25,180",
+          "Enabled": true
+        },
+        {
+          "__guid": "cc480af0-3f56-442e-b66a-37395ffdb6b3",
+          "Flags": 0,
+          "Name": "Object (5)",
+          "Position": "-275,-202.25,180",
+          "Enabled": true
+        },
+        {
+          "__guid": "1e05a120-d926-449d-afcc-1098ef4629cd",
+          "Flags": 0,
+          "Name": "Object (6)",
+          "Position": "220,-423.5,180",
+          "Enabled": true
+        },
+        {
+          "__guid": "af98e11c-674d-4b1b-b096-1f094c38b29c",
+          "Flags": 0,
+          "Name": "Object (7)",
+          "Position": "-275,-423.5,180",
+          "Enabled": true
+        }
+      ]
+    },
+    {
       "__guid": "808995d9-c62a-4b13-a449-3714c9dc1164",
       "Flags": 0,
       "Name": "Camera Origin",
@@ -17,7 +81,8 @@
           "Distance": 0,
           "LocalAngles": "0,0,0",
           "LocalPosition": "0,0,0",
-          "ClampMax": "0,0,0",
+          "TriggerAnimation": true,
+          "ClampMax": "-0,-0,0",
           "ClampMin": "0,0,0"
         }
       ]
@@ -46,6 +111,20 @@
           "Viewport": "0,0,1,1",
           "ZFar": 1621,
           "ZNear": 10
+        },
+        {
+          "__type": "MouseInput",
+          "__guid": "d72bf29a-f147-4a25-b610-8168b1255065"
+        },
+        {
+          "__type": "DM.UI.InteractiveCamera",
+          "__guid": "0f1b9ade-48bb-4ea8-9107-338d504b946f",
+          "_origin": {
+            "_type": "component",
+            "component_id": "539f9870-d382-4ee8-91a0-801819e56781",
+            "go": "808995d9-c62a-4b13-a449-3714c9dc1164",
+            "component_type": "InteractiveObject"
+          }
         },
         {
           "__type": "Sandbox.Bloom",
@@ -90,32 +169,12 @@
           "Rate": 1
         },
         {
-          "__type": "Sandbox.Sharpen",
-          "__guid": "8cdfdfa2-8365-4a5a-99d4-a5135bd183c3",
-          "__enabled": false,
-          "Scale": 0.2
-        },
-        {
           "__type": "Sandbox.AmbientOcclusion",
           "__guid": "b76b12f6-9ee9-41ee-b104-36c59aebf929",
           "FalloffDistance": 1,
           "Intensity": 12,
           "Quality": "High",
           "Radius": 32
-        },
-        {
-          "__type": "DM.UI.InteractiveCamera",
-          "__guid": "0f1b9ade-48bb-4ea8-9107-338d504b946f",
-          "_origin": {
-            "_type": "component",
-            "component_id": "539f9870-d382-4ee8-91a0-801819e56781",
-            "go": "808995d9-c62a-4b13-a449-3714c9dc1164",
-            "component_type": "InteractiveObject"
-          }
-        },
-        {
-          "__type": "MouseWorldInput",
-          "__guid": "06f75ca2-24da-40cb-96cd-bc33a6df52ad"
         }
       ]
     },
@@ -146,7 +205,7 @@
       "__guid": "2313ab8c-02bc-4177-9fa2-b79325db5549",
       "Flags": 0,
       "Name": "Poster",
-      "Position": "-293.4262,-126.5,113.1",
+      "Position": "-293.2,-126.5,113.1",
       "Rotation": "0,0.7071067,0,0.7071068",
       "Scale": "2.151576,1.67,1",
       "Tags": "poster",
@@ -158,22 +217,19 @@
           "Center": "0,0,0",
           "IsTrigger": false,
           "Scale": "50,50",
-          "Static": false
+          "Static": true
         },
         {
           "__type": "DM.UI.InteractiveObject",
           "__guid": "1a65a2f7-f77c-4e51-a903-348ea4ad26ca",
-          "ClampEqual": true,
+          "ClampEqual": false,
           "Clamping": true,
-          "Distance": 65,
+          "Distance": 160,
           "LocalAngles": "90,0,0",
           "LocalPosition": "0,0,0",
-          "ClampMax": "30,60,0",
-          "ClampMin": "-30,-60,0"
-        },
-        {
-          "__type": "Poster",
-          "__guid": "e1f7c707-2064-4957-b767-13a4c76c460c"
+          "TriggerAnimation": true,
+          "ClampMax": "20,20,0",
+          "ClampMin": "-20,-20,0"
         }
       ]
     },
@@ -223,5 +279,6 @@
   "Description": "",
   "ResourceVersion": 1,
   "__references": [],
+  "IsValid": true,
   "__version": 1
 }

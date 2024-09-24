@@ -41,10 +41,20 @@ public sealed class InteractiveCamera : Component
 
 	private BBox Box = BBox.FromPositionAndSize( Vector3.Zero, 8f );
 	private float Now = -1;
-
-	private void SetTarget( InteractiveObject obj, Vector3 position, Rotation rotation )
+	
+	private Vector3 Slerp( Vector3 a, Vector3 b, float frac, bool clamp = true )
 	{
-		Now = TargetPosition == position ? -1 : Time.Now;
+		if ( clamp ) frac = frac.Clamp( 0, 1f );
+
+		float dot = Vector3.Dot( a, b ).Clamp( -1f, 1f );
+		float theta = MathF.Asin( dot );
+
+		return a * MathF.Pow( MathF.Cos( frac * theta ), 1.5f ) + b * MathF.Pow( dot * MathF.Sin( frac * theta ), 1.5f );
+	}
+
+	private void SetTarget( InteractiveObject obj, Vector3 position, Rotation rotation, bool animate = true )
+	{
+		Now = animate ? Time.Now : Now - 1f;
 		LastPosition = Transform.Position;
 		LastRotation = Transform.Rotation;
 
@@ -55,12 +65,13 @@ public sealed class InteractiveCamera : Component
 
 	private void SetTarget( InteractiveObject obj )
 	{
-		SetTarget( obj, obj.Position, obj.Clamp( TargetRotation ) );
+		SetTarget( obj, obj.Position, obj.Clamp( TargetRotation ), obj.TriggerAnimation );
 	}
 
 	public void Focus( InteractiveObject obj )
 	{
-		if ( obj == Target ) return;
+		if ( !obj.IsValid() || obj == Target ) return;
+		if ( Time.Now - Now < 0.5f ) return; // fix
 
 		InteractiveObject parent = obj.Parent;
 		if ( IsOnOrigin && parent is not null && parent != Origin ) return;
@@ -96,18 +107,54 @@ public sealed class InteractiveCamera : Component
 			Vector3 position = PositionHistory.Pop();
 			Rotation rotation = RotationHistory.Pop();
 
-			SetTarget( prev, position, Now == -1 ? LerpRotation : rotation );
+			if ( Target.TriggerAnimation )
+				SetTarget( prev, position, rotation );
+			else
+				SetTarget( prev, position, prev.Clamp( LerpRotation ), false );
 		}
 	}
 
-	private Vector3 Slerp( Vector3 a, Vector3 b, float frac, bool clamp = true )
+	private void Management()
 	{
-		if ( clamp ) frac = frac.Clamp( 0, 1f );
+		if ( Input.EscapePressed ) Defocus();
+		if ( Input.Pressed( "Attack1" ) )
+		{
+			SceneTraceResult result = Scene.Trace.Ray( MouseInput.Ray, Scene.Camera.ZFar ).IgnoreGameObject( Target.GameObject ).Run();
+			if ( result.Hit ) Focus( result.GameObject );
+		}
 
-		float dot = Vector3.Dot( a, b ).Clamp( -1f, 1f );
-		float theta = MathF.Asin( dot );
+		if ( IsOnOrigin )
+			Mouse.Visible = true;
 
-		return a * MathF.Pow( MathF.Cos( frac * theta ), 1.5f ) + b * MathF.Pow( dot * MathF.Sin( frac * theta ),  1.5f );
+		else
+		{
+			Mouse.Visible = !Input.Down( "Attack2" );
+			if ( Mouse.Visible ) return;
+
+			Angles angles = TargetRotation.Angles();
+			angles = Target.Clamp( angles + Input.AnalogLook );
+			TargetRotation = angles.ToRotation();
+		}
+	}
+
+	private void Move()
+	{
+		float animation = Time.Now - Now;
+		if ( animation < 1 )
+		{
+			animation = MathF.Sin( animation * MathF.PI / 2 );
+
+			LerpRotation = Rotation.Lerp( LastRotation, TargetRotation, animation );
+			LerpPosition = Slerp( LastPosition, TargetPosition + LerpRotation.Backward * Target.Distance, animation );
+		}
+		else
+		{
+			LerpRotation = Rotation.Lerp( LerpRotation, TargetRotation, Time.Delta * 8f );
+			LerpPosition = TargetPosition + LerpRotation.Backward * Target.Distance;
+		}
+
+		Transform.Position = LerpPosition;
+		Transform.Rotation = LerpRotation;
 	}
 
 	protected override void OnStart()
@@ -122,68 +169,15 @@ public sealed class InteractiveCamera : Component
 		LerpPosition = TargetPosition;
 		LerpRotation = TargetRotation;
 	}
-
+	
 	protected override void OnUpdate()
 	{
 		base.OnUpdate();
 
-		if ( MouseWorldInput.Input.MouseLeftPressed )
-		{
-			GameObject obj = Scene.Trace.Ray( MouseWorldInput.Input.Ray, Scene.Camera.ZFar ).Run().GameObject;
-			if ( obj.IsValid() )
-			{
-				InteractiveObject iobj = obj.Components.GetAll<InteractiveObject>().FirstOrDefault();
-				Log.Info( iobj );
-				if ( iobj.IsValid() ) Focus( iobj );
-			}
-		}
+		// fix: if GameObject is not valid then back to origin
+		if ( !Target.IsValid() ) Defocus( true );
 
-		if ( !Target.IsValid() ) // fix
-		{
-			Defocus( true );
-			return;
-		}
-
-		if ( Input.EscapePressed ) Defocus();
-
-		if ( IsOnOrigin )
-		{
-			Mouse.Visible = true;
-		}
-		else
-		{
-			bool pressed = Input.Down( "GearDown" );
-			Mouse.Visible = !pressed;
-
-			if ( pressed )
-			{
-				Angles angles = TargetRotation.Angles();
-				angles = Target.Clamp( angles + Input.AnalogLook );
-				TargetRotation = angles.ToRotation();
-			}
-		}
-
-		float distance = Target.Distance;
-
-		Ray ray = new Ray( TargetPosition, LerpRotation.Backward );
-		SceneTraceResult result = Scene.Trace.Box( Box, ray, distance ).WithoutTags( Target.GameObject.Tags ).Run();
-		distance = result.Distance;
-
-		float animation = Time.Now - Now;
-		if ( animation < 1 )
-		{
-			animation = MathF.Sin( animation * MathF.PI / 2 );
-
-			LerpRotation = Rotation.Lerp( LastRotation, TargetRotation, animation );
-			LerpPosition = Slerp( LastPosition, TargetPosition + LerpRotation.Backward * distance, animation );
-		}
-		else
-		{
-			LerpRotation = Rotation.Lerp( LerpRotation, TargetRotation, Time.Delta * 8f );
-			LerpPosition = TargetPosition + LerpRotation.Backward * distance;
-		}
-
-		Transform.Position = LerpPosition;
-		Transform.Rotation = LerpRotation;
+		Management();
+		Move();
 	}
 }

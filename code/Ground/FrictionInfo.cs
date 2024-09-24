@@ -10,9 +10,9 @@
 	{
 	}
 
+	private float value = 0.0f;
 	public float Evaluate( float slip )
 	{
-		var value = 0.0f;
 
 		if ( slip <= ExtremumSlip )
 		{

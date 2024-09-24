@@ -3,7 +3,8 @@ using DM.Car;
 using DM.Ground;
 namespace Sandbox.Car;
 
-public sealed class WheelCollider : Stereable
+[Category( "Vehicles" )]
+public class WheelCollider : Stereable
 {
 	[Property] public float MinSuspensionLength { get => minSuspensionLength; set { minSuspensionLength = value; UpdateTotalSuspensionLength(); } }
 	[Property] public float MaxSuspensionLength { get => maxSuspensionLength; set { maxSuspensionLength = value; UpdateTotalSuspensionLength(); } }
@@ -13,13 +14,16 @@ public sealed class WheelCollider : Stereable
 	[Property] public WheelFrictionInfo ForwardFriction { get; set; }
 	[Property] public WheelFrictionInfo SideFriction { get; set; }
 
+	private float ForwardStiffness = 1;
+	private float SideStiffness = 1;
 	private const float LowSpeedThreshold = 32.0f;
 
 	public bool IsGrounded => groundHit.Hit;
-
-	public float SteerAngle { get; set; }
-	public float ForwardSlip { get; private set; }
-	public float SideSlip { get; private set; }
+	public float ForwardSlip { get; private set; } = 0;
+	public float SideSlip { get; private set; } = 0;
+	public float AngleVelocity { get; private set; } = 0;
+	public float RPM { get => Math.Abs( AngleVelocity * 6 ); }
+	public float MotorTorque { get => _motorTorque; set => _motorTorque = value; }
 
 	private GroundHit groundHit;
 	private Rigidbody _rigidbody;
@@ -54,38 +58,46 @@ public sealed class WheelCollider : Stereable
 	private void UpdateWheelForces()
 	{
 		if ( !IsGrounded )
+		{
+			AngleVelocity /= 1.1f;
 			return;
+		}
+
 
 		var hitContactVelocity = _rigidbody.GetVelocityAtPoint( groundHit.Point + _rigidbody.PhysicsBody.LocalMassCenter );
 
 		var hitForwardDirection = groundHit.Normal.Cross( Transform.Rotation.Right ).Normal;
-		var hitSidewaysDirection = Rotation.FromAxis( groundHit.Normal, 90f ) * hitForwardDirection;
+		var hitSidewaysDirection = Rotation.FromAxis( groundHit.Normal, 90f + SteerAngle ) * hitForwardDirection;
 
 		var wheelSpeed = hitContactVelocity.Length;
 
 		SideSlip = CalculateSlip( hitContactVelocity, hitSidewaysDirection, wheelSpeed );
 		ForwardSlip = CalculateSlip( hitContactVelocity, hitForwardDirection, wheelSpeed );
 
-		var sideForce = CalculateFrictionForce( SideFriction, SideSlip, hitSidewaysDirection );
-		var forwardForce = CalculateFrictionForce( ForwardFriction, ForwardSlip, hitForwardDirection );
+
+		var sideForce = CalculateFrictionForce( SideFriction, SideSlip, hitSidewaysDirection ) * 0.5f;
+		var forwardForce = CalculateFrictionForce( ForwardFriction, ForwardSlip, hitForwardDirection ) * 0.5f;
 
 		float factor = wheelSpeed.LerpInverse( 0f, LowSpeedThreshold );
-		float groundFriction = groundHit.Surface.Friction;
 
-		var targetAcceleration = (sideForce + forwardForce) * factor * groundFriction;
-		targetAcceleration += _motorTorque * Transform.Rotation.Forward;
+		var targetAcceleration = (sideForce + forwardForce) * factor;
+		targetAcceleration += _motorTorque * MathF.Tau * Transform.Rotation.Forward;
 
-		var force = targetAcceleration / Time.Delta;
+		targetAcceleration.x = targetAcceleration.x.MeterToInch();
+		targetAcceleration.y = targetAcceleration.y.MeterToInch();
+		targetAcceleration.z = targetAcceleration.z.MeterToInch();
 
-		_rigidbody.ApplyForceAt( GameObject.Transform.Position, force );
+		var force = targetAcceleration * Time.Delta;
+		AngleVelocity = hitContactVelocity.Dot( hitForwardDirection ) * MathF.Tau / WheelRadius;
+
+		_rigidbody.ApplyImpulseAt( GameObject.Transform.Position, force );
 	}
-	private float CalculateSlip( Vector3 velocity, Vector3 direction, float speed )
+	private static float CalculateSlip( Vector3 velocity, Vector3 direction, float speed )
 	{
-		var epsilon = 0.01f;
-		return Vector3.Dot( velocity, direction ) / (speed + epsilon);
+		return Vector3.Dot( velocity, direction ) / (speed + 0.01f);
 	}
 
-	private Vector3 CalculateFrictionForce( WheelFrictionInfo friction, float slip, Vector3 direction )
+	private static Vector3 CalculateFrictionForce( WheelFrictionInfo friction, float slip, Vector3 direction )
 	{
 		return -friction.Evaluate( MathF.Abs( slip ) ) * MathF.Sign( slip ) * direction;
 	}
@@ -106,10 +118,15 @@ public sealed class WheelCollider : Stereable
 		var suspensionCompression = groundHit.Distance - _suspensionTotalLength;
 		var dampingForce = -SuspensionDamping * localVel;
 		var springForce = -SuspensionStiffness * suspensionCompression;
-		var totalForce = (dampingForce + springForce) / Time.Delta;
+		var totalForce = (dampingForce + springForce).MeterToInch() * Time.Delta;
 
 		var suspensionForce = groundHit.Normal * totalForce;
-		_rigidbody.ApplyForceAt( Transform.Position, suspensionForce );
+		_rigidbody.ApplyImpulseAt( Transform.Position, suspensionForce );
+	}
+	public void UpdateStiffness( float forward = 1f, float side = 1f )
+	{
+		ForwardStiffness = forward;
+		SideStiffness = side;
 	}
 
 	private void DoTrace()
@@ -177,4 +194,5 @@ public sealed class WheelCollider : Stereable
 			Gizmo.Draw.Arrow( arrowStart, arrowEnd, 4, 1 );
 		}
 	}
+
 }

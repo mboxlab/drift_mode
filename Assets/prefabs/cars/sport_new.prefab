@@ -42,6 +42,110 @@
         },
         "PitchLimits": "-50,50",
         "VelocityFOVScale": 50
+      },
+      {
+        "__type": "Sandbox.Car.CarController",
+        "__guid": "a5a4082d-3815-4443-b073-75963d0bcd17",
+        "CarConfig": {
+          "DriveType": "RWD",
+          "AutomaticGearBox": true,
+          "MaxMotorTorque": 400,
+          "MotorTorqueFromRpmCurve": {
+            "_ace_v": 1,
+            "keys": [
+              {
+                "y": 0.3
+              },
+              {
+                "x": 3.5,
+                "y": 0.88,
+                "ti": 0.066698305,
+                "to": 0.066698305,
+                "tm": "Mirrored"
+              },
+              {
+                "x": 6.4,
+                "y": 1,
+                "ti": 0.016476072,
+                "to": 0.016476072,
+                "tm": "Mirrored"
+              },
+              {
+                "x": 8
+              }
+            ]
+          },
+          "MaxRPM": 7000,
+          "MinRPM": 700,
+          "CutOffRPM": 6800,
+          "CutOffOffsetRPM": 500,
+          "CutOffTime": 0.1,
+          "ProbabilityBackfire": 0.2,
+          "RpmToNextGear": 6500,
+          "RpmToPrevGear": 4500,
+          "MaxForwardSlipToBlockChangeGear": 0.5,
+          "RpmEngineToRpmWheelsLerpSpeed": 20,
+          "GearsRatio": [
+            3.59,
+            2.02,
+            1.38,
+            1,
+            0.87
+          ],
+          "MainRatio": 4.3,
+          "ReversGearRatio": 4,
+          "MaxBrakeTorque": 1000,
+          "TargetSpeedIfBrakingGround": 20,
+          "BrakingSpeedOneWheelTime": 1
+        },
+        "CarDriftConfig": {
+          "EnableSteerAngleMultiplier": true,
+          "MinSteerAngleMultiplier": 0.05,
+          "MaxSteerAngleMultiplier": 1,
+          "MaxSpeedForMinAngleMultiplier": 250,
+          "SteerAngleChangeSpeed": 252,
+          "MinSpeedForSteerHelp": 20,
+          "HelpSteerPower": 0.1,
+          "OppositeAngularVelocityHelpPower": 1,
+          "PositiveAngularVelocityHelpPower": 1,
+          "MaxAngularVelocityHelpAngle": 90,
+          "AngularVelucityInMaxAngle": 0.5,
+          "AngularVelucityInMinAngle": 4,
+          "HandBrakeForwardStiffness": 0.5,
+          "HandBrakeSidewaysStiffness": 0.5
+        },
+        "Rigidbody": {
+          "_type": "component",
+          "component_id": "63f289fd-6e4a-4084-b6c5-b497bb5fbec5",
+          "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+          "component_type": "Rigidbody"
+        },
+        "Wheels": [
+          {
+            "_type": "component",
+            "component_id": "e12a6c21-628d-4695-b147-a282730346a9",
+            "go": "a67d5021-9e51-483f-a1b7-a628c5bb2909",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "ec083d93-c036-4cae-be0b-94a664ed7d19",
+            "go": "8c9526f3-7634-43e5-812f-67d706b9022f",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "280f3c11-c205-4669-b9f6-c003458778a9",
+            "go": "fc04e594-0d78-49bb-bb9d-6a0887b8dae7",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "0de1899c-a5d8-4fa4-8403-12b9daac9857",
+            "go": "4eaa3d57-e9df-4268-b733-3e3ad411e6c7",
+            "component_type": "WheelCollider"
+          }
+        ]
       }
     ],
     "Children": [
@@ -376,6 +480,7 @@
           {
             "__type": "DM.Car.Steering",
             "__guid": "03f9dcc8-a77a-4aab-a060-4875f83dc8a1",
+            "__enabled": false,
             "MaxSteeringAngle": 35,
             "MinSteeringAngle": 20,
             "Offset": "0,0,0",
@@ -417,8 +522,7 @@
                   "ExtremumSlip": 1,
                   "ExtremumValue": 3000,
                   "AsymptoteSlip": 2,
-                  "AsymptoteValue": 1500,
-                  "Stiffness": 1
+                  "AsymptoteValue": 1500
                 },
                 "MaxSuspensionLength": 0,
                 "MinSuspensionLength": 3,
@@ -426,8 +530,7 @@
                   "ExtremumSlip": 1,
                   "ExtremumValue": 3000,
                   "AsymptoteSlip": 2,
-                  "AsymptoteValue": 1500,
-                  "Stiffness": 1
+                  "AsymptoteValue": 1500
                 },
                 "SuspensionDamping": 140,
                 "SuspensionStiffness": 3000,
@@ -449,8 +552,7 @@
                   "ExtremumSlip": 1,
                   "ExtremumValue": 3000,
                   "AsymptoteSlip": 2,
-                  "AsymptoteValue": 1500,
-                  "Stiffness": 1
+                  "AsymptoteValue": 1500
                 },
                 "MaxSuspensionLength": 0,
                 "MinSuspensionLength": 3,
@@ -458,8 +560,7 @@
                   "ExtremumSlip": 1,
                   "ExtremumValue": 3000,
                   "AsymptoteSlip": 2,
-                  "AsymptoteValue": 1500,
-                  "Stiffness": 1
+                  "AsymptoteValue": 1500
                 },
                 "SuspensionDamping": 140,
                 "SuspensionStiffness": 3000,
@@ -490,8 +591,7 @@
                   "ExtremumSlip": 1,
                   "ExtremumValue": 3000,
                   "AsymptoteSlip": 2,
-                  "AsymptoteValue": 1500,
-                  "Stiffness": 1
+                  "AsymptoteValue": 1500
                 },
                 "MaxSuspensionLength": 0,
                 "MinSuspensionLength": 3,
@@ -499,8 +599,7 @@
                   "ExtremumSlip": 1,
                   "ExtremumValue": 3000,
                   "AsymptoteSlip": 2,
-                  "AsymptoteValue": 1500,
-                  "Stiffness": 1
+                  "AsymptoteValue": 1500
                 },
                 "SuspensionDamping": 140,
                 "SuspensionStiffness": 3000,
@@ -522,8 +621,7 @@
                   "ExtremumSlip": 1,
                   "ExtremumValue": 3000,
                   "AsymptoteSlip": 2,
-                  "AsymptoteValue": 1500,
-                  "Stiffness": 1
+                  "AsymptoteValue": 1500
                 },
                 "MaxSuspensionLength": 0,
                 "MinSuspensionLength": 3,
@@ -531,8 +629,7 @@
                   "ExtremumSlip": 1,
                   "ExtremumValue": 3000,
                   "AsymptoteSlip": 2,
-                  "AsymptoteValue": 1500,
-                  "Stiffness": 1
+                  "AsymptoteValue": 1500
                 },
                 "SuspensionDamping": 140,
                 "SuspensionStiffness": 3000,
@@ -954,5 +1051,6 @@
   "DontBreakAsTemplate": false,
   "ResourceVersion": 1,
   "__references": [],
+  "IsValid": true,
   "__version": 1
 }

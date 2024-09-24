@@ -30,11 +30,11 @@ public sealed class CarSpawner : Component, Component.INetworkListener
 		if ( Scene.IsEditor )
 			return;
 
-		if ( StartServer && !GameNetworkSystem.IsActive )
+		if ( StartServer && !Networking.IsActive )
 		{
 			LoadingScreen.Title = "Creating Lobby";
 			await Task.DelayRealtimeSeconds( 0.1f );
-			GameNetworkSystem.CreateLobby();
+			Networking.CreateLobby();
 		}
 	}
 

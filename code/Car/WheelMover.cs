@@ -7,10 +7,12 @@ public sealed class WheelMover : Component
 	[Property] public float Speed { get; set; } = MathF.PI;
 
 	private Rigidbody _rigidbody;
+	private Rotation VelocityRotation;
 
 	protected override void OnEnabled()
 	{
-		_rigidbody = Components.GetInAncestors<Rigidbody>();
+		_rigidbody = Components.Get<Rigidbody>( FindMode.InAncestors );
+		VelocityRotation = Transform.LocalRotation;
 	}
 
 	protected override void OnFixedUpdate()
@@ -18,10 +20,11 @@ public sealed class WheelMover : Component
 		if ( IsProxy )
 			return;
 
-		var groundVel = _rigidbody.Velocity;
-		var SideFrictionSpeed = groundVel.Dot( Wheel.Transform.Rotation.Forward );
-
 		Transform.Position = Wheel.GetCenter();
-		Transform.LocalRotation *= Rotation.From( SideFrictionSpeed * Time.Delta * (ReverseRotation ? -1f : 1f) * Speed, 0, 0 );
+
+		VelocityRotation *= Rotation.From( Wheel.WheelRadius * Wheel.AngleVelocity * Time.Delta * (ReverseRotation ? -1f : 1f), 0, 0 );
+
+		Transform.LocalRotation = Rotation.FromYaw( Wheel.SteerAngle ) * VelocityRotation;
+
 	}
 }

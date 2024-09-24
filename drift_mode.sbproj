@@ -33,7 +33,7 @@
           "GroupName": "Movement"
         },
         {
-          "Name": "Brake",
+          "Name": "Backward",
           "KeyboardCode": "S",
           "GamepadCode": "None",
           "GroupName": "Movement"

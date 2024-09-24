@@ -38,10 +38,64 @@
           "StartServer": true
         }
       ]
+    },
+    {
+      "__guid": "a9c5c2e2-fb3b-4763-aa51-cf29d2ad5d4c",
+      "Flags": 0,
+      "Name": "Sun",
+      "Rotation": "-0.0729315,0.4822396,0.1305433,0.8631827",
+      "Tags": "light,light_directional",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.DirectionalLight",
+          "__guid": "d01f8c11-fa53-4143-8dd6-eb39b1cecc08",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.94419,0.97767,1,1",
+          "Shadows": true,
+          "SkyColor": "0.2532,0.32006,0.35349,1"
+        }
+      ]
+    },
+    {
+      "__guid": "3dc1fedc-ca1a-4896-9479-0b57d9f53f72",
+      "Flags": 0,
+      "Name": "2D Skybox",
+      "Tags": "skybox",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SkyBox2D",
+          "__guid": "bbf2eb2b-6b26-47c6-b362-35df63dc426a",
+          "SkyMaterial": "materials/skybox/skybox_day_01.vmat",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.EnvmapProbe",
+          "__guid": "b40f4a72-41ec-4ff7-aa9d-9cac2421f0ee",
+          "Texture": "textures/cubemaps/default2.vtex",
+          "Bounds": {
+            "Mins": "-512,-512,-512",
+            "Maxs": "512,512,512"
+          },
+          "DelayBetweenUpdates": 0.1,
+          "Feathering": 0.02,
+          "FrameInterval": 5,
+          "MaxDistance": 512,
+          "MultiBounce": false,
+          "Projection": "Sphere",
+          "RenderDynamically": false,
+          "TintColor": "1,1,1,1",
+          "UpdateStrategy": "OnEnabled",
+          "ZFar": 4096,
+          "ZNear": 16
+        }
+      ]
     }
   ],
   "SceneProperties": {
-    "FixedUpdateFrequency": 50,
+    "FixedUpdateFrequency": 30,
     "MaxFixedUpdates": 5,
     "NetworkFrequency": 30,
     "NetworkInterpolation": true,
@@ -65,5 +119,6 @@
   "Description": "",
   "ResourceVersion": 1,
   "__references": [],
+  "IsValid": true,
   "__version": 1
 }

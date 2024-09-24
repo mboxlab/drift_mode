@@ -42,7 +42,6 @@ public sealed class CarSelector : Component
 		car.Name = newCar.Name;
 		car.Transform.Position = Transform.Position;
 		car.Components.Get<Rigidbody>().MotionEnabled = false;
-		car.Components.Get<Car>().Enabled = false;
 		car.Components.Get<CameraController>().Destroy();
 		ActiveCar = car;
 		ActiveCarBounds = car.GetBounds();

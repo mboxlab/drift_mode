@@ -54,7 +54,7 @@ public sealed class InteractiveCamera : Component
 
 	private void SetTarget( InteractiveObject obj, Vector3 position, Rotation rotation, bool animate = true )
 	{
-		Now = animate ? Time.Now : Now - 1f;
+		Now = animate ? Time.Now : Now;
 		LastPosition = Transform.Position;
 		LastRotation = Transform.Rotation;
 

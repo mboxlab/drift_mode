@@ -118,15 +118,15 @@ public partial class Wheel : Component
 			AxleAngle = AxleAngle % 360.0f + AngularVelocity.RadianToDegree() * Time.Delta;
 			SpringLength = -Spring.Length;
 		}
-
+		
 		Visual.Transform.LocalPosition = Visual.Transform.LocalPosition.WithZ( SpringLength );
 		var steerRotation = Rotation.FromAxis( Vector3.Up, SteerAngle );
-		if ( !IsLeft )
+		if ( IsLeft )
 			transformRotation = Transform.Rotation.RotateAroundAxis( Vector3.Up, 180 ) * steerRotation;
 		else
 			transformRotation = Transform.Rotation * steerRotation;
 
-		var axleRotation = Rotation.FromAxis( Vector3.Right, -AxleAngle * (IsLeft ? 1 : -1) );
+		var axleRotation = Rotation.FromAxis( Vector3.Right, AxleAngle * (IsLeft ? 1 : -1) );
 		Visual.Transform.Rotation = transformRotation * axleRotation;
 
 	}

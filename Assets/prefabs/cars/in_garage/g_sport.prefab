@@ -16,14 +16,14 @@
       },
       {
         "__type": "DM.UI.InteractiveObject",
-        "__guid": "013e2f4a-d8f4-4554-8acc-95c7d9b68b8f",
+        "__guid": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
         "ClampEqual": false,
         "Clamping": true,
-        "Distance": 200,
+        "Distance": 196,
         "LocalAngles": "0,0,0",
-        "LocalPosition": "0,0,40",
+        "LocalPosition": "0,0,32",
         "TriggerAnimation": true,
-        "ClampMax": "45,180,0",
+        "ClampMax": "40,180,0",
         "ClampMin": "-10,-180,0"
       }
     ],
@@ -67,7 +67,31 @@
                 "__guid": "4b45bcd0-b8ef-424c-aa46-6d598a600243",
                 "Models": [
                   "models/carparts/wheels/sm_veh_attach_wheel_01.vmdl",
-                  "models/carparts/wheels/sm_veh_attach_wheel_02.vmdl"
+                  "models/carparts/wheels/sm_veh_attach_wheel_02.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_03.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_04.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_05.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_06.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_07.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_08.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_09.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_10.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_11.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_12.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_13.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_14.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_15.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_16.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_17.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_18.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_19.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_20.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_21.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_22.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_23.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_24.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_25.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_26.vmdl"
                 ],
                 "Name": "Disks",
                 "Objects": [
@@ -206,8 +230,9 @@
                         "VerticalAlign": "Center"
                       },
                       {
-                        "__type": "PartSelector",
-                        "__guid": "3c1f7b17-6232-4845-9721-d9aa2e62fdc9",
+                        "__type": "PartSpace",
+                        "__guid": "88d613da-aac1-45a4-b575-e7e9e228f231",
+                        "IsInterspace": false,
                         "Part": {
                           "_type": "component",
                           "component_id": "cb3e2c79-6f26-4af9-99b7-2ffb4da56b8d",
@@ -225,7 +250,7 @@
                         "LocalPosition": "0,0,0",
                         "Parent": {
                           "_type": "component",
-                          "component_id": "013e2f4a-d8f4-4554-8acc-95c7d9b68b8f",
+                          "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
                           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                           "component_type": "InteractiveObject"
                         },
@@ -292,8 +317,9 @@
                         "VerticalAlign": "Center"
                       },
                       {
-                        "__type": "PartSelector",
-                        "__guid": "cd9d0cb1-f6b5-4789-b36e-1aa9e7ca3081",
+                        "__type": "PartSpace",
+                        "__guid": "fb4e784b-61bc-4600-96d0-c57851580b45",
+                        "IsInterspace": false,
                         "Part": {
                           "_type": "component",
                           "component_id": "c76f14c1-252b-45e4-a59c-23860bc7c3f5",
@@ -311,7 +337,7 @@
                         "LocalPosition": "0,0,0",
                         "Parent": {
                           "_type": "component",
-                          "component_id": "013e2f4a-d8f4-4554-8acc-95c7d9b68b8f",
+                          "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
                           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                           "component_type": "InteractiveObject"
                         },
@@ -346,8 +372,9 @@
                         "VerticalAlign": "Center"
                       },
                       {
-                        "__type": "PartSelector",
-                        "__guid": "fba9cab7-5d96-4d10-8857-81ea40df9a7b",
+                        "__type": "PartSpace",
+                        "__guid": "6883b605-9c95-4def-b5f8-ba2983d09bc2",
+                        "IsInterspace": false,
                         "Part": {
                           "_type": "component",
                           "component_id": "c76f14c1-252b-45e4-a59c-23860bc7c3f5",
@@ -365,7 +392,7 @@
                         "LocalPosition": "0,0,0",
                         "Parent": {
                           "_type": "component",
-                          "component_id": "013e2f4a-d8f4-4554-8acc-95c7d9b68b8f",
+                          "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
                           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                           "component_type": "InteractiveObject"
                         },
@@ -431,8 +458,9 @@
                         "VerticalAlign": "Center"
                       },
                       {
-                        "__type": "PartSelector",
-                        "__guid": "7fe76fd9-2193-455f-a598-ffb114cd2b5d",
+                        "__type": "PartSpace",
+                        "__guid": "05dbe9b9-bcc2-44d6-9467-3529c7256047",
+                        "IsInterspace": false,
                         "Part": {
                           "_type": "component",
                           "component_id": "c28ed0bf-345b-4006-a332-314d7ea59ec8",
@@ -450,7 +478,7 @@
                         "LocalPosition": "0,0,0",
                         "Parent": {
                           "_type": "component",
-                          "component_id": "013e2f4a-d8f4-4554-8acc-95c7d9b68b8f",
+                          "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
                           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                           "component_type": "InteractiveObject"
                         },
@@ -517,8 +545,9 @@
                         "VerticalAlign": "Center"
                       },
                       {
-                        "__type": "PartSelector",
-                        "__guid": "6f6345b5-d9b6-4ed2-bc0a-5ea82b4a2bb6",
+                        "__type": "PartSpace",
+                        "__guid": "52d843e1-6931-4d1e-ace0-12d57a03065c",
+                        "IsInterspace": false,
                         "Part": {
                           "_type": "component",
                           "component_id": "b6398cda-9c76-4c71-a26c-5f60c7eba862",
@@ -536,7 +565,7 @@
                         "LocalPosition": "0,0,0",
                         "Parent": {
                           "_type": "component",
-                          "component_id": "013e2f4a-d8f4-4554-8acc-95c7d9b68b8f",
+                          "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
                           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                           "component_type": "InteractiveObject"
                         },
@@ -603,8 +632,9 @@
                         "VerticalAlign": "Center"
                       },
                       {
-                        "__type": "PartSelector",
-                        "__guid": "790f9648-5d26-4a33-9848-a36fcd792a6d",
+                        "__type": "PartSpace",
+                        "__guid": "724a8012-7080-45eb-aaab-0602bc2dd118",
+                        "IsInterspace": false,
                         "Part": {
                           "_type": "component",
                           "component_id": "adc8141d-2c71-4a38-b0e5-7773e4412607",
@@ -622,7 +652,7 @@
                         "LocalPosition": "0,0,0",
                         "Parent": {
                           "_type": "component",
-                          "component_id": "013e2f4a-d8f4-4554-8acc-95c7d9b68b8f",
+                          "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
                           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                           "component_type": "InteractiveObject"
                         },
@@ -657,8 +687,9 @@
                         "VerticalAlign": "Center"
                       },
                       {
-                        "__type": "PartSelector",
-                        "__guid": "4ac831f9-dc4f-4b90-9be7-2c348e0847df",
+                        "__type": "PartSpace",
+                        "__guid": "8a78e2bd-b480-4643-b50f-b1e1734c9564",
+                        "IsInterspace": false,
                         "Part": {
                           "_type": "component",
                           "component_id": "adc8141d-2c71-4a38-b0e5-7773e4412607",
@@ -676,7 +707,7 @@
                         "LocalPosition": "0,0,0",
                         "Parent": {
                           "_type": "component",
-                          "component_id": "013e2f4a-d8f4-4554-8acc-95c7d9b68b8f",
+                          "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
                           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                           "component_type": "InteractiveObject"
                         },
@@ -711,8 +742,9 @@
                         "VerticalAlign": "Center"
                       },
                       {
-                        "__type": "PartSelector",
-                        "__guid": "9bf3c56c-53df-4633-802e-b734f887285f",
+                        "__type": "PartSpace",
+                        "__guid": "949e7eff-8fea-4a04-a6ec-02e4db873112",
+                        "IsInterspace": false,
                         "Part": {
                           "_type": "component",
                           "component_id": "adc8141d-2c71-4a38-b0e5-7773e4412607",
@@ -730,7 +762,7 @@
                         "LocalPosition": "0,0,0",
                         "Parent": {
                           "_type": "component",
-                          "component_id": "013e2f4a-d8f4-4554-8acc-95c7d9b68b8f",
+                          "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
                           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                           "component_type": "InteractiveObject"
                         },
@@ -765,8 +797,9 @@
                         "VerticalAlign": "Center"
                       },
                       {
-                        "__type": "PartSelector",
-                        "__guid": "a9444a85-8c74-4e55-bfb9-5a0516affa92",
+                        "__type": "PartSpace",
+                        "__guid": "15665b1f-e2be-4f95-99b0-d972041c0096",
+                        "IsInterspace": false,
                         "Part": {
                           "_type": "component",
                           "component_id": "adc8141d-2c71-4a38-b0e5-7773e4412607",
@@ -784,7 +817,7 @@
                         "LocalPosition": "0,0,0",
                         "Parent": {
                           "_type": "component",
-                          "component_id": "013e2f4a-d8f4-4554-8acc-95c7d9b68b8f",
+                          "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
                           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                           "component_type": "InteractiveObject"
                         },
@@ -847,6 +880,7 @@
                           {
                             "__type": "PartSpace",
                             "__guid": "bbaffd77-9fae-4a8f-9979-9ea4729f4c15",
+                            "IsInterspace": true,
                             "Name": "Wheels"
                           },
                           {
@@ -859,7 +893,7 @@
                             "LocalPosition": "0,0,0",
                             "Parent": {
                               "_type": "component",
-                              "component_id": "013e2f4a-d8f4-4554-8acc-95c7d9b68b8f",
+                              "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
                               "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                               "component_type": "InteractiveObject"
                             },
@@ -893,8 +927,9 @@
                             "VerticalAlign": "Center"
                           },
                           {
-                            "__type": "PartSelector",
-                            "__guid": "89928b0a-0d8e-4097-ac34-58d964286173",
+                            "__type": "PartSpace",
+                            "__guid": "df110524-0868-4cef-9772-e71d4c821876",
+                            "IsInterspace": false,
                             "Part": {
                               "_type": "component",
                               "component_id": "4b45bcd0-b8ef-424c-aa46-6d598a600243",
@@ -946,8 +981,9 @@
                             "VerticalAlign": "Center"
                           },
                           {
-                            "__type": "PartSelector",
-                            "__guid": "45e69bc0-bd28-4273-b279-35c781ddec9a",
+                            "__type": "PartSpace",
+                            "__guid": "5c7d0003-79cd-4a57-8be9-04abf8fc5234",
+                            "IsInterspace": false,
                             "Part": {
                               "_type": "component",
                               "component_id": "3b396828-61ed-431d-a27a-c79464db933d",
@@ -994,12 +1030,6 @@
                     "Distance": 32,
                     "LocalAngles": "0,0,0",
                     "LocalPosition": "0,-10,0",
-                    "Parent": {
-                      "_type": "component",
-                      "component_id": "013e2f4a-d8f4-4554-8acc-95c7d9b68b8f",
-                      "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
-                      "component_type": "InteractiveObject"
-                    },
                     "TriggerAnimation": true,
                     "ClampMax": "0,0,0",
                     "ClampMin": "0,0,0"
@@ -1040,6 +1070,7 @@
                           {
                             "__type": "PartSpace",
                             "__guid": "061b9a96-f84c-458f-a24a-d8921820e061",
+                            "IsInterspace": true,
                             "Name": "Wheels"
                           },
                           {
@@ -1052,7 +1083,7 @@
                             "LocalPosition": "0,0,0",
                             "Parent": {
                               "_type": "component",
-                              "component_id": "013e2f4a-d8f4-4554-8acc-95c7d9b68b8f",
+                              "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
                               "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                               "component_type": "InteractiveObject"
                             },
@@ -1086,8 +1117,9 @@
                             "VerticalAlign": "Center"
                           },
                           {
-                            "__type": "PartSelector",
-                            "__guid": "c03e238f-ae81-48c6-9295-151557fed8ff",
+                            "__type": "PartSpace",
+                            "__guid": "5ae33de4-f775-4f84-a0e2-cae3f8a80f98",
+                            "IsInterspace": false,
                             "Part": {
                               "_type": "component",
                               "component_id": "4b45bcd0-b8ef-424c-aa46-6d598a600243",
@@ -1139,8 +1171,9 @@
                             "VerticalAlign": "Center"
                           },
                           {
-                            "__type": "PartSelector",
-                            "__guid": "4434bc8a-55aa-4a8e-b204-246760884a56",
+                            "__type": "PartSpace",
+                            "__guid": "f1292276-8e69-4fad-98c6-123ffc997b03",
+                            "IsInterspace": false,
                             "Part": {
                               "_type": "component",
                               "component_id": "3b396828-61ed-431d-a27a-c79464db933d",
@@ -1188,12 +1221,6 @@
                     "Distance": 32,
                     "LocalAngles": "0,0,0",
                     "LocalPosition": "0,-10,0",
-                    "Parent": {
-                      "_type": "component",
-                      "component_id": "013e2f4a-d8f4-4554-8acc-95c7d9b68b8f",
-                      "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
-                      "component_type": "InteractiveObject"
-                    },
                     "TriggerAnimation": true,
                     "ClampMax": "0,0,0",
                     "ClampMin": "0,0,0"
@@ -1234,6 +1261,7 @@
                           {
                             "__type": "PartSpace",
                             "__guid": "6220c2da-9039-4f41-a7d6-43338ab1fd04",
+                            "IsInterspace": true,
                             "Name": "Wheels"
                           },
                           {
@@ -1246,7 +1274,7 @@
                             "LocalPosition": "0,0,0",
                             "Parent": {
                               "_type": "component",
-                              "component_id": "013e2f4a-d8f4-4554-8acc-95c7d9b68b8f",
+                              "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
                               "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                               "component_type": "InteractiveObject"
                             },
@@ -1280,8 +1308,9 @@
                             "VerticalAlign": "Center"
                           },
                           {
-                            "__type": "PartSelector",
-                            "__guid": "eb95b0eb-6d3b-4b77-950f-2d4e55fc288c",
+                            "__type": "PartSpace",
+                            "__guid": "6babd607-6920-4ba4-92fa-4e0ffac26930",
+                            "IsInterspace": false,
                             "Part": {
                               "_type": "component",
                               "component_id": "4b45bcd0-b8ef-424c-aa46-6d598a600243",
@@ -1333,8 +1362,9 @@
                             "VerticalAlign": "Center"
                           },
                           {
-                            "__type": "PartSelector",
-                            "__guid": "cf3ea66f-ecb8-43e1-ac19-41b7199f25e3",
+                            "__type": "PartSpace",
+                            "__guid": "b2248e01-9ca8-4a24-af58-57dba5941005",
+                            "IsInterspace": false,
                             "Part": {
                               "_type": "component",
                               "component_id": "3b396828-61ed-431d-a27a-c79464db933d",
@@ -1381,12 +1411,6 @@
                     "Distance": 32,
                     "LocalAngles": "0,0,0",
                     "LocalPosition": "0,-10,0",
-                    "Parent": {
-                      "_type": "component",
-                      "component_id": "013e2f4a-d8f4-4554-8acc-95c7d9b68b8f",
-                      "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
-                      "component_type": "InteractiveObject"
-                    },
                     "TriggerAnimation": true,
                     "ClampMax": "0,0,0",
                     "ClampMin": "0,0,0"
@@ -1427,6 +1451,7 @@
                           {
                             "__type": "PartSpace",
                             "__guid": "319036ca-64a1-4e11-a48c-0ac1fb1822fb",
+                            "IsInterspace": true,
                             "Name": "Wheels"
                           },
                           {
@@ -1439,7 +1464,7 @@
                             "LocalPosition": "0,0,0",
                             "Parent": {
                               "_type": "component",
-                              "component_id": "013e2f4a-d8f4-4554-8acc-95c7d9b68b8f",
+                              "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
                               "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
                               "component_type": "InteractiveObject"
                             },
@@ -1473,8 +1498,9 @@
                             "VerticalAlign": "Center"
                           },
                           {
-                            "__type": "PartSelector",
-                            "__guid": "bc778d9c-fcc4-41a9-b8ba-2b404b79e723",
+                            "__type": "PartSpace",
+                            "__guid": "e6867e93-b241-4bc6-959f-dc7825cca928",
+                            "IsInterspace": false,
                             "Part": {
                               "_type": "component",
                               "component_id": "4b45bcd0-b8ef-424c-aa46-6d598a600243",
@@ -1526,8 +1552,9 @@
                             "VerticalAlign": "Center"
                           },
                           {
-                            "__type": "PartSelector",
-                            "__guid": "0b2cc4ab-c001-4355-a145-bcc86acae285",
+                            "__type": "PartSpace",
+                            "__guid": "242072a3-df0c-42bc-ac82-6f10be7132e2",
+                            "IsInterspace": false,
                             "Part": {
                               "_type": "component",
                               "component_id": "3b396828-61ed-431d-a27a-c79464db933d",

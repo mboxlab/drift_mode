@@ -216,250 +216,277 @@
           {
             "__type": "DM.Car.CarDresser",
             "__guid": "f0ec5012-65de-40cb-aed7-b57d29a5c706",
-            "BodyRenderer": {
-              "_type": "component",
-              "component_id": "8e4d9c6a-e979-4a95-9f16-a76b1e4be3de",
-              "go": "ce0fb670-0ba2-4ac0-b182-1c0fb4afcc32",
-              "component_type": "ModelRenderer"
-            },
-            "Poses": [
-              {
-                "_type": "gameobject",
-                "go": "c22851a5-6ced-4966-9c8c-539ed6d934a7"
-              },
-              {
-                "_type": "gameobject",
-                "go": "7ca06956-84fe-4c7a-b806-dad8d9a988d6"
-              },
-              {
-                "_type": "gameobject",
-                "go": "961b9a83-03fd-4eab-8bd6-415777e10dd5"
-              },
-              {
-                "_type": "gameobject",
-                "go": "a988307f-3dc5-4bfd-b9ef-21d81e1f71aa"
-              },
-              {
-                "_type": "gameobject",
-                "go": "2cb66ab1-2f24-4697-83c5-6bdb14e821c1"
-              },
-              {
-                "_type": "gameobject",
-                "go": "1beb832b-1b0a-48e2-8215-6adefc74cdd6"
-              }
-            ]
+            "Parts": []
           }
         ],
         "Children": [
           {
-            "__guid": "c22851a5-6ced-4966-9c8c-539ed6d934a7",
+            "__guid": "9f151198-a524-43a5-a362-b6854b52de9f",
+            "Flags": 0,
+            "Name": "tyres",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.Part",
+                "__guid": "2f016b6a-dba7-42ad-aa32-a6f3d14ec93f",
+                "Models": [
+                  "models/carparts/tyres/sm_veh_attach_tyre_01.vmdl",
+                  "models/carparts/tyres/sm_veh_attach_tyre_02.vmdl"
+                ],
+                "Name": "Tyres",
+                "Objects": [
+                  {
+                    "_type": "gameobject",
+                    "go": "5607908d-99ec-47f6-ae24-6295e9f65ca1"
+                  },
+                  {
+                    "_type": "gameobject",
+                    "go": "6827f06b-d9ad-42dc-b6bd-45bf8b83ea87"
+                  },
+                  {
+                    "_type": "gameobject",
+                    "go": "5504fe78-0ac7-4999-b280-9b867272e8ce"
+                  },
+                  {
+                    "_type": "gameobject",
+                    "go": "e4a67720-4698-4226-8d6b-ab4ced624fa0"
+                  }
+                ],
+                "Index": -1,
+                "Rendering": false
+              }
+            ]
+          },
+          {
+            "__guid": "80237bc1-5f54-49c3-a614-319a6f26c4bc",
+            "Flags": 0,
+            "Name": "disks",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.Part",
+                "__guid": "4b45bcd0-b8ef-424c-aa46-6d598a600243",
+                "Models": [
+                  "models/carparts/wheels/sm_veh_attach_wheel_01.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_02.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_03.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_04.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_05.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_06.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_07.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_08.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_09.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_10.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_11.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_12.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_13.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_14.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_15.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_16.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_17.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_18.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_19.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_20.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_21.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_22.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_23.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_24.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_25.vmdl",
+                  "models/carparts/wheels/sm_veh_attach_wheel_26.vmdl"
+                ],
+                "Name": "Disks",
+                "Objects": [
+                  {
+                    "_type": "gameobject",
+                    "go": "5607908d-99ec-47f6-ae24-6295e9f65ca1"
+                  },
+                  {
+                    "_type": "gameobject",
+                    "go": "6827f06b-d9ad-42dc-b6bd-45bf8b83ea87"
+                  },
+                  {
+                    "_type": "gameobject",
+                    "go": "5504fe78-0ac7-4999-b280-9b867272e8ce"
+                  },
+                  {
+                    "_type": "gameobject",
+                    "go": "e4a67720-4698-4226-8d6b-ab4ced624fa0"
+                  }
+                ],
+                "Index": -1,
+                "Rendering": false
+              }
+            ]
+          },
+          {
+            "__guid": "9f158ed7-a141-4e66-83b0-7c9c22f39400",
             "Flags": 0,
             "Name": "engine",
             "Position": "64.15572,0,5.144224",
             "Enabled": true,
             "Components": [
               {
-                "__type": "DM.Car.PartsList",
-                "__guid": "a4fefd18-5667-403a-ab9a-a5e916527a13",
-                "Parts": [
+                "__type": "DM.Car.Part",
+                "__guid": "e776014c-ebf5-4d4f-9cd9-0db2fc530981",
+                "Models": [
                   "models/carparts/enignes/sm_veh_attach_engine_01.vmdl",
                   "models/carparts/enignes/sm_veh_attach_engine_02.vmdl",
                   "models/carparts/enignes/sm_veh_attach_engine_03.vmdl",
                   "models/carparts/enignes/sm_veh_attach_engine_04.vmdl"
-                ]
+                ],
+                "Name": "Engine",
+                "Objects": [],
+                "Index": -1,
+                "Rendering": false
               }
             ]
           },
           {
-            "__guid": "7ca06956-84fe-4c7a-b806-dad8d9a988d6",
+            "__guid": "9a0d0997-2c3c-4a7f-b428-31cb5499500b",
             "Flags": 0,
             "Name": "bonnet",
             "Enabled": true,
             "Components": [
               {
-                "__type": "DM.Car.PartsList",
-                "__guid": "6cdedf40-5471-4d45-8c19-4d3d78aa40ae",
-                "Parts": [
+                "__type": "DM.Car.Part",
+                "__guid": "fd26c394-f806-4398-87ed-f1d5a4c2f4ba",
+                "Models": [
                   "models/cars/sport/parts/bonnets/sm_veh_sports_01_bonnet_01.vmdl",
                   "models/cars/sport/parts/bonnets/sm_veh_sports_01_bonnet_02.vmdl",
                   "models/cars/sport/parts/bonnets/sm_veh_sports_01_bonnet_03.vmdl",
                   "models/cars/sport/parts/bonnets/sm_veh_sports_01_bonnet_04.vmdl"
-                ]
+                ],
+                "Name": "Bonnet",
+                "Objects": [],
+                "Index": -1,
+                "Rendering": false
               }
             ]
           },
           {
-            "__guid": "961b9a83-03fd-4eab-8bd6-415777e10dd5",
+            "__guid": "72f9d075-cc49-44bc-ac42-73f27ffb51aa",
             "Flags": 0,
             "Name": "sideskirts",
             "Enabled": true,
             "Components": [
               {
-                "__type": "DM.Car.PartsList",
-                "__guid": "3a73e1dc-ed9a-4de8-88c7-31507414df0c",
-                "Parts": [
+                "__type": "DM.Car.Part",
+                "__guid": "e4ace083-458b-4028-a425-968391384078",
+                "Models": [
                   "models/cars/sport/parts/side_skirts/sm_veh_sports_01_side_skirts_01.vmdl",
                   "models/cars/sport/parts/side_skirts/sm_veh_sports_01_side_skirts_02.vmdl",
-                  "models/cars/sedan/parts/side_skirts/sm_veh_sedan_01_side_skirts_03.vmdl",
-                  "models/cars/sedan/parts/side_skirts/sm_veh_sedan_01_side_skirts_04.vmdl"
-                ]
+                  "models/cars/sport/parts/side_skirts/sm_veh_sports_01_side_skirts_03.vmdl",
+                  "models/cars/sport/parts/side_skirts/sm_veh_sports_01_side_skirts_04.vmdl"
+                ],
+                "Name": "Side Skirts",
+                "Objects": [],
+                "Index": -1,
+                "Rendering": false
               }
             ]
           },
           {
-            "__guid": "a988307f-3dc5-4bfd-b9ef-21d81e1f71aa",
+            "__guid": "0b95628a-df83-4d63-8c9b-ac5e633cbfbf",
             "Flags": 0,
             "Name": "frontbumper",
             "Enabled": true,
             "Components": [
               {
-                "__type": "DM.Car.PartsList",
-                "__guid": "3a57868b-aec8-4e02-bf78-fc128aafd202",
-                "Parts": [
+                "__type": "DM.Car.Part",
+                "__guid": "17ef8dd0-8724-4665-b48e-3ae839a10a25",
+                "Models": [
                   "models/cars/sport/parts/front_bumpers/sm_veh_sports_01_front_bumper_01.vmdl",
                   "models/cars/sport/parts/front_bumpers/sm_veh_sports_01_front_bumper_02.vmdl",
                   "models/cars/sport/parts/front_bumpers/sm_veh_sports_01_front_bumper_03.vmdl",
                   "models/cars/sport/parts/front_bumpers/sm_veh_sports_01_front_bumper_04.vmdl"
-                ]
+                ],
+                "Name": "Front Bumper",
+                "Objects": [],
+                "Index": -1,
+                "Rendering": false
               }
             ]
           },
           {
-            "__guid": "2cb66ab1-2f24-4697-83c5-6bdb14e821c1",
+            "__guid": "ed8845ab-2b48-4f0f-ac00-b7f3f7361073",
             "Flags": 0,
             "Name": "rearbumper",
             "Enabled": true,
             "Components": [
               {
-                "__type": "DM.Car.PartsList",
-                "__guid": "ea1535cb-6b9b-447d-9fa0-3bb885b5cf1c",
-                "Parts": [
+                "__type": "DM.Car.Part",
+                "__guid": "42d22433-13c9-4d72-a3ce-91fd535fa980",
+                "Models": [
                   "models/cars/sport/parts/rear_bumpers/sm_veh_sports_01_rear_bumper_01.vmdl",
                   "models/cars/sport/parts/rear_bumpers/sm_veh_sports_01_rear_bumper_02.vmdl",
                   "models/cars/sport/parts/rear_bumpers/sm_veh_sports_01_rear_bumper_03.vmdl",
                   "models/cars/sport/parts/rear_bumpers/sm_veh_sports_01_rear_bumper_04.vmdl"
-                ]
+                ],
+                "Name": "Rear Bumper",
+                "Objects": [],
+                "Index": -1,
+                "Rendering": false
               }
             ]
           },
           {
-            "__guid": "1beb832b-1b0a-48e2-8215-6adefc74cdd6",
+            "__guid": "4e36ce40-1634-4d9e-958c-47770eaec39e",
             "Flags": 0,
             "Name": "fenders",
             "Enabled": true,
             "Components": [
               {
-                "__type": "DM.Car.PartsList",
-                "__guid": "45452b19-3976-4c00-bfeb-2266e317b6c8",
-                "Parts": [
+                "__type": "DM.Car.Part",
+                "__guid": "40ec90b1-9ab7-4096-9052-64396e2a6654",
+                "Models": [
                   null,
                   "models/cars/sport/parts/fenders/sm_veh_sports_01_fenders_02.vmdl",
                   "models/cars/sport/parts/fenders/sm_veh_sports_01_fenders_03.vmdl",
                   "models/cars/sport/parts/fenders/sm_veh_sports_01_fenders_04.vmdl"
-                ]
+                ],
+                "Name": "Fenders",
+                "Objects": [],
+                "Index": 0,
+                "Rendering": false
               }
             ]
           },
           {
-            "__guid": "91748fb6-48b2-4eef-b7ba-fdb482c4e710",
+            "__guid": "c3d27802-5cb3-4d80-b1ca-0278a0a392fe",
             "Flags": 0,
             "Name": "wheels",
-            "Position": "0,0,17",
+            "Position": "0,0,13",
             "Enabled": true,
             "Children": [
               {
-                "__guid": "1bc170b6-017d-4e41-98a4-3a935f33497f",
+                "__guid": "5607908d-99ec-47f6-ae24-6295e9f65ca1",
                 "Flags": 0,
                 "Name": "Wheel Front Left",
-                "Position": "57.60001,32,0",
-                "Enabled": true,
-                "Components": [
-                  {
-                    "__type": "Sandbox.ModelRenderer",
-                    "__guid": "6437bbc3-1fe6-4272-bf30-32d27cbccaaa",
-                    "BodyGroups": 18446744073709551615,
-                    "Model": "models/cars/sport/wheel.vmdl",
-                    "RenderOptions": {
-                      "GameLayer": true,
-                      "OverlayLayer": false,
-                      "BloomLayer": false,
-                      "AfterUILayer": false
-                    },
-                    "RenderType": "On",
-                    "Tint": "1,1,1,1"
-                  }
-                ]
+                "Position": "57.60001,28,0",
+                "Enabled": true
               },
               {
-                "__guid": "42ce9a8b-70b6-4c35-97f0-5eb1b5d21b48",
+                "__guid": "6827f06b-d9ad-42dc-b6bd-45bf8b83ea87",
                 "Flags": 0,
                 "Name": "Wheel Front Right",
-                "Position": "57.60001,-32.00001,0",
+                "Position": "57.60001,-28,0",
                 "Rotation": "0,0,1,-0.00000004371139",
-                "Enabled": true,
-                "Components": [
-                  {
-                    "__type": "Sandbox.ModelRenderer",
-                    "__guid": "9859c032-ba03-4903-aab3-3cbd32e3378d",
-                    "BodyGroups": 18446744073709551615,
-                    "Model": "models/cars/sport/wheel.vmdl",
-                    "RenderOptions": {
-                      "GameLayer": true,
-                      "OverlayLayer": false,
-                      "BloomLayer": false,
-                      "AfterUILayer": false
-                    },
-                    "RenderType": "On",
-                    "Tint": "1,1,1,1"
-                  }
-                ]
+                "Enabled": true
               },
               {
-                "__guid": "f6bf03e8-e1bd-4bab-9b54-2946dd86fa68",
+                "__guid": "5504fe78-0ac7-4999-b280-9b867272e8ce",
                 "Flags": 0,
                 "Name": "Wheel Rear Left",
-                "Position": "-54.19997,32,0",
-                "Enabled": true,
-                "Components": [
-                  {
-                    "__type": "Sandbox.ModelRenderer",
-                    "__guid": "68793b34-c5e9-40d3-8eaa-f989bc37b2e1",
-                    "BodyGroups": 18446744073709551615,
-                    "Model": "models/cars/sport/wheel.vmdl",
-                    "RenderOptions": {
-                      "GameLayer": true,
-                      "OverlayLayer": false,
-                      "BloomLayer": false,
-                      "AfterUILayer": false
-                    },
-                    "RenderType": "On",
-                    "Tint": "1,1,1,1"
-                  }
-                ]
+                "Position": "-55,28,0",
+                "Enabled": true
               },
               {
-                "__guid": "997ba493-f677-42f6-a9c0-7b79e25b0a5f",
+                "__guid": "e4a67720-4698-4226-8d6b-ab4ced624fa0",
                 "Flags": 0,
                 "Name": "Wheel Rear Right",
-                "Position": "-54.19997,-32.00001,0",
-                "Rotation": "0,0,1,-0.00000004371139",
-                "Enabled": true,
-                "Components": [
-                  {
-                    "__type": "Sandbox.ModelRenderer",
-                    "__guid": "6b6c6635-3218-4702-bbd0-0d4a9be775c0",
-                    "BodyGroups": 18446744073709551615,
-                    "Model": "models/cars/sport/wheel.vmdl",
-                    "RenderOptions": {
-                      "GameLayer": true,
-                      "OverlayLayer": false,
-                      "BloomLayer": false,
-                      "AfterUILayer": false
-                    },
-                    "RenderType": "On",
-                    "Tint": "1,1,1,1"
-                  }
-                ]
+                "Position": "-55,-28,0",
+                "Rotation": "0,0,0.9961947,0.0871558",
+                "Enabled": true
               }
             ]
           }
@@ -469,7 +496,7 @@
         "__guid": "7ad25a1a-171f-4f43-af08-1e2d3803fe1d",
         "Flags": 0,
         "Name": "Front Axle",
-        "Position": "57.60001,0,17",
+        "Position": "57.60001,0,14",
         "Enabled": true,
         "Components": [
           {
@@ -666,7 +693,7 @@
                 "SuspensionExtensionSpeedCoeff": 30,
                 "Visual": {
                   "_type": "gameobject",
-                  "go": "1bc170b6-017d-4e41-98a4-3a935f33497f"
+                  "go": "5607908d-99ec-47f6-ae24-6295e9f65ca1"
                 },
                 "Width": 8.000002
               },
@@ -874,7 +901,7 @@
                 "SuspensionExtensionSpeedCoeff": 30,
                 "Visual": {
                   "_type": "gameobject",
-                  "go": "42ce9a8b-70b6-4c35-97f0-5eb1b5d21b48"
+                  "go": "6827f06b-d9ad-42dc-b6bd-45bf8b83ea87"
                 },
                 "Width": 8.000002
               }
@@ -886,7 +913,7 @@
         "__guid": "ce1a3692-9cc8-471e-8460-bedc2caecdd5",
         "Flags": 0,
         "Name": "Rear Axle",
-        "Position": "-54.19997,0,17",
+        "Position": "-54.19997,0,14",
         "Enabled": true,
         "Components": [
           {
@@ -1081,7 +1108,7 @@
                 "SuspensionExtensionSpeedCoeff": 30,
                 "Visual": {
                   "_type": "gameobject",
-                  "go": "f6bf03e8-e1bd-4bab-9b54-2946dd86fa68"
+                  "go": "5504fe78-0ac7-4999-b280-9b867272e8ce"
                 },
                 "Width": 8.000002
               }
@@ -1251,7 +1278,7 @@
                 "SuspensionExtensionSpeedCoeff": 30,
                 "Visual": {
                   "_type": "gameobject",
-                  "go": "997ba493-f677-42f6-a9c0-7b79e25b0a5f"
+                  "go": "e4a67720-4698-4226-8d6b-ab4ced624fa0"
                 },
                 "Width": 8.000002
               }
@@ -1677,5 +1704,6 @@
   "DontBreakAsTemplate": false,
   "ResourceVersion": 1,
   "__references": [],
+  "IsValid": true,
   "__version": 1
 }

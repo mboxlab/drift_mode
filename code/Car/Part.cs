@@ -1,7 +1,7 @@
 ﻿namespace DM.Car;
 
 [Icon( "extension" )]
-public sealed class Part : Component
+public sealed class Part : Component, ICarDresserEvent
 {
 	[Property] public string Name;
 
@@ -56,7 +56,6 @@ public sealed class Part : Component
 			Renderers.Add( renderer );
 		}
 
-		// fix
 		Dress( _current );
 	}
 
@@ -65,7 +64,7 @@ public sealed class Part : Component
 	{
 		_current = model;
 		Rendering = _current is not null;
-		if ( _current is null ) return;
+		if ( !Rendering ) return;
 
 		foreach ( ModelRenderer renderer in Renderers )
 		{
@@ -74,5 +73,7 @@ public sealed class Part : Component
 			renderer.ClearMaterialOverrides();
 			renderer.MaterialOverride = material;
 		}
+
+		ICarDresserEvent.Post( x => x.Save() );
 	}
 }

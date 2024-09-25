@@ -8,6 +8,12 @@ PartSpace {
 		font-size: 48px;
 		font-weight: bold;
 		font-family: Poppins;
+		text-align: center;
 		justify-content: center;
+		transition: all 0.1s ease-out;
+
+		&:hover {
+			transform: scale( 1.1 );
+		}
 	}
 }

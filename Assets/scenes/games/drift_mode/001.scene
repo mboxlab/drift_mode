@@ -12,7 +12,7 @@
           "__guid": "f92dce95-e6ec-482e-9bc3-217626e4e9bf",
           "__version": 1,
           "EnableCollision": true,
-          "MapName": "maps/games/drift_mode/001.vmap",
+          "MapName": "maps/games/drift_mode/002.vmap",
           "NoOrigin": false,
           "OnMapLoaded": null,
           "OnMapUnloaded": null,
@@ -92,10 +92,29 @@
           "ZNear": 16
         }
       ]
+    },
+    {
+      "__guid": "e7e745be-4bb9-4f09-9034-72233521aa96",
+      "Flags": 0,
+      "Name": "Gradient Fog",
+      "Position": "77.59674,-27.7059,42.18673",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.GradientFog",
+          "__guid": "65185ee2-31b5-4200-ada4-1d45af87af9d",
+          "Color": "0.93953,0.91856,0.8871,1",
+          "EndDistance": 6120,
+          "FalloffExponent": 1,
+          "Height": 128,
+          "StartDistance": 1640,
+          "VerticalFalloffExponent": 2
+        }
+      ]
     }
   ],
   "SceneProperties": {
-    "FixedUpdateFrequency": 30,
+    "FixedUpdateFrequency": 66,
     "MaxFixedUpdates": 5,
     "NetworkFrequency": 30,
     "NetworkInterpolation": true,

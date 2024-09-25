@@ -14,7 +14,7 @@
         "Gravity": true,
         "LinearDamping": 0,
         "Locking": {},
-        "MassCenterOverride": "5,0,20",
+        "MassCenterOverride": "0,0,20",
         "MassOverride": 1125,
         "MotionEnabled": true,
         "OverrideMassCenter": true,
@@ -47,6 +47,7 @@
         "__type": "Sandbox.Car.CarController",
         "__guid": "a5a4082d-3815-4443-b073-75963d0bcd17",
         "CarConfig": {
+          "MaxSteerAngle": 45,
           "DriveType": "RWD",
           "AutomaticGearBox": true,
           "MaxMotorTorque": 400,
@@ -57,17 +58,17 @@
                 "y": 0.3
               },
               {
-                "x": 3.5,
-                "y": 0.88,
-                "ti": 0.066698305,
-                "to": 0.066698305,
+                "x": 3.6,
+                "y": 0.875,
+                "ti": 0.058593694,
+                "to": 0.058593694,
                 "tm": "Mirrored"
               },
               {
                 "x": 6.4,
                 "y": 1,
-                "ti": 0.016476072,
-                "to": 0.016476072,
+                "ti": -0.0047707004,
+                "to": -0.0047707004,
                 "tm": "Mirrored"
               },
               {
@@ -84,7 +85,7 @@
           "RpmToNextGear": 6500,
           "RpmToPrevGear": 4500,
           "MaxForwardSlipToBlockChangeGear": 0.5,
-          "RpmEngineToRpmWheelsLerpSpeed": 20,
+          "RpmEngineToRpmWheelsLerpSpeed": 15,
           "GearsRatio": [
             3.59,
             2.02,
@@ -92,22 +93,22 @@
             1,
             0.87
           ],
-          "MainRatio": 4.3,
+          "MainRatio": 3.5,
           "ReversGearRatio": 4,
           "MaxBrakeTorque": 1000,
           "TargetSpeedIfBrakingGround": 20,
-          "BrakingSpeedOneWheelTime": 1
+          "BrakingSpeedOneWheelTime": 2
         },
         "CarDriftConfig": {
           "EnableSteerAngleMultiplier": true,
           "MinSteerAngleMultiplier": 0.05,
           "MaxSteerAngleMultiplier": 1,
           "MaxSpeedForMinAngleMultiplier": 250,
-          "SteerAngleChangeSpeed": 252,
+          "SteerAngleChangeSpeed": 500,
           "MinSpeedForSteerHelp": 20,
           "HelpSteerPower": 0.1,
-          "OppositeAngularVelocityHelpPower": 1,
-          "PositiveAngularVelocityHelpPower": 1,
+          "OppositeAngularVelocityHelpPower": 0.1,
+          "PositiveAngularVelocityHelpPower": 0.1,
           "MaxAngularVelocityHelpAngle": 90,
           "AngularVelucityInMaxAngle": 0.5,
           "AngularVelucityInMinAngle": 4,
@@ -119,6 +120,12 @@
           "component_id": "63f289fd-6e4a-4084-b6c5-b497bb5fbec5",
           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
           "component_type": "Rigidbody"
+        },
+        "SoundInterpolator": {
+          "_type": "component",
+          "component_id": "eea8bcda-35f3-4a8f-8ee7-db4758c05cba",
+          "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+          "component_type": "SoundInterpolator"
         },
         "Wheels": [
           {
@@ -146,6 +153,24 @@
             "component_type": "WheelCollider"
           }
         ]
+      },
+      {
+        "__type": "DM.Engine.SoundInterpolator",
+        "__guid": "eea8bcda-35f3-4a8f-8ee7-db4758c05cba",
+        "MaxValue": 7000,
+        "Parent": {
+          "_type": "gameobject",
+          "go": "9129ed10-c30b-4dd2-9800-b160f93b3376"
+        },
+        "Sounds": {
+          "2745": "sound/engines/supra/adam lz chaser 1jz 2020 engine dynorun 2745,472rpm.vsnd",
+          "3101": "sound/engines/supra/adam lz chaser 1jz 2020 engine dynorun 3101,777rpm.vsnd",
+          "5161": "sound/engines/supra/adam lz chaser 1jz 2020 engine dynorun 5161,291rpm.vsnd",
+          "6428": "sound/engines/supra/adam lz chaser 1jz 2020 engine dynorun 6428,572rpm.vsnd",
+          "7024": "sound/engines/supra/adam lz chaser 1jz 2020 engine dynorun 7024,391rpm.vsnd"
+        },
+        "Value": 0,
+        "Volume": 0
       }
     ],
     "Children": [
@@ -476,37 +501,6 @@
         "Name": "Front Axle",
         "Position": "57.60001,0,12",
         "Enabled": true,
-        "Components": [
-          {
-            "__type": "DM.Car.Steering",
-            "__guid": "03f9dcc8-a77a-4aab-a060-4875f83dc8a1",
-            "__enabled": false,
-            "MaxSteeringAngle": 35,
-            "MinSteeringAngle": 20,
-            "Offset": "0,0,0",
-            "Rigidbody": {
-              "_type": "component",
-              "component_id": "63f289fd-6e4a-4084-b6c5-b497bb5fbec5",
-              "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
-              "component_type": "Rigidbody"
-            },
-            "SteeringSmoothness": 10,
-            "Wheels": [
-              {
-                "_type": "component",
-                "component_id": "e12a6c21-628d-4695-b147-a282730346a9",
-                "go": "a67d5021-9e51-483f-a1b7-a628c5bb2909",
-                "component_type": "WheelCollider"
-              },
-              {
-                "_type": "component",
-                "component_id": "ec083d93-c036-4cae-be0b-94a664ed7d19",
-                "go": "8c9526f3-7634-43e5-812f-67d706b9022f",
-                "component_type": "WheelCollider"
-              }
-            ]
-          }
-        ],
         "Children": [
           {
             "__guid": "a67d5021-9e51-483f-a1b7-a628c5bb2909",
@@ -520,21 +514,75 @@
                 "__guid": "e12a6c21-628d-4695-b147-a282730346a9",
                 "ForwardFriction": {
                   "ExtremumSlip": 1,
-                  "ExtremumValue": 3000,
+                  "ExtremumValue": 2000,
                   "AsymptoteSlip": 2,
-                  "AsymptoteValue": 1500
+                  "AsymptoteValue": 1500,
+                  "Stiffness": 1
                 },
                 "MaxSuspensionLength": 0,
                 "MinSuspensionLength": 3,
                 "SideFriction": {
-                  "ExtremumSlip": 1,
-                  "ExtremumValue": 3000,
+                  "ExtremumSlip": 0.9,
+                  "ExtremumValue": 7500,
                   "AsymptoteSlip": 2,
-                  "AsymptoteValue": 1500
+                  "AsymptoteValue": 3500,
+                  "Stiffness": 1
                 },
                 "SuspensionDamping": 140,
                 "SuspensionStiffness": 3000,
-                "WheelRadius": 14
+                "WheelRadius": 13,
+                "WheelWidth": 6
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "daa2378b-c833-49af-8288-85cd2ccd8c3e",
+                "Flags": 0,
+                "Name": "trail",
+                "Position": "0,0,0",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.LineRenderer",
+                    "__guid": "84907cae-15ef-4ecf-bbce-ef91ac33a46c",
+                    "CastShadows": true,
+                    "Color": {
+                      "color": [
+                        {
+                          "t": 0.5,
+                          "c": "0,0,0,0.38"
+                        }
+                      ],
+                      "alpha": []
+                    },
+                    "EndCap": "Rounded",
+                    "Face": "Normal",
+                    "Opaque": true,
+                    "Points": [
+                      null
+                    ],
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "SplineBias": 0,
+                    "SplineContinuity": 0,
+                    "SplineInterpolation": 0,
+                    "SplineTension": 0,
+                    "StartCap": "Rounded",
+                    "UseVectorPoints": true,
+                    "VectorPoints": [],
+                    "Width": [
+                      {
+                        "x": 0.5,
+                        "y": 5
+                      }
+                    ],
+                    "Wireframe": false
+                  }
+                ]
               }
             ]
           },
@@ -550,21 +598,75 @@
                 "__guid": "ec083d93-c036-4cae-be0b-94a664ed7d19",
                 "ForwardFriction": {
                   "ExtremumSlip": 1,
-                  "ExtremumValue": 3000,
+                  "ExtremumValue": 2000,
                   "AsymptoteSlip": 2,
-                  "AsymptoteValue": 1500
+                  "AsymptoteValue": 1500,
+                  "Stiffness": 1
                 },
                 "MaxSuspensionLength": 0,
                 "MinSuspensionLength": 3,
                 "SideFriction": {
-                  "ExtremumSlip": 1,
-                  "ExtremumValue": 3000,
+                  "ExtremumSlip": 0.9,
+                  "ExtremumValue": 7500,
                   "AsymptoteSlip": 2,
-                  "AsymptoteValue": 1500
+                  "AsymptoteValue": 3500,
+                  "Stiffness": 1
                 },
                 "SuspensionDamping": 140,
                 "SuspensionStiffness": 3000,
-                "WheelRadius": 14
+                "WheelRadius": 13,
+                "WheelWidth": 6
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "af0d39cb-cdfc-4a9a-8481-fe7f674187c4",
+                "Flags": 0,
+                "Name": "trail",
+                "Position": "0,0,0",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.LineRenderer",
+                    "__guid": "7a3eb057-e010-49fd-899b-3bb8bd2b7675",
+                    "CastShadows": true,
+                    "Color": {
+                      "color": [
+                        {
+                          "t": 0.5,
+                          "c": "0,0,0,0.38"
+                        }
+                      ],
+                      "alpha": []
+                    },
+                    "EndCap": "Rounded",
+                    "Face": "Normal",
+                    "Opaque": true,
+                    "Points": [
+                      null
+                    ],
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "SplineBias": 0,
+                    "SplineContinuity": 0,
+                    "SplineInterpolation": 0,
+                    "SplineTension": 0,
+                    "StartCap": "Rounded",
+                    "UseVectorPoints": true,
+                    "VectorPoints": [],
+                    "Width": [
+                      {
+                        "x": 0.5,
+                        "y": 5
+                      }
+                    ],
+                    "Wireframe": false
+                  }
+                ]
               }
             ]
           }
@@ -589,21 +691,260 @@
                 "__guid": "280f3c11-c205-4669-b9f6-c003458778a9",
                 "ForwardFriction": {
                   "ExtremumSlip": 1,
-                  "ExtremumValue": 3000,
+                  "ExtremumValue": 2000,
                   "AsymptoteSlip": 2,
-                  "AsymptoteValue": 1500
+                  "AsymptoteValue": 1500,
+                  "Stiffness": 1
                 },
                 "MaxSuspensionLength": 0,
                 "MinSuspensionLength": 3,
                 "SideFriction": {
-                  "ExtremumSlip": 1,
-                  "ExtremumValue": 3000,
+                  "ExtremumSlip": 0.9,
+                  "ExtremumValue": 7500,
                   "AsymptoteSlip": 2,
-                  "AsymptoteValue": 1500
+                  "AsymptoteValue": 3500,
+                  "Stiffness": 1
+                },
+                "SmokeEmitter": {
+                  "_type": "component",
+                  "component_id": "016c02e8-4b9f-4864-9099-5898c96fd233",
+                  "go": "532a0b2a-d75b-4680-8d8f-0ab899c90338",
+                  "component_type": "ParticleSphereEmitter"
                 },
                 "SuspensionDamping": 140,
                 "SuspensionStiffness": 3000,
-                "WheelRadius": 14
+                "WheelRadius": 13,
+                "WheelWidth": 6
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "532a0b2a-d75b-4680-8d8f-0ab899c90338",
+                "Flags": 0,
+                "Name": "Smoke",
+                "Position": "0,0,0",
+                "Tags": "particles",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ParticleEffect",
+                    "__guid": "0a9edfa5-a17c-47d3-8f30-29226446a0df",
+                    "__version": 1,
+                    "Alpha": {
+                      "Type": "Curve",
+                      "CurveA": [
+                        {
+                          "in": -4.0000024,
+                          "out": 4.0000024
+                        },
+                        {
+                          "x": 0.20812808,
+                          "y": 0.475
+                        },
+                        {
+                          "x": 1
+                        }
+                      ],
+                      "Constants": "1,0,0,0"
+                    },
+                    "ApplyAlpha": true,
+                    "ApplyColor": true,
+                    "ApplyRotation": true,
+                    "ApplyShape": true,
+                    "Bounce": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "Brightness": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "Bumpiness": {},
+                    "Collision": false,
+                    "CollisionRadius": 1,
+                    "Damping": {
+                      "Constants": "5,0,0,0"
+                    },
+                    "DieOnCollisionChance": {},
+                    "Force": true,
+                    "ForceDirection": "0,0,300",
+                    "ForceScale": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "Friction": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "Gradient": {
+                      "Type": "Range",
+                      "GradientA": {
+                        "color": [
+                          {
+                            "t": 0.5,
+                            "c": "1,1,1,1"
+                          }
+                        ],
+                        "alpha": []
+                      },
+                      "GradientB": {
+                        "color": [
+                          {
+                            "t": 0.5,
+                            "c": "1,1,1,1"
+                          }
+                        ],
+                        "alpha": []
+                      },
+                      "ConstantA": "1,1,1,1",
+                      "ConstantB": "1,1,1,1"
+                    },
+                    "Lifetime": {
+                      "Type": "Range",
+                      "Evaluation": "Particle",
+                      "Constants": "1,2,0,0"
+                    },
+                    "MaxParticles": 500,
+                    "OrbitalForce": {},
+                    "OrbitalPull": {},
+                    "PerParticleTimeScale": {
+                      "Constants": "1,0.4,0,0"
+                    },
+                    "Pitch": {},
+                    "PreWarm": 0,
+                    "PushStrength": {},
+                    "Roll": {
+                      "Type": "Range",
+                      "Evaluation": "Particle",
+                      "Constants": "0,360,0,0"
+                    },
+                    "Scale": {
+                      "Type": "Curve",
+                      "CurveA": {
+                        "rangey": "0,120",
+                        "frames": [
+                          {
+                            "y": 0.069148935
+                          },
+                          {
+                            "x": 0.80505955,
+                            "y": 0.9574468
+                          },
+                          {
+                            "x": 0.98660713,
+                            "y": 0.10372341
+                          }
+                        ]
+                      },
+                      "Constants": "5,120,0,0"
+                    },
+                    "SequenceId": {},
+                    "SequenceSpeed": {
+                      "Constants": "0.5,0,0,0"
+                    },
+                    "SequenceTime": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "SheetSequence": true,
+                    "Space": "World",
+                    "StartDelay": {},
+                    "StartVelocity": {
+                      "Type": "Range",
+                      "Evaluation": "Particle",
+                      "Constants": "10,70,0,0"
+                    },
+                    "Stretch": {},
+                    "TimeScale": 1,
+                    "Tint": "1,1,1,1",
+                    "Yaw": {}
+                  },
+                  {
+                    "__type": "Sandbox.ParticleSpriteRenderer",
+                    "__guid": "7c0918a2-fcfb-43d5-ae8b-5812c158ecdb",
+                    "Additive": false,
+                    "Alignment": "LookAtCamera",
+                    "BlurAmount": 0.5,
+                    "BlurOpacity": 0.91,
+                    "BlurSpacing": 0.73,
+                    "DepthFeather": 0,
+                    "FaceVelocity": false,
+                    "FogStrength": 1,
+                    "LeadingTrail": true,
+                    "Lighting": false,
+                    "MotionBlur": false,
+                    "Opaque": false,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RotationOffset": 0,
+                    "Scale": 1,
+                    "Shadows": true,
+                    "SortMode": "Unsorted",
+                    "Texture": "materials/particles/simulated/smoke/smoke_fluid/smoke_fluid.vtex"
+                  },
+                  {
+                    "__type": "Sandbox.ParticleSphereEmitter",
+                    "__guid": "016c02e8-4b9f-4864-9099-5898c96fd233",
+                    "Burst": 0,
+                    "Delay": 0,
+                    "DestroyOnEnd": false,
+                    "Duration": 5,
+                    "Loop": true,
+                    "OnEdge": false,
+                    "Radius": 4,
+                    "Rate": 0,
+                    "RateOverDistance": 0,
+                    "Velocity": 0
+                  }
+                ]
+              },
+              {
+                "__guid": "d9aa00ee-dccb-439f-a193-bbb3bb2968e9",
+                "Flags": 0,
+                "Name": "trail",
+                "Position": "0,0,0",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.LineRenderer",
+                    "__guid": "d7a7a2b8-a26f-4cb7-ac7c-d1d9bc81a32f",
+                    "CastShadows": true,
+                    "Color": {
+                      "color": [
+                        {
+                          "t": 0.5,
+                          "c": "0,0,0,0.38"
+                        }
+                      ],
+                      "alpha": []
+                    },
+                    "EndCap": "Rounded",
+                    "Face": "Normal",
+                    "Opaque": true,
+                    "Points": [
+                      null
+                    ],
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "SplineBias": 0,
+                    "SplineContinuity": 0,
+                    "SplineInterpolation": 0,
+                    "SplineTension": 0,
+                    "StartCap": "Rounded",
+                    "UseVectorPoints": true,
+                    "VectorPoints": [],
+                    "Width": [
+                      {
+                        "x": 0.5,
+                        "y": 5
+                      }
+                    ],
+                    "Wireframe": false
+                  }
+                ]
               }
             ]
           },
@@ -619,21 +960,260 @@
                 "__guid": "0de1899c-a5d8-4fa4-8403-12b9daac9857",
                 "ForwardFriction": {
                   "ExtremumSlip": 1,
-                  "ExtremumValue": 3000,
+                  "ExtremumValue": 2000,
                   "AsymptoteSlip": 2,
-                  "AsymptoteValue": 1500
+                  "AsymptoteValue": 1500,
+                  "Stiffness": 1
                 },
                 "MaxSuspensionLength": 0,
                 "MinSuspensionLength": 3,
                 "SideFriction": {
-                  "ExtremumSlip": 1,
-                  "ExtremumValue": 3000,
+                  "ExtremumSlip": 0.9,
+                  "ExtremumValue": 7500,
                   "AsymptoteSlip": 2,
-                  "AsymptoteValue": 1500
+                  "AsymptoteValue": 3500,
+                  "Stiffness": 1
+                },
+                "SmokeEmitter": {
+                  "_type": "component",
+                  "component_id": "e99d789d-0efb-458e-ae85-42141e0cff96",
+                  "go": "54a79300-b5c1-49fe-94fa-1d6f59b0f9b9",
+                  "component_type": "ParticleSphereEmitter"
                 },
                 "SuspensionDamping": 140,
                 "SuspensionStiffness": 3000,
-                "WheelRadius": 14
+                "WheelRadius": 13,
+                "WheelWidth": 6
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "03b265ee-3eb9-4795-9753-0f0f48d91a74",
+                "Flags": 0,
+                "Name": "trail",
+                "Position": "0,0,0",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.LineRenderer",
+                    "__guid": "e83a2d88-3577-48b1-87bd-ab667fa9f9b2",
+                    "CastShadows": true,
+                    "Color": {
+                      "color": [
+                        {
+                          "t": 0.5,
+                          "c": "0,0,0,0.38"
+                        }
+                      ],
+                      "alpha": []
+                    },
+                    "EndCap": "Rounded",
+                    "Face": "Normal",
+                    "Opaque": true,
+                    "Points": [
+                      null
+                    ],
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "SplineBias": 0,
+                    "SplineContinuity": 0,
+                    "SplineInterpolation": 0,
+                    "SplineTension": 0,
+                    "StartCap": "Rounded",
+                    "UseVectorPoints": true,
+                    "VectorPoints": [],
+                    "Width": [
+                      {
+                        "x": 0.5,
+                        "y": 5
+                      }
+                    ],
+                    "Wireframe": false
+                  }
+                ]
+              },
+              {
+                "__guid": "54a79300-b5c1-49fe-94fa-1d6f59b0f9b9",
+                "Flags": 0,
+                "Name": "Smoke",
+                "Position": "0,0,0",
+                "Tags": "particles",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ParticleEffect",
+                    "__guid": "01879ef1-059e-4083-8955-b83bac4308f7",
+                    "__version": 1,
+                    "Alpha": {
+                      "Type": "Curve",
+                      "CurveA": [
+                        {
+                          "in": -4.0000024,
+                          "out": 4.0000024
+                        },
+                        {
+                          "x": 0.20812808,
+                          "y": 0.475
+                        },
+                        {
+                          "x": 1
+                        }
+                      ],
+                      "Constants": "1,0,0,0"
+                    },
+                    "ApplyAlpha": true,
+                    "ApplyColor": true,
+                    "ApplyRotation": true,
+                    "ApplyShape": true,
+                    "Bounce": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "Brightness": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "Bumpiness": {},
+                    "Collision": false,
+                    "CollisionRadius": 1,
+                    "Damping": {
+                      "Constants": "5,0,0,0"
+                    },
+                    "DieOnCollisionChance": {},
+                    "Force": true,
+                    "ForceDirection": "0,0,300",
+                    "ForceScale": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "Friction": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "Gradient": {
+                      "Type": "Range",
+                      "GradientA": {
+                        "color": [
+                          {
+                            "t": 0.5,
+                            "c": "1,1,1,1"
+                          }
+                        ],
+                        "alpha": []
+                      },
+                      "GradientB": {
+                        "color": [
+                          {
+                            "t": 0.5,
+                            "c": "1,1,1,1"
+                          }
+                        ],
+                        "alpha": []
+                      },
+                      "ConstantA": "1,1,1,1",
+                      "ConstantB": "1,1,1,1"
+                    },
+                    "Lifetime": {
+                      "Type": "Range",
+                      "Evaluation": "Particle",
+                      "Constants": "1,2,0,0"
+                    },
+                    "MaxParticles": 500,
+                    "OrbitalForce": {},
+                    "OrbitalPull": {},
+                    "PerParticleTimeScale": {
+                      "Constants": "1,0.4,0,0"
+                    },
+                    "Pitch": {},
+                    "PreWarm": 0,
+                    "PushStrength": {},
+                    "Roll": {
+                      "Type": "Range",
+                      "Evaluation": "Particle",
+                      "Constants": "0,360,0,0"
+                    },
+                    "Scale": {
+                      "Type": "Curve",
+                      "CurveA": {
+                        "rangey": "0,120",
+                        "frames": [
+                          {
+                            "y": 0.069148935
+                          },
+                          {
+                            "x": 0.80505955,
+                            "y": 0.9574468
+                          },
+                          {
+                            "x": 0.98660713,
+                            "y": 0.10372341
+                          }
+                        ]
+                      },
+                      "Constants": "5,120,0,0"
+                    },
+                    "SequenceId": {},
+                    "SequenceSpeed": {
+                      "Constants": "0.5,0,0,0"
+                    },
+                    "SequenceTime": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "SheetSequence": true,
+                    "Space": "World",
+                    "StartDelay": {},
+                    "StartVelocity": {
+                      "Type": "Range",
+                      "Evaluation": "Particle",
+                      "Constants": "10,70,0,0"
+                    },
+                    "Stretch": {},
+                    "TimeScale": 1,
+                    "Tint": "1,1,1,1",
+                    "Yaw": {}
+                  },
+                  {
+                    "__type": "Sandbox.ParticleSpriteRenderer",
+                    "__guid": "d09f8eef-8ccb-400f-9c72-edfeaf43207b",
+                    "Additive": false,
+                    "Alignment": "LookAtCamera",
+                    "BlurAmount": 0.5,
+                    "BlurOpacity": 0.91,
+                    "BlurSpacing": 0.73,
+                    "DepthFeather": 0,
+                    "FaceVelocity": false,
+                    "FogStrength": 1,
+                    "LeadingTrail": true,
+                    "Lighting": false,
+                    "MotionBlur": false,
+                    "Opaque": false,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RotationOffset": 0,
+                    "Scale": 1,
+                    "Shadows": true,
+                    "SortMode": "Unsorted",
+                    "Texture": "materials/particles/simulated/smoke/smoke_fluid/smoke_fluid.vtex"
+                  },
+                  {
+                    "__type": "Sandbox.ParticleSphereEmitter",
+                    "__guid": "e99d789d-0efb-458e-ae85-42141e0cff96",
+                    "Burst": 0,
+                    "Delay": 0,
+                    "DestroyOnEnd": false,
+                    "Duration": 5,
+                    "Loop": true,
+                    "OnEdge": false,
+                    "Radius": 4,
+                    "Rate": 0,
+                    "RateOverDistance": 0,
+                    "Velocity": 0
+                  }
+                ]
               }
             ]
           }

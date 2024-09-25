@@ -11,8 +11,10 @@ public class WheelCollider : Stereable
 	[Property] public float SuspensionStiffness { get; set; } = 3000.0f;
 	[Property] public float SuspensionDamping { get; set; } = 140.0f;
 	[Property] public float WheelRadius { get => wheelRadius; set { wheelRadius = value; UpdateTotalSuspensionLength(); } }
+	[Property] public float WheelWidth { get; set; } = 6;
 	[Property] public WheelFrictionInfo ForwardFriction { get; set; }
 	[Property] public WheelFrictionInfo SideFriction { get; set; }
+	[Property] public ParticleSphereEmitter SmokeEmitter { get; set; }
 
 	private float ForwardStiffness = 1;
 	private float SideStiffness = 1;
@@ -35,6 +37,7 @@ public class WheelCollider : Stereable
 
 	protected override void OnEnabled()
 	{
+
 		_rigidbody = Components.GetInAncestorsOrSelf<Rigidbody>();
 		UpdateTotalSuspensionLength();
 	}
@@ -57,26 +60,36 @@ public class WheelCollider : Stereable
 	}
 	private void UpdateWheelForces()
 	{
+
+		if ( SmokeEmitter is not null ) SmokeEmitter.Enabled = IsGrounded;
+
+		if ( SmokeEmitter is not null )
+		{
+			if ( AngleVelocity > 100f )
+				SmokeEmitter.Rate += Math.Abs( SideSlip ) * AngleVelocity / 24f;
+			else
+				SmokeEmitter.Rate = 0;
+			SmokeEmitter.Rate /= 1.07f;
+		}
 		if ( !IsGrounded )
 		{
+
 			AngleVelocity /= 1.1f;
 			return;
 		}
 
-
-		var hitContactVelocity = _rigidbody.GetVelocityAtPoint( groundHit.Point + _rigidbody.PhysicsBody.LocalMassCenter );
+		var hitContactVelocity = _rigidbody.GetVelocityAtPoint( groundHit.Point + _rigidbody.PhysicsBody.LocalMassCenter ).RotateAround( Vector3.Zero, Rotation.FromYaw( -SteerAngle ) );
 
 		var hitForwardDirection = groundHit.Normal.Cross( Transform.Rotation.Right ).Normal;
-		var hitSidewaysDirection = Rotation.FromAxis( groundHit.Normal, 90f + SteerAngle ) * hitForwardDirection;
+		var hitSidewaysDirection = Rotation.FromAxis( groundHit.Normal, 90f ) * hitForwardDirection;
 
 		var wheelSpeed = hitContactVelocity.Length;
 
-		SideSlip = CalculateSlip( hitContactVelocity, hitSidewaysDirection, wheelSpeed );
-		ForwardSlip = CalculateSlip( hitContactVelocity, hitForwardDirection, wheelSpeed );
+		SideSlip = CalculateSlip( hitContactVelocity, hitSidewaysDirection, wheelSpeed ) * SideStiffness;
+		ForwardSlip = CalculateSlip( hitContactVelocity, hitForwardDirection, wheelSpeed ) * ForwardStiffness;
 
-
-		var sideForce = CalculateFrictionForce( SideFriction, SideSlip, hitSidewaysDirection ) * 0.5f;
-		var forwardForce = CalculateFrictionForce( ForwardFriction, ForwardSlip, hitForwardDirection ) * 0.5f;
+		var sideForce = CalculateFrictionForce( SideFriction, SideSlip, hitSidewaysDirection );
+		var forwardForce = CalculateFrictionForce( ForwardFriction, ForwardSlip, hitForwardDirection );
 
 		float factor = wheelSpeed.LerpInverse( 0f, LowSpeedThreshold );
 
@@ -111,7 +124,7 @@ public class WheelCollider : Stereable
 		if ( !IsGrounded )
 			return;
 
-		var worldVelocity = _rigidbody.GetVelocityAtPoint( Transform.Position );
+		var worldVelocity = _rigidbody.GetVelocityAtPoint( groundHit.Point + _rigidbody.PhysicsBody.LocalMassCenter );
 
 		var localVel = worldVelocity.Dot( groundHit.Normal );
 

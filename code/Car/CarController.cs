@@ -4,13 +4,14 @@ using System.IO;
 using System.Text.RegularExpressions;
 using AltCurves;
 using DM.Car;
+using DM.Engine;
 
 namespace Sandbox.Car;
 
 [Category( "Vehicles" )]
 public sealed class CarController : Component
 {
-	public string CharacterName { get; set; }
+	[Property] public SoundInterpolator SoundInterpolator { get; set; }
 	[Property] public WheelCollider[] Wheels { get; private set; }
 	[Property] public Rigidbody Rigidbody { get; private set; }
 
@@ -115,9 +116,18 @@ public sealed class CarController : Component
 		}
 
 	}
+	protected override void OnStart()
+	{
+		SoundInterpolator.MaxValue = MaxRPM;
+
+	}
 	protected override void OnUpdate()
 	{
 		UpdateControls();
+		SoundInterpolator.Value = EngineRPM;
+
+		SoundInterpolator.Volume = 1;
+
 	}
 
 	protected override void OnFixedUpdate()
@@ -190,6 +200,7 @@ public sealed class CarController : Component
 		{
 
 			//Calculate the rpm based on rpm of the wheel and current gear ratio.
+
 			float targetRPM = Math.Abs( (minRPM + 20f) * AllGearsRatio[CurrentGearIndex] );              //+20 for normal work CutOffRPM
 
 			targetRPM = MathX.Clamp( targetRPM, MinRPM, MaxRPM );
@@ -229,7 +240,7 @@ public sealed class CarController : Component
 			{
 				CurrentBrake = MaxBrakeTorque;
 				for ( int i = FirstDriveWheel; i <= LastDriveWheel; i++ )
-					Wheels[i].MotorTorque = 0;
+					Wheels[i].MotorTorque = CarDirection * -1000;
 			}
 		}
 		else
@@ -243,10 +254,20 @@ public sealed class CarController : Component
 		if ( AutomaticGearBox )
 		{
 
+			bool forwardIsSlip = false;
+			for ( int i = FirstDriveWheel; i <= LastDriveWheel; i++ )
+			{
+				if ( (1 - Wheels[i].ForwardSlip) > MaxForwardSlipToBlockChangeGear )
+				{
+					forwardIsSlip = true;
+					break;
+				}
+			}
+
 			float prevRatio = 0;
 			float newRatio = 0;
 
-			if ( EngineRPM > RpmToNextGear && CurrentGear >= 0 && CurrentGear < (AllGearsRatio.Length - 2) )
+			if ( !forwardIsSlip && EngineRPM > RpmToNextGear && CurrentGear >= 0 && CurrentGear < (AllGearsRatio.Length - 2) )
 			{
 				prevRatio = AllGearsRatio[CurrentGearIndex];
 				CurrentGear++;
@@ -277,8 +298,6 @@ public sealed class CarController : Component
 				CurrentGear = 0;
 			}
 		}
-
-		//TODO manual gearbox logic.
 	}
 
 	#endregion
@@ -309,6 +328,7 @@ public sealed class CarController : Component
 		//Wheel turn limitation.
 		targetAngle = Math.Clamp( targetAngle + CurrentSteerAngle, -(MaxSteerAngle + 10), MaxSteerAngle + 10 );
 
+
 		//Front wheel turn.
 		Wheels[0].SteerAngle = targetAngle;
 		Wheels[1].SteerAngle = targetAngle;
@@ -327,18 +347,18 @@ public sealed class CarController : Component
 			{
 				//Turn to the side opposite to the angle. To change the angular velocity.
 				var angularVelocityMagnitudeHelp = OppositeAngularVelocityHelpPower * CurrentSteerAngle * Time.Delta;
-				currAngle.y += angularVelocityMagnitudeHelp * currentAngularProcent;
+				currAngle.z += angularVelocityMagnitudeHelp * currentAngularProcent;
 			}
 			else if ( !MathX.AlmostEqual( CurrentSteerAngle, 0 ) )
 			{
 				//Turn to the side positive to the angle. To change the angular velocity.
 				var angularVelocityMagnitudeHelp = PositiveAngularVelocityHelpPower * CurrentSteerAngle * Time.Delta;
-				currAngle.y += angularVelocityMagnitudeHelp * (1 - currentAngularProcent);
+				currAngle.z += angularVelocityMagnitudeHelp * (1 - currentAngularProcent);
 			}
 
 			//Clamp and apply of angular velocity.
 			var maxMagnitude = ((AngularVelucityInMaxAngle - AngularVelucityInMinAngle) * currentAngularProcent) + AngularVelucityInMinAngle;
-			currAngle.y = Math.Clamp( currAngle.y, -maxMagnitude, maxMagnitude );
+			currAngle.z = Math.Clamp( currAngle.z, -maxMagnitude, maxMagnitude );
 			Rigidbody.AngularVelocity = currAngle;
 
 		}
@@ -357,7 +377,6 @@ public sealed class CarController : Component
 
 		if ( EnableSteerAngleMultiplier )
 			targetSteerAngle *= Math.Clamp( 1 - CurrentSpeed.InchToMeter() / MaxSpeedForMinAngleMultiplier, MinSteerAngleMultiplier, MaxSteerAngleMultiplier );
-
 		CurrentSteerAngle = MathX.Approach( CurrentSteerAngle, targetSteerAngle, Time.Delta * SteerAngleChangeSpeed );
 
 		CurrentAcceleration = vertical;
@@ -388,8 +407,7 @@ public enum DriveType
 /// </summary>
 public class CarConfig
 {
-	[Title( "Steer Settings" )]
-	public float MaxSteerAngle = 25;
+	public float MaxSteerAngle { get; set; } = 25;
 
 	[Title( "Engine and power settings" )]
 	[Property] public DriveType DriveType { get; set; } = DriveType.RWD;             //Drive type AWD, FWD, RWD. With the current parameters of the car only RWD works well. TODO Add rally and offroad regime.

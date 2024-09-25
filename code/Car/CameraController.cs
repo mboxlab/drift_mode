@@ -35,6 +35,7 @@ public sealed class CameraController : Component
 	[Property, Group( "Config" )]
 	public float VelocityFOVScale { get; set; } = 500f;
 	public Angles EyeAngles { get; set; }
+	public TimeSince ReturnCameraTime { get; set; }
 	protected override void OnStart()
 	{
 		if ( IsProxy )
@@ -57,16 +58,19 @@ public sealed class CameraController : Component
 
 		CameraTarget.Transform.LocalPosition = CameraTarget.Transform.LocalPosition.WithX( Math.Min( -120, CameraTarget.Transform.LocalPosition.x + Input.MouseWheel.y * 10 ) );
 
-
 		EyeAngles += Input.AnalogLook;
 		EyeAngles = EyeAngles.WithPitch( EyeAngles.pitch.Clamp( PitchLimits.x, PitchLimits.y ) );
 
+		if ( !Input.AnalogLook.IsNearlyZero() )
+			ReturnCameraTime = 0;
+		if ( ReturnCameraTime > 3 )
+			EyeAngles = EyeAngles.LerpTo( Body.Transform.Rotation.RotateAroundAxis( Vector3.Right, -25f ), Time.Delta * 5f );
+		EyeAngles = EyeAngles.WithRoll( 0 );
 		Boom.Transform.Rotation = EyeAngles.ToRotation();
 
 		Boom.Transform.Position = Boom.Transform.Position.LerpTo( Body.Transform.Position, Time.Delta * 20 );
 
 		float targetFov = Preferences.FieldOfView + Body.Velocity.Length / VelocityFOVScale;
-
 		Scene.Camera.FieldOfView = Scene.Camera.FieldOfView.LerpTo( MathX.Clamp( targetFov, 10, 100 ), Time.Delta * 10 );
 		Scene.Camera.Transform.Rotation = CameraTarget.Transform.Rotation;
 

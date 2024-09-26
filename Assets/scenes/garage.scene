@@ -2,66 +2,36 @@
   "__guid": "a9812438-ab50-47f2-839a-81d2e0a11d70",
   "GameObjects": [
     {
-      "__guid": "dcacabee-446a-442a-bfab-7a8bcba10d67",
+      "__guid": "880573ab-50df-4db4-a444-9cd9bb97d58d",
       "Flags": 0,
-      "Name": "Music - WIP",
+      "Name": "DIY audio system",
+      "Position": "-22.48538,-239.2046,31.5975",
       "Enabled": true,
-      "Children": [
+      "Components": [
         {
-          "__guid": "d51552bd-2e7c-476f-b703-a4d1841180e0",
-          "Flags": 0,
-          "Name": "Object",
-          "Position": "220,241.25,180",
-          "Enabled": true
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "85107f65-4118-4291-8ed1-40405ebb6dc0",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "48,40,16",
+          "Static": false
         },
         {
-          "__guid": "9147da70-fff0-4a87-a302-0259a40bc423",
-          "Flags": 0,
-          "Name": "Object (1)",
-          "Position": "-275,241.25,180",
-          "Enabled": true
+          "__type": "DM.UI.InteractiveObject",
+          "__guid": "0ce79bc3-f2fd-4ba4-a396-ffb80e268b14",
+          "ClampEqual": false,
+          "Clamping": true,
+          "Distance": 64,
+          "LocalAngles": "0,-90,0",
+          "LocalPosition": "0,0,0",
+          "TriggerAnimation": true,
+          "ClampMax": "50,0,0",
+          "ClampMin": "0,-60,0"
         },
         {
-          "__guid": "61c05c99-be12-4ff3-95a9-691ecabfce24",
-          "Flags": 0,
-          "Name": "Object (2)",
-          "Position": "220,19.5,180",
-          "Enabled": true
-        },
-        {
-          "__guid": "954d84a8-5098-42fe-a8ea-0768abc8d663",
-          "Flags": 0,
-          "Name": "Object (3)",
-          "Position": "-275,19.5,180",
-          "Enabled": true
-        },
-        {
-          "__guid": "8b267f2e-757a-42e8-9c7c-74a744ed6383",
-          "Flags": 0,
-          "Name": "Object (4)",
-          "Position": "220,-202.25,180",
-          "Enabled": true
-        },
-        {
-          "__guid": "cc480af0-3f56-442e-b66a-37395ffdb6b3",
-          "Flags": 0,
-          "Name": "Object (5)",
-          "Position": "-275,-202.25,180",
-          "Enabled": true
-        },
-        {
-          "__guid": "1e05a120-d926-449d-afcc-1098ef4629cd",
-          "Flags": 0,
-          "Name": "Object (6)",
-          "Position": "220,-423.5,180",
-          "Enabled": true
-        },
-        {
-          "__guid": "af98e11c-674d-4b1b-b096-1f094c38b29c",
-          "Flags": 0,
-          "Name": "Object (7)",
-          "Position": "-275,-423.5,180",
-          "Enabled": true
+          "__type": "Music",
+          "__guid": "132bb7df-df92-40c2-a0d1-6ccf6badb6ec",
+          "File": "sound/chingy - i do edited.vsnd"
         }
       ]
     },

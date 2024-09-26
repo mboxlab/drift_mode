@@ -33,8 +33,9 @@
 
 		int end = Part.Models.IndexOf(Part.Models.Last()) + 1;
 		index = index % end;
-
 		if ( index < 0 ) index = end + index;
+
+		if ( Part.Index != index ) Sound.Play( "ui.button.over" );
 		Part.Index = index;
 	}
 

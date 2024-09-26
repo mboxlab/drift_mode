@@ -158,97 +158,60 @@ public sealed class CarController : Component
 	{
 
 		if ( InCutOff )
-		{
 			if ( CutOffTimer > 0 )
 			{
 				CutOffTimer -= Time.Delta;
 				EngineRPM = MathX.Lerp( EngineRPM, GetInCutOffRPM, RpmEngineToRpmWheelsLerpSpeed * Time.Delta );
 			}
 			else
-			{
 				InCutOff = false;
-			}
-		}
 
-		//if ( GameController.Instance != null && !GameController.RaceIsStarted )
-		//{
-		//	if ( InCutOff ) return;
-
-		//	float rpm = CurrentAcceleration > 0 ? MaxRPM : MinRPM;
-		//	float speed = CurrentAcceleration > 0 ? RpmEngineToRpmWheelsLerpSpeed : RpmEngineToRpmWheelsLerpSpeed * 0.2f;
-		//	EngineRPM = Mathf.Lerp( EngineRPM, rpm, speed * Time.Delta );
-		//	if ( EngineRPM >= CutOffRPM )
-		//	{
-		//		PlayBackfireWithProbability();
-		//		InCutOff = true;
-		//		CutOffTimer = CarConfig.CutOffTime;
-		//	}
-		//	return;
-		//}
-
-		//Get drive wheel with MinRPM.
 		float minRPM = 0;
 		for ( int i = FirstDriveWheel + 1; i <= LastDriveWheel; i++ )
-		{
 			minRPM += Wheels[i].RPM;
-		}
 
 		minRPM /= LastDriveWheel - FirstDriveWheel + 1;
 
-
 		if ( !InCutOff )
 		{
-
-			//Calculate the rpm based on rpm of the wheel and current gear ratio.
-
-			float targetRPM = Math.Abs( (minRPM + 20f) * AllGearsRatio[CurrentGearIndex] );              //+20 for normal work CutOffRPM
+			float targetRPM = Math.Abs( (minRPM + 20f) * AllGearsRatio[CurrentGearIndex] );
 
 			targetRPM = MathX.Clamp( targetRPM, MinRPM, MaxRPM );
 			EngineRPM = MathX.Lerp( EngineRPM, targetRPM, RpmEngineToRpmWheelsLerpSpeed * Time.Delta );
 		}
 		if ( EngineRPM >= CutOffRPM )
 		{
-			//PlayBackfireWithProbability();
 			InCutOff = true;
 			CutOffTimer = CarConfig.CutOffTime;
 			return;
 		}
 		if ( !MathX.AlmostEqual( CurrentAcceleration, 0 ) )
-		{
-			//If the direction of the car is the same as Current Acceleration.
 			if ( CarDirection * CurrentAcceleration >= 0 )
 			{
 				CurrentBrake = 0;
-
 				float motorTorqueFromRpm = MotorTorqueFromRpmCurve.Evaluate( EngineRPM * 0.001f );
 				var motorTorque = CurrentAcceleration * (motorTorqueFromRpm * (MaxMotorTorque * AllGearsRatio[CurrentGearIndex]));
 				if ( Math.Abs( minRPM ) * AllGearsRatio[CurrentGearIndex] > MaxRPM )
 					motorTorque = 0;
-
-
-				//If the rpm of the wheel is less than the max rpm engine * current ratio, then apply the current torque for wheel, else not torque for wheel.
 				float maxWheelRPM = AllGearsRatio[CurrentGearIndex] * EngineRPM;
 				for ( int i = FirstDriveWheel; i <= LastDriveWheel; i++ )
-				{
 					if ( Wheels[i].RPM <= maxWheelRPM )
 						Wheels[i].MotorTorque = motorTorque;
 					else
 						Wheels[i].MotorTorque = 0;
-				}
 			}
 			else
 			{
 				CurrentBrake = MaxBrakeTorque;
 				for ( int i = FirstDriveWheel; i <= LastDriveWheel; i++ )
-					Wheels[i].MotorTorque = CarDirection * -1000;
+					Wheels[i].MotorTorque = CarDirection * -CurrentBrake;
 			}
-		}
 		else
 		{
 			CurrentBrake = 0;
 
 			for ( int i = FirstDriveWheel; i <= LastDriveWheel; i++ )
-				Wheels[i].MotorTorque = 0;
+				Wheels[i].MotorTorque = CurrentBrake;
 		}
 		//Automatic gearbox logic. 
 		if ( AutomaticGearBox )
@@ -256,13 +219,12 @@ public sealed class CarController : Component
 
 			bool forwardIsSlip = false;
 			for ( int i = FirstDriveWheel; i <= LastDriveWheel; i++ )
-			{
 				if ( (1 - Wheels[i].ForwardSlip) > MaxForwardSlipToBlockChangeGear )
 				{
 					forwardIsSlip = true;
 					break;
 				}
-			}
+
 
 			float prevRatio = 0;
 			float newRatio = 0;
@@ -286,26 +248,24 @@ public sealed class CarController : Component
 			}
 
 			if ( CarDirection <= 0 && CurrentAcceleration < 0 )
-			{
 				CurrentGear = -1;
-			}
 			else if ( CurrentGear <= 0 && CarDirection >= 0 && CurrentAcceleration > 0 )
-			{
 				CurrentGear = 1;
-			}
 			else if ( CarDirection == 0 && CurrentAcceleration == 0 )
-			{
 				CurrentGear = 0;
-			}
 		}
 	}
 
 	#endregion
-	static float SignedAngle( Vector3 v1, Vector3 v2, Vector3 v3 )
+	public static float SignedAngle( Vector3 from, Vector3 to, Vector3 axis )
 	{
-		float angle = Vector3.GetAngle( v1, v2 );
-		angle *= Math.Sign( Vector3.Cross( v1, v3 ).y );
-		return angle;
+		float unsignedAngle = Vector3.GetAngle( from, to );
+
+		float cross_x = from.y * to.z - from.z * to.y;
+		float cross_y = from.z * to.x - from.x * to.z;
+		float cross_z = from.x * to.y - from.y * to.x;
+		float sign = MathF.Sign( axis.x * cross_x + axis.y * cross_y + axis.z * cross_z );
+		return unsignedAngle * sign;
 	}
 
 	//Angle between forward point and velocity point.
@@ -315,18 +275,17 @@ public sealed class CarController : Component
 	/// </summary>
 	void UpdateSteerAngleLogic()
 	{
-		var needHelp = CurrentSpeed.InchToMeter() > MinSpeedForSteerHelp && CarDirection > 0;
+		var needHelp = CurrentSpeed > MinSpeedForSteerHelp && CarDirection > 0;
 		float targetAngle = 0;
-
 		VelocityAngle = -SignedAngle( Rigidbody.Velocity, Transform.Rotation.Forward, Vector3.Up );
-
 		if ( needHelp )
 		{
 			//Wheel turning helper.
-			targetAngle = Math.Clamp( VelocityAngle * HelpSteerPower, -MaxSteerAngle, MaxSteerAngle );
+			targetAngle = VelocityAngle * HelpSteerPower;
 		}
+
 		//Wheel turn limitation.
-		targetAngle = Math.Clamp( targetAngle + CurrentSteerAngle, -(MaxSteerAngle + 10), MaxSteerAngle + 10 );
+		targetAngle = MathX.Clamp( targetAngle + CurrentSteerAngle, -(MaxSteerAngle + 10), MaxSteerAngle + 10 );
 
 
 		//Front wheel turn.
@@ -358,8 +317,8 @@ public sealed class CarController : Component
 
 			//Clamp and apply of angular velocity.
 			var maxMagnitude = ((AngularVelucityInMaxAngle - AngularVelucityInMinAngle) * currentAngularProcent) + AngularVelucityInMinAngle;
-			currAngle.z = Math.Clamp( currAngle.z, -maxMagnitude, maxMagnitude );
-			Rigidbody.AngularVelocity = currAngle;
+			currAngle.z = MathX.Clamp( currAngle.z, -maxMagnitude, maxMagnitude );
+			//Rigidbody.AngularVelocity = currAngle;
 
 		}
 	}
@@ -377,6 +336,7 @@ public sealed class CarController : Component
 
 		if ( EnableSteerAngleMultiplier )
 			targetSteerAngle *= Math.Clamp( 1 - CurrentSpeed.InchToMeter() / MaxSpeedForMinAngleMultiplier, MinSteerAngleMultiplier, MaxSteerAngleMultiplier );
+
 		CurrentSteerAngle = MathX.Approach( CurrentSteerAngle, targetSteerAngle, Time.Delta * SteerAngleChangeSpeed );
 
 		CurrentAcceleration = vertical;

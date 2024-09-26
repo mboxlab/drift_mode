@@ -61,7 +61,8 @@ public class WheelCollider : Stereable
 	private void UpdateWheelForces()
 	{
 
-		if ( SmokeEmitter is not null ) SmokeEmitter.Enabled = IsGrounded;
+		if ( SmokeEmitter is not null )
+			SmokeEmitter.Enabled = IsGrounded;
 
 		if ( SmokeEmitter is not null )
 		{
@@ -73,7 +74,6 @@ public class WheelCollider : Stereable
 		}
 		if ( !IsGrounded )
 		{
-
 			AngleVelocity /= 1.1f;
 			return;
 		}

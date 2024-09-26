@@ -1,4 +1,6 @@
-﻿public struct WheelFrictionInfo
+﻿using System;
+
+public struct WheelFrictionInfo
 {
 	public float ExtremumSlip { get; set; } = 1.0f;
 	public float ExtremumValue { get; set; } = 20000.0f;
@@ -13,7 +15,7 @@
 	private float value = 0.0f;
 	public float Evaluate( float slip )
 	{
-
+		slip = Math.Abs( slip );
 		if ( slip <= ExtremumSlip )
 		{
 			value = (slip / ExtremumSlip) * ExtremumValue;

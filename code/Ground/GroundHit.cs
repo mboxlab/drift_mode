@@ -22,7 +22,7 @@ public struct GroundHit
 		EndPosition = ray.EndPosition;
 		HitPosition = ray.HitPosition;
 		Hit = ray.Hit;
-		Distance = HitPosition.Distance(ray.StartPosition);
+		Distance = HitPosition.Distance( ray.StartPosition );
 		Body = ray.Body;
 		//Collider = ray.GameObject.Components?.Get<Collider>();
 	}

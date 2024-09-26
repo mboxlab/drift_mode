@@ -106,7 +106,7 @@
           "MaxSpeedForMinAngleMultiplier": 250,
           "SteerAngleChangeSpeed": 500,
           "MinSpeedForSteerHelp": 20,
-          "HelpSteerPower": 0.1,
+          "HelpSteerPower": 0.43,
           "OppositeAngularVelocityHelpPower": 0.1,
           "PositiveAngularVelocityHelpPower": 0.1,
           "MaxAngularVelocityHelpAngle": 90,

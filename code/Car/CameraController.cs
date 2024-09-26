@@ -63,8 +63,8 @@ public sealed class CameraController : Component
 
 		if ( !Input.AnalogLook.IsNearlyZero() )
 			ReturnCameraTime = 0;
-		if ( ReturnCameraTime > 3 )
-			EyeAngles = EyeAngles.LerpTo( Body.Transform.Rotation.RotateAroundAxis( Vector3.Right, -25f ), Time.Delta * 5f );
+		//if ( ReturnCameraTime > 3 )
+			//EyeAngles = EyeAngles.LerpTo( Body.Transform.Rotation.RotateAroundAxis( Vector3.Right, -15f ), Time.Delta * 5f );
 		EyeAngles = EyeAngles.WithRoll( 0 );
 		Boom.Transform.Rotation = EyeAngles.ToRotation();
 

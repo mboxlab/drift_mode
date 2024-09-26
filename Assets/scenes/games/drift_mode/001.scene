@@ -32,7 +32,7 @@
           "__guid": "143542c9-2115-4311-b247-358f86cd2628",
           "PlayerPrefab": {
             "_type": "gameobject",
-            "prefab": "prefabs/cars/sport_new.prefab"
+            "prefab": "prefabs/cars/sport_drift.prefab"
           },
           "SpawnPoints": [],
           "StartServer": true

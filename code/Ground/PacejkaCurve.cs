@@ -1,18 +1,17 @@
 ﻿using System;
-
 using AltCurves;
 using static AltCurves.AltCurve;
 
-namespace DM.Ground;
 
-public class FrictionPreset
+internal class PacejkaCurve
 {
+
 	private float stiffnes = 12.5f;
 	private float shapeFactor = 2.05f;
 	private float peakValue = 0.925f;
 	private float curvatureFactor = 0.97f;
 
-	public FrictionPreset( float stiffnes, float shapeFactor, float peakValue, float curvatureFactor )
+	public PacejkaCurve( float stiffnes, float shapeFactor, float peakValue, float curvatureFactor )
 	{
 		Stiffnes = stiffnes;
 		ShapeFactor = shapeFactor;
@@ -21,7 +20,7 @@ public class FrictionPreset
 		UpdateFrictionCurve();
 	}
 
-	public FrictionPreset()
+	public PacejkaCurve()
 	{
 		UpdateFrictionCurve();
 	}
@@ -66,7 +65,7 @@ public class FrictionPreset
 
 		return peakSlip;
 	}
-
+	public float Evaluate( float time ) => Curve.Evaluate( Math.Abs( time ) );
 
 	/// <summary>
 	///     Generate Curve from B,C,D and E parameters of Pacejka's simplified magic formula
@@ -79,7 +78,7 @@ public class FrictionPreset
 		for ( int i = 0; i < frames.Length; i++ )
 		{
 			float v = GetFrictionValue( t );
-			frames[i] = new Keyframe( t, v, Interpolation.Cubic, TangentMode.Automatic );
+			frames[i] = new Keyframe( t, v, AltCurve.Interpolation.Cubic, TangentMode.Automatic );
 
 			if ( i <= 10 )
 			{
@@ -106,34 +105,34 @@ public class FrictionPreset
 		return D * MathF.Sin( C * MathF.Atan( B * t - E * (B * t - MathF.Atan( B * t )) ) );
 	}
 
-	public static readonly FrictionPreset Asphalt = new( 9f, 2.15f, 0.933f, 0.871f );
-	public static readonly FrictionPreset AsphaltWet = new( 9f, 2.35f, 0.82f, 0.907f );
-	public static readonly FrictionPreset Generic = new( 8f, 1.9f, 0.8f, 0.99f );
-	public static readonly FrictionPreset Grass = new( 7.38f, 1.1f, 0.538f, 1f );
-	public static readonly FrictionPreset Dirt = new( 7.38f, 1.1f, 0.538f, 1f );
-	public static readonly FrictionPreset Gravel = new( 5.39f, 1.03f, 0.634f, 1f );
-	public static readonly FrictionPreset Ice = new( 1.2f, 2f, 0.16f, 1f );
-	public static readonly FrictionPreset Rock = new( 7.24f, 2.11f, 0.59f, 1f );
-	public static readonly FrictionPreset Sand = new( 5.13f, 1.2f, 0.443f, 0.5f );
-	public static readonly FrictionPreset Snow = new( 8.5f, 1.1f, 0.4f, 0.9f );
-	public static readonly FrictionPreset Tracks = new( 0.1f, 2f, 2f, 1f );
-	public static readonly FrictionPreset Arcade = new( 7.09f, 0.87f, 2f, 0.5f );
+	public static readonly PacejkaCurve Asphalt = new( 9f, 2.15f, 0.933f, 0.871f );
+	public static readonly PacejkaCurve AsphaltWet = new( 9f, 2.35f, 0.82f, 0.907f );
+	public static readonly PacejkaCurve Generic = new( 8f, 1.9f, 0.8f, 0.99f );
+	public static readonly PacejkaCurve Grass = new( 7.38f, 1.1f, 0.538f, 1f );
+	public static readonly PacejkaCurve Dirt = new( 7.38f, 1.1f, 0.538f, 1f );
+	public static readonly PacejkaCurve Gravel = new( 5.39f, 1.03f, 0.634f, 1f );
+	public static readonly PacejkaCurve Ice = new( 1.2f, 2f, 0.16f, 1f );
+	public static readonly PacejkaCurve Rock = new( 7.24f, 2.11f, 0.59f, 1f );
+	public static readonly PacejkaCurve Sand = new( 5.13f, 1.2f, 0.443f, 0.5f );
+	public static readonly PacejkaCurve Snow = new( 8.5f, 1.1f, 0.4f, 0.9f );
+	public static readonly PacejkaCurve Tracks = new( 0.1f, 2f, 2f, 1f );
+	public static readonly PacejkaCurve Arcade = new( 7.09f, 0.87f, 2f, 0.5f );
 
-	public static Dictionary<PresetsEnum, FrictionPreset> Presets = new()
-	{
-		{PresetsEnum.Asphalt      ,    Asphalt},
-		{PresetsEnum.AsphaltWet   , AsphaltWet},
-		{PresetsEnum.Generic      ,    Generic},
-		{PresetsEnum.Grass        ,      Grass},
-		{PresetsEnum.Dirt        ,      Dirt},
-		{PresetsEnum.Gravel       ,     Gravel},
-		{PresetsEnum.Ice          ,        Ice},
-		{PresetsEnum.Rock         ,       Rock},
-		{PresetsEnum.Sand         ,       Sand},
-		{PresetsEnum.Snow         ,       Snow},
-		{PresetsEnum.Tracks       ,     Tracks},
-		{PresetsEnum.Arcade       ,     Arcade},
-	};
+	public static Dictionary<PresetsEnum, PacejkaCurve> Presets = new()
+{
+	{PresetsEnum.Asphalt      ,    Asphalt},
+	{PresetsEnum.AsphaltWet   , AsphaltWet},
+	{PresetsEnum.Generic      ,    Generic},
+	{PresetsEnum.Grass        ,      Grass},
+	{PresetsEnum.Dirt        ,      Dirt},
+	{PresetsEnum.Gravel       ,     Gravel},
+	{PresetsEnum.Ice          ,        Ice},
+	{PresetsEnum.Rock         ,       Rock},
+	{PresetsEnum.Sand         ,       Sand},
+	{PresetsEnum.Snow         ,       Snow},
+	{PresetsEnum.Tracks       ,     Tracks},
+	{PresetsEnum.Arcade       ,     Arcade},
+};
 
 	public enum PresetsEnum
 	{
@@ -151,7 +150,7 @@ public class FrictionPreset
 		Arcade,
 	}
 
-	public void Apply( FrictionPreset preset )
+	public void Apply( PacejkaCurve preset )
 	{
 		stiffnes = preset.Stiffnes;
 		shapeFactor = preset.ShapeFactor;

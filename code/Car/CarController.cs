@@ -1,30 +1,31 @@
 ﻿
 using System;
 using System.IO;
-using System.Text.RegularExpressions;
 using AltCurves;
-using DM.Car;
 using DM.Engine;
+using Sandbox.Car.Config;
 
 namespace Sandbox.Car;
 
 [Category( "Vehicles" )]
 public sealed class CarController : Component
 {
+	[Property] public Rigidbody Rigidbody { get; private set; }
+	[Property] public ICarConfig CarConfig { get => carConfig; set { carConfig = value; OnConfigUpdated(); } }
 	[Property] public SoundInterpolator SoundInterpolator { get; set; }
 	[Property] public WheelCollider[] Wheels { get; private set; }
-	[Property] public Rigidbody Rigidbody { get; private set; }
-
-	[Property] CarConfig CarConfig;
-	[Property] CarDriftConfig CarDriftConfig;
 
 	#region Properties of car Settings
+	private ICarConfig carConfig = new StreetCarConfig();
 
 	float MaxMotorTorque;
 	float MaxSteerAngle { get { return CarConfig.MaxSteerAngle; } }
-	DriveType DriveType { get { return CarConfig.DriveType; } }
+	Config.DriveType DriveType { get { return CarConfig.DriveType; } }
 	bool AutomaticGearBox { get { return CarConfig.AutomaticGearBox; } }
-	AltCurve MotorTorqueFromRpmCurve { get { return CarConfig.MotorTorqueFromRpmCurve; } }
+	/// <summary>
+	/// Curve motor torque (Y(0-1) motor torque, X(0 - MaxRPM) motor RPM).
+	/// </summary>
+	[Property] public AltCurve TorqueCurve { get; set; }
 	float MaxRPM { get { return CarConfig.MaxRPM; } }
 	float MinRPM { get { return CarConfig.MinRPM; } }
 	float CutOffRPM { get { return CarConfig.CutOffRPM; } }
@@ -38,37 +39,21 @@ public sealed class CarController : Component
 	float ReversGearRatio { get { return CarConfig.ReversGearRatio; } }
 
 	float MaxBrakeTorque { get { return CarConfig.MaxBrakeTorque; } }
-	float TargetSpeedIfBrakingGround { get { return CarConfig.TargetSpeedIfBrakingGround; } }
-	float BrakingSpeedOneWheelTime { get { return CarConfig.BrakingSpeedOneWheelTime; } }
+
+	public bool EnableSteerAngleMultiplier { get { return CarConfig.EnableSteerAngleMultiplier; } }
+	float MinSteerAngleMultiplier { get { return CarConfig.MinSteerAngleMultiplier; } }
+	float MaxSteerAngleMultiplier { get { return CarConfig.MaxSteerAngleMultiplier; } }
+	float MaxSpeedForMinAngleMultiplier { get { return CarConfig.MaxSpeedForMinAngleMultiplier; } }
+	float SteerAngleChangeSpeed { get { return CarConfig.SteerAngleChangeSpeed; } }
+	float MinSpeedForSteerHelp { get { return CarConfig.MinSpeedForSteerHelp; } }
+	float HelpSteerPower { get { return CarConfig.HelpSteerPower; } }
+	float OppositeAngularVelocityHelpPower { get { return CarConfig.OppositeAngularVelocityHelpPower; } }
+	float PositiveAngularVelocityHelpPower { get { return CarConfig.PositiveAngularVelocityHelpPower; } }
+	float MaxAngularVelocityHelpAngle { get { return CarConfig.MaxAngularVelocityHelpAngle; } }
+	float AngularVelucityInMaxAngle { get { return CarConfig.AngularVelucityInMaxAngle; } }
+	float AngularVelucityInMinAngle { get { return CarConfig.AngularVelucityInMinAngle; } }
 
 	#endregion //Properties of car Settings
-
-	#region Properties of drift Settings
-
-	public bool EnableSteerAngleMultiplier { get { return CarDriftConfig.EnableSteerAngleMultiplier; } }
-	float MinSteerAngleMultiplier { get { return CarDriftConfig.MinSteerAngleMultiplier; } }
-	float MaxSteerAngleMultiplier { get { return CarDriftConfig.MaxSteerAngleMultiplier; } }
-	float MaxSpeedForMinAngleMultiplier { get { return CarDriftConfig.MaxSpeedForMinAngleMultiplier; } }
-	float SteerAngleChangeSpeed { get { return CarDriftConfig.SteerAngleChangeSpeed; } }
-	float MinSpeedForSteerHelp { get { return CarDriftConfig.MinSpeedForSteerHelp; } }
-	float HelpSteerPower { get { return CarDriftConfig.HelpSteerPower; } }
-	float OppositeAngularVelocityHelpPower { get { return CarDriftConfig.OppositeAngularVelocityHelpPower; } }
-	float PositiveAngularVelocityHelpPower { get { return CarDriftConfig.PositiveAngularVelocityHelpPower; } }
-	float MaxAngularVelocityHelpAngle { get { return CarDriftConfig.MaxAngularVelocityHelpAngle; } }
-	float AngularVelucityInMaxAngle { get { return CarDriftConfig.AngularVelucityInMaxAngle; } }
-	float AngularVelucityInMinAngle { get { return CarDriftConfig.AngularVelucityInMinAngle; } }
-
-	#endregion //Properties of drift Settings
-
-	/// <summary>
-	/// Max slip of all wheels.
-	/// </summary>
-	public float CurrentMaxSlip { get; private set; }
-
-	/// <summary>
-	/// Max slip wheel index.
-	/// </summary>
-	public int CurrentMaxSlipWheelIndex { get; private set; }
 
 	/// <summary>
 	/// Speed, magnitude of velocity.
@@ -88,25 +73,23 @@ public sealed class CarController : Component
 		//Set drive wheel.
 		switch ( DriveType )
 		{
-			case DriveType.AWD:
+			case Config.DriveType.AWD:
 				FirstDriveWheel = 0;
 				LastDriveWheel = 3;
 				break;
-			case DriveType.FWD:
+			case Config.DriveType.FWD:
 				FirstDriveWheel = 0;
 				LastDriveWheel = 1;
 				break;
-			case DriveType.RWD:
+			case Config.DriveType.RWD:
 				FirstDriveWheel = 2;
 				LastDriveWheel = 3;
 				break;
 		}
 
-		//Divide the motor torque by the count of driving wheels
 		MaxMotorTorque = CarConfig.MaxMotorTorque / (LastDriveWheel - FirstDriveWheel + 1);
 
 
-		//Calculated gears ratio with main ratio
 		AllGearsRatio = new float[GearsRatio.Length + 2];
 		AllGearsRatio[0] = ReversGearRatio * MainRatio;
 		AllGearsRatio[1] = 0;
@@ -119,23 +102,45 @@ public sealed class CarController : Component
 	protected override void OnStart()
 	{
 		SoundInterpolator.MaxValue = MaxRPM;
+		UpdateWheelsFriction();
 
 	}
 	protected override void OnUpdate()
 	{
+
 		UpdateControls();
+
 		SoundInterpolator.Value = EngineRPM;
-
 		SoundInterpolator.Volume = 1;
-
 	}
-
+	public event EventHandler<ICarConfig> ConfigUpdated;
+	private void OnConfigUpdated()
+	{
+		ConfigUpdated?.Invoke( this, CarConfig );
+		UpdateWheelsFriction();
+	}
+	private void UpdateWheelsFriction()
+	{
+		foreach ( WheelCollider wheel in Wheels )
+		{
+			wheel.FrictionPreset = CarConfig.FrictionPreset;
+		}
+	}
 	protected override void OnFixedUpdate()
 	{
 		CurrentSpeed = Rigidbody.Velocity.Length;
 
-		UpdateSteerAngleLogic();
-		UpdateRpmAndTorqueLogic();
+		UpdateSteerAngle();
+		UpdateRpmAndTorque();
+
+		if ( InHandBrake )
+		{
+			Wheels[0].BrakeTorque = 0;
+			Wheels[1].BrakeTorque = 0;
+			Wheels[2].BrakeTorque = MaxBrakeTorque * 5;
+			Wheels[3].BrakeTorque = MaxBrakeTorque * 5;
+		}
+
 	}
 
 	#region Rpm and torque logic
@@ -154,7 +159,7 @@ public sealed class CarController : Component
 	float CurrentBrake;
 	bool InHandBrake;
 
-	void UpdateRpmAndTorqueLogic()
+	void UpdateRpmAndTorque()
 	{
 
 		if ( InCutOff )
@@ -181,15 +186,22 @@ public sealed class CarController : Component
 		}
 		if ( EngineRPM >= CutOffRPM )
 		{
+			// TODO: backfire()
 			InCutOff = true;
 			CutOffTimer = CarConfig.CutOffTime;
 			return;
 		}
+		for ( int i = 0; i <= 3; i++ )
+		{
+			Wheels[i].MotorTorque = 0;
+			Wheels[i].BrakeTorque = 0;
+		}
+
 		if ( !MathX.AlmostEqual( CurrentAcceleration, 0 ) )
 			if ( CarDirection * CurrentAcceleration >= 0 )
 			{
 				CurrentBrake = 0;
-				float motorTorqueFromRpm = MotorTorqueFromRpmCurve.Evaluate( EngineRPM * 0.001f );
+				float motorTorqueFromRpm = TorqueCurve.Evaluate( EngineRPM * 0.001f );
 				var motorTorque = CurrentAcceleration * (motorTorqueFromRpm * (MaxMotorTorque * AllGearsRatio[CurrentGearIndex]));
 				if ( Math.Abs( minRPM ) * AllGearsRatio[CurrentGearIndex] > MaxRPM )
 					motorTorque = 0;
@@ -203,28 +215,26 @@ public sealed class CarController : Component
 			else
 			{
 				CurrentBrake = MaxBrakeTorque;
-				for ( int i = FirstDriveWheel; i <= LastDriveWheel; i++ )
-					Wheels[i].MotorTorque = CarDirection * -CurrentBrake;
+				for ( int i = 0; i <= 3; i++ )
+					Wheels[i].BrakeTorque = CurrentBrake;
 			}
 		else
 		{
 			CurrentBrake = 0;
 
-			for ( int i = FirstDriveWheel; i <= LastDriveWheel; i++ )
-				Wheels[i].MotorTorque = CurrentBrake;
+			for ( int i = 0; i <= 3; i++ )
+				Wheels[i].BrakeTorque = CurrentBrake;
 		}
-		//Automatic gearbox logic. 
+
 		if ( AutomaticGearBox )
 		{
-
 			bool forwardIsSlip = false;
 			for ( int i = FirstDriveWheel; i <= LastDriveWheel; i++ )
-				if ( (1 - Wheels[i].ForwardSlip) > MaxForwardSlipToBlockChangeGear )
+				if ( Wheels[i].ForwardSlip > MaxForwardSlipToBlockChangeGear )
 				{
 					forwardIsSlip = true;
 					break;
 				}
-
 
 			float prevRatio = 0;
 			float newRatio = 0;
@@ -268,12 +278,8 @@ public sealed class CarController : Component
 		return unsignedAngle * sign;
 	}
 
-	//Angle between forward point and velocity point.
 	public float VelocityAngle { get; private set; }
-	/// <summary>
-	/// Update all helpers logic.
-	/// </summary>
-	void UpdateSteerAngleLogic()
+	void UpdateSteerAngle()
 	{
 		var needHelp = CurrentSpeed > MinSpeedForSteerHelp && CarDirection > 0;
 		float targetAngle = 0;
@@ -286,7 +292,6 @@ public sealed class CarController : Component
 
 		//Wheel turn limitation.
 		targetAngle = MathX.Clamp( targetAngle + CurrentSteerAngle, -(MaxSteerAngle + 10), MaxSteerAngle + 10 );
-
 
 		//Front wheel turn.
 		Wheels[0].SteerAngle = targetAngle;
@@ -318,18 +323,12 @@ public sealed class CarController : Component
 			//Clamp and apply of angular velocity.
 			var maxMagnitude = ((AngularVelucityInMaxAngle - AngularVelucityInMinAngle) * currentAngularProcent) + AngularVelucityInMinAngle;
 			currAngle.z = MathX.Clamp( currAngle.z, -maxMagnitude, maxMagnitude );
-			//Rigidbody.AngularVelocity = currAngle;
+			Rigidbody.AngularVelocity = currAngle;
 
 		}
 	}
 
 	#region Controls
-	/// <summary>
-	/// Update controls of car.
-	/// </summary>
-	/// <param name="horizontal">Turn direction</param>
-	/// <param name="vertical">Acceleration</param>
-	/// <param name="brake">Brake</param>
 	public void UpdateControls( float horizontal, float vertical, bool brake )
 	{
 		float targetSteerAngle = horizontal * MaxSteerAngle;
@@ -337,13 +336,13 @@ public sealed class CarController : Component
 		if ( EnableSteerAngleMultiplier )
 			targetSteerAngle *= Math.Clamp( 1 - CurrentSpeed.InchToMeter() / MaxSpeedForMinAngleMultiplier, MinSteerAngleMultiplier, MaxSteerAngleMultiplier );
 
-		CurrentSteerAngle = MathX.Approach( CurrentSteerAngle, targetSteerAngle, Time.Delta * SteerAngleChangeSpeed );
+		CurrentSteerAngle = MathX.Lerp( CurrentSteerAngle, targetSteerAngle, Time.Delta * SteerAngleChangeSpeed );
 
 		CurrentAcceleration = vertical;
 		if ( InHandBrake != brake )
 		{
-			float forwardStiffness = brake ? CarDriftConfig.HandBrakeForwardStiffness : 1;
-			float sidewaysStiffness = brake ? CarDriftConfig.HandBrakeSidewaysStiffness : 1;
+			float forwardStiffness = brake ? CarConfig.HandBrakeForwardStiffness : 1;
+			float sidewaysStiffness = brake ? CarConfig.HandBrakeSidewaysStiffness : 1;
 			Wheels[2].UpdateStiffness( forwardStiffness, sidewaysStiffness );
 			Wheels[3].UpdateStiffness( forwardStiffness, sidewaysStiffness );
 		}
@@ -353,65 +352,4 @@ public sealed class CarController : Component
 
 
 	#endregion
-}
-
-public enum DriveType
-{
-	AWD,                    //All wheels drive
-	FWD,                    //Forward wheels drive
-	RWD                     //Rear wheels drive
-}
-
-/// <summary>
-/// For easy initialization and change of parameters in the future. TODO Add tuning.
-/// </summary>
-public class CarConfig
-{
-	public float MaxSteerAngle { get; set; } = 25;
-
-	[Title( "Engine and power settings" )]
-	[Property] public DriveType DriveType { get; set; } = DriveType.RWD;             //Drive type AWD, FWD, RWD. With the current parameters of the car only RWD works well. TODO Add rally and offroad regime.
-	[Property] public bool AutomaticGearBox { get; set; } = true;
-	[Property] public float MaxMotorTorque { get; set; } = 150;                      //Max motor torque engine (Without GearBox multiplier).
-	[Property] public AltCurve MotorTorqueFromRpmCurve { get; set; }          //Curve motor torque (Y(0-1) motor torque, X(0-7) motor RPM).
-	[Property] public float MaxRPM { get; set; } = 7000;
-	[Property] public float MinRPM { get; set; } = 700;
-	[Property] public float CutOffRPM { get; set; } = 6800;                          //The RPM at which the cutoff is triggered.
-	[Property] public float CutOffOffsetRPM { get; set; } = 500;
-	[Property] public float CutOffTime { get; set; } = 0.1f;
-	[Property, Range( 0, 1 )] public float ProbabilityBackfire { get; set; } = 0.2f;   //Probability backfire: 0 - off backfire, 1 always on backfire.
-	[Property] public float RpmToNextGear { get; set; } = 6500;                      //The speed at which there is an increase in gearbox.
-	[Property] public float RpmToPrevGear { get; set; } = 4500;                      //The speed at which there is an decrease in gearbox.
-	[Property] public float MaxForwardSlipToBlockChangeGear { get; set; } = 0.5f;    //Maximum rear wheel slip for shifting gearbox.
-	[Property] public float RpmEngineToRpmWheelsLerpSpeed { get; set; } = 15;        //Lerp Speed change of RPM.
-	[Property] public float[] GearsRatio { get; set; }                              //Forward gears ratio.
-	[Property] public float MainRatio { get; set; }
-	[Property] public float ReversGearRatio { get; set; }                           //Reverse gear ratio.
-
-	[Title( "Braking settings" )]
-	[Property] public float MaxBrakeTorque { get; set; } = 1000;
-	[Property] public float TargetSpeedIfBrakingGround { get; set; } = 20;
-	[Property] public float BrakingSpeedOneWheelTime { get; set; } = 2;
-}
-
-/// <summary>
-/// For easy initialization and change of parameters in the future. TODO Add tuning.
-/// </summary>
-public class CarDriftConfig
-{
-	[Property] public bool EnableSteerAngleMultiplier { get; set; } = true;
-	[Property] public float MinSteerAngleMultiplier { get; set; } = 0.05f;       //Min steer angle multiplayer to limit understeer at high speeds.
-	[Property] public float MaxSteerAngleMultiplier { get; set; } = 1f;          //Max steer angle multiplayer to limit understeer at high speeds.          
-	[Property] public float MaxSpeedForMinAngleMultiplier { get; set; } = 250;   //The maximum speed at which there will be a minimum steering angle multiplier.
-
-	[Property] public float SteerAngleChangeSpeed { get; set; } = 1f;                    //Wheel turn speed.
-	[Property] public float MinSpeedForSteerHelp { get; set; } = 20f;                   //Min speed at which helpers are enabled.
-	[Property, Range( 0, 1 )] public float HelpSteerPower { get; set; } = 0.1f;            //The power of turning the wheels in the direction of the drift.
-	[Property] public float OppositeAngularVelocityHelpPower { get; set; } = 0.1f;       //The power of the helper to turn the rigidbody in the direction of the control turn.
-	[Property] public float PositiveAngularVelocityHelpPower { get; set; } = 0.1f;       //The power of the helper to positive turn the rigidbody in the direction of the control turn.
-	[Property] public float MaxAngularVelocityHelpAngle { get; set; } = 90f;             //The angle at which the assistant works 100%.
-	[Property] public float AngularVelucityInMaxAngle { get; set; } = 0.5f;              //Min angular velocity, reached at max drift angles.
-	[Property] public float AngularVelucityInMinAngle { get; set; } = 4f;                //Max angular velocity, reached at min drift angles.
-	[Property] public float HandBrakeForwardStiffness { get; set; } = 0.5f;              //To change the friction of the rear wheels with a hand brake.
-	[Property] public float HandBrakeSidewaysStiffness { get; set; } = 0.5f;             //To change the friction of the rear wheels with a hand brake.
 }

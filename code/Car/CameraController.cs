@@ -63,12 +63,15 @@ public sealed class CameraController : Component
 
 		if ( !Input.AnalogLook.IsNearlyZero() )
 			ReturnCameraTime = 0;
-		//if ( ReturnCameraTime > 3 )
-			//EyeAngles = EyeAngles.LerpTo( Body.Transform.Rotation.RotateAroundAxis( Vector3.Right, -15f ), Time.Delta * 5f );
+
+		// todo: improve
+		if ( ReturnCameraTime > 3 )
+			EyeAngles = EyeAngles.LerpTo( Body.Transform.Rotation.RotateAroundAxis( Vector3.Right, -15f ), Time.Delta * 5f );
+
 		EyeAngles = EyeAngles.WithRoll( 0 );
 		Boom.Transform.Rotation = EyeAngles.ToRotation();
 
-		Boom.Transform.Position = Boom.Transform.Position.LerpTo( Body.Transform.Position, Time.Delta * 20 );
+		Boom.Transform.Position = Boom.Transform.Position.LerpTo( Body.Transform.Position - Body.Velocity.WithZ( 0 ) / 48f, Time.Delta * 20 );
 
 		float targetFov = Preferences.FieldOfView + Body.Velocity.Length / VelocityFOVScale;
 		Scene.Camera.FieldOfView = Scene.Camera.FieldOfView.LerpTo( MathX.Clamp( targetFov, 10, 100 ), Time.Delta * 10 );

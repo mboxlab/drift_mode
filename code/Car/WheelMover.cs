@@ -8,7 +8,7 @@ public sealed class WheelMover : Component
 
 	private Rigidbody _rigidbody;
 	private Rotation VelocityRotation;
-
+	private float AxleAngle;
 	protected override void OnEnabled()
 	{
 		_rigidbody = Components.Get<Rigidbody>( FindMode.InAncestors );
@@ -17,12 +17,13 @@ public sealed class WheelMover : Component
 
 	protected override void OnFixedUpdate()
 	{
+		AxleAngle = Wheel.AngularVelocity.RadianToDegree() * Time.Delta;
 		if ( IsProxy )
 			return;
 
 		Transform.Position = Wheel.GetCenter();
 
-		VelocityRotation *= Rotation.From( Wheel.WheelRadius * Wheel.AngleVelocity * Time.Delta * (ReverseRotation ? -1f : 1f), 0, 0 );
+		VelocityRotation *= Rotation.From( AxleAngle * (ReverseRotation ? -1f : 1f), 0, 0 );
 
 		Transform.LocalRotation = Rotation.FromYaw( Wheel.SteerAngle ) * VelocityRotation;
 

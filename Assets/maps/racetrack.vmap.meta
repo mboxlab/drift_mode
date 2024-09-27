@@ -1,0 +1,21 @@
+{
+  "publish": {
+    "Enabled": false,
+    "ProjectConfig": {
+      "Title": "racetrack",
+      "Type": "map",
+      "Org": "local",
+      "Ident": "racetrack",
+      "Schema": 0,
+      "IncludeSourceFiles": false,
+      "Resources": null,
+      "PackageReferences": [],
+      "EditorReferences": [],
+      "IsWhitelistDisabled": false,
+      "Metadata": {
+        "SingleAssetSource": "maps/racetrack.vmap",
+        "ParentPackage": "meteorlab.drift_mode"
+      }
+    }
+  }
+}

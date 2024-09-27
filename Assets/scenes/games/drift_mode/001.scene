@@ -30,6 +30,7 @@
         {
           "__type": "Sandbox.CarSpawner",
           "__guid": "143542c9-2115-4311-b247-358f86cd2628",
+          "CarConfig": "Drift",
           "PlayerPrefab": {
             "_type": "gameobject",
             "prefab": "prefabs/cars/sport_drift.prefab"

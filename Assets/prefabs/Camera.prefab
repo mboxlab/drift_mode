@@ -19,7 +19,7 @@
         "RenderTags": "",
         "TargetEye": "None",
         "Viewport": "0,0,1,1",
-        "ZFar": 10000,
+        "ZFar": 30000,
         "ZNear": 10
       },
       {

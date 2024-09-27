@@ -1,0 +1,103 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc29:version{3cec427c-1b0e-4d48-a90a-0436f33a6041} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "grass_1.vmat"
+								to = "materials/map/racetrack/grass_1.vmat"
+							},
+							{
+								from = "grass_2.vmat"
+								to = "materials/map/racetrack/grass_2.vmat"
+							},
+							{
+								from = "gravel.vmat"
+								to = "materials/map/racetrack/gravel.vmat"
+							},
+							{
+								from = "road.vmat"
+								to = "materials/map/racetrack/road.vmat"
+							},
+							{
+								from = "rock.vmat"
+								to = "materials/map/racetrack/rock.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = "materials/default.vmat"
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						filename = "models/map/roads/racetrack/terrain.fbx"
+						import_translation = [ 0.0, 0.0, 0.0 ]
+						import_rotation = [ 0.0, 0.0, 0.0 ]
+						import_scale = 1.0
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
+						parent_bone = ""
+						import_filter = 
+						{
+							exclude_by_default = true
+							exception_list = 
+							[
+								"1TARMAC_oval",
+								"1TARMAC_inner",
+								"1CONCRETE_red",
+								"1GRASS",
+								"Cylinder001",
+								"1GRAVEL",
+								"Plane001",
+								"1PITLANE",
+								"Object021",
+								"1TARMAC_back",
+								"0GRASS",
+								"sand_outside",
+								"0GRASS2",
+								"1GRASS_2",
+								"1TARMACgarages",
+								"kerbs",
+							]
+						}
+					},
+				]
+			},
+			{
+				_class = "ModelModifierList"
+				children = 
+				[
+					{
+						_class = "ModelModifier_ScaleAndMirror"
+						scale = 0.3937
+						mirror_x = false
+						mirror_y = false
+						mirror_z = false
+						flip_bone_forward = false
+						swap_left_and_right_bones = false
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		base_model_name = ""
+	}
+}

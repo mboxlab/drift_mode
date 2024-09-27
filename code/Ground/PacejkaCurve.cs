@@ -1,9 +1,7 @@
 ﻿using System;
 using AltCurves;
 using static AltCurves.AltCurve;
-
-
-internal class PacejkaCurve
+public class PacejkaCurve
 {
 
 	private float stiffnes = 12.5f;
@@ -89,7 +87,7 @@ internal class PacejkaCurve
 				t += 0.1f;
 			}
 		}
-		Curve = new( frames, Extrapolation.Linear, Extrapolation.Linear );
+		Curve = new( frames, Extrapolation.Linear, Extrapolation.Constant );
 
 		PeakSlip = GetPeakSlip();
 	}

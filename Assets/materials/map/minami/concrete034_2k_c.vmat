@@ -12,7 +12,7 @@ Layer0
 	//---- Color ----
 	g_flModelTintAmount "1.000"
 	g_vColorTint "[1.000000 1.000000 1.000000 0.000000]"
-	TextureColor "materials/poster.jpg"
+	TextureColor "materials/map/minami/concrete034_2k_c.png"
 
 	//---- Fade ----
 	g_flFadeExponent "1.000"
@@ -24,7 +24,7 @@ Layer0
 	g_flMetalness "0.000"
 
 	//---- Normal ----
-	TextureNormal "materials/default/default_normal.tga"
+	TextureNormal "materials/map/minami/concrete034_2k_n.png"
 
 	//---- Roughness ----
 	g_flRoughnessScaleFactor "1.000"

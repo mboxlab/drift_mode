@@ -1,0 +1,812 @@
+{
+  "RootObject": {
+    "__guid": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+    "Flags": 0,
+    "Name": "g_sport",
+    "Tags": "car",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Sandbox.BoxCollider",
+        "__guid": "d9394def-1ad3-4a36-b0f0-a69361d079cb",
+        "Center": "-1,0,30",
+        "IsTrigger": false,
+        "Scale": "198.9001,61.99998,40",
+        "Static": false
+      },
+      {
+        "__type": "DM.UI.PartNameManager",
+        "__guid": "09233244-ab7f-4daf-87ee-d0eceb2c00d9",
+        "PartNames": []
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "ce0fb670-0ba2-4ac0-b182-1c0fb4afcc32",
+        "Flags": 0,
+        "Name": "Model",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "8e4d9c6a-e979-4a95-9f16-a76b1e4be3de",
+            "BodyGroups": 18446744073709551615,
+            "MaterialOverride": "materials/car/paint/polygonstreetracer_texture_01_a.vmat",
+            "Model": "models/cars/sport/sm_veh_sports_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          },
+          {
+            "__type": "DM.Car.CarDresser",
+            "__guid": "f0ec5012-65de-40cb-aed7-b57d29a5c706",
+            "BodyRenderer": {
+              "_type": "component",
+              "component_id": "8e4d9c6a-e979-4a95-9f16-a76b1e4be3de",
+              "go": "ce0fb670-0ba2-4ac0-b182-1c0fb4afcc32",
+              "component_type": "ModelRenderer"
+            },
+            "Poses": [
+              {
+                "_type": "gameobject",
+                "go": "c22851a5-6ced-4966-9c8c-539ed6d934a7"
+              },
+              {
+                "_type": "gameobject",
+                "go": "7ca06956-84fe-4c7a-b806-dad8d9a988d6"
+              },
+              {
+                "_type": "gameobject",
+                "go": "961b9a83-03fd-4eab-8bd6-415777e10dd5"
+              },
+              {
+                "_type": "gameobject",
+                "go": "a988307f-3dc5-4bfd-b9ef-21d81e1f71aa"
+              },
+              {
+                "_type": "gameobject",
+                "go": "2cb66ab1-2f24-4697-83c5-6bdb14e821c1"
+              },
+              {
+                "_type": "gameobject",
+                "go": "1beb832b-1b0a-48e2-8215-6adefc74cdd6"
+              }
+            ]
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "c22851a5-6ced-4966-9c8c-539ed6d934a7",
+            "Flags": 0,
+            "Name": "engine",
+            "Position": "64.15572,0,5.144224",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.PartsList",
+                "__guid": "a4fefd18-5667-403a-ab9a-a5e916527a13",
+                "Parts": [
+                  "models/carparts/enignes/sm_veh_attach_engine_01.vmdl",
+                  "models/carparts/enignes/sm_veh_attach_engine_02.vmdl",
+                  "models/carparts/enignes/sm_veh_attach_engine_03.vmdl",
+                  "models/carparts/enignes/sm_veh_attach_engine_04.vmdl"
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "7ca06956-84fe-4c7a-b806-dad8d9a988d6",
+            "Flags": 0,
+            "Name": "bonnet",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.PartsList",
+                "__guid": "6cdedf40-5471-4d45-8c19-4d3d78aa40ae",
+                "Parts": [
+                  "models/cars/sport/parts/bonnets/sm_veh_sports_01_bonnet_01.vmdl",
+                  "models/cars/sport/parts/bonnets/sm_veh_sports_01_bonnet_02.vmdl",
+                  "models/cars/sport/parts/bonnets/sm_veh_sports_01_bonnet_03.vmdl",
+                  "models/cars/sport/parts/bonnets/sm_veh_sports_01_bonnet_04.vmdl"
+                ]
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "17dc3209-3c36-499d-86c6-e0032c53fd65",
+                "Flags": 0,
+                "Name": "poses",
+                "Enabled": true,
+                "Children": [
+                  {
+                    "__guid": "685722c4-ae98-4526-bd02-2b27e1a34bf9",
+                    "Flags": 0,
+                    "Name": "1",
+                    "Position": "60,0,35",
+                    "Enabled": true,
+                    "Components": [
+                      {
+                        "__type": "Sandbox.WorldPanel",
+                        "__guid": "92f5090e-551a-4d25-b78e-15423f870d3c",
+                        "HorizontalAlign": "Center",
+                        "InteractionRange": 1000,
+                        "LookAtCamera": true,
+                        "PanelSize": "512,128",
+                        "RenderOptions": {
+                          "GameLayer": false,
+                          "OverlayLayer": true,
+                          "BloomLayer": false,
+                          "AfterUILayer": false
+                        },
+                        "RenderScale": 1,
+                        "VerticalAlign": "Center"
+                      },
+                      {
+                        "__type": "PartName",
+                        "__guid": "a6009e54-9d3b-489b-a282-4cfa42bccca7",
+                        "AngleClamp": 45,
+                        "Distance": 100,
+                        "Name": "Bonnet",
+                        "RotationClamp": "0.258819,-0.00000001131334,-0.9659258,-0.00000004222196"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "961b9a83-03fd-4eab-8bd6-415777e10dd5",
+            "Flags": 0,
+            "Name": "sideskirts",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.PartsList",
+                "__guid": "3a73e1dc-ed9a-4de8-88c7-31507414df0c",
+                "Parts": [
+                  "models/cars/sport/parts/side_skirts/sm_veh_sports_01_side_skirts_01.vmdl",
+                  "models/cars/sport/parts/side_skirts/sm_veh_sports_01_side_skirts_02.vmdl",
+                  "models/cars/sedan/parts/side_skirts/sm_veh_sedan_01_side_skirts_03.vmdl",
+                  "models/cars/sedan/parts/side_skirts/sm_veh_sedan_01_side_skirts_04.vmdl"
+                ]
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "71583b7a-cc92-4eec-8413-b01b3af334ad",
+                "Flags": 0,
+                "Name": "poses",
+                "Enabled": true,
+                "Children": [
+                  {
+                    "__guid": "c3a15991-1089-4611-8bd7-11afd0aaf456",
+                    "Flags": 0,
+                    "Name": "1",
+                    "Position": "0,40,10",
+                    "Rotation": "0,0,0.7071068,0.7071068",
+                    "Enabled": true,
+                    "Components": [
+                      {
+                        "__type": "Sandbox.WorldPanel",
+                        "__guid": "8b661103-9b24-4e9d-837b-d08687c41470",
+                        "HorizontalAlign": "Center",
+                        "InteractionRange": 1000,
+                        "LookAtCamera": true,
+                        "PanelSize": "512,128",
+                        "RenderOptions": {
+                          "GameLayer": false,
+                          "OverlayLayer": true,
+                          "BloomLayer": false,
+                          "AfterUILayer": false
+                        },
+                        "RenderScale": 1,
+                        "VerticalAlign": "Center"
+                      },
+                      {
+                        "__type": "PartName",
+                        "__guid": "9db02ca0-80b0-4071-a9ce-927deea71f98",
+                        "AngleClamp": 45,
+                        "Distance": 100,
+                        "Name": "Side skirts",
+                        "RotationClamp": "0,-0,-0.7071068,0.7071068"
+                      }
+                    ]
+                  },
+                  {
+                    "__guid": "2a0c7682-3782-4617-9902-fac99d3a6fc6",
+                    "Flags": 0,
+                    "Name": "2",
+                    "Position": "0,-40,10",
+                    "Rotation": "0,-0,-0.7071068,0.7071068",
+                    "Enabled": true,
+                    "Components": [
+                      {
+                        "__type": "Sandbox.WorldPanel",
+                        "__guid": "98ce1d19-fcca-4626-87dd-58c80f3b2882",
+                        "HorizontalAlign": "Center",
+                        "InteractionRange": 1000,
+                        "LookAtCamera": true,
+                        "PanelSize": "512,128",
+                        "RenderOptions": {
+                          "GameLayer": false,
+                          "OverlayLayer": true,
+                          "BloomLayer": false,
+                          "AfterUILayer": false
+                        },
+                        "RenderScale": 1,
+                        "VerticalAlign": "Center"
+                      },
+                      {
+                        "__type": "PartName",
+                        "__guid": "e59ea489-3f1e-41e5-b80e-5fa9539f278c",
+                        "AngleClamp": 45,
+                        "Distance": 100,
+                        "Name": "Side skirts",
+                        "RotationClamp": "0,0,0.7071068,0.7071068"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "a988307f-3dc5-4bfd-b9ef-21d81e1f71aa",
+            "Flags": 0,
+            "Name": "frontbumper",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.PartsList",
+                "__guid": "3a57868b-aec8-4e02-bf78-fc128aafd202",
+                "Parts": [
+                  "models/cars/sport/parts/front_bumpers/sm_veh_sports_01_front_bumper_01.vmdl",
+                  "models/cars/sport/parts/front_bumpers/sm_veh_sports_01_front_bumper_02.vmdl",
+                  "models/cars/sport/parts/front_bumpers/sm_veh_sports_01_front_bumper_03.vmdl",
+                  "models/cars/sport/parts/front_bumpers/sm_veh_sports_01_front_bumper_04.vmdl"
+                ]
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "746b53dc-fbb1-453b-9b0e-da4e489b3206",
+                "Flags": 0,
+                "Name": "poses",
+                "Enabled": true,
+                "Children": [
+                  {
+                    "__guid": "8d36bedd-2594-4a2f-ad04-b86361736470",
+                    "Flags": 0,
+                    "Name": "1",
+                    "Position": "100,0,15",
+                    "Enabled": true,
+                    "Components": [
+                      {
+                        "__type": "Sandbox.WorldPanel",
+                        "__guid": "41718ad3-1987-47a6-8e35-21db79d7ac3e",
+                        "HorizontalAlign": "Center",
+                        "InteractionRange": 1000,
+                        "LookAtCamera": true,
+                        "PanelSize": "512,128",
+                        "RenderOptions": {
+                          "GameLayer": false,
+                          "OverlayLayer": true,
+                          "BloomLayer": false,
+                          "AfterUILayer": false
+                        },
+                        "RenderScale": 1,
+                        "VerticalAlign": "Center"
+                      },
+                      {
+                        "__type": "PartName",
+                        "__guid": "b4bfba6c-db5c-4e6c-9973-774bd4ffdb90",
+                        "AngleClamp": 90,
+                        "Distance": 100,
+                        "Name": "Bumper",
+                        "RotationClamp": "0,0,1,-0.00000004371139"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "2cb66ab1-2f24-4697-83c5-6bdb14e821c1",
+            "Flags": 0,
+            "Name": "rearbumper",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.PartsList",
+                "__guid": "ea1535cb-6b9b-447d-9fa0-3bb885b5cf1c",
+                "Parts": [
+                  "models/cars/sport/parts/rear_bumpers/sm_veh_sports_01_rear_bumper_01.vmdl",
+                  "models/cars/sport/parts/rear_bumpers/sm_veh_sports_01_rear_bumper_02.vmdl",
+                  "models/cars/sport/parts/rear_bumpers/sm_veh_sports_01_rear_bumper_03.vmdl",
+                  "models/cars/sport/parts/rear_bumpers/sm_veh_sports_01_rear_bumper_04.vmdl"
+                ]
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "458783d4-1305-4150-86a2-7b7b94cf09d7",
+                "Flags": 0,
+                "Name": "poses",
+                "Enabled": true,
+                "Children": [
+                  {
+                    "__guid": "a7ad1833-6da1-416f-aa96-ffdabc0910fb",
+                    "Flags": 0,
+                    "Name": "1",
+                    "Position": "-100,0,15",
+                    "Rotation": "0,0,1,-0.00000004371139",
+                    "Enabled": true,
+                    "Components": [
+                      {
+                        "__type": "Sandbox.WorldPanel",
+                        "__guid": "f10305d9-838f-4948-869e-e7b3407a9a90",
+                        "HorizontalAlign": "Center",
+                        "InteractionRange": 1000,
+                        "LookAtCamera": true,
+                        "PanelSize": "512,128",
+                        "RenderOptions": {
+                          "GameLayer": true,
+                          "OverlayLayer": true,
+                          "BloomLayer": false,
+                          "AfterUILayer": false
+                        },
+                        "RenderScale": 1,
+                        "VerticalAlign": "Center"
+                      },
+                      {
+                        "__type": "PartName",
+                        "__guid": "4259d8e3-319e-41a7-81ff-358ba076df63",
+                        "AngleClamp": 45,
+                        "Distance": 100,
+                        "Name": "Bumper",
+                        "RotationClamp": "0,0,0,1"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "1beb832b-1b0a-48e2-8215-6adefc74cdd6",
+            "Flags": 0,
+            "Name": "fenders",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.PartsList",
+                "__guid": "45452b19-3976-4c00-bfeb-2266e317b6c8",
+                "Parts": [
+                  null,
+                  "models/cars/sport/parts/fenders/sm_veh_sports_01_fenders_02.vmdl",
+                  "models/cars/sport/parts/fenders/sm_veh_sports_01_fenders_03.vmdl",
+                  "models/cars/sport/parts/fenders/sm_veh_sports_01_fenders_04.vmdl"
+                ]
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "709afa63-ab77-4778-b2dd-f1c4e31b8aa5",
+                "Flags": 0,
+                "Name": "poses",
+                "Enabled": true,
+                "Children": [
+                  {
+                    "__guid": "574590c0-45d2-4e0d-a0e4-c66378d03840",
+                    "Flags": 0,
+                    "Name": "1",
+                    "Position": "57,36,30",
+                    "Rotation": "0,0,0.7071068,0.7071068",
+                    "Enabled": true,
+                    "Components": [
+                      {
+                        "__type": "Sandbox.WorldPanel",
+                        "__guid": "951d9777-f0db-47c4-9179-e2f1c0c658a7",
+                        "HorizontalAlign": "Center",
+                        "InteractionRange": 1000,
+                        "LookAtCamera": true,
+                        "PanelSize": "512,128",
+                        "RenderOptions": {
+                          "GameLayer": true,
+                          "OverlayLayer": true,
+                          "BloomLayer": false,
+                          "AfterUILayer": false
+                        },
+                        "RenderScale": 1,
+                        "VerticalAlign": "Center"
+                      },
+                      {
+                        "__type": "PartName",
+                        "__guid": "36074918-38b6-4785-ae87-49506e48ad8c",
+                        "AngleClamp": 45,
+                        "Distance": 130,
+                        "Name": "Fenders",
+                        "RotationClamp": "0,0,-0.7071068,0.7071068"
+                      }
+                    ]
+                  },
+                  {
+                    "__guid": "a34353c3-1450-4ea6-b0ee-40590b49d103",
+                    "Flags": 0,
+                    "Name": "2",
+                    "Position": "57,-36,30",
+                    "Rotation": "0,-0,-0.7071068,0.7071068",
+                    "Enabled": true,
+                    "Components": [
+                      {
+                        "__type": "Sandbox.WorldPanel",
+                        "__guid": "97e79394-7387-40bb-9cdd-ba47e1ebe31b",
+                        "HorizontalAlign": "Center",
+                        "InteractionRange": 1000,
+                        "LookAtCamera": true,
+                        "PanelSize": "512,128",
+                        "RenderOptions": {
+                          "GameLayer": true,
+                          "OverlayLayer": true,
+                          "BloomLayer": false,
+                          "AfterUILayer": false
+                        },
+                        "RenderScale": 1,
+                        "VerticalAlign": "Center"
+                      },
+                      {
+                        "__type": "PartName",
+                        "__guid": "9129ebcd-6089-4d0e-9ad0-da5ee98b1f43",
+                        "AngleClamp": 45,
+                        "Distance": 130,
+                        "Name": "Fenders",
+                        "RotationClamp": "0,0,0.7071068,0.7071068"
+                      }
+                    ]
+                  },
+                  {
+                    "__guid": "a908bbe2-ebc1-4ec1-bf90-7e19f31ee001",
+                    "Flags": 0,
+                    "Name": "3",
+                    "Position": "-55,-36,30",
+                    "Rotation": "0,-0,-0.7071068,0.7071068",
+                    "Enabled": true,
+                    "Components": [
+                      {
+                        "__type": "Sandbox.WorldPanel",
+                        "__guid": "25c5c2a5-bf0f-4fa7-8061-b606460d7691",
+                        "HorizontalAlign": "Center",
+                        "InteractionRange": 1000,
+                        "LookAtCamera": true,
+                        "PanelSize": "512,128",
+                        "RenderOptions": {
+                          "GameLayer": true,
+                          "OverlayLayer": true,
+                          "BloomLayer": false,
+                          "AfterUILayer": false
+                        },
+                        "RenderScale": 1,
+                        "VerticalAlign": "Center"
+                      },
+                      {
+                        "__type": "PartName",
+                        "__guid": "b5dbb065-cc84-4892-a353-fbe182c87130",
+                        "AngleClamp": 45,
+                        "Distance": 130,
+                        "Name": "Fenders",
+                        "RotationClamp": "0,0,0.7071068,0.7071068"
+                      }
+                    ]
+                  },
+                  {
+                    "__guid": "df1322c4-310a-495c-a250-ff089302acb0",
+                    "Flags": 0,
+                    "Name": "4",
+                    "Position": "-55,36,30",
+                    "Rotation": "0,0,0.7071068,0.7071068",
+                    "Enabled": true,
+                    "Components": [
+                      {
+                        "__type": "Sandbox.WorldPanel",
+                        "__guid": "38c8827c-2979-4076-918f-7c1958fa1b55",
+                        "HorizontalAlign": "Center",
+                        "InteractionRange": 1000,
+                        "LookAtCamera": true,
+                        "PanelSize": "512,128",
+                        "RenderOptions": {
+                          "GameLayer": true,
+                          "OverlayLayer": true,
+                          "BloomLayer": false,
+                          "AfterUILayer": false
+                        },
+                        "RenderScale": 1,
+                        "VerticalAlign": "Center"
+                      },
+                      {
+                        "__type": "PartName",
+                        "__guid": "09a34c58-1f07-4e9d-ba0e-d20ed68313a5",
+                        "AngleClamp": 45,
+                        "Distance": 130,
+                        "Name": "Fenders",
+                        "RotationClamp": "0,0,-0.7071068,0.7071068"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "91748fb6-48b2-4eef-b7ba-fdb482c4e710",
+            "Flags": 0,
+            "Name": "wheels",
+            "Position": "0,0,13",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.PartsList",
+                "__guid": "26e825bc-243b-40d8-a9fc-c86f3614dbae",
+                "Parts": []
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "1bc170b6-017d-4e41-98a4-3a935f33497f",
+                "Flags": 0,
+                "Name": "Wheel Front Left",
+                "Position": "57.60001,32,0",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "6437bbc3-1fe6-4272-bf30-32d27cbccaaa",
+                    "BodyGroups": 18446744073709551615,
+                    "Model": "models/cars/sport/wheel.vmdl",
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  }
+                ],
+                "Children": [
+                  {
+                    "__guid": "f82bd088-176c-4d80-8a36-2c2cc20a01ec",
+                    "Flags": 0,
+                    "Name": "panel",
+                    "Position": "0,10,0",
+                    "Rotation": "0,0,0.7071068,0.7071068",
+                    "Enabled": true,
+                    "Components": [
+                      {
+                        "__type": "Sandbox.WorldPanel",
+                        "__guid": "b703adf9-531a-41e3-8c54-5cf2dea9cca5",
+                        "HorizontalAlign": "Center",
+                        "InteractionRange": 1000,
+                        "LookAtCamera": true,
+                        "PanelSize": "512,128",
+                        "RenderOptions": {
+                          "GameLayer": true,
+                          "OverlayLayer": true,
+                          "BloomLayer": false,
+                          "AfterUILayer": false
+                        },
+                        "RenderScale": 1,
+                        "VerticalAlign": "Center"
+                      },
+                      {
+                        "__type": "PartName",
+                        "__guid": "69d123ad-6613-4088-a7fb-18e842c80bb0",
+                        "AngleClamp": 45,
+                        "Distance": 100,
+                        "Name": "Wheels",
+                        "RotationClamp": "0,-0,-0.7071068,0.7071068"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "__guid": "42ce9a8b-70b6-4c35-97f0-5eb1b5d21b48",
+                "Flags": 0,
+                "Name": "Wheel Front Right",
+                "Position": "57.60001,-32.00001,0",
+                "Rotation": "0,0,1,-0.00000004371139",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "9859c032-ba03-4903-aab3-3cbd32e3378d",
+                    "BodyGroups": 18446744073709551615,
+                    "Model": "models/cars/sport/wheel.vmdl",
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  }
+                ],
+                "Children": [
+                  {
+                    "__guid": "c06544cd-17f4-4b8d-a9a5-1162a70075b8",
+                    "Flags": 0,
+                    "Name": "panel",
+                    "Position": "-0.000005595059,10,0",
+                    "Rotation": "0,0,0.7071068,0.7071068",
+                    "Enabled": true,
+                    "Components": [
+                      {
+                        "__type": "Sandbox.WorldPanel",
+                        "__guid": "abc47556-834e-47ef-b446-916491bd518d",
+                        "HorizontalAlign": "Center",
+                        "InteractionRange": 1000,
+                        "LookAtCamera": true,
+                        "PanelSize": "512,128",
+                        "RenderOptions": {
+                          "GameLayer": true,
+                          "OverlayLayer": true,
+                          "BloomLayer": false,
+                          "AfterUILayer": false
+                        },
+                        "RenderScale": 1,
+                        "VerticalAlign": "Center"
+                      },
+                      {
+                        "__type": "PartName",
+                        "__guid": "df098a30-ce25-41c8-a3c3-6821f47975b6",
+                        "AngleClamp": 45,
+                        "Distance": 100,
+                        "Name": "Wheels",
+                        "RotationClamp": "0,0,0.7071068,0.7071068"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "__guid": "f6bf03e8-e1bd-4bab-9b54-2946dd86fa68",
+                "Flags": 0,
+                "Name": "Wheel Rear Left",
+                "Position": "-55,32,0",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "68793b34-c5e9-40d3-8eaa-f989bc37b2e1",
+                    "BodyGroups": 18446744073709551615,
+                    "Model": "models/cars/sport/wheel.vmdl",
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  }
+                ],
+                "Children": [
+                  {
+                    "__guid": "35681f16-35e3-438f-af67-1afd8e633e7b",
+                    "Flags": 0,
+                    "Name": "panel",
+                    "Position": "0,10,0",
+                    "Rotation": "0,0,0.7071068,0.7071068",
+                    "Enabled": true,
+                    "Components": [
+                      {
+                        "__type": "Sandbox.WorldPanel",
+                        "__guid": "8fa992ac-f1db-417e-8e60-1cb46c3012c6",
+                        "HorizontalAlign": "Center",
+                        "InteractionRange": 1000,
+                        "LookAtCamera": true,
+                        "PanelSize": "512,128",
+                        "RenderOptions": {
+                          "GameLayer": true,
+                          "OverlayLayer": true,
+                          "BloomLayer": false,
+                          "AfterUILayer": false
+                        },
+                        "RenderScale": 1,
+                        "VerticalAlign": "Center"
+                      },
+                      {
+                        "__type": "PartName",
+                        "__guid": "170c3242-44d1-4d3d-b2b2-d697dff4fe0a",
+                        "AngleClamp": 45,
+                        "Distance": 100,
+                        "Name": "Wheels",
+                        "RotationClamp": "0,-0,-0.7071068,0.7071068"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "__guid": "997ba493-f677-42f6-a9c0-7b79e25b0a5f",
+                "Flags": 0,
+                "Name": "Wheel Rear Right",
+                "Position": "-55,-32.00001,0",
+                "Rotation": "0,0,1,-0.00000004371139",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "6b6c6635-3218-4702-bbd0-0d4a9be775c0",
+                    "BodyGroups": 18446744073709551615,
+                    "Model": "models/cars/sport/wheel.vmdl",
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  }
+                ],
+                "Children": [
+                  {
+                    "__guid": "1a89f5e8-267b-406a-9417-e4a339e244bc",
+                    "Flags": 0,
+                    "Name": "panel",
+                    "Position": "-0.000005595059,10,0",
+                    "Rotation": "0,0,0.7071068,0.7071068",
+                    "Enabled": true,
+                    "Components": [
+                      {
+                        "__type": "Sandbox.WorldPanel",
+                        "__guid": "4254fa50-8c1a-4a75-ae21-8825a75662de",
+                        "HorizontalAlign": "Center",
+                        "InteractionRange": 1000,
+                        "LookAtCamera": true,
+                        "PanelSize": "512,128",
+                        "RenderOptions": {
+                          "GameLayer": true,
+                          "OverlayLayer": true,
+                          "BloomLayer": false,
+                          "AfterUILayer": false
+                        },
+                        "RenderScale": 1,
+                        "VerticalAlign": "Center"
+                      },
+                      {
+                        "__type": "PartName",
+                        "__guid": "7f80adad-a6b6-4105-b701-c2fedce318fa",
+                        "AngleClamp": 45,
+                        "Distance": 100,
+                        "Name": "Wheels",
+                        "RotationClamp": "0,0,0.7071068,0.7071068"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

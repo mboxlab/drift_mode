@@ -1,7 +1,4 @@
-﻿
-namespace DM.Ground;
-
-public class Friction
+﻿public class Friction
 {
 
 	/// <summary>

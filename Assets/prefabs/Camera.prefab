@@ -19,7 +19,7 @@
         "RenderTags": "",
         "TargetEye": "None",
         "Viewport": "0,0,1,1",
-        "ZFar": 10000,
+        "ZFar": 30000,
         "ZNear": 10
       },
       {
@@ -63,12 +63,6 @@
         "MinimumExposure": 1,
         "Mode": "Legacy",
         "Rate": 1
-      },
-      {
-        "__type": "Sandbox.Sharpen",
-        "__guid": "8cdfdfa2-8365-4a5a-99d4-a5135bd183c3",
-        "__enabled": false,
-        "Scale": 0.2
       }
     ],
     "Children": [],
@@ -77,7 +71,9 @@
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
+  "DontBreakAsTemplate": false,
   "ResourceVersion": 1,
   "__references": [],
+  "IsValid": true,
   "__version": 1
 }

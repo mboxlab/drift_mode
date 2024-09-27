@@ -1,0 +1,2448 @@
+{
+  "RootObject": {
+    "__guid": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+    "Flags": 0,
+    "Name": "sport_drift",
+    "Tags": "car",
+    "Enabled": true,
+    "NetworkMode": 1,
+    "Components": [
+      {
+        "__type": "Sandbox.Rigidbody",
+        "__guid": "63f289fd-6e4a-4084-b6c5-b497bb5fbec5",
+        "AngularDamping": 0,
+        "Gravity": true,
+        "LinearDamping": 0,
+        "Locking": {},
+        "MassCenterOverride": "0,0,20",
+        "MassOverride": 1125,
+        "MotionEnabled": true,
+        "OverrideMassCenter": true,
+        "RigidbodyFlags": "DisableCollisionSounds",
+        "StartAsleep": false
+      },
+      {
+        "__type": "Sandbox.BoxCollider",
+        "__guid": "d9394def-1ad3-4a36-b0f0-a69361d079cb",
+        "Center": "-1,0,30",
+        "IsTrigger": false,
+        "Scale": "198.9001,61.99998,40",
+        "Static": false
+      },
+      {
+        "__type": "DM.Car.CameraController",
+        "__guid": "87640b59-aa17-43cc-9fdf-0873c1c3979d",
+        "Boom": {
+          "_type": "gameobject",
+          "go": "b813da2b-460b-42b5-bdd8-f62b556fd189"
+        },
+        "CameraTarget": {
+          "_type": "gameobject",
+          "go": "a7552737-ddb9-4c5f-9ede-cc937f4c2a20"
+        },
+        "PitchLimits": "-50,50",
+        "VelocityFOVScale": 50
+      },
+      {
+        "__type": "Sandbox.Car.CarController",
+        "__guid": "a5a4082d-3815-4443-b073-75963d0bcd17",
+        "CarConfig": {
+          "DriveType": "RWD",
+          "AutomaticGearBox": true,
+          "MaxMotorTorque": 400,
+          "MaxRPM": 7000,
+          "MinRPM": 700,
+          "CutOffRPM": 6800,
+          "CutOffOffsetRPM": 500,
+          "CutOffTime": 0.1,
+          "ProbabilityBackfire": 0.2,
+          "RpmToNextGear": 6500,
+          "RpmToPrevGear": 4500,
+          "MaxForwardSlipToBlockChangeGear": 0.5,
+          "RpmEngineToRpmWheelsLerpSpeed": 15,
+          "GearsRatio": [
+            3.59,
+            2.02,
+            1.38,
+            1,
+            0.87
+          ],
+          "MainRatio": 4.3,
+          "ReversGearRatio": 4,
+          "MaxBrakeTorque": 1000,
+          "TargetSpeedIfBrakingGround": 20,
+          "EnableSteerAngleMultiplier": true,
+          "MinSteerAngleMultiplier": 0.05,
+          "MaxSteerAngleMultiplier": 1,
+          "MaxSpeedForMinAngleMultiplier": 250,
+          "MaxSteerAngle": 25,
+          "SteerAngleChangeSpeed": 8,
+          "MinSpeedForSteerHelp": 20,
+          "HelpSteerPower": 0.1,
+          "OppositeAngularVelocityHelpPower": 0.1,
+          "PositiveAngularVelocityHelpPower": 0.1,
+          "MaxAngularVelocityHelpAngle": 90,
+          "AngularVelucityInMaxAngle": 0.5,
+          "AngularVelucityInMinAngle": 4,
+          "HandBrakeForwardStiffness": 0.5,
+          "HandBrakeSidewaysStiffness": 0.5,
+          "FrictionPreset": {
+            "Stiffnes": 9,
+            "ShapeFactor": 2.15,
+            "PeakValue": 0.933,
+            "CurvatureFactor": 0.871,
+            "PeakSlip": 0.11999998,
+            "Curve": {
+              "_ace_v": 1,
+              "pri": "Linear",
+              "poi": "Linear",
+              "keys": [
+                {},
+                {
+                  "x": 0.02,
+                  "y": 0.34558323,
+                  "ti": 15.360906,
+                  "to": 15.360906
+                },
+                {
+                  "x": 0.04,
+                  "y": 0.6144362,
+                  "ti": 10.96787,
+                  "to": 10.96787
+                },
+                {
+                  "x": 0.06,
+                  "y": 0.784298,
+                  "ti": 6.53178,
+                  "to": 6.53178
+                },
+                {
+                  "x": 0.08,
+                  "y": 0.8757074,
+                  "ti": 3.33546,
+                  "to": 3.33546
+                },
+                {
+                  "x": 0.099999994,
+                  "y": 0.9177164,
+                  "ti": 1.4059323,
+                  "to": 1.4059323
+                },
+                {
+                  "x": 0.11999999,
+                  "y": 0.93194467,
+                  "ti": 0.34205025,
+                  "to": 0.34205025
+                },
+                {
+                  "x": 0.13999999,
+                  "y": 0.9313984,
+                  "ti": -0.21704738,
+                  "to": -0.21704738
+                },
+                {
+                  "x": 0.15999998,
+                  "y": 0.9232628,
+                  "ti": -0.50037366,
+                  "to": -0.50037366
+                },
+                {
+                  "x": 0.17999998,
+                  "y": 0.91138345,
+                  "ti": -0.63660604,
+                  "to": -0.63660604
+                },
+                {
+                  "x": 0.19999997,
+                  "y": 0.89779854,
+                  "ti": -0.6949724,
+                  "to": -0.6949724
+                },
+                {
+                  "x": 0.21999997,
+                  "y": 0.88358456,
+                  "ti": -0.6861528,
+                  "to": -0.6861528
+                },
+                {
+                  "x": 0.31999996,
+                  "y": 0.8154602,
+                  "ti": -0.63098943,
+                  "to": -0.63098943
+                },
+                {
+                  "x": 0.41999996,
+                  "y": 0.7573867,
+                  "ti": -0.54048383,
+                  "to": -0.54048383
+                },
+                {
+                  "x": 0.52,
+                  "y": 0.7073634,
+                  "ti": -0.471219,
+                  "to": -0.471219
+                },
+                {
+                  "x": 0.62,
+                  "y": 0.66314286,
+                  "ti": -0.42013606,
+                  "to": -0.42013606
+                },
+                {
+                  "x": 0.72,
+                  "y": 0.6233362,
+                  "ti": -0.38032135,
+                  "to": -0.38032135
+                },
+                {
+                  "x": 0.82000005,
+                  "y": 0.5870786,
+                  "ti": -0.34771582,
+                  "to": -0.34771582
+                },
+                {
+                  "x": 0.9200001,
+                  "y": 0.553793,
+                  "ti": -0.32005957,
+                  "to": -0.32005957
+                },
+                {
+                  "x": 1.0200001,
+                  "y": 0.52306664
+                }
+              ]
+            }
+          }
+        },
+        "Rigidbody": {
+          "_type": "component",
+          "component_id": "63f289fd-6e4a-4084-b6c5-b497bb5fbec5",
+          "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+          "component_type": "Rigidbody"
+        },
+        "SoundInterpolator": {
+          "_type": "component",
+          "component_id": "eea8bcda-35f3-4a8f-8ee7-db4758c05cba",
+          "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+          "component_type": "SoundInterpolator"
+        },
+        "TorqueCurve": {
+          "_ace_v": 1,
+          "keys": [
+            {
+              "y": 0.3
+            },
+            {
+              "x": 2.9,
+              "y": 0.85,
+              "ti": 0.1337991,
+              "to": 0.1337991,
+              "tm": "Mirrored"
+            },
+            {
+              "x": 6.2,
+              "y": 1,
+              "ti": 0.0035454722,
+              "to": 0.0035454722,
+              "tm": "Mirrored"
+            },
+            {
+              "x": 8
+            }
+          ]
+        },
+        "Wheels": [
+          {
+            "_type": "component",
+            "component_id": "e12a6c21-628d-4695-b147-a282730346a9",
+            "go": "a67d5021-9e51-483f-a1b7-a628c5bb2909",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "ec083d93-c036-4cae-be0b-94a664ed7d19",
+            "go": "8c9526f3-7634-43e5-812f-67d706b9022f",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "280f3c11-c205-4669-b9f6-c003458778a9",
+            "go": "fc04e594-0d78-49bb-bb9d-6a0887b8dae7",
+            "component_type": "WheelCollider"
+          },
+          {
+            "_type": "component",
+            "component_id": "0de1899c-a5d8-4fa4-8403-12b9daac9857",
+            "go": "4eaa3d57-e9df-4268-b733-3e3ad411e6c7",
+            "component_type": "WheelCollider"
+          }
+        ]
+      },
+      {
+        "__type": "DM.Engine.SoundInterpolator",
+        "__guid": "eea8bcda-35f3-4a8f-8ee7-db4758c05cba",
+        "MaxValue": 7000,
+        "Parent": {
+          "_type": "gameobject",
+          "go": "9129ed10-c30b-4dd2-9800-b160f93b3376"
+        },
+        "Sounds": {
+          "2745": "sound/engines/supra/adam lz chaser 1jz 2020 engine dynorun 2745,472rpm.vsnd",
+          "3101": "sound/engines/supra/adam lz chaser 1jz 2020 engine dynorun 3101,777rpm.vsnd",
+          "5161": "sound/engines/supra/adam lz chaser 1jz 2020 engine dynorun 5161,291rpm.vsnd",
+          "6428": "sound/engines/supra/adam lz chaser 1jz 2020 engine dynorun 6428,572rpm.vsnd",
+          "7024": "sound/engines/supra/adam lz chaser 1jz 2020 engine dynorun 7024,391rpm.vsnd"
+        },
+        "Value": 0,
+        "Volume": 0
+      },
+      {
+        "__type": "WheelManager",
+        "__guid": "419e26f7-d446-4612-94d2-93fd559808a1",
+        "Wheels": [],
+        "CombinedLoad": 0
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "ce0fb670-0ba2-4ac0-b182-1c0fb4afcc32",
+        "Flags": 0,
+        "Name": "Model",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "8e4d9c6a-e979-4a95-9f16-a76b1e4be3de",
+            "BodyGroups": 18446744073709551615,
+            "MaterialOverride": "materials/car/paint/polygonstreetracer_texture_01_a.vmat",
+            "Model": "models/cars/sport/sm_veh_sports_01.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          },
+          {
+            "__type": "DM.Car.CarDresser",
+            "__guid": "f0ec5012-65de-40cb-aed7-b57d29a5c706",
+            "BodyRenderer": {
+              "_type": "component",
+              "component_id": "8e4d9c6a-e979-4a95-9f16-a76b1e4be3de",
+              "go": "ce0fb670-0ba2-4ac0-b182-1c0fb4afcc32",
+              "component_type": "ModelRenderer"
+            },
+            "Poses": [
+              {
+                "_type": "gameobject",
+                "go": "c22851a5-6ced-4966-9c8c-539ed6d934a7"
+              },
+              {
+                "_type": "gameobject",
+                "go": "7ca06956-84fe-4c7a-b806-dad8d9a988d6"
+              },
+              {
+                "_type": "gameobject",
+                "go": "961b9a83-03fd-4eab-8bd6-415777e10dd5"
+              },
+              {
+                "_type": "gameobject",
+                "go": "a988307f-3dc5-4bfd-b9ef-21d81e1f71aa"
+              },
+              {
+                "_type": "gameobject",
+                "go": "2cb66ab1-2f24-4697-83c5-6bdb14e821c1"
+              },
+              {
+                "_type": "gameobject",
+                "go": "1beb832b-1b0a-48e2-8215-6adefc74cdd6"
+              }
+            ]
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "c22851a5-6ced-4966-9c8c-539ed6d934a7",
+            "Flags": 0,
+            "Name": "engine",
+            "Position": "64.15572,0,5.144224",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.PartsList",
+                "__guid": "a4fefd18-5667-403a-ab9a-a5e916527a13",
+                "Parts": [
+                  "models/carparts/enignes/sm_veh_attach_engine_01.vmdl",
+                  "models/carparts/enignes/sm_veh_attach_engine_02.vmdl",
+                  "models/carparts/enignes/sm_veh_attach_engine_03.vmdl",
+                  "models/carparts/enignes/sm_veh_attach_engine_04.vmdl"
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "7ca06956-84fe-4c7a-b806-dad8d9a988d6",
+            "Flags": 0,
+            "Name": "bonnet",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.PartsList",
+                "__guid": "6cdedf40-5471-4d45-8c19-4d3d78aa40ae",
+                "Parts": [
+                  "models/cars/sport/parts/bonnets/sm_veh_sports_01_bonnet_01.vmdl",
+                  "models/cars/sport/parts/bonnets/sm_veh_sports_01_bonnet_02.vmdl",
+                  "models/cars/sport/parts/bonnets/sm_veh_sports_01_bonnet_03.vmdl",
+                  "models/cars/sport/parts/bonnets/sm_veh_sports_01_bonnet_04.vmdl"
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "961b9a83-03fd-4eab-8bd6-415777e10dd5",
+            "Flags": 0,
+            "Name": "sideskirts",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.PartsList",
+                "__guid": "3a73e1dc-ed9a-4de8-88c7-31507414df0c",
+                "Parts": [
+                  "models/cars/sport/parts/side_skirts/sm_veh_sports_01_side_skirts_01.vmdl",
+                  "models/cars/sport/parts/side_skirts/sm_veh_sports_01_side_skirts_02.vmdl",
+                  "models/cars/sedan/parts/side_skirts/sm_veh_sedan_01_side_skirts_03.vmdl",
+                  "models/cars/sedan/parts/side_skirts/sm_veh_sedan_01_side_skirts_04.vmdl"
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "a988307f-3dc5-4bfd-b9ef-21d81e1f71aa",
+            "Flags": 0,
+            "Name": "frontbumper",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.PartsList",
+                "__guid": "3a57868b-aec8-4e02-bf78-fc128aafd202",
+                "Parts": [
+                  "models/cars/sport/parts/front_bumpers/sm_veh_sports_01_front_bumper_01.vmdl",
+                  "models/cars/sport/parts/front_bumpers/sm_veh_sports_01_front_bumper_02.vmdl",
+                  "models/cars/sport/parts/front_bumpers/sm_veh_sports_01_front_bumper_03.vmdl",
+                  "models/cars/sport/parts/front_bumpers/sm_veh_sports_01_front_bumper_04.vmdl"
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "2cb66ab1-2f24-4697-83c5-6bdb14e821c1",
+            "Flags": 0,
+            "Name": "rearbumper",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.PartsList",
+                "__guid": "ea1535cb-6b9b-447d-9fa0-3bb885b5cf1c",
+                "Parts": [
+                  "models/cars/sport/parts/rear_bumpers/sm_veh_sports_01_rear_bumper_01.vmdl",
+                  "models/cars/sport/parts/rear_bumpers/sm_veh_sports_01_rear_bumper_02.vmdl",
+                  "models/cars/sport/parts/rear_bumpers/sm_veh_sports_01_rear_bumper_03.vmdl",
+                  "models/cars/sport/parts/rear_bumpers/sm_veh_sports_01_rear_bumper_04.vmdl"
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "1beb832b-1b0a-48e2-8215-6adefc74cdd6",
+            "Flags": 0,
+            "Name": "fenders",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "DM.Car.PartsList",
+                "__guid": "45452b19-3976-4c00-bfeb-2266e317b6c8",
+                "Parts": [
+                  null,
+                  "models/cars/sport/parts/fenders/sm_veh_sports_01_fenders_02.vmdl",
+                  "models/cars/sport/parts/fenders/sm_veh_sports_01_fenders_03.vmdl",
+                  "models/cars/sport/parts/fenders/sm_veh_sports_01_fenders_04.vmdl"
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "91748fb6-48b2-4eef-b7ba-fdb482c4e710",
+            "Flags": 0,
+            "Name": "wheels",
+            "Position": "0,0,12",
+            "Enabled": true,
+            "Children": [
+              {
+                "__guid": "1bc170b6-017d-4e41-98a4-3a935f33497f",
+                "Flags": 0,
+                "Name": "Wheel Front Left",
+                "Position": "57.60001,32,0",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "6437bbc3-1fe6-4272-bf30-32d27cbccaaa",
+                    "BodyGroups": 18446744073709551615,
+                    "Model": "models/cars/sport/wheel.vmdl",
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  },
+                  {
+                    "__type": "WheelMover",
+                    "__guid": "31d0a329-cd51-48b1-b45d-187769d973b3",
+                    "ReverseRotation": false,
+                    "Speed": 3.1415927,
+                    "Wheel": {
+                      "_type": "component",
+                      "component_id": "e12a6c21-628d-4695-b147-a282730346a9",
+                      "go": "a67d5021-9e51-483f-a1b7-a628c5bb2909",
+                      "component_type": "WheelCollider"
+                    }
+                  }
+                ]
+              },
+              {
+                "__guid": "42ce9a8b-70b6-4c35-97f0-5eb1b5d21b48",
+                "Flags": 0,
+                "Name": "Wheel Front Right",
+                "Position": "57.60001,-32.00001,0",
+                "Rotation": "0,0,1,-0.00000004371139",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "9859c032-ba03-4903-aab3-3cbd32e3378d",
+                    "BodyGroups": 18446744073709551615,
+                    "Model": "models/cars/sport/wheel.vmdl",
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  },
+                  {
+                    "__type": "WheelMover",
+                    "__guid": "d948a6dc-02c8-41e7-840f-d8d3c46bae71",
+                    "ReverseRotation": true,
+                    "Speed": 3.1415927,
+                    "Wheel": {
+                      "_type": "component",
+                      "component_id": "ec083d93-c036-4cae-be0b-94a664ed7d19",
+                      "go": "8c9526f3-7634-43e5-812f-67d706b9022f",
+                      "component_type": "WheelCollider"
+                    }
+                  }
+                ]
+              },
+              {
+                "__guid": "f6bf03e8-e1bd-4bab-9b54-2946dd86fa68",
+                "Flags": 0,
+                "Name": "Wheel Rear Left",
+                "Position": "-54.19997,32,0",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "68793b34-c5e9-40d3-8eaa-f989bc37b2e1",
+                    "BodyGroups": 18446744073709551615,
+                    "Model": "models/cars/sport/wheel.vmdl",
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  },
+                  {
+                    "__type": "WheelMover",
+                    "__guid": "32389384-812d-45ad-b24e-ee022c01db62",
+                    "ReverseRotation": false,
+                    "Speed": 3.1415927,
+                    "Wheel": {
+                      "_type": "component",
+                      "component_id": "280f3c11-c205-4669-b9f6-c003458778a9",
+                      "go": "fc04e594-0d78-49bb-bb9d-6a0887b8dae7",
+                      "component_type": "WheelCollider"
+                    }
+                  }
+                ]
+              },
+              {
+                "__guid": "997ba493-f677-42f6-a9c0-7b79e25b0a5f",
+                "Flags": 0,
+                "Name": "Wheel Rear Right",
+                "Position": "-54.19997,-32.00001,0",
+                "Rotation": "0,0,1,-0.00000004371139",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "6b6c6635-3218-4702-bbd0-0d4a9be775c0",
+                    "BodyGroups": 18446744073709551615,
+                    "Model": "models/cars/sport/wheel.vmdl",
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  },
+                  {
+                    "__type": "WheelMover",
+                    "__guid": "6e9e17ef-cf85-4527-9a31-db22beea0c02",
+                    "ReverseRotation": true,
+                    "Speed": 3.1415927,
+                    "Wheel": {
+                      "_type": "component",
+                      "component_id": "0de1899c-a5d8-4fa4-8403-12b9daac9857",
+                      "go": "4eaa3d57-e9df-4268-b733-3e3ad411e6c7",
+                      "component_type": "WheelCollider"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "7ad25a1a-171f-4f43-af08-1e2d3803fe1d",
+        "Flags": 0,
+        "Name": "Front Axle",
+        "Position": "57.60001,0,12",
+        "Enabled": true,
+        "Children": [
+          {
+            "__guid": "a67d5021-9e51-483f-a1b7-a628c5bb2909",
+            "Flags": 0,
+            "Name": "Wheel Front Left",
+            "Position": "0,32,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.Car.WheelCollider",
+                "__guid": "e12a6c21-628d-4695-b147-a282730346a9",
+                "CounterTorque": 0,
+                "ForwardFriction": {
+                  "Grip": 1
+                },
+                "FrictionPreset": {
+                  "Stiffnes": 12.5,
+                  "ShapeFactor": 2.05,
+                  "PeakValue": 0.925,
+                  "CurvatureFactor": 0.97,
+                  "PeakSlip": 0.11999998,
+                  "Curve": {
+                    "_ace_v": 1,
+                    "pri": "Linear",
+                    "keys": [
+                      {},
+                      {
+                        "x": 0.02,
+                        "y": 0.4376108,
+                        "ti": 17.99649,
+                        "to": 17.99649
+                      },
+                      {
+                        "x": 0.04,
+                        "y": 0.7198596,
+                        "ti": 10.412952,
+                        "to": 10.412952
+                      },
+                      {
+                        "x": 0.06,
+                        "y": 0.8541289,
+                        "ti": 4.6774983,
+                        "to": 4.6774983
+                      },
+                      {
+                        "x": 0.08,
+                        "y": 0.90695953,
+                        "ti": 1.7287793,
+                        "to": 1.7287793
+                      },
+                      {
+                        "x": 0.099999994,
+                        "y": 0.92328006,
+                        "ti": 0.4347221,
+                        "to": 0.4347221
+                      },
+                      {
+                        "x": 0.11999999,
+                        "y": 0.9243484,
+                        "ti": -0.09944292,
+                        "to": -0.09944292
+                      },
+                      {
+                        "x": 0.13999999,
+                        "y": 0.91930234,
+                        "ti": -0.30838555,
+                        "to": -0.30838555
+                      },
+                      {
+                        "x": 0.15999998,
+                        "y": 0.912013,
+                        "ti": -0.37941495,
+                        "to": -0.37941495
+                      },
+                      {
+                        "x": 0.17999998,
+                        "y": 0.90412575,
+                        "ti": -0.39204368,
+                        "to": -0.39204368
+                      },
+                      {
+                        "x": 0.19999997,
+                        "y": 0.89633125,
+                        "ti": -0.38055936,
+                        "to": -0.38055936
+                      },
+                      {
+                        "x": 0.21999997,
+                        "y": 0.8889034,
+                        "ti": -0.3166974,
+                        "to": -0.3166974
+                      },
+                      {
+                        "x": 0.31999996,
+                        "y": 0.85832757,
+                        "ti": -0.26605937,
+                        "to": -0.26605937
+                      },
+                      {
+                        "x": 0.41999996,
+                        "y": 0.8356915,
+                        "ti": -0.20445107,
+                        "to": -0.20445107
+                      },
+                      {
+                        "x": 0.52,
+                        "y": 0.81743735,
+                        "ti": -0.16986842,
+                        "to": -0.16986842
+                      },
+                      {
+                        "x": 0.62,
+                        "y": 0.8017178,
+                        "ti": -0.14924225,
+                        "to": -0.14924225
+                      },
+                      {
+                        "x": 0.72,
+                        "y": 0.7875889,
+                        "ti": -0.13591406,
+                        "to": -0.13591406
+                      },
+                      {
+                        "x": 0.82000005,
+                        "y": 0.774535,
+                        "ti": -0.12667385,
+                        "to": -0.12667385
+                      },
+                      {
+                        "x": 0.9200001,
+                        "y": 0.7622541,
+                        "ti": -0.11987087,
+                        "to": -0.11987087
+                      },
+                      {
+                        "x": 1.0200001,
+                        "y": 0.7505608
+                      }
+                    ]
+                  }
+                },
+                "Inertia": 32.1945,
+                "Load": 0,
+                "LoadContribution": 0.25,
+                "LoadRating": 5400,
+                "Mass": 15,
+                "MaxSuspensionLength": 3,
+                "MinSuspensionLength": 0,
+                "Radius": 13,
+                "RollingResistanceTorque": 30,
+                "RPM": 0,
+                "SidewayFriction": {
+                  "Grip": 1
+                },
+                "SmokeEmitter": {
+                  "_type": "component",
+                  "component_id": "63711a02-6c1e-4394-b1c7-c7b0b0c11d01",
+                  "go": "84db5c07-60ed-4f0c-a942-2b6bd934e6cd",
+                  "component_type": "ParticleSphereEmitter"
+                },
+                "SuspensionDamping": 4500,
+                "SuspensionStiffness": 35000,
+                "Width": 6
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "84db5c07-60ed-4f0c-a942-2b6bd934e6cd",
+                "Flags": 0,
+                "Name": "Smoke",
+                "Position": "0,0,0",
+                "Tags": "particles",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ParticleEffect",
+                    "__guid": "32c3b683-a621-4790-a355-18d6baa2dbd0",
+                    "__version": 1,
+                    "Alpha": {
+                      "Type": "Curve",
+                      "CurveA": [
+                        {
+                          "in": -4.0000024,
+                          "out": 4.0000024
+                        },
+                        {
+                          "x": 0.20812808,
+                          "y": 0.475
+                        },
+                        {
+                          "x": 1
+                        }
+                      ],
+                      "Constants": "1,0,0,0"
+                    },
+                    "ApplyAlpha": true,
+                    "ApplyColor": true,
+                    "ApplyRotation": true,
+                    "ApplyShape": true,
+                    "Bounce": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "Brightness": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "Bumpiness": {},
+                    "Collision": false,
+                    "CollisionRadius": 1,
+                    "Damping": {
+                      "Constants": "5,0,0,0"
+                    },
+                    "DieOnCollisionChance": {},
+                    "Force": true,
+                    "ForceDirection": "0,0,300",
+                    "ForceScale": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "Friction": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "Gradient": {
+                      "Type": "Range",
+                      "GradientA": {
+                        "color": [
+                          {
+                            "t": 0.5,
+                            "c": "1,1,1,1"
+                          }
+                        ],
+                        "alpha": []
+                      },
+                      "GradientB": {
+                        "color": [
+                          {
+                            "t": 0.5,
+                            "c": "1,1,1,1"
+                          }
+                        ],
+                        "alpha": []
+                      },
+                      "ConstantA": "1,1,1,1",
+                      "ConstantB": "1,1,1,1"
+                    },
+                    "Lifetime": {
+                      "Type": "Range",
+                      "Evaluation": "Particle",
+                      "Constants": "1,2,0,0"
+                    },
+                    "MaxParticles": 500,
+                    "OrbitalForce": {},
+                    "OrbitalPull": {},
+                    "PerParticleTimeScale": {
+                      "Constants": "1,0.4,0,0"
+                    },
+                    "Pitch": {},
+                    "PreWarm": 0,
+                    "PushStrength": {},
+                    "Roll": {
+                      "Type": "Range",
+                      "Evaluation": "Particle",
+                      "Constants": "0,360,0,0"
+                    },
+                    "Scale": {
+                      "Type": "Curve",
+                      "CurveA": {
+                        "rangey": "0,120",
+                        "frames": [
+                          {
+                            "y": 0.069148935
+                          },
+                          {
+                            "x": 0.80505955,
+                            "y": 0.9574468
+                          },
+                          {
+                            "x": 0.98660713,
+                            "y": 0.10372341
+                          }
+                        ]
+                      },
+                      "Constants": "5,120,0,0"
+                    },
+                    "SequenceId": {},
+                    "SequenceSpeed": {
+                      "Constants": "0.5,0,0,0"
+                    },
+                    "SequenceTime": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "SheetSequence": true,
+                    "Space": "World",
+                    "StartDelay": {},
+                    "StartVelocity": {
+                      "Type": "Range",
+                      "Evaluation": "Particle",
+                      "Constants": "10,70,0,0"
+                    },
+                    "Stretch": {},
+                    "TimeScale": 1,
+                    "Tint": "1,1,1,1",
+                    "Yaw": {}
+                  },
+                  {
+                    "__type": "Sandbox.ParticleSpriteRenderer",
+                    "__guid": "96f4d13c-0d95-4457-b276-4952cf44a08a",
+                    "Additive": false,
+                    "Alignment": "LookAtCamera",
+                    "BlurAmount": 0.5,
+                    "BlurOpacity": 0.91,
+                    "BlurSpacing": 0.73,
+                    "DepthFeather": 0,
+                    "FaceVelocity": false,
+                    "FogStrength": 1,
+                    "LeadingTrail": true,
+                    "Lighting": false,
+                    "MotionBlur": false,
+                    "Opaque": false,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RotationOffset": 0,
+                    "Scale": 1,
+                    "Shadows": true,
+                    "SortMode": "Unsorted",
+                    "Texture": "materials/particles/smoke1/smoke1.vtex"
+                  },
+                  {
+                    "__type": "Sandbox.ParticleSphereEmitter",
+                    "__guid": "63711a02-6c1e-4394-b1c7-c7b0b0c11d01",
+                    "__enabled": false,
+                    "Burst": 0,
+                    "Delay": 0,
+                    "DestroyOnEnd": false,
+                    "Duration": 5,
+                    "Loop": true,
+                    "OnEdge": false,
+                    "Radius": 4,
+                    "Rate": 1000,
+                    "RateOverDistance": 0,
+                    "Velocity": 0
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "8c9526f3-7634-43e5-812f-67d706b9022f",
+            "Flags": 0,
+            "Name": "Wheel Front Right",
+            "Position": "0,-32.00001,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.Car.WheelCollider",
+                "__guid": "ec083d93-c036-4cae-be0b-94a664ed7d19",
+                "CounterTorque": 0,
+                "ForwardFriction": {
+                  "Grip": 1
+                },
+                "FrictionPreset": {
+                  "Stiffnes": 12.5,
+                  "ShapeFactor": 2.05,
+                  "PeakValue": 0.925,
+                  "CurvatureFactor": 0.97,
+                  "PeakSlip": 0.11999998,
+                  "Curve": {
+                    "_ace_v": 1,
+                    "pri": "Linear",
+                    "keys": [
+                      {},
+                      {
+                        "x": 0.02,
+                        "y": 0.4376108,
+                        "ti": 17.99649,
+                        "to": 17.99649
+                      },
+                      {
+                        "x": 0.04,
+                        "y": 0.7198596,
+                        "ti": 10.412952,
+                        "to": 10.412952
+                      },
+                      {
+                        "x": 0.06,
+                        "y": 0.8541289,
+                        "ti": 4.6774983,
+                        "to": 4.6774983
+                      },
+                      {
+                        "x": 0.08,
+                        "y": 0.90695953,
+                        "ti": 1.7287793,
+                        "to": 1.7287793
+                      },
+                      {
+                        "x": 0.099999994,
+                        "y": 0.92328006,
+                        "ti": 0.4347221,
+                        "to": 0.4347221
+                      },
+                      {
+                        "x": 0.11999999,
+                        "y": 0.9243484,
+                        "ti": -0.09944292,
+                        "to": -0.09944292
+                      },
+                      {
+                        "x": 0.13999999,
+                        "y": 0.91930234,
+                        "ti": -0.30838555,
+                        "to": -0.30838555
+                      },
+                      {
+                        "x": 0.15999998,
+                        "y": 0.912013,
+                        "ti": -0.37941495,
+                        "to": -0.37941495
+                      },
+                      {
+                        "x": 0.17999998,
+                        "y": 0.90412575,
+                        "ti": -0.39204368,
+                        "to": -0.39204368
+                      },
+                      {
+                        "x": 0.19999997,
+                        "y": 0.89633125,
+                        "ti": -0.38055936,
+                        "to": -0.38055936
+                      },
+                      {
+                        "x": 0.21999997,
+                        "y": 0.8889034,
+                        "ti": -0.3166974,
+                        "to": -0.3166974
+                      },
+                      {
+                        "x": 0.31999996,
+                        "y": 0.85832757,
+                        "ti": -0.26605937,
+                        "to": -0.26605937
+                      },
+                      {
+                        "x": 0.41999996,
+                        "y": 0.8356915,
+                        "ti": -0.20445107,
+                        "to": -0.20445107
+                      },
+                      {
+                        "x": 0.52,
+                        "y": 0.81743735,
+                        "ti": -0.16986842,
+                        "to": -0.16986842
+                      },
+                      {
+                        "x": 0.62,
+                        "y": 0.8017178,
+                        "ti": -0.14924225,
+                        "to": -0.14924225
+                      },
+                      {
+                        "x": 0.72,
+                        "y": 0.7875889,
+                        "ti": -0.13591406,
+                        "to": -0.13591406
+                      },
+                      {
+                        "x": 0.82000005,
+                        "y": 0.774535,
+                        "ti": -0.12667385,
+                        "to": -0.12667385
+                      },
+                      {
+                        "x": 0.9200001,
+                        "y": 0.7622541,
+                        "ti": -0.11987087,
+                        "to": -0.11987087
+                      },
+                      {
+                        "x": 1.0200001,
+                        "y": 0.7505608
+                      }
+                    ]
+                  }
+                },
+                "Inertia": 32.1945,
+                "Load": 0,
+                "LoadContribution": 0.25,
+                "LoadRating": 5400,
+                "Mass": 15,
+                "MaxSuspensionLength": 3,
+                "MinSuspensionLength": 0,
+                "Radius": 13,
+                "RollingResistanceTorque": 30,
+                "RPM": 0,
+                "SidewayFriction": {
+                  "Grip": 1
+                },
+                "SmokeEmitter": {
+                  "_type": "component",
+                  "component_id": "34bb3c9d-217f-4688-80f4-5583fa40baed",
+                  "go": "7d2032c0-933d-464d-a15e-c4defc13f07c",
+                  "component_type": "ParticleSphereEmitter"
+                },
+                "SuspensionDamping": 4500,
+                "SuspensionStiffness": 35000,
+                "Width": 6
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "7d2032c0-933d-464d-a15e-c4defc13f07c",
+                "Flags": 0,
+                "Name": "Smoke",
+                "Position": "0,0,0",
+                "Tags": "particles",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ParticleEffect",
+                    "__guid": "92564ef6-3df7-41cf-b555-a6315e7271cb",
+                    "__version": 1,
+                    "Alpha": {
+                      "Type": "Curve",
+                      "CurveA": [
+                        {
+                          "in": -4.0000024,
+                          "out": 4.0000024
+                        },
+                        {
+                          "x": 0.20812808,
+                          "y": 0.475
+                        },
+                        {
+                          "x": 1
+                        }
+                      ],
+                      "Constants": "1,0,0,0"
+                    },
+                    "ApplyAlpha": true,
+                    "ApplyColor": true,
+                    "ApplyRotation": true,
+                    "ApplyShape": true,
+                    "Bounce": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "Brightness": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "Bumpiness": {},
+                    "Collision": false,
+                    "CollisionRadius": 1,
+                    "Damping": {
+                      "Constants": "5,0,0,0"
+                    },
+                    "DieOnCollisionChance": {},
+                    "Force": true,
+                    "ForceDirection": "0,0,300",
+                    "ForceScale": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "Friction": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "Gradient": {
+                      "Type": "Range",
+                      "GradientA": {
+                        "color": [
+                          {
+                            "t": 0.5,
+                            "c": "1,1,1,1"
+                          }
+                        ],
+                        "alpha": []
+                      },
+                      "GradientB": {
+                        "color": [
+                          {
+                            "t": 0.5,
+                            "c": "1,1,1,1"
+                          }
+                        ],
+                        "alpha": []
+                      },
+                      "ConstantA": "1,1,1,1",
+                      "ConstantB": "1,1,1,1"
+                    },
+                    "Lifetime": {
+                      "Type": "Range",
+                      "Evaluation": "Particle",
+                      "Constants": "1,2,0,0"
+                    },
+                    "MaxParticles": 500,
+                    "OrbitalForce": {},
+                    "OrbitalPull": {},
+                    "PerParticleTimeScale": {
+                      "Constants": "1,0.4,0,0"
+                    },
+                    "Pitch": {},
+                    "PreWarm": 0,
+                    "PushStrength": {},
+                    "Roll": {
+                      "Type": "Range",
+                      "Evaluation": "Particle",
+                      "Constants": "0,360,0,0"
+                    },
+                    "Scale": {
+                      "Type": "Curve",
+                      "CurveA": {
+                        "rangey": "0,120",
+                        "frames": [
+                          {
+                            "y": 0.069148935
+                          },
+                          {
+                            "x": 0.80505955,
+                            "y": 0.9574468
+                          },
+                          {
+                            "x": 0.98660713,
+                            "y": 0.10372341
+                          }
+                        ]
+                      },
+                      "Constants": "5,120,0,0"
+                    },
+                    "SequenceId": {},
+                    "SequenceSpeed": {
+                      "Constants": "0.5,0,0,0"
+                    },
+                    "SequenceTime": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "SheetSequence": true,
+                    "Space": "World",
+                    "StartDelay": {},
+                    "StartVelocity": {
+                      "Type": "Range",
+                      "Evaluation": "Particle",
+                      "Constants": "10,70,0,0"
+                    },
+                    "Stretch": {},
+                    "TimeScale": 1,
+                    "Tint": "1,1,1,1",
+                    "Yaw": {}
+                  },
+                  {
+                    "__type": "Sandbox.ParticleSpriteRenderer",
+                    "__guid": "ed18563e-9954-4456-bea4-816928ad2d47",
+                    "Additive": false,
+                    "Alignment": "LookAtCamera",
+                    "BlurAmount": 0.5,
+                    "BlurOpacity": 0.91,
+                    "BlurSpacing": 0.73,
+                    "DepthFeather": 0,
+                    "FaceVelocity": false,
+                    "FogStrength": 1,
+                    "LeadingTrail": true,
+                    "Lighting": false,
+                    "MotionBlur": false,
+                    "Opaque": false,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RotationOffset": 0,
+                    "Scale": 1,
+                    "Shadows": true,
+                    "SortMode": "Unsorted",
+                    "Texture": "materials/particles/smoke1/smoke1.vtex"
+                  },
+                  {
+                    "__type": "Sandbox.ParticleSphereEmitter",
+                    "__guid": "34bb3c9d-217f-4688-80f4-5583fa40baed",
+                    "__enabled": false,
+                    "Burst": 0,
+                    "Delay": 0,
+                    "DestroyOnEnd": false,
+                    "Duration": 5,
+                    "Loop": true,
+                    "OnEdge": false,
+                    "Radius": 4,
+                    "Rate": 1000,
+                    "RateOverDistance": 0,
+                    "Velocity": 0
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "ce1a3692-9cc8-471e-8460-bedc2caecdd5",
+        "Flags": 0,
+        "Name": "Rear Axle",
+        "Position": "-54.19997,0,12",
+        "Enabled": true,
+        "Children": [
+          {
+            "__guid": "fc04e594-0d78-49bb-bb9d-6a0887b8dae7",
+            "Flags": 0,
+            "Name": "Wheel Rear Left",
+            "Position": "0,32,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.Car.WheelCollider",
+                "__guid": "280f3c11-c205-4669-b9f6-c003458778a9",
+                "CounterTorque": 0,
+                "ForwardFriction": {
+                  "Grip": 1
+                },
+                "FrictionPreset": {
+                  "Stiffnes": 12.5,
+                  "ShapeFactor": 2.05,
+                  "PeakValue": 0.925,
+                  "CurvatureFactor": 0.97,
+                  "PeakSlip": 0.11999998,
+                  "Curve": {
+                    "_ace_v": 1,
+                    "pri": "Linear",
+                    "keys": [
+                      {},
+                      {
+                        "x": 0.02,
+                        "y": 0.4376108,
+                        "ti": 17.99649,
+                        "to": 17.99649
+                      },
+                      {
+                        "x": 0.04,
+                        "y": 0.7198596,
+                        "ti": 10.412952,
+                        "to": 10.412952
+                      },
+                      {
+                        "x": 0.06,
+                        "y": 0.8541289,
+                        "ti": 4.6774983,
+                        "to": 4.6774983
+                      },
+                      {
+                        "x": 0.08,
+                        "y": 0.90695953,
+                        "ti": 1.7287793,
+                        "to": 1.7287793
+                      },
+                      {
+                        "x": 0.099999994,
+                        "y": 0.92328006,
+                        "ti": 0.4347221,
+                        "to": 0.4347221
+                      },
+                      {
+                        "x": 0.11999999,
+                        "y": 0.9243484,
+                        "ti": -0.09944292,
+                        "to": -0.09944292
+                      },
+                      {
+                        "x": 0.13999999,
+                        "y": 0.91930234,
+                        "ti": -0.30838555,
+                        "to": -0.30838555
+                      },
+                      {
+                        "x": 0.15999998,
+                        "y": 0.912013,
+                        "ti": -0.37941495,
+                        "to": -0.37941495
+                      },
+                      {
+                        "x": 0.17999998,
+                        "y": 0.90412575,
+                        "ti": -0.39204368,
+                        "to": -0.39204368
+                      },
+                      {
+                        "x": 0.19999997,
+                        "y": 0.89633125,
+                        "ti": -0.38055936,
+                        "to": -0.38055936
+                      },
+                      {
+                        "x": 0.21999997,
+                        "y": 0.8889034,
+                        "ti": -0.3166974,
+                        "to": -0.3166974
+                      },
+                      {
+                        "x": 0.31999996,
+                        "y": 0.85832757,
+                        "ti": -0.26605937,
+                        "to": -0.26605937
+                      },
+                      {
+                        "x": 0.41999996,
+                        "y": 0.8356915,
+                        "ti": -0.20445107,
+                        "to": -0.20445107
+                      },
+                      {
+                        "x": 0.52,
+                        "y": 0.81743735,
+                        "ti": -0.16986842,
+                        "to": -0.16986842
+                      },
+                      {
+                        "x": 0.62,
+                        "y": 0.8017178,
+                        "ti": -0.14924225,
+                        "to": -0.14924225
+                      },
+                      {
+                        "x": 0.72,
+                        "y": 0.7875889,
+                        "ti": -0.13591406,
+                        "to": -0.13591406
+                      },
+                      {
+                        "x": 0.82000005,
+                        "y": 0.774535,
+                        "ti": -0.12667385,
+                        "to": -0.12667385
+                      },
+                      {
+                        "x": 0.9200001,
+                        "y": 0.7622541,
+                        "ti": -0.11987087,
+                        "to": -0.11987087
+                      },
+                      {
+                        "x": 1.0200001,
+                        "y": 0.7505608
+                      }
+                    ]
+                  }
+                },
+                "Inertia": 32.1945,
+                "Load": 0,
+                "LoadContribution": 0.25,
+                "LoadRating": 5400,
+                "Mass": 15,
+                "MaxSuspensionLength": 3,
+                "MinSuspensionLength": 0,
+                "Radius": 13,
+                "RollingResistanceTorque": 30,
+                "RPM": 0,
+                "SidewayFriction": {
+                  "Grip": 1
+                },
+                "SmokeEmitter": {
+                  "_type": "component",
+                  "component_id": "016c02e8-4b9f-4864-9099-5898c96fd233",
+                  "go": "532a0b2a-d75b-4680-8d8f-0ab899c90338",
+                  "component_type": "ParticleSphereEmitter"
+                },
+                "SuspensionDamping": 4500,
+                "SuspensionStiffness": 35000,
+                "Width": 6
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "532a0b2a-d75b-4680-8d8f-0ab899c90338",
+                "Flags": 0,
+                "Name": "Smoke",
+                "Position": "0,0,0",
+                "Tags": "particles",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ParticleEffect",
+                    "__guid": "0a9edfa5-a17c-47d3-8f30-29226446a0df",
+                    "__version": 1,
+                    "Alpha": {
+                      "Type": "Curve",
+                      "CurveA": [
+                        {
+                          "in": -4.0000024,
+                          "out": 4.0000024
+                        },
+                        {
+                          "x": 0.20812808,
+                          "y": 0.475
+                        },
+                        {
+                          "x": 1
+                        }
+                      ],
+                      "Constants": "1,0,0,0"
+                    },
+                    "ApplyAlpha": true,
+                    "ApplyColor": true,
+                    "ApplyRotation": true,
+                    "ApplyShape": true,
+                    "Bounce": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "Brightness": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "Bumpiness": {},
+                    "Collision": false,
+                    "CollisionRadius": 1,
+                    "Damping": {
+                      "Constants": "5,0,0,0"
+                    },
+                    "DieOnCollisionChance": {},
+                    "Force": true,
+                    "ForceDirection": "0,0,300",
+                    "ForceScale": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "Friction": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "Gradient": {
+                      "Type": "Range",
+                      "GradientA": {
+                        "color": [
+                          {
+                            "t": 0.5,
+                            "c": "1,1,1,1"
+                          }
+                        ],
+                        "alpha": []
+                      },
+                      "GradientB": {
+                        "color": [
+                          {
+                            "t": 0.5,
+                            "c": "1,1,1,1"
+                          }
+                        ],
+                        "alpha": []
+                      },
+                      "ConstantA": "1,1,1,1",
+                      "ConstantB": "1,1,1,1"
+                    },
+                    "Lifetime": {
+                      "Type": "Range",
+                      "Evaluation": "Particle",
+                      "Constants": "1,2,0,0"
+                    },
+                    "MaxParticles": 500,
+                    "OrbitalForce": {},
+                    "OrbitalPull": {},
+                    "PerParticleTimeScale": {
+                      "Constants": "1,0.4,0,0"
+                    },
+                    "Pitch": {},
+                    "PreWarm": 0,
+                    "PushStrength": {},
+                    "Roll": {
+                      "Type": "Range",
+                      "Evaluation": "Particle",
+                      "Constants": "0,360,0,0"
+                    },
+                    "Scale": {
+                      "Type": "Curve",
+                      "CurveA": {
+                        "rangey": "0,120",
+                        "frames": [
+                          {
+                            "y": 0.069148935
+                          },
+                          {
+                            "x": 0.80505955,
+                            "y": 0.9574468
+                          },
+                          {
+                            "x": 0.98660713,
+                            "y": 0.10372341
+                          }
+                        ]
+                      },
+                      "Constants": "5,120,0,0"
+                    },
+                    "SequenceId": {},
+                    "SequenceSpeed": {
+                      "Constants": "0.5,0,0,0"
+                    },
+                    "SequenceTime": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "SheetSequence": true,
+                    "Space": "World",
+                    "StartDelay": {},
+                    "StartVelocity": {
+                      "Type": "Range",
+                      "Evaluation": "Particle",
+                      "Constants": "10,70,0,0"
+                    },
+                    "Stretch": {},
+                    "TimeScale": 1,
+                    "Tint": "1,1,1,1",
+                    "Yaw": {}
+                  },
+                  {
+                    "__type": "Sandbox.ParticleSpriteRenderer",
+                    "__guid": "7c0918a2-fcfb-43d5-ae8b-5812c158ecdb",
+                    "Additive": false,
+                    "Alignment": "LookAtCamera",
+                    "BlurAmount": 0.5,
+                    "BlurOpacity": 0.91,
+                    "BlurSpacing": 0.73,
+                    "DepthFeather": 0,
+                    "FaceVelocity": false,
+                    "FogStrength": 1,
+                    "LeadingTrail": true,
+                    "Lighting": false,
+                    "MotionBlur": false,
+                    "Opaque": false,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RotationOffset": 0,
+                    "Scale": 1,
+                    "Shadows": true,
+                    "SortMode": "Unsorted",
+                    "Texture": "materials/particles/smoke1/smoke1.vtex"
+                  },
+                  {
+                    "__type": "Sandbox.ParticleSphereEmitter",
+                    "__guid": "016c02e8-4b9f-4864-9099-5898c96fd233",
+                    "__enabled": false,
+                    "Burst": 0,
+                    "Delay": 0,
+                    "DestroyOnEnd": false,
+                    "Duration": 5,
+                    "Loop": true,
+                    "OnEdge": false,
+                    "Radius": 4,
+                    "Rate": 1000,
+                    "RateOverDistance": 0,
+                    "Velocity": 0
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "4eaa3d57-e9df-4268-b733-3e3ad411e6c7",
+            "Flags": 0,
+            "Name": "Wheel Rear Right",
+            "Position": "0,-32.00001,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.Car.WheelCollider",
+                "__guid": "0de1899c-a5d8-4fa4-8403-12b9daac9857",
+                "CounterTorque": 0,
+                "ForwardFriction": {
+                  "Grip": 1
+                },
+                "FrictionPreset": {
+                  "Stiffnes": 12.5,
+                  "ShapeFactor": 2.05,
+                  "PeakValue": 0.925,
+                  "CurvatureFactor": 0.97,
+                  "PeakSlip": 0.11999998,
+                  "Curve": {
+                    "_ace_v": 1,
+                    "pri": "Linear",
+                    "keys": [
+                      {},
+                      {
+                        "x": 0.02,
+                        "y": 0.4376108,
+                        "ti": 17.99649,
+                        "to": 17.99649
+                      },
+                      {
+                        "x": 0.04,
+                        "y": 0.7198596,
+                        "ti": 10.412952,
+                        "to": 10.412952
+                      },
+                      {
+                        "x": 0.06,
+                        "y": 0.8541289,
+                        "ti": 4.6774983,
+                        "to": 4.6774983
+                      },
+                      {
+                        "x": 0.08,
+                        "y": 0.90695953,
+                        "ti": 1.7287793,
+                        "to": 1.7287793
+                      },
+                      {
+                        "x": 0.099999994,
+                        "y": 0.92328006,
+                        "ti": 0.4347221,
+                        "to": 0.4347221
+                      },
+                      {
+                        "x": 0.11999999,
+                        "y": 0.9243484,
+                        "ti": -0.09944292,
+                        "to": -0.09944292
+                      },
+                      {
+                        "x": 0.13999999,
+                        "y": 0.91930234,
+                        "ti": -0.30838555,
+                        "to": -0.30838555
+                      },
+                      {
+                        "x": 0.15999998,
+                        "y": 0.912013,
+                        "ti": -0.37941495,
+                        "to": -0.37941495
+                      },
+                      {
+                        "x": 0.17999998,
+                        "y": 0.90412575,
+                        "ti": -0.39204368,
+                        "to": -0.39204368
+                      },
+                      {
+                        "x": 0.19999997,
+                        "y": 0.89633125,
+                        "ti": -0.38055936,
+                        "to": -0.38055936
+                      },
+                      {
+                        "x": 0.21999997,
+                        "y": 0.8889034,
+                        "ti": -0.3166974,
+                        "to": -0.3166974
+                      },
+                      {
+                        "x": 0.31999996,
+                        "y": 0.85832757,
+                        "ti": -0.26605937,
+                        "to": -0.26605937
+                      },
+                      {
+                        "x": 0.41999996,
+                        "y": 0.8356915,
+                        "ti": -0.20445107,
+                        "to": -0.20445107
+                      },
+                      {
+                        "x": 0.52,
+                        "y": 0.81743735,
+                        "ti": -0.16986842,
+                        "to": -0.16986842
+                      },
+                      {
+                        "x": 0.62,
+                        "y": 0.8017178,
+                        "ti": -0.14924225,
+                        "to": -0.14924225
+                      },
+                      {
+                        "x": 0.72,
+                        "y": 0.7875889,
+                        "ti": -0.13591406,
+                        "to": -0.13591406
+                      },
+                      {
+                        "x": 0.82000005,
+                        "y": 0.774535,
+                        "ti": -0.12667385,
+                        "to": -0.12667385
+                      },
+                      {
+                        "x": 0.9200001,
+                        "y": 0.7622541,
+                        "ti": -0.11987087,
+                        "to": -0.11987087
+                      },
+                      {
+                        "x": 1.0200001,
+                        "y": 0.7505608
+                      }
+                    ]
+                  }
+                },
+                "Inertia": 32.1945,
+                "Load": 0,
+                "LoadContribution": 0.25,
+                "LoadRating": 5400,
+                "Mass": 15,
+                "MaxSuspensionLength": 3,
+                "MinSuspensionLength": 0,
+                "Radius": 13,
+                "RollingResistanceTorque": 30,
+                "RPM": 0,
+                "SidewayFriction": {
+                  "Grip": 1
+                },
+                "SmokeEmitter": {
+                  "_type": "component",
+                  "component_id": "e99d789d-0efb-458e-ae85-42141e0cff96",
+                  "go": "54a79300-b5c1-49fe-94fa-1d6f59b0f9b9",
+                  "component_type": "ParticleSphereEmitter"
+                },
+                "SuspensionDamping": 4500,
+                "SuspensionStiffness": 35000,
+                "Width": 6
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "54a79300-b5c1-49fe-94fa-1d6f59b0f9b9",
+                "Flags": 0,
+                "Name": "Smoke",
+                "Position": "0,0,0",
+                "Tags": "particles",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ParticleEffect",
+                    "__guid": "01879ef1-059e-4083-8955-b83bac4308f7",
+                    "__version": 1,
+                    "Alpha": {
+                      "Type": "Curve",
+                      "CurveA": [
+                        {
+                          "in": -4.0000024,
+                          "out": 4.0000024
+                        },
+                        {
+                          "x": 0.20812808,
+                          "y": 0.475
+                        },
+                        {
+                          "x": 1
+                        }
+                      ],
+                      "Constants": "1,0,0,0"
+                    },
+                    "ApplyAlpha": true,
+                    "ApplyColor": true,
+                    "ApplyRotation": true,
+                    "ApplyShape": true,
+                    "Bounce": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "Brightness": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "Bumpiness": {},
+                    "Collision": false,
+                    "CollisionRadius": 1,
+                    "Damping": {
+                      "Constants": "5,0,0,0"
+                    },
+                    "DieOnCollisionChance": {},
+                    "Force": true,
+                    "ForceDirection": "0,0,300",
+                    "ForceScale": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "Friction": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "Gradient": {
+                      "Type": "Range",
+                      "GradientA": {
+                        "color": [
+                          {
+                            "t": 0.5,
+                            "c": "1,1,1,1"
+                          }
+                        ],
+                        "alpha": []
+                      },
+                      "GradientB": {
+                        "color": [
+                          {
+                            "t": 0.5,
+                            "c": "1,1,1,1"
+                          }
+                        ],
+                        "alpha": []
+                      },
+                      "ConstantA": "1,1,1,1",
+                      "ConstantB": "1,1,1,1"
+                    },
+                    "Lifetime": {
+                      "Type": "Range",
+                      "Evaluation": "Particle",
+                      "Constants": "1,2,0,0"
+                    },
+                    "MaxParticles": 500,
+                    "OrbitalForce": {},
+                    "OrbitalPull": {},
+                    "PerParticleTimeScale": {
+                      "Constants": "1,0.4,0,0"
+                    },
+                    "Pitch": {},
+                    "PreWarm": 0,
+                    "PushStrength": {},
+                    "Roll": {
+                      "Type": "Range",
+                      "Evaluation": "Particle",
+                      "Constants": "0,360,0,0"
+                    },
+                    "Scale": {
+                      "Type": "Curve",
+                      "CurveA": {
+                        "rangey": "0,120",
+                        "frames": [
+                          {
+                            "y": 0.069148935
+                          },
+                          {
+                            "x": 0.80505955,
+                            "y": 0.9574468
+                          },
+                          {
+                            "x": 0.98660713,
+                            "y": 0.10372341
+                          }
+                        ]
+                      },
+                      "Constants": "5,120,0,0"
+                    },
+                    "SequenceId": {},
+                    "SequenceSpeed": {
+                      "Constants": "0.5,0,0,0"
+                    },
+                    "SequenceTime": {
+                      "Constants": "1,0,0,0"
+                    },
+                    "SheetSequence": true,
+                    "Space": "World",
+                    "StartDelay": {},
+                    "StartVelocity": {
+                      "Type": "Range",
+                      "Evaluation": "Particle",
+                      "Constants": "10,70,0,0"
+                    },
+                    "Stretch": {},
+                    "TimeScale": 1,
+                    "Tint": "1,1,1,1",
+                    "Yaw": {}
+                  },
+                  {
+                    "__type": "Sandbox.ParticleSpriteRenderer",
+                    "__guid": "d09f8eef-8ccb-400f-9c72-edfeaf43207b",
+                    "Additive": false,
+                    "Alignment": "LookAtCamera",
+                    "BlurAmount": 0.5,
+                    "BlurOpacity": 0.91,
+                    "BlurSpacing": 0.73,
+                    "DepthFeather": 0,
+                    "FaceVelocity": false,
+                    "FogStrength": 1,
+                    "LeadingTrail": true,
+                    "Lighting": false,
+                    "MotionBlur": false,
+                    "Opaque": false,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RotationOffset": 0,
+                    "Scale": 1,
+                    "Shadows": true,
+                    "SortMode": "Unsorted",
+                    "Texture": "materials/particles/smoke1/smoke1.vtex"
+                  },
+                  {
+                    "__type": "Sandbox.ParticleSphereEmitter",
+                    "__guid": "e99d789d-0efb-458e-ae85-42141e0cff96",
+                    "__enabled": false,
+                    "Burst": 0,
+                    "Delay": 0,
+                    "DestroyOnEnd": false,
+                    "Duration": 5,
+                    "Loop": true,
+                    "OnEdge": false,
+                    "Radius": 4,
+                    "Rate": 1000,
+                    "RateOverDistance": 0,
+                    "Velocity": 0
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "b813da2b-460b-42b5-bdd8-f62b556fd189",
+        "Flags": 0,
+        "Name": "boom arm",
+        "Enabled": true,
+        "Children": [
+          {
+            "__guid": "a7552737-ddb9-4c5f-9ede-cc937f4c2a20",
+            "Flags": 0,
+            "Name": "camera position",
+            "Position": "-224.7686,0,45.50676",
+            "Enabled": true
+          }
+        ]
+      },
+      {
+        "__guid": "3152b35f-3a1a-433a-8f30-935f7e43556d",
+        "Flags": 0,
+        "Name": "Tag",
+        "Position": "0,0,80",
+        "Enabled": true,
+        "Children": [
+          {
+            "__guid": "d6ccf001-5932-4402-b6df-2f6068628cba",
+            "Flags": 0,
+            "Name": "Nametag",
+            "Position": "0,0,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.WorldPanel",
+                "__guid": "ad64aee6-6328-4826-a370-8c1a45f35e4e",
+                "HorizontalAlign": "Center",
+                "InteractionRange": 1000,
+                "LookAtCamera": true,
+                "PanelSize": "1024,280",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderScale": 1,
+                "VerticalAlign": "Center"
+              },
+              {
+                "__type": "Nametag",
+                "__guid": "fb89b148-4cd9-4b57-9273-7d8d2ec1317b"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "60297eab-c53f-4262-977f-f6be09ae22dc",
+        "Flags": 0,
+        "Name": "exhaust_smoke",
+        "Position": "-87.47783,19.5858,10.99364",
+        "Rotation": "-0.7071068,0,0.7071068,0",
+        "Tags": "particles",
+        "Components": [
+          {
+            "__type": "Sandbox.ParticleEffect",
+            "__guid": "a27f689f-677a-49fb-90c3-eb300ee8b032",
+            "__version": 1,
+            "Alpha": {
+              "Type": "Curve",
+              "CurveA": [
+                {
+                  "in": -0.7169809,
+                  "out": 0.7169809
+                },
+                {
+                  "x": 0.21854475,
+                  "y": 0.0879032,
+                  "in": 0.4041076,
+                  "out": -0.4041076
+                },
+                {
+                  "x": 1
+                }
+              ],
+              "Constants": "1,0,0,0"
+            },
+            "ApplyAlpha": true,
+            "ApplyColor": false,
+            "ApplyRotation": true,
+            "ApplyShape": true,
+            "Bounce": {
+              "Constants": "1,0,0,0"
+            },
+            "Brightness": {
+              "Constants": "5,0,0,0"
+            },
+            "Bumpiness": {},
+            "Collision": false,
+            "CollisionRadius": 1,
+            "Damping": {
+              "Constants": "5,0,0,0"
+            },
+            "DieOnCollisionChance": {},
+            "Force": true,
+            "ForceDirection": "-1,0,0",
+            "ForceScale": {
+              "Constants": "600,0,0,0"
+            },
+            "Friction": {
+              "Constants": "1,0,0,0"
+            },
+            "Gradient": {
+              "Type": "Range",
+              "Evaluation": "Particle",
+              "GradientA": {
+                "color": [
+                  {
+                    "t": 0.5,
+                    "c": "1,1,1,1"
+                  }
+                ],
+                "alpha": []
+              },
+              "GradientB": {
+                "color": [
+                  {
+                    "t": 0.5,
+                    "c": "1,1,1,1"
+                  }
+                ],
+                "alpha": []
+              },
+              "ConstantA": "0.71628,0.71628,0.71628,1",
+              "ConstantB": "1,1,1,1"
+            },
+            "Lifetime": {
+              "Constants": "1,8,0,0"
+            },
+            "MaxParticles": 5000,
+            "OrbitalForce": {},
+            "OrbitalPull": {},
+            "PerParticleTimeScale": {
+              "Type": "Curve",
+              "CurveA": [
+                {
+                  "y": 1
+                },
+                {
+                  "x": 0.5818452,
+                  "y": 0.42938364
+                },
+                {
+                  "x": 1
+                }
+              ],
+              "Constants": "1,0.4,0,0"
+            },
+            "Pitch": {},
+            "PreWarm": 0,
+            "PushStrength": {},
+            "Roll": {
+              "Type": "Range",
+              "Evaluation": "Particle",
+              "Constants": "0,360,0,0"
+            },
+            "Scale": {
+              "Type": "Curve",
+              "CurveA": {
+                "rangey": "0,100",
+                "frames": [
+                  {
+                    "y": 0.109042555
+                  },
+                  {
+                    "x": 1,
+                    "y": 0.5212766
+                  }
+                ]
+              },
+              "Constants": "10,60,0,0"
+            },
+            "SequenceId": {},
+            "SequenceSpeed": {
+              "Constants": "0.5,0,0,0"
+            },
+            "SequenceTime": {
+              "Constants": "1,0,0,0"
+            },
+            "SheetSequence": true,
+            "Space": "Local",
+            "StartDelay": {},
+            "StartVelocity": {
+              "Constants": "0,70,0,0"
+            },
+            "Stretch": {},
+            "TimeScale": 1,
+            "Tint": "1,1,1,1",
+            "Yaw": {}
+          },
+          {
+            "__type": "Sandbox.ParticleSpriteRenderer",
+            "__guid": "9310ecdd-ad21-49a3-bc63-1d13c517a34a",
+            "Additive": false,
+            "Alignment": "LookAtCamera",
+            "BlurAmount": 0.5,
+            "BlurOpacity": 0.91,
+            "BlurSpacing": 0.73,
+            "DepthFeather": 0,
+            "FaceVelocity": true,
+            "FogStrength": 1,
+            "LeadingTrail": true,
+            "Lighting": false,
+            "MotionBlur": false,
+            "Opaque": false,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RotationOffset": 0,
+            "Scale": 0.64,
+            "Shadows": false,
+            "SortMode": "Unsorted",
+            "Texture": "materials/particle/smoke1/smoke1.vtex"
+          },
+          {
+            "__type": "Sandbox.ParticleBoxEmitter",
+            "__guid": "8f20797d-849a-4456-9b8f-d9d5e3f52cf7",
+            "Burst": 0,
+            "Delay": 0,
+            "DestroyOnEnd": false,
+            "Duration": 10,
+            "Loop": true,
+            "OnEdge": false,
+            "Rate": 25,
+            "RateOverDistance": 0,
+            "Size": "3,3,3"
+          }
+        ]
+      },
+      {
+        "__guid": "57db29c2-9d33-4cbb-bb96-d8280aeaf0e7",
+        "Flags": 0,
+        "Name": "tire_smoke",
+        "Tags": "particles",
+        "Components": [
+          {
+            "__type": "Sandbox.ParticleEffect",
+            "__guid": "41286cc4-472a-4e4e-942d-d6e0ac76c69f",
+            "__version": 1,
+            "Alpha": {
+              "Type": "Curve",
+              "CurveA": [
+                {
+                  "in": -4.0000024,
+                  "out": 4.0000024
+                },
+                {
+                  "x": 0.20812808,
+                  "y": 0.475
+                },
+                {
+                  "x": 1
+                }
+              ],
+              "Constants": "1,0,0,0"
+            },
+            "ApplyAlpha": true,
+            "ApplyColor": true,
+            "ApplyRotation": true,
+            "ApplyShape": true,
+            "Bounce": {
+              "Constants": "1,0,0,0"
+            },
+            "Brightness": {
+              "Constants": "5,0,0,0"
+            },
+            "Bumpiness": {},
+            "Collision": false,
+            "CollisionRadius": 1,
+            "Damping": {
+              "Constants": "5,0,0,0"
+            },
+            "DieOnCollisionChance": {},
+            "Force": true,
+            "ForceDirection": "0,0,100",
+            "ForceScale": {
+              "Constants": "1,0,0,0"
+            },
+            "Friction": {
+              "Constants": "1,0,0,0"
+            },
+            "Gradient": {
+              "Type": "Range",
+              "Evaluation": "Particle",
+              "GradientA": {
+                "color": [
+                  {
+                    "t": 0.5,
+                    "c": "1,1,1,1"
+                  }
+                ],
+                "alpha": []
+              },
+              "GradientB": {
+                "color": [
+                  {
+                    "t": 0.5,
+                    "c": "1,1,1,1"
+                  }
+                ],
+                "alpha": []
+              },
+              "ConstantA": "0.71628,0.71628,0.71628,1",
+              "ConstantB": "1,1,1,1"
+            },
+            "Lifetime": {
+              "Constants": "1,8,0,0"
+            },
+            "MaxParticles": 5000,
+            "OrbitalForce": {},
+            "OrbitalPull": {},
+            "PerParticleTimeScale": {
+              "Constants": "1,0.4,0,0"
+            },
+            "Pitch": {},
+            "PreWarm": 0,
+            "PushStrength": {},
+            "Roll": {
+              "Type": "Range",
+              "Evaluation": "Particle",
+              "Constants": "0,360,0,0"
+            },
+            "Scale": {
+              "Type": "Range",
+              "Evaluation": "Particle",
+              "CurveA": [
+                {}
+              ],
+              "Constants": "50,60,0,0"
+            },
+            "SequenceId": {},
+            "SequenceSpeed": {
+              "Constants": "0.5,0,0,0"
+            },
+            "SequenceTime": {
+              "Constants": "1,0,0,0"
+            },
+            "SheetSequence": true,
+            "Space": "World",
+            "StartDelay": {},
+            "StartVelocity": {
+              "Type": "Range",
+              "Evaluation": "Particle",
+              "Constants": "10,70,0,0"
+            },
+            "Stretch": {},
+            "TimeScale": 1,
+            "Tint": "1,1,1,1",
+            "Yaw": {}
+          },
+          {
+            "__type": "Sandbox.ParticleSpriteRenderer",
+            "__guid": "5b4b1751-0db3-4298-8897-115825982826",
+            "Additive": false,
+            "Alignment": "LookAtCamera",
+            "BlurAmount": 0.5,
+            "BlurOpacity": 0.91,
+            "BlurSpacing": 0.73,
+            "DepthFeather": 0,
+            "FaceVelocity": false,
+            "FogStrength": 1,
+            "LeadingTrail": true,
+            "Lighting": false,
+            "MotionBlur": false,
+            "Opaque": false,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RotationOffset": 0,
+            "Scale": 1,
+            "Shadows": false,
+            "SortMode": "Unsorted",
+            "Texture": "materials/particle/smoke1/smoke1.vtex"
+          },
+          {
+            "__type": "Sandbox.ParticleSphereEmitter",
+            "__guid": "cad9a8b4-f746-4083-9966-2a9e8a434b79",
+            "Burst": 0,
+            "Delay": 0,
+            "DestroyOnEnd": false,
+            "Duration": 0.1,
+            "Loop": true,
+            "OnEdge": false,
+            "Radius": 5,
+            "Rate": 0,
+            "RateOverDistance": 0,
+            "Velocity": 0
+          }
+        ]
+      }
+    ],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [],
+  "IsValid": true,
+  "__version": 1
+}

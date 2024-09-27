@@ -12,7 +12,7 @@ public sealed class CameraController : Component
 	/// The player
 	/// </summary>
 	[RequireComponent]
-	public Car Player { get; set; }
+	public Rigidbody Body { get; set; }
 
 	/// <summary>
 	/// The camera
@@ -34,7 +34,8 @@ public sealed class CameraController : Component
 
 	[Property, Group( "Config" )]
 	public float VelocityFOVScale { get; set; } = 500f;
-
+	public Angles EyeAngles { get; set; }
+	public TimeSince ReturnCameraTime { get; set; }
 	protected override void OnStart()
 	{
 		if ( IsProxy )
@@ -54,71 +55,62 @@ public sealed class CameraController : Component
 
 		base.OnUpdate();
 
-		if ( Player.DevCam )
-		{
-			DoDevCam();
-			return;
-		}
-
 
 		CameraTarget.Transform.LocalPosition = CameraTarget.Transform.LocalPosition.WithX( Math.Min( -120, CameraTarget.Transform.LocalPosition.x + Input.MouseWheel.y * 10 ) );
 
+		EyeAngles += Input.AnalogLook;
+		EyeAngles = EyeAngles.WithPitch( EyeAngles.pitch.Clamp( PitchLimits.x, PitchLimits.y ) );
 
-		Player.EyeAngles += Input.AnalogLook;
-		Player.EyeAngles = Player.EyeAngles.WithPitch( Player.EyeAngles.pitch.Clamp( PitchLimits.x, PitchLimits.y ) );
+		if ( !Input.AnalogLook.IsNearlyZero() )
+			ReturnCameraTime = 0;
 
-		Boom.Transform.Rotation = Player.EyeAngles.ToRotation();
+		// todo: improve
+		if ( ReturnCameraTime > 3 )
+			EyeAngles = EyeAngles.LerpTo( Body.Transform.Rotation.RotateAroundAxis( Vector3.Right, -15f ), Time.Delta * 5f );
 
-		Boom.Transform.Position = Boom.Transform.Position.LerpTo( Player.Rigidbody.Transform.Position, Time.Delta * 20 );
+		EyeAngles = EyeAngles.WithRoll( 0 );
+		Boom.Transform.Rotation = EyeAngles.ToRotation();
 
-		float targetFov = Preferences.FieldOfView + Player.Rigidbody.Velocity.Length / VelocityFOVScale;
+		Boom.Transform.Position = Boom.Transform.Position.LerpTo( Body.Transform.Position - Body.Velocity.WithZ( 0 ) / 48f, Time.Delta * 20 );
 
-		//Vector3 startPos = Boom.Transform.Position.WithZ( Boom.Transform.Position.z + 10 );
-		//SceneTraceResult trace = Scene.Trace
-		//	.Sphere( 8f, startPos, CameraTarget.Transform.Position )
-		//	.IgnoreGameObjectHierarchy( GameObject.Root )
-		//	.Run();
+		float targetFov = Preferences.FieldOfView + Body.Velocity.Length / VelocityFOVScale;
 		Scene.Camera.FieldOfView = Scene.Camera.FieldOfView.LerpTo( MathX.Clamp( targetFov, 10, 100 ), Time.Delta * 10 );
 		Scene.Camera.Transform.Rotation = CameraTarget.Transform.Rotation;
 
 		Scene.Camera.Transform.Position = CameraTarget.Transform.Position.WithZ( Scene.Camera.Transform.Position.z );
-		//if ( trace.Hit && !trace.StartedSolid )
-		//	Scene.Camera.Transform.Position = trace.EndPosition;
-		//else
+
 		Scene.Camera.Transform.Position = Scene.Camera.Transform.Position.LerpTo( CameraTarget.Transform.Position, Time.Delta * 12f );
 
+		if ( Input.Pressed( "flymode" ) )
+		{
+			FlyMode = !FlyMode;
 
+			Body.MotionEnabled = !FlyMode;
+		}
+
+		if ( FlyMode ) DoFlyMode();
 
 	}
-
-	Angles devCamAngles;
-
-	private void DoDevCam()
+	void DoFlyMode()
 	{
+
 		Vector3 movement = Input.AnalogMove;
 
 		float speed = 350.0f;
 
-		if ( Input.Down( "attack2" ) )
-		{
-			Scene.Camera.FieldOfView += Input.MouseDelta.y * 0.1f;
-			Scene.Camera.FieldOfView = Scene.Camera.FieldOfView.Clamp( 10.0f, 120.0f );
-			return;
-		}
-
-		movement += Input.Down( "Jump" ) ? Vector3.Up : Vector3.Zero;
-		movement -= Input.Down( "Duck" ) ? Vector3.Up : Vector3.Zero;
-
-		devCamAngles += Input.AnalogLook * 0.5f;
-		devCamAngles = devCamAngles.WithPitch( devCamAngles.pitch.Clamp( -89.0f, 89.0f ) );
-
-		if ( Input.Down( "run" ) )
+		if ( Input.Down( "Clutch" ) )
 		{
 			speed = 750.0f;
 		}
 
-		Scene.Camera.Transform.Position += devCamAngles.ToRotation() * movement * speed * Time.Delta;
-		Scene.Camera.Transform.Rotation = devCamAngles.ToRotation();
+		GameObject.Transform.Position += EyeAngles.ToRotation() * movement * speed * Time.Delta;
+
+		Body.Velocity = EyeAngles.ToRotation() * movement * speed;
+
+		return;
 
 	}
+
+	[Sync]
+	bool FlyMode { get; set; }
 }

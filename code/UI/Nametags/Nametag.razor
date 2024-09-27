@@ -1,19 +1,23 @@
 @using Sandbox;
 @using Sandbox.UI;
-@using DM.Car;
+@using Sandbox.Car;
 @inherits PanelComponent
 
 <root>
-	@if (!Player.IsValid()) return;
+
 
 	<label class="glass-panel">@PlayerName.ToUpper()</label>
 </root>
 
 @code {
-	private Connection Connection => Player?.Network.OwnerConnection;
-	public string PlayerName => Player?.CharacterName ?? "";
+	public string PlayerName = "";
 
-	[Property] public Car Player { get; set; }
+	protected override void OnStart()
+	{
+		if (IsProxy)
+			PlayerName = Network.OwnerConnection.DisplayName;
+		else Enabled = false;
+	}
 
 	protected override void OnUpdate()
 	{
@@ -25,5 +29,5 @@
 		Panel.Style.Opacity = opacity;
 	}
 
-	protected override int BuildHash() => System.HashCode.Combine(Player?.CharacterName);
+	protected override int BuildHash() => System.HashCode.Combine(PlayerName);
 }

@@ -1,10 +1,11 @@
 using System;
+using Sandbox.Car;
 namespace DM.Car;
 
 [Category( "Vehicles" )]
 public sealed class Steering : Component
 {
-	[Property] public List<Wheel> WheelsComponent { get; set; }
+	[Property] public List<Stereable> Wheels { get; set; }
 	[Property] public float MaxSteeringAngle { get; set; } = 35f;
 	[Property] public float MinSteeringAngle { get; set; } = 20f;
 	[Property] public float SteeringSmoothness { get; set; } = 10f;
@@ -25,8 +26,7 @@ public sealed class Steering : Component
 
 		SteerAngle = MathX.Lerp( MaxSteeringAngle, MinSteeringAngle, clamp * 0.04f ) * Input.AnalogMove.y;
 
-		foreach ( Wheel wheel in WheelsComponent )
+		foreach ( Stereable wheel in Wheels )
 			wheel.SteerAngle = wheel.SteerAngle.LerpDegreesTo( Math.Clamp( SteerAngle + corr / 2, -MaxSteeringAngle, MaxSteeringAngle ), Time.Delta * SteeringSmoothness );
-
 	}
 }

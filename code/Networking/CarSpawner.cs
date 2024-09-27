@@ -1,8 +1,11 @@
-﻿using DM.Car;
-using Sandbox.Network;
+﻿
+using Sandbox.Car;
+using Sandbox.Car.Config;
 using System;
 using System.Threading.Tasks;
 namespace Sandbox;
+
+
 
 [Title( "Car Spawner" )]
 [Category( "Networking" )]
@@ -13,6 +16,8 @@ public sealed class CarSpawner : Component, Component.INetworkListener
 	/// Create a server (if we're not joining one)
 	/// </summary>
 	[Property] public bool StartServer { get; set; } = true;
+
+	[Property] public CarConfigEnum CarConfig { get; set; } = CarConfigEnum.Street;
 
 	/// <summary>
 	/// The prefab to spawn for the player to control.
@@ -30,11 +35,11 @@ public sealed class CarSpawner : Component, Component.INetworkListener
 		if ( Scene.IsEditor )
 			return;
 
-		if ( StartServer && !GameNetworkSystem.IsActive )
+		if ( StartServer && !Networking.IsActive )
 		{
 			LoadingScreen.Title = "Creating Lobby";
 			await Task.DelayRealtimeSeconds( 0.1f );
-			GameNetworkSystem.CreateLobby();
+			Networking.CreateLobby();
 		}
 	}
 
@@ -55,7 +60,15 @@ public sealed class CarSpawner : Component, Component.INetworkListener
 
 		// Spawn this object and make the client the owner
 		var player = PlayerPrefab.Clone( startLocation, name: $"Player - {channel.DisplayName}" );
+
+
 		player.NetworkSpawn( channel );
+
+		// FIX ME
+		if ( CarConfig == CarConfigEnum.Drift )
+			player.Components.Get<CarController>().CarConfig = new DriftCarConfig();
+		else if ( CarConfig == CarConfigEnum.Street )
+			player.Components.Get<CarController>().CarConfig = new StreetCarConfig();
 	}
 
 	/// <summary>

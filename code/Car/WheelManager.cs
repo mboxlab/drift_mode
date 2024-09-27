@@ -1,7 +1,6 @@
-﻿using DM.Ground;
+﻿
 using System;
-
-namespace DM.Car;
+using Sandbox.Car;
 
 [Category( "Vehicles" )]
 public class WheelManager : Component
@@ -10,11 +9,11 @@ public class WheelManager : Component
 	private int _wheelCount;
 
 	[Property] public float CombinedLoad { get => combinedLoad; }
-	[Property] public List<Wheel> Wheels = new();
+	[Property] public List<WheelCollider> Wheels = new();
 
 	protected override void OnStart()
 	{
-		Wheels = Components.GetAll<Wheel>( FindMode.InDescendants ).ToList();
+		Wheels = Components.GetAll<WheelCollider>( FindMode.InDescendants ).ToList();
 		_wheelCount = Wheels.Count;
 	}
 
@@ -23,22 +22,12 @@ public class WheelManager : Component
 		combinedLoad = 0f;
 		for ( int i = 0; i < _wheelCount; i++ )
 		{
-			Wheel wheel = Wheels[i];
+			WheelCollider wheel = Wheels[i];
 			combinedLoad += wheel.Load;
-			SetupPreset( wheel );
 		}
 	}
-	private static void SetupPreset( Wheel wheel )
-	{
-		Enum.TryParse( wheel.groundHit.Surface?.ResourceName, true, out FrictionPreset.PresetsEnum presetName );
-		var newPreset = FrictionPreset.Presets[presetName];
-		if ( newPreset is not null )
-			wheel.FrictionPreset = FrictionPreset.Presets[presetName];
-		else
-			wheel.FrictionPreset = FrictionPreset.Asphalt;
-	}
-
-	public void Register( Wheel wheel )
+	
+	public void Register( WheelCollider wheel )
 	{
 		if ( !Wheels.Contains( wheel ) )
 		{
@@ -48,7 +37,7 @@ public class WheelManager : Component
 	}
 
 
-	public void Deregister( Wheel wheel )
+	public void UnRegister( WheelCollider wheel )
 	{
 		if ( Wheels.Contains( wheel ) )
 		{

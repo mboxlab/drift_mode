@@ -1,5 +1,5 @@
 {
-  "__guid": "9b04fdd3-0e57-4f6d-832e-9816c47238b0",
+  "__guid": "e46f8cc0-6787-44ac-8781-a19b62e36f6e",
   "GameObjects": [
     {
       "__guid": "3f513828-b679-4f32-bafa-74134b1d0526",
@@ -18,8 +18,7 @@
           "OnMapUnloaded": null,
           "UseMapFromLaunch": false
         }
-      ],
-      "Children": []
+      ]
     },
     {
       "__guid": "7fd34353-eb3b-4644-b32a-d5298b24113a",
@@ -33,7 +32,7 @@
           "CarConfig": "Drift",
           "PlayerPrefab": {
             "_type": "gameobject",
-            "prefab": "prefabs/cars/sport_drift.prefab"
+            "prefab": "prefabs/cars/sport.prefab"
           },
           "SpawnPoints": [],
           "StartServer": true

@@ -33,7 +33,7 @@
           "CarConfig": "Street",
           "PlayerPrefab": {
             "_type": "gameobject",
-            "prefab": "prefabs/cars/sport_drift.prefab"
+            "prefab": "prefabs/cars/sport.prefab"
           },
           "SpawnPoints": [],
           "StartServer": true

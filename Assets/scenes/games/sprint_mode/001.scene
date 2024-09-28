@@ -28,14 +28,115 @@
       "Enabled": true,
       "Components": [
         {
-          "__type": "Sandbox.CarSpawner",
-          "__guid": "143542c9-2115-4311-b247-358f86cd2628",
+          "__type": "Sandbox.GamePlay.Street.StreetManager",
+          "__guid": "1e316872-4dd9-49d8-a1c6-15c45a00be40",
+          "Arrow": {
+            "_type": "gameobject",
+            "go": "002f6b80-1ede-4e0f-918e-edc1c4c600fd"
+          },
           "CarConfig": "Street",
+          "CurrentCheckpoint": {
+            "_type": "component",
+            "component_id": "816262ff-6287-4e5d-904c-5c64090940d6",
+            "go": "5eea5b44-af82-41c7-b803-c8261381ecb6",
+            "component_type": "Checkpoint"
+          },
+          "FirstCheckpoint": {
+            "_type": "component",
+            "component_id": "816262ff-6287-4e5d-904c-5c64090940d6",
+            "go": "5eea5b44-af82-41c7-b803-c8261381ecb6",
+            "component_type": "Checkpoint"
+          },
+          "Lap": 0,
+          "MaxLaps": 1,
+          "MaxPlayers": 0,
           "PlayerPrefab": {
             "_type": "gameobject",
             "prefab": "prefabs/cars/sport.prefab"
           },
-          "SpawnPoints": [],
+          "SpawnPoints": [
+            {
+              "_type": "gameobject",
+              "go": "91c42ece-0891-485e-9961-73434d400b1c"
+            },
+            {
+              "_type": "gameobject",
+              "go": "66e254a3-f7c4-44d8-a249-33376e616fc6"
+            },
+            {
+              "_type": "gameobject",
+              "go": "69eb77c3-d0ee-4c59-a84f-2ab51131e4b7"
+            },
+            {
+              "_type": "gameobject",
+              "go": "8ed107f9-0db3-4249-8113-4319b7079932"
+            },
+            {
+              "_type": "gameobject",
+              "go": "23449f94-6dd4-4603-8cd1-9beaa7ed4603"
+            },
+            {
+              "_type": "gameobject",
+              "go": "5cd1bb43-337b-4b47-bda0-2de0ab167292"
+            },
+            {
+              "_type": "gameobject",
+              "go": "4adf15cf-43f3-43cc-b528-7c15627bb0db"
+            },
+            {
+              "_type": "gameobject",
+              "go": "061f436c-882d-4671-8141-93fbc6e62aed"
+            },
+            {
+              "_type": "gameobject",
+              "go": "899a8ba5-54cb-45b5-9848-0c74ecd3e99d"
+            },
+            {
+              "_type": "gameobject",
+              "go": "41ca8595-c1a1-4464-bc5a-72620ea24f87"
+            },
+            {
+              "_type": "gameobject",
+              "go": "b9a3767d-69d3-4173-9a9f-e9acb40a3482"
+            },
+            {
+              "_type": "gameobject",
+              "go": "0362cf1c-97d2-4a8b-8bed-470841cf8fc1"
+            },
+            {
+              "_type": "gameobject",
+              "go": "307e60d3-47fd-42b2-98b8-c258156c51bd"
+            },
+            {
+              "_type": "gameobject",
+              "go": "0aba636a-f835-4b8c-a682-132b78c3ad40"
+            },
+            {
+              "_type": "gameobject",
+              "go": "dcb9cf4e-346f-4c6f-84f7-1ee5ac27ce77"
+            },
+            {
+              "_type": "gameobject",
+              "go": "64ab1031-1b60-400b-b2a3-3f0a3eb9ff51"
+            },
+            {
+              "_type": "gameobject",
+              "go": "d07a50a3-3d0e-4451-be68-668f1dd34bae"
+            },
+            {
+              "_type": "gameobject",
+              "go": "87493f7d-fb2a-4dbe-810c-f9cbaa3a8c27"
+            },
+            {
+              "_type": "gameobject",
+              "go": "98bff463-f3eb-449a-911e-ff889a74844d"
+            },
+            {
+              "_type": "gameobject",
+              "go": "cb7c8b4f-558d-4415-9775-72e0d857ca5b"
+            }
+          ],
+          "Started": false,
           "StartServer": true
         }
       ]
@@ -91,6 +192,817 @@
           "UpdateStrategy": "OnEnabled",
           "ZFar": 4096,
           "ZNear": 16
+        }
+      ]
+    },
+    {
+      "__guid": "5c1e0853-6953-4f48-82ad-1441f61c403f",
+      "Flags": 0,
+      "Name": "Screen",
+      "Position": "8.274872,0.2650961,-5.214775",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ScreenPanel",
+          "__guid": "b06577d7-60ea-4ba1-bca8-2a098d2a2d6a",
+          "AutoScreenScale": true,
+          "Opacity": 1,
+          "Scale": 1,
+          "ScaleStrategy": "ConsistentHeight",
+          "ZIndex": 100
+        },
+        {
+          "__type": "Sandbox.Gauge",
+          "__guid": "f9b3cab9-0a73-410c-a602-a3277cbb9956"
+        }
+      ]
+    },
+    {
+      "__guid": "23a5f823-ab1d-4fee-8534-94f4cdf3f24c",
+      "Flags": 0,
+      "Name": "Spawnpoints",
+      "Position": "1400,2700,0",
+      "Rotation": "0,0,0.8660254,0.5",
+      "Enabled": true,
+      "Children": [
+        {
+          "__guid": "cb7c8b4f-558d-4415-9775-72e0d857ca5b",
+          "Flags": 0,
+          "Name": "Spawnpoint (19)",
+          "Position": "-3282.511,-175.7841,-0.0002422553",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.SpawnPoint",
+              "__guid": "234788aa-50d1-4973-987c-be511536f609",
+              "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        },
+        {
+          "__guid": "98bff463-f3eb-449a-911e-ff889a74844d",
+          "Flags": 0,
+          "Name": "Spawnpoint (18)",
+          "Position": "-3124.619,119.3256,-0.0002328442",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.SpawnPoint",
+              "__guid": "1c394632-1e33-4d78-82b3-3136b76eb1bd",
+              "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        },
+        {
+          "__guid": "87493f7d-fb2a-4dbe-810c-f9cbaa3a8c27",
+          "Flags": 0,
+          "Name": "Spawnpoint (17)",
+          "Position": "-2965.167,-172.3701,-0.0002233402",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.SpawnPoint",
+              "__guid": "ced8a2b4-baa1-422a-bf23-7f2bdf4df5f5",
+              "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        },
+        {
+          "__guid": "d07a50a3-3d0e-4451-be68-668f1dd34bae",
+          "Flags": 0,
+          "Name": "Spawnpoint (16)",
+          "Position": "-2809.833,129.0483,-0.0002140817",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.SpawnPoint",
+              "__guid": "4747ed01-b6aa-4f44-8eb3-46f5cb08da6b",
+              "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        },
+        {
+          "__guid": "64ab1031-1b60-400b-b2a3-3f0a3eb9ff51",
+          "Flags": 0,
+          "Name": "Spawnpoint (15)",
+          "Position": "-2650.595,-165.7614,-0.0002045904",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.SpawnPoint",
+              "__guid": "d1d88b30-58f9-485b-9eb3-52ca3a5639e6",
+              "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        },
+        {
+          "__guid": "dcb9cf4e-346f-4c6f-84f7-1ee5ac27ce77",
+          "Flags": 0,
+          "Name": "Spawnpoint (14)",
+          "Position": "-2497.562,123.31,-0.000195469",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.SpawnPoint",
+              "__guid": "8e9ec3ee-5e7f-4f7a-9033-5357d38d9c36",
+              "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        },
+        {
+          "__guid": "0aba636a-f835-4b8c-a682-132b78c3ad40",
+          "Flags": 0,
+          "Name": "Spawnpoint (13)",
+          "Position": "-2336.526,-176.1498,-0.0001858706",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.SpawnPoint",
+              "__guid": "2806ef3c-d9b0-4338-8461-89ed4f8df8f1",
+              "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        },
+        {
+          "__guid": "307e60d3-47fd-42b2-98b8-c258156c51bd",
+          "Flags": 0,
+          "Name": "Spawnpoint (12)",
+          "Position": "-2176.94,126.8918,-0.0001763586",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.SpawnPoint",
+              "__guid": "7222186d-3e58-4091-b7bd-2520aa05bc51",
+              "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        },
+        {
+          "__guid": "0362cf1c-97d2-4a8b-8bed-470841cf8fc1",
+          "Flags": 0,
+          "Name": "Spawnpoint (11)",
+          "Position": "-2021.487,-166.2087,-0.0001670929",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.SpawnPoint",
+              "__guid": "657c9a4a-a321-4ad0-a52a-e7e927d0556c",
+              "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        },
+        {
+          "__guid": "b9a3767d-69d3-4173-9a9f-e9acb40a3482",
+          "Flags": 0,
+          "Name": "Spawnpoint (10)",
+          "Position": "-1865.149,124.1955,-0.0001577745",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.SpawnPoint",
+              "__guid": "eb7b5160-d836-4389-96b5-ef433eb6dae5",
+              "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        },
+        {
+          "__guid": "41ca8595-c1a1-4464-bc5a-72620ea24f87",
+          "Flags": 0,
+          "Name": "Spawnpoint (9)",
+          "Position": "-1705.453,-169.3428,-0.0001482559",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.SpawnPoint",
+              "__guid": "118f13f0-f75d-4ab5-a7e2-79886bc2ee0d",
+              "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        },
+        {
+          "__guid": "899a8ba5-54cb-45b5-9848-0c74ecd3e99d",
+          "Flags": 0,
+          "Name": "Spawnpoint (8)",
+          "Position": "-1546.098,120.8995,-0.0001387576",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.SpawnPoint",
+              "__guid": "ad573dc3-5874-4c0e-bfaa-9828f3dd0047",
+              "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        },
+        {
+          "__guid": "061f436c-882d-4671-8141-93fbc6e62aed",
+          "Flags": 0,
+          "Name": "Spawnpoint (7)",
+          "Position": "-1391.619,-170.6764,-0.00012955",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.SpawnPoint",
+              "__guid": "611ef129-a2b6-4e61-84ab-cce46cf2dfc1",
+              "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        },
+        {
+          "__guid": "4adf15cf-43f3-43cc-b528-7c15627bb0db",
+          "Flags": 0,
+          "Name": "Spawnpoint (6)",
+          "Position": "-1236.646,121.3646,-0.000120313",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.SpawnPoint",
+              "__guid": "e2d747ae-4f0f-4568-98f4-d1230d838678",
+              "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        },
+        {
+          "__guid": "5cd1bb43-337b-4b47-bda0-2de0ab167292",
+          "Flags": 0,
+          "Name": "Spawnpoint (5)",
+          "Position": "-1073.961,-174.8875,-0.00006174997",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.SpawnPoint",
+              "__guid": "3cbe4fa9-1329-48c6-bb8e-15d80c5fb0e4",
+              "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        },
+        {
+          "__guid": "23449f94-6dd4-4603-8cd1-9beaa7ed4603",
+          "Flags": 0,
+          "Name": "Spawnpoint (4)",
+          "Position": "-918.2701,127.0744,-0.0000706432",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.SpawnPoint",
+              "__guid": "d4237e33-5948-45ee-848b-187de5d36b16",
+              "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        },
+        {
+          "__guid": "8ed107f9-0db3-4249-8113-4319b7079932",
+          "Flags": 0,
+          "Name": "Spawnpoint (3)",
+          "Position": "-760.2617,-172.6379,-0.00006122516",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.SpawnPoint",
+              "__guid": "f786e0cd-1ea4-4e3c-9e86-bceeb2a17bad",
+              "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        },
+        {
+          "__guid": "69eb77c3-d0ee-4c59-a84f-2ab51131e4b7",
+          "Flags": 0,
+          "Name": "Spawnpoint (2)",
+          "Position": "-606.1166,120.6313,-0.00005203741",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.SpawnPoint",
+              "__guid": "a0e7eddf-8da2-41a5-bfee-09234f5eb7aa",
+              "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        },
+        {
+          "__guid": "66e254a3-f7c4-44d8-a249-33376e616fc6",
+          "Flags": 0,
+          "Name": "Spawnpoint (1)",
+          "Position": "-447.5867,-170.4908,-0.00004258827",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.SpawnPoint",
+              "__guid": "fa90eedf-feba-43e4-a81b-e8983acae4d0",
+              "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        },
+        {
+          "__guid": "91c42ece-0891-485e-9961-73434d400b1c",
+          "Flags": 0,
+          "Name": "Spawnpoint",
+          "Position": "-288.155,124.2432,-0.000002415455",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.SpawnPoint",
+              "__guid": "7f712c52-453e-4493-8686-05cc5feef4d1",
+              "Color": "0.8902,0.31765,0.05098,1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "2508d309-9402-4210-8d74-77ebd4af58fd",
+      "Flags": 0,
+      "Name": "Checkponts",
+      "Position": "1400,2700,0",
+      "Rotation": "0,0,0.8660254,0.5",
+      "Enabled": true,
+      "Children": [
+        {
+          "__guid": "d32bea9f-ddf5-4223-a1fe-c505f57907c6",
+          "Flags": 0,
+          "Name": "Checkpoint (10)",
+          "Position": "-3588.81,58.43689,-77.87426",
+          "Rotation": "-0.00000002980232,-0.7071066,0.00000002980232,-0.7071066",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.PlaneCollider",
+              "__guid": "96650f8f-d4ff-4d3d-8c22-07c36e4eea8d",
+              "Center": "-250,0,5",
+              "IsTrigger": true,
+              "Scale": "500,900",
+              "Static": true
+            },
+            {
+              "__type": "Sandbox.GamePlay.Checkpoint",
+              "__guid": "41f7b5ea-70d6-4de6-80bc-d86841bd59a7",
+              "Next": {
+                "_type": "component",
+                "component_id": "816262ff-6287-4e5d-904c-5c64090940d6",
+                "go": "5eea5b44-af82-41c7-b803-c8261381ecb6",
+                "component_type": "Checkpoint"
+              },
+              "Trigger": {
+                "_type": "component",
+                "component_id": "96650f8f-d4ff-4d3d-8c22-07c36e4eea8d",
+                "go": "d32bea9f-ddf5-4223-a1fe-c505f57907c6",
+                "component_type": "PlaneCollider"
+              }
+            }
+          ]
+        },
+        {
+          "__guid": "b6c36906-3905-449d-bd04-d4271db117d7",
+          "Flags": 0,
+          "Name": "Checkpoint (9)",
+          "Position": "-2971.614,2348.292,-77.87649",
+          "Rotation": "-0.6830127,-0.1830128,0.6830127,-0.1830128",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.PlaneCollider",
+              "__guid": "c6f0eb10-df8c-406e-86dd-8440818a9683",
+              "Center": "-250,0,5",
+              "IsTrigger": true,
+              "Scale": "500,900",
+              "Static": true
+            },
+            {
+              "__type": "Sandbox.GamePlay.Checkpoint",
+              "__guid": "76c2eb24-82a1-47bf-8867-992c54537ddd",
+              "Next": {
+                "_type": "component",
+                "component_id": "41f7b5ea-70d6-4de6-80bc-d86841bd59a7",
+                "go": "d32bea9f-ddf5-4223-a1fe-c505f57907c6",
+                "component_type": "Checkpoint"
+              },
+              "Trigger": {
+                "_type": "component",
+                "component_id": "c6f0eb10-df8c-406e-86dd-8440818a9683",
+                "go": "b6c36906-3905-449d-bd04-d4271db117d7",
+                "component_type": "PlaneCollider"
+              }
+            }
+          ]
+        },
+        {
+          "__guid": "03940d5d-f70a-4158-b6f1-af94aec83c32",
+          "Flags": 0,
+          "Name": "Checkpoint (8)",
+          "Position": "1936.45,1710.822,-77.87717",
+          "Rotation": "-0.7010574,0.09229589,0.7010574,0.09229589",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.PlaneCollider",
+              "__guid": "8469d945-348a-4699-800f-9df7248912c5",
+              "Center": "-250,0,5",
+              "IsTrigger": true,
+              "Scale": "500,900",
+              "Static": true
+            },
+            {
+              "__type": "Sandbox.GamePlay.Checkpoint",
+              "__guid": "e0682b8d-55ab-40de-9628-7e8caf54a9e6",
+              "Next": {
+                "_type": "component",
+                "component_id": "76c2eb24-82a1-47bf-8867-992c54537ddd",
+                "go": "b6c36906-3905-449d-bd04-d4271db117d7",
+                "component_type": "Checkpoint"
+              },
+              "Trigger": {
+                "_type": "component",
+                "component_id": "8469d945-348a-4699-800f-9df7248912c5",
+                "go": "03940d5d-f70a-4158-b6f1-af94aec83c32",
+                "component_type": "PlaneCollider"
+              }
+            }
+          ]
+        },
+        {
+          "__guid": "6af55256-968a-4bf8-956f-f9dd4981b1ef",
+          "Flags": 0,
+          "Name": "Checkpoint (7)",
+          "Position": "6349.598,5241.315,-77.87289",
+          "Rotation": "0.596291,0.3800489,-0.596291,0.3800489",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.PlaneCollider",
+              "__guid": "f2e05aa1-2ad7-4349-8d7b-6e55f9e3c1af",
+              "Center": "-250,0,5",
+              "IsTrigger": true,
+              "Scale": "500,900",
+              "Static": true
+            },
+            {
+              "__type": "Sandbox.GamePlay.Checkpoint",
+              "__guid": "aaf356f6-1be3-43c7-9ddb-e6b09d491625",
+              "Next": {
+                "_type": "component",
+                "component_id": "e0682b8d-55ab-40de-9628-7e8caf54a9e6",
+                "go": "03940d5d-f70a-4158-b6f1-af94aec83c32",
+                "component_type": "Checkpoint"
+              },
+              "Trigger": {
+                "_type": "component",
+                "component_id": "f2e05aa1-2ad7-4349-8d7b-6e55f9e3c1af",
+                "go": "6af55256-968a-4bf8-956f-f9dd4981b1ef",
+                "component_type": "PlaneCollider"
+              }
+            }
+          ]
+        },
+        {
+          "__guid": "fed1e565-0de6-4a1b-9e97-8ee89c9ff354",
+          "Flags": 0,
+          "Name": "Checkpoint (6)",
+          "Position": "4292.136,8194.816,-77.87422",
+          "Rotation": "0.2989661,-0.640796,-0.2989661,-0.640796",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.PlaneCollider",
+              "__guid": "6e94bfc5-37c3-4eca-b74c-d5947bca4439",
+              "Center": "-250,0,5",
+              "IsTrigger": true,
+              "Scale": "500,900",
+              "Static": true
+            },
+            {
+              "__type": "Sandbox.GamePlay.Checkpoint",
+              "__guid": "78fe6adc-e338-4d59-a0bb-91e1fded1f5b",
+              "Next": {
+                "_type": "component",
+                "component_id": "aaf356f6-1be3-43c7-9ddb-e6b09d491625",
+                "go": "6af55256-968a-4bf8-956f-f9dd4981b1ef",
+                "component_type": "Checkpoint"
+              },
+              "Trigger": {
+                "_type": "component",
+                "component_id": "6e94bfc5-37c3-4eca-b74c-d5947bca4439",
+                "go": "fed1e565-0de6-4a1b-9e97-8ee89c9ff354",
+                "component_type": "PlaneCollider"
+              }
+            }
+          ]
+        },
+        {
+          "__guid": "55513c49-f27a-4aa2-aa1e-e79fb4f953ae",
+          "Flags": 0,
+          "Name": "Checkpoint (5)",
+          "Position": "-2648.671,5045.712,-77.87443",
+          "Rotation": "0.4546293,-0.5415832,-0.4546293,-0.5415832",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.PlaneCollider",
+              "__guid": "b68d1045-784b-40b7-92ab-a9a342f81164",
+              "Center": "-250,0,5",
+              "IsTrigger": true,
+              "Scale": "500,900",
+              "Static": true
+            },
+            {
+              "__type": "Sandbox.GamePlay.Checkpoint",
+              "__guid": "74e2cf07-8475-49ea-8abb-b3f551bedc54",
+              "Next": {
+                "_type": "component",
+                "component_id": "78fe6adc-e338-4d59-a0bb-91e1fded1f5b",
+                "go": "fed1e565-0de6-4a1b-9e97-8ee89c9ff354",
+                "component_type": "Checkpoint"
+              },
+              "Trigger": {
+                "_type": "component",
+                "component_id": "b68d1045-784b-40b7-92ab-a9a342f81164",
+                "go": "55513c49-f27a-4aa2-aa1e-e79fb4f953ae",
+                "component_type": "PlaneCollider"
+              }
+            }
+          ]
+        },
+        {
+          "__guid": "a419f905-3e8a-4b6c-927f-0598e3d42bb4",
+          "Flags": 0,
+          "Name": "Checkpoint (4)",
+          "Position": "-5921.018,6316.371,-0.01263357",
+          "Rotation": "-0.5000001,-0.4999999,0.5000001,-0.4999999",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.PlaneCollider",
+              "__guid": "2b62e181-78e8-4a35-8891-10c9ef5e02ea",
+              "Center": "-250,0,5",
+              "IsTrigger": true,
+              "Scale": "500,900",
+              "Static": true
+            },
+            {
+              "__type": "Sandbox.GamePlay.Checkpoint",
+              "__guid": "2ffb5f66-0b1b-415e-b9ca-b31b27eb7725",
+              "Next": {
+                "_type": "component",
+                "component_id": "74e2cf07-8475-49ea-8abb-b3f551bedc54",
+                "go": "55513c49-f27a-4aa2-aa1e-e79fb4f953ae",
+                "component_type": "Checkpoint"
+              },
+              "Trigger": {
+                "_type": "component",
+                "component_id": "2b62e181-78e8-4a35-8891-10c9ef5e02ea",
+                "go": "a419f905-3e8a-4b6c-927f-0598e3d42bb4",
+                "component_type": "PlaneCollider"
+              }
+            }
+          ]
+        },
+        {
+          "__guid": "b367574f-dcb1-400f-a639-cb43e8b13342",
+          "Flags": 0,
+          "Name": "Checkpoint (3)",
+          "Position": "1620.938,8712.23,-0.01238491",
+          "Rotation": "-0.7071068,0.00000008940697,0.7071068,0.00000008940697",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.PlaneCollider",
+              "__guid": "f5dc32ef-0e64-4093-8669-538bc3d874c1",
+              "Center": "-250,0,5",
+              "IsTrigger": true,
+              "Scale": "500,900",
+              "Static": true
+            },
+            {
+              "__type": "Sandbox.GamePlay.Checkpoint",
+              "__guid": "262ad6a2-2195-47ca-8a9e-81afe91c4b51",
+              "Next": {
+                "_type": "component",
+                "component_id": "2ffb5f66-0b1b-415e-b9ca-b31b27eb7725",
+                "go": "a419f905-3e8a-4b6c-927f-0598e3d42bb4",
+                "component_type": "Checkpoint"
+              },
+              "Trigger": {
+                "_type": "component",
+                "component_id": "f5dc32ef-0e64-4093-8669-538bc3d874c1",
+                "go": "b367574f-dcb1-400f-a639-cb43e8b13342",
+                "component_type": "PlaneCollider"
+              }
+            }
+          ]
+        },
+        {
+          "__guid": "293440f3-795d-4958-a969-494b107f5541",
+          "Flags": 0,
+          "Name": "Checkpoint (2)",
+          "Position": "5719.436,10389.68,-0.004814434",
+          "Rotation": "-0.7071068,-0.00000003090862,0.7071068,-0.00000003090862",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.PlaneCollider",
+              "__guid": "506dccce-a1b9-4e09-8b5e-e2f3546cfa98",
+              "Center": "-250,0,5",
+              "IsTrigger": true,
+              "Scale": "500,900",
+              "Static": true
+            },
+            {
+              "__type": "Sandbox.GamePlay.Checkpoint",
+              "__guid": "67493ad3-e86e-4b05-a3ba-7fb5c4a0ef57",
+              "Next": {
+                "_type": "component",
+                "component_id": "262ad6a2-2195-47ca-8a9e-81afe91c4b51",
+                "go": "b367574f-dcb1-400f-a639-cb43e8b13342",
+                "component_type": "Checkpoint"
+              },
+              "Trigger": {
+                "_type": "component",
+                "component_id": "506dccce-a1b9-4e09-8b5e-e2f3546cfa98",
+                "go": "293440f3-795d-4958-a969-494b107f5541",
+                "component_type": "PlaneCollider"
+              }
+            }
+          ]
+        },
+        {
+          "__guid": "6914c5f8-25de-4081-be94-837a0e843f68",
+          "Flags": 0,
+          "Name": "Checkpoint (11)",
+          "Position": "10610.84,4030.216,0.00138726",
+          "Rotation": "-0.4304593,0.5609856,0.4304593,0.5609856",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.PlaneCollider",
+              "__guid": "d87e5c56-aa05-406e-9be1-fab3b9459cda",
+              "Center": "-250,0,5",
+              "IsTrigger": true,
+              "Scale": "500,900",
+              "Static": true
+            },
+            {
+              "__type": "Sandbox.GamePlay.Checkpoint",
+              "__guid": "dd94dbb1-cc21-4855-950d-b5490f357e9d",
+              "Next": {
+                "_type": "component",
+                "component_id": "67493ad3-e86e-4b05-a3ba-7fb5c4a0ef57",
+                "go": "293440f3-795d-4958-a969-494b107f5541",
+                "component_type": "Checkpoint"
+              },
+              "Trigger": {
+                "_type": "component",
+                "component_id": "d87e5c56-aa05-406e-9be1-fab3b9459cda",
+                "go": "6914c5f8-25de-4081-be94-837a0e843f68",
+                "component_type": "PlaneCollider"
+              }
+            }
+          ]
+        },
+        {
+          "__guid": "a61bd9a9-5a12-46fe-a651-01152a70dc42",
+          "Flags": 0,
+          "Name": "Checkpoint (1)",
+          "Position": "5719.433,0.002929688,0.001701789",
+          "Rotation": "0.00000002980232,0.7071068,-0.00000002980232,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.PlaneCollider",
+              "__guid": "4ef11218-45bf-4469-b57f-b68338a9650c",
+              "Center": "-250,0,5",
+              "IsTrigger": true,
+              "Scale": "500,900",
+              "Static": true
+            },
+            {
+              "__type": "Sandbox.GamePlay.Checkpoint",
+              "__guid": "19f21c47-10aa-412e-b60b-cae142f19387",
+              "Next": {
+                "_type": "component",
+                "component_id": "dd94dbb1-cc21-4855-950d-b5490f357e9d",
+                "go": "6914c5f8-25de-4081-be94-837a0e843f68",
+                "component_type": "Checkpoint"
+              },
+              "Trigger": {
+                "_type": "component",
+                "component_id": "4ef11218-45bf-4469-b57f-b68338a9650c",
+                "go": "a61bd9a9-5a12-46fe-a651-01152a70dc42",
+                "component_type": "PlaneCollider"
+              }
+            }
+          ]
+        },
+        {
+          "__guid": "5eea5b44-af82-41c7-b803-c8261381ecb6",
+          "Flags": 0,
+          "Name": "Checkpoint",
+          "Position": "0,0,0",
+          "Rotation": "0,0.7071068,0,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.PlaneCollider",
+              "__guid": "a7801aba-432b-4dbf-b490-f7597b906d76",
+              "Center": "-250,0,5",
+              "IsTrigger": true,
+              "Scale": "500,900",
+              "Static": true
+            },
+            {
+              "__type": "Sandbox.GamePlay.Checkpoint",
+              "__guid": "816262ff-6287-4e5d-904c-5c64090940d6",
+              "Next": {
+                "_type": "component",
+                "component_id": "19f21c47-10aa-412e-b60b-cae142f19387",
+                "go": "a61bd9a9-5a12-46fe-a651-01152a70dc42",
+                "component_type": "Checkpoint"
+              },
+              "Trigger": {
+                "_type": "component",
+                "component_id": "a7801aba-432b-4dbf-b490-f7597b906d76",
+                "go": "5eea5b44-af82-41c7-b803-c8261381ecb6",
+                "component_type": "PlaneCollider"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "002f6b80-1ede-4e0f-918e-edc1c4c600fd",
+      "Flags": 0,
+      "Name": "Arrow",
+      "Position": "2134.943,2556.2,117.7361",
+      "Enabled": true,
+      "Children": [
+        {
+          "__guid": "36bfd0b7-55b8-41bc-838e-1cdeb534b70b",
+          "Flags": 0,
+          "Name": "Cube (1)",
+          "Position": "24.88623,-0.0004882812,-0.00003051758",
+          "Scale": "0.5,0.5,0.5",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "02e94655-c125-4072-8923-61fa9365aee2",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/dev/box.vmdl",
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "41862169-35c9-4b8c-903d-1447357538c8",
+          "Flags": 0,
+          "Name": "Cube",
+          "Position": "0,0,0",
+          "Scale": "0.5,0.5,0.5",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "948a409d-aafa-4432-b225-badce6e6f38d",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/dev/box.vmdl",
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "616cea35-7eb0-4c7b-b36e-49c1dc486c8b",
+          "Flags": 0,
+          "Name": "Sphere",
+          "Position": "49.09863,0,0",
+          "Scale": "1.334309,0.5,0.5",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "348b0da8-1ae2-486f-b6c7-695a74660e37",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/dev/sphere.vmdl",
+              "RenderOptions": {
+                "GameLayer": true,
+                "OverlayLayer": false,
+                "BloomLayer": false,
+                "AfterUILayer": false
+              },
+              "RenderType": "On",
+              "Tint": "1,0,0,1"
+            }
+          ]
         }
       ]
     }

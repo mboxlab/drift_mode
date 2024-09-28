@@ -1,0 +1,44 @@
+@using Sandbox;
+@using Sandbox.GamePlay
+@using Sandbox.UI;
+@using Sandbox.Car;
+@inherits PanelComponent
+@namespace Sandbox
+
+<root>
+	<div class="title" style="color:red;">fix me</div>
+	<div class="title">RPM @RPM</div>
+	<div class="title">Gear @Gear</div>
+	<div class="title">KMH @Speed</div>
+	<div class="title">Lap @Lap</div>
+</root>
+
+@code
+{
+
+	private string Speed { get; set; } = "";
+	private string RPM { get; set; } = "";
+	private string Gear { get; set; } = "";
+	private string Lap { get; set; } = "";
+	public CarController Car { get; set; }
+	public IManager GameManager { get; set; }
+	private static float VEL_TO_KMH = 0.06858f;
+
+
+	protected override void OnAwake()
+	{
+		GameManager = Scene.Components.Get<IManager>(FindMode.InChildren);
+	}
+	protected override void OnFixedUpdate()
+	{
+		if (Car is null) return;
+		Lap = GameManager.Lap.ToString();
+		Speed = Math.Floor(Car.Rigidbody.Velocity.Length * VEL_TO_KMH).ToString();
+		RPM = Math.Floor(Car.EngineRPM).ToString();
+		Gear = Car.CurrentGear.ToString();
+	}
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine(Speed + RPM + Gear);
+}

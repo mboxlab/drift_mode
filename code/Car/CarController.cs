@@ -1,9 +1,9 @@
 ﻿
-using System;
-using System.IO;
+using System.Collections.Generic;
 using AltCurves;
 using DM.Engine;
 using Sandbox.Car.Config;
+using Sandbox.GamePlay;
 
 namespace Sandbox.Car;
 
@@ -14,7 +14,17 @@ public sealed class CarController : Component
 	[Property] public ICarConfig CarConfig { get => carConfig; set { carConfig = value; OnConfigUpdated(); } }
 	[Property] public SoundInterpolator SoundInterpolator { get; set; }
 	[Property] public WheelCollider[] Wheels { get; private set; }
+	public bool IsBot;
 
+	public static CarController Local;
+	[Authority]
+	public void ClientInit()
+	{
+		if ( IsBot )
+			return;
+
+		Local = this;
+	}
 	#region Properties of car Settings
 	private ICarConfig carConfig = new StreetCarConfig();
 
@@ -64,7 +74,7 @@ public sealed class CarController : Component
 	int FirstDriveWheel;
 	int LastDriveWheel;
 	float[] AllGearsRatio;
-
+	private IManager GameManager;
 	protected override void OnAwake()
 	{
 		base.OnAwake();
@@ -103,6 +113,12 @@ public sealed class CarController : Component
 	{
 		SoundInterpolator.MaxValue = MaxRPM;
 		UpdateWheelsFriction();
+		GameManager = Scene.Components.Get<IManager>( FindMode.InDescendants );
+		var gauge = Scene.Components.Get<Gauge>( FindMode.InDescendants );
+		if ( gauge != null )
+		{
+			gauge.Car = this;
+		}
 
 	}
 	protected override void OnUpdate()
@@ -158,6 +174,7 @@ public sealed class CarController : Component
 	float CurrentAcceleration;
 	float CurrentBrake;
 	bool InHandBrake;
+	private bool InClutch;
 
 	void UpdateRpmAndTorque()
 	{
@@ -171,11 +188,29 @@ public sealed class CarController : Component
 			else
 				InCutOff = false;
 
+
+		if ( !GameManager.Started || InClutch )
+		{
+			if ( InCutOff ) return;
+
+			float rpm = CurrentAcceleration > 0 ? MaxRPM : MinRPM;
+			float speed = CurrentAcceleration > 0 ? RpmEngineToRpmWheelsLerpSpeed : RpmEngineToRpmWheelsLerpSpeed * 0.2f;
+			EngineRPM = MathX.Lerp( EngineRPM, rpm, speed * Time.Delta );
+			if ( EngineRPM >= CutOffRPM )
+			{
+				// TODO: backfire()
+				InCutOff = true;
+				CutOffTimer = CarConfig.CutOffTime;
+			}
+			return;
+		}
+
 		float minRPM = 0;
 		for ( int i = FirstDriveWheel + 1; i <= LastDriveWheel; i++ )
 			minRPM += Wheels[i].RPM;
 
 		minRPM /= LastDriveWheel - FirstDriveWheel + 1;
+
 
 		if ( !InCutOff )
 		{
@@ -347,6 +382,7 @@ public sealed class CarController : Component
 			Wheels[3].UpdateStiffness( forwardStiffness, sidewaysStiffness );
 		}
 		InHandBrake = brake;
+		InClutch = Input.Down( "Clutch" );
 	}
 	private void UpdateControls() => UpdateControls( Input.AnalogMove.y, Input.AnalogMove.x, Input.Down( "HandBrake" ) );
 

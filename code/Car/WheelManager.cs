@@ -12,7 +12,7 @@ public class WheelManager : Component
 	[Property] public List<WheelCollider> Wheels = new();
 
 	protected override void OnStart()
-	{
+	{	
 		Wheels = Components.GetAll<WheelCollider>( FindMode.InDescendants ).ToList();
 		_wheelCount = Wheels.Count;
 	}
@@ -26,7 +26,7 @@ public class WheelManager : Component
 			combinedLoad += wheel.Load;
 		}
 	}
-	
+
 	public void Register( WheelCollider wheel )
 	{
 		if ( !Wheels.Contains( wheel ) )

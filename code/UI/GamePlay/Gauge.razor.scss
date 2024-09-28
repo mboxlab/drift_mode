@@ -1,0 +1,17 @@
+Gauge {
+	flex-direction: column;
+	position: absolute;
+	top: 70%;
+	left: 70%;
+	right: 0;
+	bottom: 0;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+
+	.title {
+		font-size: 25px;
+		font-family: Poppins;
+		color: #fff;
+	}
+}

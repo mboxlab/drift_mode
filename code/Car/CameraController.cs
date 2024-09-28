@@ -81,7 +81,7 @@ public sealed class CameraController : Component
 
 		Scene.Camera.Transform.Position = Scene.Camera.Transform.Position.LerpTo( CameraTarget.Transform.Position, Time.Delta * 12f );
 
-		if ( Input.Pressed( "flymode" ) )
+		if ( Game.IsEditor && Input.Pressed( "flymode" ) )
 		{
 			FlyMode = !FlyMode;
 

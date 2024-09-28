@@ -929,7 +929,8 @@
       "__guid": "002f6b80-1ede-4e0f-918e-edc1c4c600fd",
       "Flags": 0,
       "Name": "Arrow",
-      "Position": "2134.943,2556.2,117.7361",
+      "Position": "1430.16,2637.193,117.7361",
+      "Rotation": "0,0,0.8660254,0.5000001",
       "Enabled": true,
       "Children": [
         {

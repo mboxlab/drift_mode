@@ -13,13 +13,14 @@ public class Checkpoint : Component
 
 	protected override void DrawGizmos()
 	{
-		if ( Next != null )
-		{
-			Gizmo.Transform = Scene.Transform.World;
-			Gizmo.Draw.IgnoreDepth = true;
+		if ( Gizmo.IsSelected )
+			if ( Next != null )
+			{
+				Gizmo.Transform = Scene.Transform.World;
+				Gizmo.Draw.IgnoreDepth = true;
 
-			Gizmo.Draw.Arrow( Transform.Position, Next.Transform.Position, 220, 50 );
-		}
+				Gizmo.Draw.Arrow( Transform.Position, Next.Transform.Position, 220, 50 );
+			}
 
 	}
 }

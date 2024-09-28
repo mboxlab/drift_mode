@@ -223,6 +223,18 @@
           "KeyboardCode": "v",
           "GamepadCode": "None",
           "GroupName": "Other"
+        },
+        {
+          "Name": "Attack1",
+          "KeyboardCode": "mouse1",
+          "GamepadCode": "None",
+          "GroupName": "Other"
+        },
+        {
+          "Name": "Attack2",
+          "KeyboardCode": "mouse2",
+          "GamepadCode": "None",
+          "GroupName": "Other"
         }
       ],
       "__guid": "05b490fd-6a62-4f75-93a1-b988ce85d8af"

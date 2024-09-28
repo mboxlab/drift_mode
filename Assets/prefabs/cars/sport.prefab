@@ -51,11 +51,11 @@
           "HandBrakeForwardStiffness": 0.5,
           "HandBrakeSidewaysStiffness": 0.5,
           "FrictionPreset": {
-            "Stiffnes": 9,
-            "ShapeFactor": 2.15,
-            "PeakValue": 0.933,
-            "CurvatureFactor": 0.871,
-            "PeakSlip": 0.11999998,
+            "Stiffnes": 7.09,
+            "ShapeFactor": 0.87,
+            "PeakValue": 2,
+            "CurvatureFactor": 0.5,
+            "PeakSlip": 0.99999934,
             "Curve": {
               "_ace_v": 1,
               "pri": "Linear",
@@ -63,79 +63,79 @@
                 {},
                 {
                   "x": 0.02,
-                  "y": 0.34558323
+                  "y": 0.24368995
                 },
                 {
                   "x": 0.04,
-                  "y": 0.6144362
+                  "y": 0.4705372
                 },
                 {
                   "x": 0.06,
-                  "y": 0.784298
+                  "y": 0.6695087
                 },
                 {
                   "x": 0.08,
-                  "y": 0.8757074
+                  "y": 0.83706164
                 },
                 {
                   "x": 0.099999994,
-                  "y": 0.9177164
+                  "y": 0.97508293
                 },
                 {
                   "x": 0.11999999,
-                  "y": 0.93194467
+                  "y": 1.0879422
                 },
                 {
                   "x": 0.13999999,
-                  "y": 0.9313984
+                  "y": 1.1804365
                 },
                 {
                   "x": 0.15999998,
-                  "y": 0.9232628
+                  "y": 1.2568296
                 },
                 {
                   "x": 0.17999998,
-                  "y": 0.91138345
+                  "y": 1.3205793
                 },
                 {
                   "x": 0.19999997,
-                  "y": 0.89779854
+                  "y": 1.3743736
                 },
                 {
                   "x": 0.21999997,
-                  "y": 0.88358456
+                  "y": 1.4202675
                 },
                 {
                   "x": 0.31999996,
-                  "y": 0.8154602
+                  "y": 1.5749638
                 },
                 {
                   "x": 0.41999996,
-                  "y": 0.7573867
+                  "y": 1.6631279
                 },
                 {
                   "x": 0.52,
-                  "y": 0.7073634
+                  "y": 1.7198428
                 },
                 {
                   "x": 0.62,
-                  "y": 0.66314286
+                  "y": 1.7592171
                 },
                 {
                   "x": 0.72,
-                  "y": 0.6233362
+                  "y": 1.7880279
                 },
                 {
                   "x": 0.82000005,
-                  "y": 0.5870786
+                  "y": 1.8099428
                 },
                 {
                   "x": 0.9200001,
-                  "y": 0.553793
+                  "y": 1.8271203
                 },
                 {
                   "x": 1.0200001,
-                  "y": 0.52306664
+                  "y": 1.8409119
                 }
               ]
             }
@@ -211,7 +211,7 @@
         "Gravity": true,
         "LinearDamping": 0,
         "Locking": {},
-        "MassCenterOverride": "5,0,20",
+        "MassCenterOverride": "5,0,10",
         "MassOverride": 1125,
         "MotionEnabled": true,
         "OverrideMassCenter": true,
@@ -727,7 +727,6 @@
                 "__guid": "2975f00d-da58-489f-9537-fbf58e7126db",
                 "Flags": 0,
                 "Name": "Smoke",
-                "Position": "0,0,0",
                 "Tags": "particles",
                 "Enabled": true,
                 "Components": [
@@ -1038,7 +1037,6 @@
                 "__guid": "3d6724c8-3082-4bbe-955c-db0f81af2917",
                 "Flags": 0,
                 "Name": "Smoke",
-                "Position": "0,0,0",
                 "Tags": "particles",
                 "Enabled": true,
                 "Components": [
@@ -1386,7 +1384,6 @@
                 "__guid": "b5bba3fd-7dbb-4990-9492-218279c1ead6",
                 "Flags": 0,
                 "Name": "Smoke",
-                "Position": "0,0,0",
                 "Tags": "particles",
                 "Enabled": true,
                 "Components": [
@@ -1697,7 +1694,6 @@
                 "__guid": "b07cdec1-bc05-4d8c-904d-9b2ded747d7a",
                 "Flags": 0,
                 "Name": "Smoke",
-                "Position": "0,0,0",
                 "Tags": "particles",
                 "Enabled": true,
                 "Components": [
@@ -1903,7 +1899,6 @@
             "__guid": "d6ccf001-5932-4402-b6df-2f6068628cba",
             "Flags": 0,
             "Name": "Nametag",
-            "Position": "0,0,0",
             "Enabled": true,
             "Components": [
               {

@@ -12,13 +12,14 @@
           "__guid": "f92dce95-e6ec-482e-9bc3-217626e4e9bf",
           "__version": 1,
           "EnableCollision": true,
-          "MapName": "maps/games/drift_mode/001.vmap",
+          "MapName": "maps/racetrack.vmap",
           "NoOrigin": false,
           "OnMapLoaded": null,
           "OnMapUnloaded": null,
           "UseMapFromLaunch": false
         }
-      ]
+      ],
+      "Children": []
     },
     {
       "__guid": "7fd34353-eb3b-4644-b32a-d5298b24113a",
@@ -27,14 +28,18 @@
       "Enabled": true,
       "Components": [
         {
-          "__type": "Sandbox.CarSpawner",
-          "__guid": "143542c9-2115-4311-b247-358f86cd2628",
+          "__type": "Sandbox.GamePlay.Street.StreetManager",
+          "__guid": "cfc5c440-c074-429a-ade8-affc6d3a33f4",
           "CarConfig": "Drift",
+          "Lap": 0,
+          "MaxLaps": 1,
+          "MaxPlayers": 0,
           "PlayerPrefab": {
             "_type": "gameobject",
             "prefab": "prefabs/cars/sport.prefab"
           },
           "SpawnPoints": [],
+          "Started": false,
           "StartServer": true
         }
       ]

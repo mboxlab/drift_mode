@@ -138,8 +138,8 @@ public sealed class StreetManager : Component, Component.INetworkListener, IMana
 	}
 	protected override void OnUpdate()
 	{
-		Arrow.Transform.Position = CarController.Local.Transform.Position + Vector3.Up * 100f;
-		Arrow.Transform.Rotation = (CurrentCheckpoint.Transform.Position - CarController.Local.Transform.Position + Vector3.Up * 10).EulerAngles;
+		Arrow.Transform.Position = CarController.Local.Transform.Position + Vector3.Up * 125f;
+		Arrow.Transform.Rotation = (CurrentCheckpoint.Transform.Position.WithZ( 0 ) - CarController.Local.Transform.Position.WithZ(0) + Vector3.Down * 30).EulerAngles;
 	}
 	private void Win()
 	{

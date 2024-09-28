@@ -893,7 +893,6 @@
           "__guid": "5eea5b44-af82-41c7-b803-c8261381ecb6",
           "Flags": 0,
           "Name": "Checkpoint",
-          "Position": "0,0,0",
           "Rotation": "0,0.7071068,0,0.7071068",
           "Enabled": true,
           "Components": [
@@ -934,18 +933,19 @@
       "Enabled": true,
       "Children": [
         {
-          "__guid": "36bfd0b7-55b8-41bc-838e-1cdeb534b70b",
+          "__guid": "f765550a-3d93-40b4-b36c-efefbc265c75",
           "Flags": 0,
-          "Name": "Cube (1)",
-          "Position": "24.88623,-0.0004882812,-0.00003051758",
+          "Name": "Object",
+          "Rotation": "0,-0,-0.7071068,0.7071068",
           "Scale": "0.5,0.5,0.5",
           "Enabled": true,
           "Components": [
             {
               "__type": "Sandbox.ModelRenderer",
-              "__guid": "02e94655-c125-4072-8923-61fa9365aee2",
+              "__guid": "38431124-dc95-4e53-88a8-5fd280d47f22",
               "BodyGroups": 18446744073709551615,
-              "Model": "models/dev/box.vmdl",
+              "MaterialOverride": "materials/arrow.vmat",
+              "Model": "models/strelka1.vmdl",
               "RenderOptions": {
                 "GameLayer": true,
                 "OverlayLayer": false,
@@ -954,54 +954,6 @@
               },
               "RenderType": "On",
               "Tint": "1,1,1,1"
-            }
-          ]
-        },
-        {
-          "__guid": "41862169-35c9-4b8c-903d-1447357538c8",
-          "Flags": 0,
-          "Name": "Cube",
-          "Position": "0,0,0",
-          "Scale": "0.5,0.5,0.5",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "Sandbox.ModelRenderer",
-              "__guid": "948a409d-aafa-4432-b225-badce6e6f38d",
-              "BodyGroups": 18446744073709551615,
-              "Model": "models/dev/box.vmdl",
-              "RenderOptions": {
-                "GameLayer": true,
-                "OverlayLayer": false,
-                "BloomLayer": false,
-                "AfterUILayer": false
-              },
-              "RenderType": "On",
-              "Tint": "1,1,1,1"
-            }
-          ]
-        },
-        {
-          "__guid": "616cea35-7eb0-4c7b-b36e-49c1dc486c8b",
-          "Flags": 0,
-          "Name": "Sphere",
-          "Position": "49.09863,0,0",
-          "Scale": "1.334309,0.5,0.5",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "Sandbox.ModelRenderer",
-              "__guid": "348b0da8-1ae2-486f-b6c7-695a74660e37",
-              "BodyGroups": 18446744073709551615,
-              "Model": "models/dev/sphere.vmdl",
-              "RenderOptions": {
-                "GameLayer": true,
-                "OverlayLayer": false,
-                "BloomLayer": false,
-                "AfterUILayer": false
-              },
-              "RenderType": "On",
-              "Tint": "1,0,0,1"
             }
           ]
         }

@@ -229,7 +229,7 @@
           "__guid": "cb7c8b4f-558d-4415-9775-72e0d857ca5b",
           "Flags": 0,
           "Name": "Spawnpoint (19)",
-          "Position": "-3282.511,-175.7841,-0.0002422553",
+          "Position": "-3282.511,-175,-0.0002422553",
           "Enabled": true,
           "Components": [
             {
@@ -243,7 +243,7 @@
           "__guid": "98bff463-f3eb-449a-911e-ff889a74844d",
           "Flags": 0,
           "Name": "Spawnpoint (18)",
-          "Position": "-3124.619,119.3256,-0.0002328442",
+          "Position": "-3124.619,125,-0.0002328442",
           "Enabled": true,
           "Components": [
             {
@@ -257,7 +257,7 @@
           "__guid": "87493f7d-fb2a-4dbe-810c-f9cbaa3a8c27",
           "Flags": 0,
           "Name": "Spawnpoint (17)",
-          "Position": "-2965.167,-172.3701,-0.0002233402",
+          "Position": "-2965.167,-175,-0.0002233402",
           "Enabled": true,
           "Components": [
             {
@@ -271,7 +271,7 @@
           "__guid": "d07a50a3-3d0e-4451-be68-668f1dd34bae",
           "Flags": 0,
           "Name": "Spawnpoint (16)",
-          "Position": "-2809.833,129.0483,-0.0002140817",
+          "Position": "-2809.833,125,-0.0002140817",
           "Enabled": true,
           "Components": [
             {
@@ -285,7 +285,7 @@
           "__guid": "64ab1031-1b60-400b-b2a3-3f0a3eb9ff51",
           "Flags": 0,
           "Name": "Spawnpoint (15)",
-          "Position": "-2650.595,-165.7614,-0.0002045904",
+          "Position": "-2650.595,-175,-0.0002045904",
           "Enabled": true,
           "Components": [
             {
@@ -299,7 +299,7 @@
           "__guid": "dcb9cf4e-346f-4c6f-84f7-1ee5ac27ce77",
           "Flags": 0,
           "Name": "Spawnpoint (14)",
-          "Position": "-2497.562,123.31,-0.000195469",
+          "Position": "-2497.562,125,-0.000195469",
           "Enabled": true,
           "Components": [
             {
@@ -313,7 +313,7 @@
           "__guid": "0aba636a-f835-4b8c-a682-132b78c3ad40",
           "Flags": 0,
           "Name": "Spawnpoint (13)",
-          "Position": "-2336.526,-176.1498,-0.0001858706",
+          "Position": "-2336.526,-175,-0.0001858706",
           "Enabled": true,
           "Components": [
             {
@@ -327,7 +327,7 @@
           "__guid": "307e60d3-47fd-42b2-98b8-c258156c51bd",
           "Flags": 0,
           "Name": "Spawnpoint (12)",
-          "Position": "-2176.94,126.8918,-0.0001763586",
+          "Position": "-2176.94,125,-0.0001763586",
           "Enabled": true,
           "Components": [
             {
@@ -341,7 +341,7 @@
           "__guid": "0362cf1c-97d2-4a8b-8bed-470841cf8fc1",
           "Flags": 0,
           "Name": "Spawnpoint (11)",
-          "Position": "-2021.487,-166.2087,-0.0001670929",
+          "Position": "-2021.487,-175,-0.0001670929",
           "Enabled": true,
           "Components": [
             {
@@ -355,7 +355,7 @@
           "__guid": "b9a3767d-69d3-4173-9a9f-e9acb40a3482",
           "Flags": 0,
           "Name": "Spawnpoint (10)",
-          "Position": "-1865.149,124.1955,-0.0001577745",
+          "Position": "-1865.149,125,-0.0001577745",
           "Enabled": true,
           "Components": [
             {
@@ -369,7 +369,7 @@
           "__guid": "41ca8595-c1a1-4464-bc5a-72620ea24f87",
           "Flags": 0,
           "Name": "Spawnpoint (9)",
-          "Position": "-1705.453,-169.3428,-0.0001482559",
+          "Position": "-1705.453,-175,-0.0001482559",
           "Enabled": true,
           "Components": [
             {
@@ -383,7 +383,7 @@
           "__guid": "899a8ba5-54cb-45b5-9848-0c74ecd3e99d",
           "Flags": 0,
           "Name": "Spawnpoint (8)",
-          "Position": "-1546.098,120.8995,-0.0001387576",
+          "Position": "-1546.098,125,-0.0001387576",
           "Enabled": true,
           "Components": [
             {
@@ -397,7 +397,7 @@
           "__guid": "061f436c-882d-4671-8141-93fbc6e62aed",
           "Flags": 0,
           "Name": "Spawnpoint (7)",
-          "Position": "-1391.619,-170.6764,-0.00012955",
+          "Position": "-1391.619,-175,-0.00012955",
           "Enabled": true,
           "Components": [
             {
@@ -411,7 +411,7 @@
           "__guid": "4adf15cf-43f3-43cc-b528-7c15627bb0db",
           "Flags": 0,
           "Name": "Spawnpoint (6)",
-          "Position": "-1236.646,121.3646,-0.000120313",
+          "Position": "-1236.646,125,-0.000120313",
           "Enabled": true,
           "Components": [
             {
@@ -425,7 +425,7 @@
           "__guid": "5cd1bb43-337b-4b47-bda0-2de0ab167292",
           "Flags": 0,
           "Name": "Spawnpoint (5)",
-          "Position": "-1073.961,-174.8875,-0.00006174997",
+          "Position": "-1073.961,-175,-0.00006174997",
           "Enabled": true,
           "Components": [
             {
@@ -439,7 +439,7 @@
           "__guid": "23449f94-6dd4-4603-8cd1-9beaa7ed4603",
           "Flags": 0,
           "Name": "Spawnpoint (4)",
-          "Position": "-918.2701,127.0744,-0.0000706432",
+          "Position": "-918.2701,125,-0.0000706432",
           "Enabled": true,
           "Components": [
             {
@@ -453,7 +453,7 @@
           "__guid": "8ed107f9-0db3-4249-8113-4319b7079932",
           "Flags": 0,
           "Name": "Spawnpoint (3)",
-          "Position": "-760.2617,-172.6379,-0.00006122516",
+          "Position": "-760.2617,-175,-0.00006122516",
           "Enabled": true,
           "Components": [
             {
@@ -467,7 +467,7 @@
           "__guid": "69eb77c3-d0ee-4c59-a84f-2ab51131e4b7",
           "Flags": 0,
           "Name": "Spawnpoint (2)",
-          "Position": "-606.1166,120.6313,-0.00005203741",
+          "Position": "-606.1166,125,-0.00005203741",
           "Enabled": true,
           "Components": [
             {
@@ -481,7 +481,7 @@
           "__guid": "66e254a3-f7c4-44d8-a249-33376e616fc6",
           "Flags": 0,
           "Name": "Spawnpoint (1)",
-          "Position": "-447.5867,-170.4908,-0.00004258827",
+          "Position": "-447.5867,-175,-0.00004258827",
           "Enabled": true,
           "Components": [
             {
@@ -495,7 +495,7 @@
           "__guid": "91c42ece-0891-485e-9961-73434d400b1c",
           "Flags": 0,
           "Name": "Spawnpoint",
-          "Position": "-288.155,124.2432,-0.000002415455",
+          "Position": "-288.155,125,-0.000002415455",
           "Enabled": true,
           "Components": [
             {

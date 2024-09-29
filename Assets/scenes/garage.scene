@@ -17,7 +17,7 @@
           "Static": false
         },
         {
-          "__type": "DM.UI.InteractiveObject",
+          "__type": "Sandbox.UI.InteractiveObject",
           "__guid": "0ce79bc3-f2fd-4ba4-a396-ffb80e268b14",
           "ClampEqual": false,
           "Clamping": true,
@@ -44,7 +44,7 @@
       "Enabled": true,
       "Components": [
         {
-          "__type": "DM.UI.InteractiveObject",
+          "__type": "Sandbox.UI.InteractiveObject",
           "__guid": "539f9870-d382-4ee8-91a0-801819e56781",
           "ClampEqual": true,
           "Clamping": true,
@@ -87,7 +87,7 @@
           "__guid": "d72bf29a-f147-4a25-b610-8168b1255065"
         },
         {
-          "__type": "DM.UI.InteractiveCamera",
+          "__type": "Sandbox.UI.InteractiveCamera",
           "__guid": "0f1b9ade-48bb-4ea8-9107-338d504b946f",
           "_origin": {
             "_type": "component",
@@ -156,7 +156,7 @@
       "Enabled": true,
       "Components": [
         {
-          "__type": "DM.Car.CarSelector",
+          "__type": "Sandbox.Car.CarSelector",
           "__guid": "09195db0-f369-4da4-b3e2-55ec1f73122a",
           "Cars": [
             {
@@ -190,7 +190,7 @@
           "Static": true
         },
         {
-          "__type": "DM.UI.InteractiveObject",
+          "__type": "Sandbox.UI.InteractiveObject",
           "__guid": "1a65a2f7-f77c-4e51-a903-348ea4ad26ca",
           "ClampEqual": false,
           "Clamping": true,

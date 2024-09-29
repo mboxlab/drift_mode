@@ -1,0 +1,63 @@
+@using System;
+@using Sandbox;
+@using Sandbox.UI;
+@using Sandbox.Car;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root>
+	@if (InteractiveCamera.Target == Object.Parent)
+	{
+		<div class="title" onclick=@OnClick>@_name</div>
+	}
+</root>
+
+@code
+{
+	[Property] public bool IsInterspace;
+	[Property, ShowIf( "IsInterspace", false )] Part Part;
+	[Property, ShowIf( "IsInterspace", true )] string Name;
+
+	private string _name { get { return IsInterspace ? Name : Part.Name; } }
+	private InteractiveObject Object;
+
+	private void OnClick()
+	{
+		if ( Panel.Style.Opacity == 0f ) return;
+		InteractiveCamera.Instance.Focus(Object);
+
+		if ( !IsInterspace && Object.IsLooked )
+		{
+			GameObject obj = Scene.CreateObject( true );
+			obj.Name = "Screen";
+
+			obj.Components.Create<ScreenPanel>();
+
+			PartSelector selector = obj.Components.Create<PartSelector>();
+			selector.Part = Part;
+			selector.Object = Object;
+		}
+	}
+
+	protected override void OnStart()
+	{
+		base.OnStart();
+		
+		Object = Components.Get<InteractiveObject>();
+	}
+
+	protected override void OnUpdate()
+	{
+		base.OnUpdate();
+
+		float dot = MathF.Max(0, Object.Rotation.Forward.Dot(InteractiveCamera.Instance.Transform.Rotation.Forward));
+		dot *= dot * dot;
+
+		Panel.Style.Opacity = MathF.Max(0f, dot);
+	}
+
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine( InteractiveCamera.Target );
+}

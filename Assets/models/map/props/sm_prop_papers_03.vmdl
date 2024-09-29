@@ -10,8 +10,16 @@
 				children = 
 				[
 					{
-						_class = "Prefab"
-						target_file = "prefabs/model.vmdl_prefab"
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "lambert1.vmat"
+								to = "materials/car/paint/polygonstreetracer_texture_01_a.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
 					},
 				]
 			},
@@ -37,6 +45,21 @@
 								"SM_Prop_Papers_03",
 							]
 						}
+					},
+				]
+			},
+			{
+				_class = "ModelModifierList"
+				children = 
+				[
+					{
+						_class = "ModelModifier_ScaleAndMirror"
+						scale = 0.3937
+						mirror_x = false
+						mirror_y = false
+						mirror_z = false
+						flip_bone_forward = false
+						swap_left_and_right_bones = false
 					},
 				]
 			},

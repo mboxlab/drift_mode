@@ -1,13 +1,61 @@
 {
-  "__guid": "3ea55270-6622-4711-b0be-e29ae2fd6abe",
+  "__guid": "a9812438-ab50-47f2-839a-81d2e0a11d70",
   "GameObjects": [
+    {
+      "__guid": "880573ab-50df-4db4-a444-9cd9bb97d58d",
+      "Flags": 0,
+      "Name": "DIY audio system",
+      "Position": "-22.48538,-239.2046,31.5975",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "85107f65-4118-4291-8ed1-40405ebb6dc0",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "48,40,16",
+          "Static": false
+        },
+        {
+          "__type": "DM.UI.InteractiveObject",
+          "__guid": "0ce79bc3-f2fd-4ba4-a396-ffb80e268b14",
+          "ClampEqual": false,
+          "Clamping": true,
+          "Distance": 64,
+          "LocalAngles": "0,-90,0",
+          "LocalPosition": "0,0,0",
+          "TriggerAnimation": true,
+          "ClampMax": "50,0,0",
+          "ClampMin": "0,-60,0"
+        },
+        {
+          "__type": "Music",
+          "__guid": "132bb7df-df92-40c2-a0d1-6ccf6badb6ec",
+          "File": "sound/chingy - i do edited.vsnd"
+        }
+      ]
+    },
     {
       "__guid": "808995d9-c62a-4b13-a449-3714c9dc1164",
       "Flags": 0,
       "Name": "Camera Origin",
       "Position": "167.0613,104.5462,91.91659",
       "Rotation": "-0.09312487,-0.04336742,0.9017258,-0.4199257",
-      "Enabled": true
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "DM.UI.InteractiveObject",
+          "__guid": "539f9870-d382-4ee8-91a0-801819e56781",
+          "ClampEqual": true,
+          "Clamping": true,
+          "Distance": 0,
+          "LocalAngles": "0,0,0",
+          "LocalPosition": "0,0,0",
+          "TriggerAnimation": true,
+          "ClampMax": "-0,-0,0",
+          "ClampMin": "0,0,0"
+        }
+      ]
     },
     {
       "__guid": "328c3218-21d4-4cbf-b967-0d6a1fce8199",
@@ -33,6 +81,20 @@
           "Viewport": "0,0,1,1",
           "ZFar": 1621,
           "ZNear": 10
+        },
+        {
+          "__type": "MouseInput",
+          "__guid": "d72bf29a-f147-4a25-b610-8168b1255065"
+        },
+        {
+          "__type": "DM.UI.InteractiveCamera",
+          "__guid": "0f1b9ade-48bb-4ea8-9107-338d504b946f",
+          "_origin": {
+            "_type": "component",
+            "component_id": "539f9870-d382-4ee8-91a0-801819e56781",
+            "go": "808995d9-c62a-4b13-a449-3714c9dc1164",
+            "component_type": "InteractiveObject"
+          }
         },
         {
           "__type": "Sandbox.Bloom",
@@ -77,37 +139,12 @@
           "Rate": 1
         },
         {
-          "__type": "Sandbox.Sharpen",
-          "__guid": "8cdfdfa2-8365-4a5a-99d4-a5135bd183c3",
-          "__enabled": false,
-          "Scale": 0.2
-        },
-        {
           "__type": "Sandbox.AmbientOcclusion",
           "__guid": "b76b12f6-9ee9-41ee-b104-36c59aebf929",
           "FalloffDistance": 1,
           "Intensity": 12,
           "Quality": "High",
           "Radius": 32
-        },
-        {
-          "__type": "DM.UI.InteractiveCamera",
-          "__guid": "0f1b9ade-48bb-4ea8-9107-338d504b946f",
-          "CarSelector": {
-            "_type": "component",
-            "component_id": "09195db0-f369-4da4-b3e2-55ec1f73122a",
-            "go": "57154d5c-5938-4f86-9794-6ed227ab4ac0",
-            "component_type": "CarSelector"
-          },
-          "MouseVisible": true,
-          "Origin": {
-            "_type": "gameobject",
-            "go": "808995d9-c62a-4b13-a449-3714c9dc1164"
-          }
-        },
-        {
-          "__type": "MouseWorldInput",
-          "__guid": "06f75ca2-24da-40cb-96cd-bc33a6df52ad"
         }
       ]
     },
@@ -131,6 +168,38 @@
               "prefab": "prefabs/cars/in_garage/g_sedan.prefab"
             }
           ]
+        }
+      ]
+    },
+    {
+      "__guid": "2313ab8c-02bc-4177-9fa2-b79325db5549",
+      "Flags": 0,
+      "Name": "Poster",
+      "Position": "-293.2,-126.5,113.1",
+      "Rotation": "0,0.7071067,0,0.7071068",
+      "Scale": "2.151576,1.67,1",
+      "Tags": "poster",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.PlaneCollider",
+          "__guid": "b73137b6-d9dd-4913-95d4-6d25b2706c17",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50",
+          "Static": true
+        },
+        {
+          "__type": "DM.UI.InteractiveObject",
+          "__guid": "1a65a2f7-f77c-4e51-a903-348ea4ad26ca",
+          "ClampEqual": false,
+          "Clamping": true,
+          "Distance": 160,
+          "LocalAngles": "90,0,0",
+          "LocalPosition": "0,0,0",
+          "TriggerAnimation": true,
+          "ClampMax": "20,20,0",
+          "ClampMin": "-20,-20,0"
         }
       ]
     },
@@ -180,5 +249,6 @@
   "Description": "",
   "ResourceVersion": 1,
   "__references": [],
+  "IsValid": true,
   "__version": 1
 }

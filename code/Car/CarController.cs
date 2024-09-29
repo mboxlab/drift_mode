@@ -1,5 +1,5 @@
 ﻿
-using System.Collections.Generic;
+using System;
 using AltCurves;
 using DM.Engine;
 using Sandbox.Car.Config;

@@ -1,0 +1,46 @@
+@using System;
+@using Sandbox;
+@using Sandbox.UI;
+@using Sandbox.Car;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root>
+	@foreach( Model model in Part.Models )
+	{
+		<div class="point @(Part.Current == model ? "active" : "")" onclick=@( () => OnClick( model ) )></div>
+	}
+</root>
+
+@code
+{
+	[Property] public Part Part;
+	[Property] public InteractiveObject Object;
+
+	private void OnClick( Model model )
+	{
+		Part.Current = model;
+	}
+
+	protected override void OnUpdate()
+	{
+		base.OnUpdate();
+
+		if ( !Object.IsLooked ) GameObject.Destroy();
+
+		int index = Part.Index;
+		index += (int)Input.MouseWheel.y;
+
+		int end = Part.Models.IndexOf(Part.Models.Last()) + 1;
+		index = index % end;
+		if ( index < 0 ) index = end + index;
+
+		if ( Part.Index != index ) Sound.Play( "ui.button.over" );
+		Part.Index = index;
+	}
+
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine( InteractiveCamera.Target, Part.Current );
+}

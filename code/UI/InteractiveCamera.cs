@@ -1,168 +1,183 @@
 using System;
-using DM.Car;
-using Sandbox.UI;
 
-namespace DM.UI;
+namespace Sandbox.UI;
+
+[Icon( "visibility" )]
+[Category( "Interactive" )]
 public sealed class InteractiveCamera : Component
 {
-	public bool Focused { get; private set; }
-	[Property] private bool MouseVisible { get; set; } = true;
-	[Property] private GameObject Origin { get; set; }
-	[Property] private CarSelector CarSelector { get; set; }
-	[Property] public GameObject SelectedObject { get; private set; }
-	public Vector3 TargetPosition { get; set; }
-	public Rotation TargetRotation { get; set; }
-	public float Distance { get; set; } = 230f;
-	public Rotation ClampRotation { get; set; }
-	public float Clamp { get; set; } = -1f;
+	public static InteractiveObject Origin { get => InteractiveCamera.Instance._origin; }
+	[Property] public InteractiveObject _origin;
 
-	private Vector3 lerp_Position { get; set; }
-	private Rotation lerp_Rotation { get; set; }
-	private float lerp_Distance { get; set; }
-
-	public Action<Vector3> OnFocusChanged { get; set; }
-
-	protected override void OnStart()
+	private static InteractiveCamera _instance;
+	public static InteractiveCamera Instance
 	{
-		TargetPosition = Transform.Position;
-		TargetRotation = Transform.Rotation;
-		base.OnStart();
-		SetFocus( Origin.Transform.Position, Origin.Transform.Rotation, 0f );
-	}
-
-	void CarFocus( GameObject car )
-	{
-		var center = Vector3.Up * CarSelector.ActiveCarCenter.z / 1.5f;
-		SetFocus( car.Transform.Position + center );
-		car.Components.Get<PartNameManager>().RenderNames = true;
-		Focused = true;
-		SelectedObject = car;
-		Clamp = -1f;
-	}
-	void CarFocus() => CarFocus( CarSelector.ActiveCar );
-	public void FreeFocus()
-	{
-		SetFocus( Origin.Transform.Position, Origin.Transform.Rotation, 0f );
-		Focused = false;
-		if ( CarSelector.ActiveCar is not null )
-			CarSelector.ActiveCar.Components.Get<PartNameManager>().RenderNames = false;
-		Clamp = -1f;
-
-		SelectedObject = null;
-	}
-	private void UnStepFocus()
-	{
-		if ( SelectedObject is null )
-			return;
-
-
-		if ( SelectedObject == CarSelector.ActiveCar )
+		get
 		{
-			FreeFocus();
-			return;
+			if ( !_instance.IsValid() )
+				_instance = Game.ActiveScene.Components.GetAll<InteractiveCamera>().First();
+
+			return _instance;
+		}
+	}
+
+	public static InteractiveObject Target;
+
+	private Stack<InteractiveObject> History = new();
+
+	public static bool IsOnOrigin { get => Target == Origin; }
+
+	private Vector3 TargetPosition;
+	private Rotation TargetRotation;
+
+	private Vector3 LerpPosition;
+	private Rotation LerpRotation;
+
+	private Vector3 LastPosition;
+	private Rotation LastRotation;
+
+	private Stack<Vector3> PositionHistory = new();
+	private Stack<Rotation> RotationHistory = new();
+
+	private BBox Box = BBox.FromPositionAndSize( Vector3.Zero, 8f );
+	private float Now = -1;
+
+	private Vector3 Slerp( Vector3 a, Vector3 b, float frac, bool clamp = true )
+	{
+		if ( clamp ) frac = frac.Clamp( 0, 1f );
+
+		float dot = Vector3.Dot( a, b ).Clamp( -1f, 1f );
+		float theta = MathF.Asin( dot );
+
+		return a * MathF.Pow( MathF.Cos( frac * theta ), 1.5f ) + b * MathF.Pow( dot * MathF.Sin( frac * theta ), 1.5f );
+	}
+
+	private void SetTarget( InteractiveObject obj, Vector3 position, Rotation rotation, bool animate = true )
+	{
+		Now = animate ? Time.Now : Now;
+		LastPosition = Transform.Position;
+		LastRotation = Transform.Rotation;
+
+		Target = obj;
+		TargetPosition = position;
+		TargetRotation = rotation;
+	}
+
+	private void SetTarget( InteractiveObject obj )
+	{
+		SetTarget( obj, obj.Position, obj.Clamp( TargetRotation ), obj.TriggerAnimation );
+	}
+
+	public void Focus( InteractiveObject obj )
+	{
+		if ( !obj.IsValid() || obj == Target ) return;
+		if ( Time.Now - Now < 0.5f ) return; // fix
+
+		InteractiveObject parent = obj.Parent;
+		if ( IsOnOrigin && parent is not null && parent != Origin ) return;
+		if ( !IsOnOrigin && parent != Target ) return;
+
+		History.Push( Target );
+		PositionHistory.Push( TargetPosition );
+		RotationHistory.Push( TargetRotation );
+
+		SetTarget( obj );
+	}
+
+	public void Focus( GameObject obj )
+	{
+		Focus( obj.Components.Get<InteractiveObject>() );
+	}
+
+	public void Defocus( bool toOrigin = false )
+	{
+		if ( toOrigin )
+		{
+			History.Clear();
+			PositionHistory.Clear();
+			RotationHistory.Clear();
+			SetTarget( Origin );
 		}
 		else
 		{
-			var components = SelectedObject.Components;
-			var part = components.Get<PartName>();
-			if ( part is not null )
-			{
-				SelectedObject = part.ParentPart;
-				part = SelectedObject.Components.Get<PartName>();
-				if ( part is not null )
-					SetFocus( part );
-				else
-					CarFocus();
-			}
+			InteractiveObject prev;
+			History.TryPop( out prev );
+			if ( prev is null ) return;
+
+			Vector3 position = PositionHistory.Pop();
+			Rotation rotation = RotationHistory.Pop();
+
+			if ( Target.TriggerAnimation )
+				SetTarget( prev, position, rotation );
 			else
-				CarFocus();
+				SetTarget( prev, position, prev.Clamp( LerpRotation ), false );
 		}
 	}
 
-	public void SetFocus( Vector3 position, Rotation rotation, float distance = 230f )
+	private void Management()
 	{
-		lerp_Position = position;
-		lerp_Rotation = rotation;
-		lerp_Distance = distance;
-		OnFocusChanged?.Invoke( position );
+		if ( Input.EscapePressed ) Defocus();
+		if ( Input.Pressed( "Attack1" ) )
+		{
+			SceneTraceResult result = Scene.Trace.Ray( MouseInput.Ray, Scene.Camera.ZFar ).IgnoreGameObject( Target.GameObject ).Run();
+			if ( result.Hit ) Focus( result.GameObject );
+		}
+
+		if ( IsOnOrigin )
+			Mouse.Visible = true;
+
+		else
+		{
+			Mouse.Visible = !Input.Down( "Attack2" );
+			if ( Mouse.Visible ) return;
+
+			Angles angles = TargetRotation.Angles();
+			angles = Target.Clamp( angles + Input.AnalogLook );
+			TargetRotation = angles.ToRotation();
+		}
 	}
-	public void SetFocus( Vector3 position, float distance = 230f ) => SetFocus( position, Transform.Rotation, distance );
-	public void SetFocus( PartName obj )
+
+	private void Move()
 	{
-		SelectedObject = obj.GameObject;
-		Clamp = obj.AngleClamp;
-		ClampRotation = obj.RotationClamp;
-		SetFocus( obj.Transform.Position, obj.Distance );
-		CarSelector.ActiveCar.Components.Get<PartNameManager>().RenderNames = false;
+		float animation = Time.Now - Now;
+		if ( animation < 1 )
+		{
+			animation = MathF.Sin( animation * MathF.PI / 2 );
 
+			LerpRotation = Rotation.Lerp( LastRotation, TargetRotation, animation );
+			LerpPosition = Slerp( LastPosition, TargetPosition + LerpRotation.Backward * Target.Distance, animation );
+		}
+		else
+		{
+			LerpRotation = Rotation.Lerp( LerpRotation, TargetRotation, Time.Delta * 8f );
+			LerpPosition = TargetPosition + LerpRotation.Backward * Target.Distance;
+		}
+
+		Transform.Position = LerpPosition;
+		Transform.Rotation = LerpRotation;
 	}
 
+	protected override void OnStart()
+	{
+		base.OnStart();
+
+		Target = Origin;
+
+		TargetPosition = Origin.Position;
+		TargetRotation = Origin.Rotation;
+
+		LerpPosition = TargetPosition;
+		LerpRotation = TargetRotation;
+	}
 
 	protected override void OnUpdate()
 	{
 		base.OnUpdate();
-		ProcessLerp();
-		ProcessInputs();
-		SetupCameraPosition();
-	}
 
-	private void ProcessInputs()
-	{
+		// fix: if GameObject is not valid then back to origin
+		if ( !Target.IsValid() ) Defocus( true );
 
-		Mouse.Visible = MouseVisible;
-
-		Ray ray = MouseWorldInput.Input.Ray;
-		bool MouseLeftPressed = MouseWorldInput.Input.MouseLeftPressed;
-		bool MouseRightPressed = MouseWorldInput.Input.MouseRightPressed;
-
-		Vector3 forward = ray.Forward;
-		Angles angles = forward.EulerAngles;
-
-		if ( MouseVisible )
-			TargetRotation = Rotation.Lerp( TargetRotation, angles, Time.Delta );
-
-		if ( Input.EscapePressed )
-			UnStepFocus();
-
-		SceneTraceResult result = Scene.Trace.Ray( ray, Scene.Camera.ZFar ).WithTag( "car" ).Run();
-
-		if ( !Focused && result.Hit && MouseLeftPressed )
-			CarFocus();
-
-		bool rightDown = Input.Down( "GearDown" );
-
-		if ( Focused )
-			MouseVisible = !rightDown;
-
-
-		if ( rightDown )
-		{
-			angles = lerp_Rotation.Angles();
-			angles += Input.AnalogLook;
-			angles.pitch = MathX.Clamp( angles.pitch, 5f, 45f );
-			angles.roll = 0f;
-			lerp_Rotation = angles.ToRotation();
-		}
-		else
-			lerp_Rotation = lerp_Rotation.Angles().WithRoll( 0 );
-
-
-		if ( Clamp != -1f )
-			lerp_Rotation = lerp_Rotation.Clamp( ClampRotation, Clamp );
-	}
-
-	private void ProcessLerp()
-	{
-		TargetRotation = Rotation.Slerp( TargetRotation, lerp_Rotation, Time.Delta * 8f );
-		float dot = TargetRotation.Forward.Dot( lerp_Rotation.Forward );
-
-		Distance = Distance.LerpTo( lerp_Distance, Time.Delta * 8f * (dot * dot) );
-		TargetPosition = TargetPosition.LerpTo( lerp_Position, Time.Delta * 8f * (dot * dot) );
-	}
-
-	private void SetupCameraPosition()
-	{
-		Transform.Rotation = TargetRotation;
-		Transform.Position = TargetPosition + Transform.Rotation.Backward * Distance;
+		Management();
+		Move();
 	}
 }

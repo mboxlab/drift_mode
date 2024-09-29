@@ -1,51 +1,88 @@
-﻿
-namespace DM.Car;
+﻿using System.Text.Json.Serialization;
 
-public sealed class CarDresser : Component, Component.INetworkSpawn
+namespace Sandbox.Car;
+
+[Icon( "checkroom" )]
+public sealed class CarDresser : Component, Component.INetworkListener, ICarDresserEvent
 {
-	// TODO 
-	// save/load system in garage
-	[Property] public ModelRenderer BodyRenderer { get; set; }
-	[Property] public List<GameObject> Poses { get; set; }
-	public void OnNetworkSpawn( Connection owner )
+	[Property] public List<Part> Parts = new();
+
+	public ModelRenderer CarRenderer;
+
+	private const string Path = "dress.json";
+
+	public Dictionary<string, int> Default
 	{
-		int partid = 0;
-		Material mat = BodyRenderer.MaterialOverride;
-
-		foreach ( GameObject pos in Poses )
+		get
 		{
-			PartsList parts = pos.Components.Get<PartsList>();
-			if ( parts.Parts[partid] is null )
-				continue;
-			GameObject part = new( true, "Model" )
-			{
-				Parent = pos
-			};
-			var partrenderer = part.Components.Create<ModelRenderer>();
-			partrenderer.Model = parts.Parts[partid];
-			partrenderer.MaterialOverride = mat;
-
+			Dictionary<string, int> models = new();
+			Parts.ForEach( part => models[part.Name] = 0 );
+			return models;
 		}
 	}
+
+	public Dictionary<string, int> Current
+	{
+		get
+		{
+			Dictionary<string, int> models = new();
+			Parts.ForEach( part => models[part.Name] = part.Index );
+			return models;
+		}
+	}
+
+	private Dictionary<string, int> Get()
+	{
+		if ( !FileSystem.OrganizationData.FileExists( Path ) ) return Default;
+
+		CarDresses dresses = FileSystem.OrganizationData.ReadJson<CarDresses>( Path );
+		Dictionary<string, int> json = dresses.Cars.GetValueOrDefault( CarRenderer.Model.Name );
+		if ( json is not null ) return json;
+
+		return Default;
+	}
+
+	void ICarDresserEvent.Save() => Save();
+	private void Save()
+	{
+		bool exists = FileSystem.OrganizationData.FileExists( Path );
+		CarDresses dresses = exists ? FileSystem.OrganizationData.ReadJson<CarDresses>( Path ) : new();
+
+		dresses.Cars = dresses.Cars is null ? new() : dresses.Cars;
+		dresses.Cars[CarRenderer.Model.Name] = Current;
+
+		FileSystem.OrganizationData.WriteJson( Path, dresses );
+	}
+
+	public void Dress() => Dress( Get() );
+	public void Dress( Dictionary<string, int> models )
+	{
+		Parts.ForEach( part => part.Index = models[part.Name] );
+		Save();
+	}
+
+	public void OnNetworkSpawn( Connection connection )
+	{
+		//Dress();
+	}
+
 	protected override void OnStart()
 	{
-		if ( IsProxy ) return;
-		int partid = 0;
-		Material mat = BodyRenderer.MaterialOverride;
+		base.OnStart();
 
-		foreach ( GameObject pos in Poses )
-		{
-			PartsList parts = pos.Components.Get<PartsList>();
-			if ( parts.Parts[partid] is null )
-				continue;
-			GameObject part = new( true, "Model" )
-			{
-				Parent = pos
-			};
-			var partrenderer = part.Components.Create<ModelRenderer>();
-			partrenderer.Model = parts.Parts[partid];
-			partrenderer.MaterialOverride = mat;
+		Parts = Components.GetAll<Part>( FindMode.InDescendants ).ToList();
+		CarRenderer = Components.Get<ModelRenderer>();
 
-		}
+		Dress();
 	}
+}
+
+public struct CarDresses
+{
+	[JsonInclude] public Dictionary<string, Dictionary<string, int>> Cars;
+}
+
+public interface ICarDresserEvent : ISceneEvent<ICarDresserEvent>
+{
+	void Save() { }
 }

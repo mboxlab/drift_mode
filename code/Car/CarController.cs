@@ -16,7 +16,7 @@ public sealed class CarController : Component
 	[Property] public WheelCollider[] Wheels { get; private set; }
 	public bool IsBot;
 
-	public static CarController Local;
+	public static CarController Local { get; private set; }
 	[Authority]
 	public void ClientInit()
 	{

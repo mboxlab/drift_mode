@@ -9,7 +9,6 @@ public class Animation : Component
 	public event Action OnAnimationEnd;
 
 	private float progress = 0;
-	private TimeSince T;
 	public float Length { get; set; } = 1f;
 	public int DelayRealtime { get; set; } = 0;
 
@@ -32,7 +31,6 @@ public class Animation : Component
 
 	private void Start()
 	{
-		T = 0;
 		Enabled = true;
 		OnAnimationStart?.Invoke();
 	}

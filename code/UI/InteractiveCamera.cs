@@ -1,4 +1,5 @@
-using System;
+
+using Sandbox.Utils;
 
 namespace Sandbox.UI;
 
@@ -6,7 +7,7 @@ namespace Sandbox.UI;
 [Category( "Interactive" )]
 public sealed class InteractiveCamera : Component
 {
-	public static InteractiveObject Origin { get => InteractiveCamera.Instance._origin; }
+	public static InteractiveObject Origin { get => Instance._origin; }
 	[Property] public InteractiveObject _origin;
 
 	private static InteractiveCamera _instance;
@@ -21,46 +22,28 @@ public sealed class InteractiveCamera : Component
 		}
 	}
 
-	public static InteractiveObject Target;
-
-	private Stack<InteractiveObject> History = new();
+	public static InteractiveObject Target { get; private set; }
+	public Action<bool> OnMouseDrag;
 
 	public static bool IsOnOrigin { get => Target == Origin; }
 
 	private Vector3 TargetPosition;
 	private Rotation TargetRotation;
+	private float TargetDistance;
 
-	private Vector3 LerpPosition;
-	private Rotation LerpRotation;
+	private readonly Stack<InteractiveObject> History = new();
+	private readonly Stack<Vector3> PositionHistory = new();
+	private readonly Stack<Rotation> RotationHistory = new();
 
-	private Vector3 LastPosition;
-	private Rotation LastRotation;
 
-	private Stack<Vector3> PositionHistory = new();
-	private Stack<Rotation> RotationHistory = new();
+	private bool InAnimation = false;
 
-	private BBox Box = BBox.FromPositionAndSize( Vector3.Zero, 8f );
-	private float Now = -1;
-
-	private Vector3 Slerp( Vector3 a, Vector3 b, float frac, bool clamp = true )
-	{
-		if ( clamp ) frac = frac.Clamp( 0, 1f );
-
-		float dot = Vector3.Dot( a, b ).Clamp( -1f, 1f );
-		float theta = MathF.Asin( dot );
-
-		return a * MathF.Pow( MathF.Cos( frac * theta ), 1.5f ) + b * MathF.Pow( dot * MathF.Sin( frac * theta ), 1.5f );
-	}
+	[Property] public Curve AnimationCurve { get; set; }
 
 	private void SetTarget( InteractiveObject obj, Vector3 position, Rotation rotation, bool animate = true )
 	{
-		Now = animate ? Time.Now : Now;
-		LastPosition = Transform.Position;
-		LastRotation = Transform.Rotation;
-
 		Target = obj;
-		TargetPosition = position;
-		TargetRotation = rotation;
+		StartAnimation( position, rotation, Target.Distance );
 	}
 
 	private void SetTarget( InteractiveObject obj )
@@ -71,7 +54,6 @@ public sealed class InteractiveCamera : Component
 	public void Focus( InteractiveObject obj )
 	{
 		if ( !obj.IsValid() || obj == Target ) return;
-		if ( Time.Now - Now < 0.5f ) return; // fix
 
 		InteractiveObject parent = obj.Parent;
 		if ( IsOnOrigin && parent is not null && parent != Origin ) return;
@@ -82,6 +64,7 @@ public sealed class InteractiveCamera : Component
 		RotationHistory.Push( TargetRotation );
 
 		SetTarget( obj );
+
 	}
 
 	public void Focus( GameObject obj )
@@ -100,22 +83,19 @@ public sealed class InteractiveCamera : Component
 		}
 		else
 		{
-			InteractiveObject prev;
-			History.TryPop( out prev );
+			History.TryPop( out InteractiveObject prev );
 			if ( prev is null ) return;
 
 			Vector3 position = PositionHistory.Pop();
 			Rotation rotation = RotationHistory.Pop();
 
-			if ( Target.TriggerAnimation )
-				SetTarget( prev, position, rotation );
-			else
-				SetTarget( prev, position, prev.Clamp( LerpRotation ), false );
+			SetTarget( prev, position, prev.Clamp( rotation ), Target.TriggerAnimation );
 		}
 	}
 
 	private void Management()
 	{
+		if ( InAnimation ) return;
 		if ( Input.EscapePressed ) Defocus();
 		if ( Input.Pressed( "Attack1" ) )
 		{
@@ -125,37 +105,52 @@ public sealed class InteractiveCamera : Component
 
 		if ( IsOnOrigin )
 			Mouse.Visible = true;
-
 		else
 		{
-			Mouse.Visible = !Input.Down( "Attack2" );
-			if ( Mouse.Visible ) return;
+			bool isDown = Input.Down( "Attack2" );
+			if ( !isDown != Mouse.Visible )
+				OnMouseDrag?.Invoke( isDown );
 
+			Mouse.Visible = !isDown;
+
+			if ( !isDown )
+				return;
 			Angles angles = TargetRotation.Angles();
 			angles = Target.Clamp( angles + Input.AnalogLook );
 			TargetRotation = angles.ToRotation();
 		}
 	}
 
-	private void Move()
+	private void UpdatePosition()
 	{
-		float animation = Time.Now - Now;
-		if ( animation < 1 )
-		{
-			animation = MathF.Sin( animation * MathF.PI / 2 );
-
-			LerpRotation = Rotation.Lerp( LastRotation, TargetRotation, animation );
-			LerpPosition = Slerp( LastPosition, TargetPosition + LerpRotation.Backward * Target.Distance, animation );
-		}
-		else
-		{
-			LerpRotation = Rotation.Lerp( LerpRotation, TargetRotation, Time.Delta * 8f );
-			LerpPosition = TargetPosition + LerpRotation.Backward * Target.Distance;
-		}
-
-		Transform.Position = LerpPosition;
-		Transform.Rotation = LerpRotation;
+		Transform.Position = TargetPosition + TargetRotation.Backward * TargetDistance;
+		Transform.Rotation = TargetRotation;
 	}
+
+	private void StartAnimation( Vector3 endPos, Rotation endRot, float distance )
+	{
+		var anim = Components.Create<Animation>( true );
+		anim.Length = 0.4f;
+		anim.OnAnimationStart += OnAnimationStart;
+		anim.OnAnimationEnd += OnAnimationEnd;
+		if ( AnimationCurve.Length > 1 )
+			anim.Curve = AnimationCurve;
+
+		Vector3 lerpPos = TargetPosition;
+		Rotation lerpRot = TargetRotation;
+		float lerpDist = TargetDistance;
+		anim.OnAnimationProgress += ( float delta ) =>
+		{
+
+			TargetPosition = lerpPos.LerpTo( endPos, delta );
+			TargetRotation = Rotation.Lerp( lerpRot, endRot, delta );
+			TargetDistance = lerpDist.LerpTo( distance, delta );
+		};
+
+	}
+
+	private void OnAnimationStart() => InAnimation = true;
+	private void OnAnimationEnd() => InAnimation = false;
 
 	protected override void OnStart()
 	{
@@ -166,9 +161,8 @@ public sealed class InteractiveCamera : Component
 		TargetPosition = Origin.Position;
 		TargetRotation = Origin.Rotation;
 
-		LerpPosition = TargetPosition;
-		LerpRotation = TargetRotation;
 	}
+
 
 	protected override void OnUpdate()
 	{
@@ -178,6 +172,6 @@ public sealed class InteractiveCamera : Component
 		if ( !Target.IsValid() ) Defocus( true );
 
 		Management();
-		Move();
+		UpdatePosition();
 	}
 }

@@ -6,41 +6,66 @@
 @inherits PanelComponent
 
 <root>
-	@foreach( Model model in Part.Models )
-	{
-		<div class="point @(Part.Current == model ? "active" : "")" onclick=@( () => OnClick( model ) )></div>
-	}
+	<div class="title">@PartName</div>
+	<div class="container" style="pointer-events: @(MouseVisible ? "all" : "none")">
+		@foreach (Model model in Part.Models)
+		{
+			<div class="point @(Part.Current == model ? "active" : "")" onclick=@( () => OnClick( model ) )></div>
+		}
+	</div>
+
 </root>
 
 @code
 {
 	[Property] public Part Part;
 	[Property] public InteractiveObject Object;
+	private bool MouseVisible = true;
 
-	private void OnClick( Model model )
+	private String PartName { get => Part.Index.ToString(); }
+
+	private void OnClick(Model model)
 	{
-		Part.Current = model;
+		if (Part.Current != model)
+		{
+			Sound.Play("ui.button.over");
+			Part.Dress(model);
+			Part.Save();
+		}
 	}
 
 	protected override void OnUpdate()
 	{
 		base.OnUpdate();
 
-		if ( !Object.IsLooked ) GameObject.Destroy();
+		if (!Object.IsLooked) GameObject.Destroy();
 
 		int index = Part.Index;
 		index += (int)Input.MouseWheel.y;
+		if (Input.Pressed("Left"))
+			index--;
+		else if (Input.Pressed("Right"))
+			index++;
+
 
 		int end = Part.Models.IndexOf(Part.Models.Last()) + 1;
 		index = index % end;
-		if ( index < 0 ) index = end + index;
+		if (index < 0) index = end + index;
 
-		if ( Part.Index != index ) Sound.Play( "ui.button.over" );
-		Part.Index = index;
+		if (Part.Index != index)
+		{
+			Sound.Play("ui.button.over");
+			Part.Dress(index);
+			Part.Save();
+		}
+
 	}
-
+	public void OnMouseDrag(bool isDown)
+	{
+		MouseVisible = !isDown;
+	}
 	/// <summary>
 	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
 	/// </summary>
-	protected override int BuildHash() => System.HashCode.Combine( InteractiveCamera.Target, Part.Current );
+	protected override int BuildHash() => System.HashCode.Combine(InteractiveCamera.Target, Part.Current, MouseVisible);
 }

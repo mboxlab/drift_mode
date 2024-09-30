@@ -21,7 +21,7 @@
         "Clamping": true,
         "Distance": 196,
         "LocalAngles": "0,0,0",
-        "LocalPosition": "0,0,32",
+        "OffsetPosition": "0,0,32",
         "TriggerAnimation": true,
         "ClampMax": "40,180,0",
         "ClampMin": "-10,-180,0"
@@ -247,7 +247,7 @@
                         "Clamping": true,
                         "Distance": 96,
                         "LocalAngles": "30,0,0",
-                        "LocalPosition": "0,0,0",
+                        "OffsetPosition": "0,0,0",
                         "Parent": {
                           "_type": "component",
                           "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
@@ -334,7 +334,7 @@
                         "Clamping": true,
                         "Distance": 96,
                         "LocalAngles": "0,0,0",
-                        "LocalPosition": "0,0,0",
+                        "OffsetPosition": "0,0,0",
                         "Parent": {
                           "_type": "component",
                           "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
@@ -389,7 +389,7 @@
                         "Clamping": true,
                         "Distance": 96,
                         "LocalAngles": "0,0,0",
-                        "LocalPosition": "0,0,0",
+                        "OffsetPosition": "0,0,0",
                         "Parent": {
                           "_type": "component",
                           "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
@@ -475,7 +475,7 @@
                         "Clamping": true,
                         "Distance": 96,
                         "LocalAngles": "0,180,0",
-                        "LocalPosition": "0,0,0",
+                        "OffsetPosition": "0,0,0",
                         "Parent": {
                           "_type": "component",
                           "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
@@ -562,7 +562,7 @@
                         "Clamping": true,
                         "Distance": 96,
                         "LocalAngles": "0,180,0",
-                        "LocalPosition": "0,0,0",
+                        "OffsetPosition": "0,0,0",
                         "Parent": {
                           "_type": "component",
                           "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
@@ -649,7 +649,7 @@
                         "Clamping": true,
                         "Distance": 64,
                         "LocalAngles": "0,0,0",
-                        "LocalPosition": "0,0,0",
+                        "OffsetPosition": "0,0,0",
                         "Parent": {
                           "_type": "component",
                           "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
@@ -704,7 +704,7 @@
                         "Clamping": true,
                         "Distance": 64,
                         "LocalAngles": "0,0,0",
-                        "LocalPosition": "0,0,0",
+                        "OffsetPosition": "0,0,0",
                         "Parent": {
                           "_type": "component",
                           "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
@@ -759,7 +759,7 @@
                         "Clamping": true,
                         "Distance": 64,
                         "LocalAngles": "0,0,0",
-                        "LocalPosition": "0,0,0",
+                        "OffsetPosition": "0,0,0",
                         "Parent": {
                           "_type": "component",
                           "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
@@ -814,7 +814,7 @@
                         "Clamping": true,
                         "Distance": 64,
                         "LocalAngles": "0,0,0",
-                        "LocalPosition": "0,0,0",
+                        "OffsetPosition": "0,0,0",
                         "Parent": {
                           "_type": "component",
                           "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
@@ -850,7 +850,6 @@
                     "__guid": "713e956e-a533-4ef4-b460-53feeb231bfa",
                     "Flags": 0,
                     "Name": "poses",
-                    "Position": "0,0,0",
                     "Rotation": "0,0,0.7071068,0.7071068",
                     "Enabled": true,
                     "Children": [
@@ -890,7 +889,7 @@
                             "Clamping": true,
                             "Distance": 64,
                             "LocalAngles": "0,0,0",
-                            "LocalPosition": "0,0,0",
+                            "OffsetPosition": "0,0,0",
                             "Parent": {
                               "_type": "component",
                               "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
@@ -944,7 +943,7 @@
                             "Clamping": true,
                             "Distance": 64,
                             "LocalAngles": "0,0,0",
-                            "LocalPosition": "0,-10,0",
+                            "OffsetPosition": "0,-10,0",
                             "Parent": {
                               "_type": "component",
                               "component_id": "3908ea28-316b-46b0-8105-d28f39e1242a",
@@ -998,7 +997,7 @@
                             "Clamping": true,
                             "Distance": 64,
                             "LocalAngles": "0,0,0",
-                            "LocalPosition": "0,10,0",
+                            "OffsetPosition": "0,10,0",
                             "Parent": {
                               "_type": "component",
                               "component_id": "3908ea28-316b-46b0-8105-d28f39e1242a",
@@ -1029,7 +1028,7 @@
                     "Clamping": false,
                     "Distance": 32,
                     "LocalAngles": "0,0,0",
-                    "LocalPosition": "0,-10,0",
+                    "OffsetPosition": "0,0,0",
                     "TriggerAnimation": true,
                     "ClampMax": "0,0,0",
                     "ClampMin": "0,0,0"
@@ -1040,7 +1039,6 @@
                     "__guid": "27b1d7a5-e44f-4209-ab9a-536902a20ae1",
                     "Flags": 0,
                     "Name": "poses",
-                    "Position": "0,0,0",
                     "Rotation": "0,0,0.7071068,0.7071068",
                     "Enabled": true,
                     "Children": [
@@ -1080,7 +1078,7 @@
                             "Clamping": true,
                             "Distance": 64,
                             "LocalAngles": "0,0,0",
-                            "LocalPosition": "0,0,0",
+                            "OffsetPosition": "0,0,0",
                             "Parent": {
                               "_type": "component",
                               "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
@@ -1134,7 +1132,7 @@
                             "Clamping": true,
                             "Distance": 64,
                             "LocalAngles": "0,0,0",
-                            "LocalPosition": "0,-10,0",
+                            "OffsetPosition": "0,-10,0",
                             "Parent": {
                               "_type": "component",
                               "component_id": "81325e63-dcff-496b-bf05-8dc6dd30b94e",
@@ -1188,7 +1186,7 @@
                             "Clamping": true,
                             "Distance": 64,
                             "LocalAngles": "0,0,0",
-                            "LocalPosition": "0,10,0",
+                            "OffsetPosition": "0,10,0",
                             "Parent": {
                               "_type": "component",
                               "component_id": "81325e63-dcff-496b-bf05-8dc6dd30b94e",
@@ -1220,7 +1218,7 @@
                     "Clamping": false,
                     "Distance": 32,
                     "LocalAngles": "0,0,0",
-                    "LocalPosition": "0,-10,0",
+                    "OffsetPosition": "0,0,0",
                     "TriggerAnimation": true,
                     "ClampMax": "0,0,0",
                     "ClampMin": "0,0,0"
@@ -1231,7 +1229,6 @@
                     "__guid": "06028156-a3ad-4e2b-b096-3e79865a98a8",
                     "Flags": 0,
                     "Name": "poses",
-                    "Position": "0,0,0",
                     "Rotation": "0,0,0.7071068,0.7071068",
                     "Enabled": true,
                     "Children": [
@@ -1271,7 +1268,7 @@
                             "Clamping": true,
                             "Distance": 64,
                             "LocalAngles": "0,0,0",
-                            "LocalPosition": "0,0,0",
+                            "OffsetPosition": "0,0,0",
                             "Parent": {
                               "_type": "component",
                               "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
@@ -1325,7 +1322,7 @@
                             "Clamping": true,
                             "Distance": 64,
                             "LocalAngles": "0,0,0",
-                            "LocalPosition": "0,-10,0",
+                            "OffsetPosition": "0,-10,0",
                             "Parent": {
                               "_type": "component",
                               "component_id": "ca1d6d04-15f2-489c-a38a-48280e96a190",
@@ -1379,7 +1376,7 @@
                             "Clamping": true,
                             "Distance": 64,
                             "LocalAngles": "0,0,0",
-                            "LocalPosition": "0,10,0",
+                            "OffsetPosition": "0,10,0",
                             "Parent": {
                               "_type": "component",
                               "component_id": "ca1d6d04-15f2-489c-a38a-48280e96a190",
@@ -1410,7 +1407,7 @@
                     "Clamping": false,
                     "Distance": 32,
                     "LocalAngles": "0,0,0",
-                    "LocalPosition": "0,-10,0",
+                    "OffsetPosition": "0,0,0",
                     "TriggerAnimation": true,
                     "ClampMax": "0,0,0",
                     "ClampMin": "0,0,0"
@@ -1421,7 +1418,6 @@
                     "__guid": "2028e481-58e3-49fa-bea8-2108bc121292",
                     "Flags": 0,
                     "Name": "poses",
-                    "Position": "0,0,0",
                     "Rotation": "0,0,0.7071068,0.7071068",
                     "Enabled": true,
                     "Children": [
@@ -1461,7 +1457,7 @@
                             "Clamping": true,
                             "Distance": 64,
                             "LocalAngles": "0,0,0",
-                            "LocalPosition": "0,0,0",
+                            "OffsetPosition": "0,0,0",
                             "Parent": {
                               "_type": "component",
                               "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
@@ -1515,7 +1511,7 @@
                             "Clamping": true,
                             "Distance": 64,
                             "LocalAngles": "0,0,0",
-                            "LocalPosition": "0,-10,0",
+                            "OffsetPosition": "0,-10,0",
                             "Parent": {
                               "_type": "component",
                               "component_id": "8d2108a6-11f4-4af9-a1c6-355962b01384",
@@ -1569,7 +1565,7 @@
                             "Clamping": true,
                             "Distance": 64,
                             "LocalAngles": "0,0,0",
-                            "LocalPosition": "0,10,0",
+                            "OffsetPosition": "0,10,0",
                             "Parent": {
                               "_type": "component",
                               "component_id": "8d2108a6-11f4-4af9-a1c6-355962b01384",

@@ -8,14 +8,14 @@ public sealed class InteractiveObject : Component
 {
 	[Property] public InteractiveObject Parent;
 
-	[Property] public Vector3 LocalPosition;
+	[Property] public Vector3 OffsetPosition;
 	[Property] public Angles LocalAngles;
 	[Property] public float Distance;
 
 	[Property]
 	[Group( "Clamp" )]
 	public bool Clamping = false;
-	
+
 	[Property]
 	[Group( "Clamp" )]
 	[ShowIf( "Clamping", true )]
@@ -57,7 +57,7 @@ public sealed class InteractiveObject : Component
 
 	public Vector3 Position
 	{
-		get => Transform.Position + LocalPosition * Transform.Rotation;
+		get => Transform.Position + OffsetPosition * Transform.Rotation;
 	}
 
 	public Rotation Rotation

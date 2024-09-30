@@ -23,7 +23,7 @@
           "Clamping": true,
           "Distance": 64,
           "LocalAngles": "0,-90,0",
-          "LocalPosition": "0,0,0",
+          "OffsetPosition": "0,0,0",
           "TriggerAnimation": true,
           "ClampMax": "50,0,0",
           "ClampMin": "0,-60,0"
@@ -50,7 +50,7 @@
           "Clamping": true,
           "Distance": 0,
           "LocalAngles": "0,0,0",
-          "LocalPosition": "0,0,0",
+          "OffsetPosition": "0,0,0",
           "TriggerAnimation": true,
           "ClampMax": "-0,-0,0",
           "ClampMin": "0,0,0"
@@ -94,7 +94,17 @@
             "component_id": "539f9870-d382-4ee8-91a0-801819e56781",
             "go": "808995d9-c62a-4b13-a449-3714c9dc1164",
             "component_type": "InteractiveObject"
-          }
+          },
+          "AnimationCurve": [
+            {
+              "in": -2.8636377,
+              "out": 2.8636377
+            },
+            {
+              "x": 1,
+              "y": 1
+            }
+          ]
         },
         {
           "__type": "Sandbox.Bloom",
@@ -196,7 +206,7 @@
           "Clamping": true,
           "Distance": 160,
           "LocalAngles": "90,0,0",
-          "LocalPosition": "0,0,0",
+          "OffsetPosition": "0,0,0",
           "TriggerAnimation": true,
           "ClampMax": "20,20,0",
           "ClampMin": "-20,-20,0"

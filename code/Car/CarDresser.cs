@@ -42,8 +42,7 @@ public sealed class CarDresser : Component, Component.INetworkListener, ICarDres
 		return Default;
 	}
 
-	void ICarDresserEvent.Save() => Save();
-	private void Save()
+	void ICarDresserEvent.Save()
 	{
 		bool exists = FileSystem.OrganizationData.FileExists( Path );
 		CarDresses dresses = exists ? FileSystem.OrganizationData.ReadJson<CarDresses>( Path ) : new();
@@ -57,8 +56,7 @@ public sealed class CarDresser : Component, Component.INetworkListener, ICarDres
 	public void Dress() => Dress( Get() );
 	public void Dress( Dictionary<string, int> models )
 	{
-		Parts.ForEach( part => part.Index = models[part.Name] );
-		Save();
+		Parts.ForEach( part => part.Dress( models[part.Name] ) );
 	}
 
 	public void OnNetworkSpawn( Connection connection )

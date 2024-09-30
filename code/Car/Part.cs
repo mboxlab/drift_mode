@@ -1,24 +1,17 @@
 ﻿namespace Sandbox.Car;
 
 [Icon( "extension" )]
-public sealed class Part : Component, ICarDresserEvent
+public sealed class Part : Component
 {
 	[Property] public string Name;
 
 	private Model _current;
 	[Property]
-	public Model Current
-	{
-		get => _current;
-		set => Dress( value );
-	}
+	public Model Current { get => _current; private set => _current = value; }
 
+	private int _index;
 	[Property]
-	public int Index
-	{
-		get => Models.IndexOf( Current );
-		set => Current = Models.ElementAtOrDefault( value );
-	}
+	public int Index { get => _index; private set => _index = value; }
 
 	private bool _rendering;
 	[Property]
@@ -62,10 +55,12 @@ public sealed class Part : Component, ICarDresserEvent
 		Dress( _current );
 	}
 
-	public void Dress( int index ) => Index = index;
+	public void Dress( int index ) => Dress( Models[index] );
 	public void Dress( Model model )
 	{
-		_current = model;
+
+		Index = Models.IndexOf( model );
+		Current = model;
 		Rendering = _current is not null;
 		if ( !Rendering ) return;
 
@@ -77,6 +72,10 @@ public sealed class Part : Component, ICarDresserEvent
 			renderer.MaterialOverride = material;
 		}
 
+	}
+
+	public void Save()
+	{
 		ICarDresserEvent.Post( x => x.Save() );
 	}
 }

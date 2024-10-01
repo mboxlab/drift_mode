@@ -12,8 +12,6 @@
 
 @code
 {
-
-	[Property, TextArea] public string MyStringValue { get; set; } = "Hello World!";
 	private InteractiveObject Object;
 	[Property] public SceneFile Race;
 	private void OnClick()
@@ -32,5 +30,5 @@
 	/// <summary>
 	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
 	/// </summary>
-	protected override int BuildHash() => System.HashCode.Combine(MyStringValue);
+	protected override int BuildHash() => 0;
 }

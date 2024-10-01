@@ -6,11 +6,16 @@
 @inherits PanelComponent
 
 <root>
-	<div class="title">@PartName</div>
 	<div class="container" style="pointer-events: @(MouseVisible ? "all" : "none")">
-		@foreach (Model model in Part.Models)
-		{
-			<div class="point @(Part.Current == model ? "active" : "")" onclick=@( () => OnClick( model ) )></div>
+		@{
+			int i = 1;
+			foreach (Model model in Part.Models)
+			{
+				<div class="point @(Part.Current == model ? "active" : "")" onclick=@( () => OnClick( model ) )>
+					<title>@i</title>
+				</div>
+				i++;
+			}
 		}
 	</div>
 

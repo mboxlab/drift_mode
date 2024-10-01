@@ -236,6 +236,50 @@
         }
       ],
       "Children": []
+    },
+    {
+      "__guid": "0a8639bb-98a3-4bd2-b034-4020fddcdb5c",
+      "Flags": 0,
+      "Name": "World",
+      "Position": "132.3275,10.18766,70.82504",
+      "Rotation": "0,0,0.5933173,0.8049687",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.WorldPanel",
+          "__guid": "431f7772-9c56-4a8b-ad4e-88894f64f802",
+          "HorizontalAlign": "Center",
+          "InteractionRange": 1000,
+          "LookAtCamera": false,
+          "PanelSize": "512,128",
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderScale": 1,
+          "VerticalAlign": "Center"
+        },
+        {
+          "__type": "Sandbox.UI.InteractiveObject",
+          "__guid": "04b262d9-00fd-49f4-93e8-c1c17ab6d2ff",
+          "ClampEqual": true,
+          "Clamping": false,
+          "Distance": 64,
+          "LocalAngles": "0,0,0",
+          "OffsetPosition": "0,0,0",
+          "TriggerAnimation": true,
+          "ClampMax": "-0,-90,0",
+          "ClampMin": "0,90,0"
+        },
+        {
+          "__type": "Sandbox.GamesPanel",
+          "__guid": "38a41dd4-823b-48bc-a20a-832e8dad234b",
+          "Race": "scenes/games/sprint_mode/001.scene",
+          "MyStringValue": "Hello World!"
+        }
+      ]
     }
   ],
   "SceneProperties": {

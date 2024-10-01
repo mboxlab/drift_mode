@@ -633,7 +633,7 @@
             "__guid": "a67d5021-9e51-483f-a1b7-a628c5bb2909",
             "Flags": 0,
             "Name": "Wheel Front Left",
-            "Position": "0,32,0",
+            "Position": "0,29,0",
             "Enabled": true,
             "Components": [
               {
@@ -943,7 +943,7 @@
             "__guid": "8c9526f3-7634-43e5-812f-67d706b9022f",
             "Flags": 0,
             "Name": "Wheel Front Right",
-            "Position": "0,-32.00001,0",
+            "Position": "0,-29,0",
             "Enabled": true,
             "Components": [
               {
@@ -1262,7 +1262,7 @@
             "__guid": "fc04e594-0d78-49bb-bb9d-6a0887b8dae7",
             "Flags": 0,
             "Name": "Wheel Rear Left",
-            "Position": "0,32,0",
+            "Position": "0,29,0",
             "Enabled": true,
             "Components": [
               {
@@ -1572,7 +1572,7 @@
             "__guid": "4eaa3d57-e9df-4268-b733-3e3ad411e6c7",
             "Flags": 0,
             "Name": "Wheel Rear Right",
-            "Position": "0,-32.00001,0",
+            "Position": "0,-29,0",
             "Enabled": true,
             "Components": [
               {

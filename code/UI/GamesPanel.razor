@@ -1,0 +1,37 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace Sandbox
+
+<root>
+	@if (InteractiveCamera.Target == InteractiveCamera.Origin)
+	{
+		<div class="title" onclick=@OnClick>Play</div>
+	}
+</root>
+
+@code
+{
+
+	[Property, TextArea] public string MyStringValue { get; set; } = "Hello World!";
+	private InteractiveObject Object;
+	[Property] public SceneFile Race;
+	private void OnClick()
+	{
+		if (Panel.Style.Opacity == 0f) return;
+		Mouse.Visible = false;
+		Scene.Load(Race);
+		// InteractiveCamera.Instance.Focus(Object);
+	}
+	protected override void OnStart()
+	{
+		base.OnStart();
+
+		Object = Components.Get<InteractiveObject>();
+	}
+
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine(MyStringValue);
+}

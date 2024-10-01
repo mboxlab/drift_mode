@@ -53,6 +53,16 @@
             "__type": "Sandbox.Car.CarDresser",
             "__guid": "f0ec5012-65de-40cb-aed7-b57d29a5c706",
             "Parts": []
+          },
+          {
+            "__type": "Sandbox.HighlightOutline",
+            "__guid": "f2252eb8-788a-4a1a-ba26-c864a6b7e4fb",
+            "__enabled": false,
+            "Color": "1,1,1,1",
+            "InsideColor": "0,0,0,0",
+            "InsideObscuredColor": "0,0,0,0",
+            "ObscuredColor": "0,0,0,0.4",
+            "Width": 0.25
           }
         ],
         "Children": [

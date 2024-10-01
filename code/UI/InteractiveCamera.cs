@@ -92,14 +92,34 @@ public sealed class InteractiveCamera : Component
 			SetTarget( prev, position, prev.Clamp( rotation ), Target.TriggerAnimation );
 		}
 	}
-
+	private HighlightOutline HighlightOutlined;
 	private void Management()
 	{
 		if ( InAnimation ) return;
 		if ( Input.EscapePressed ) Defocus();
+		if ( Target == Origin )
+		{
+
+			SceneTraceResult result = Scene.Trace.Ray( MouseInput.Ray, Scene.Camera.ZFar ).IgnoreGameObject( Target.GameObject ).Run();
+			var h = result.GameObject.Components.Get<HighlightOutline>( FindMode.InChildren );
+			if ( h == null && HighlightOutlined != null )
+			{
+				HighlightOutlined.Enabled = false;
+			}
+			else if ( HighlightOutlined != null )
+			{
+				HighlightOutlined.Enabled = true;
+			}
+			HighlightOutlined = h;
+		}
+		else if ( HighlightOutlined != null )
+		{
+			HighlightOutlined.Enabled = false;
+		}
 		if ( Input.Pressed( "Attack1" ) )
 		{
 			SceneTraceResult result = Scene.Trace.Ray( MouseInput.Ray, Scene.Camera.ZFar ).IgnoreGameObject( Target.GameObject ).Run();
+
 			if ( result.Hit ) Focus( result.GameObject );
 		}
 

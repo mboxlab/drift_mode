@@ -96,7 +96,12 @@ public sealed class InteractiveCamera : Component
 	private void Management()
 	{
 		if ( InAnimation ) return;
-		if ( Input.EscapePressed ) Defocus();
+		if ( Input.EscapePressed )
+		{
+			Input.EscapePressed = false;
+			if ( Target == Origin ) return;
+			Defocus();
+		}
 		if ( Target == Origin )
 		{
 

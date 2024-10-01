@@ -102,7 +102,7 @@ public sealed class InteractiveCamera : Component
 			if ( Target == Origin ) return;
 			Defocus();
 		}
-		if ( Target == Origin )
+		if ( Target is not null && Target == Origin )
 		{
 
 			SceneTraceResult result = Scene.Trace.Ray( MouseInput.Ray, Scene.Camera.ZFar ).IgnoreGameObject( Target.GameObject ).Run();

@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Runtime.ConstrainedExecution;
 using AltCurves;
 using DM.Engine;
 using Sandbox.Car.Config;
@@ -79,6 +80,8 @@ public sealed class CarController : Component
 	{
 		base.OnAwake();
 
+		if ( !IsProxy )
+			ClientInit();
 
 		//Set drive wheel.
 		switch ( DriveType )

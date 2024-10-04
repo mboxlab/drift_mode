@@ -1,5 +1,6 @@
 
 using Sandbox.Utils;
+using System.Diagnostics;
 
 namespace Sandbox.UI;
 
@@ -92,40 +93,20 @@ public sealed class InteractiveCamera : Component
 			SetTarget( prev, position, prev.Clamp( rotation ), Target.TriggerAnimation );
 		}
 	}
-	private HighlightOutline HighlightOutlined;
+
+	private HighlightOutline HighlightOutline;
 	private void Management()
 	{
-		if ( InAnimation ) return;
+		if ( InAnimation )
+		{
+			if ( HighlightOutline.IsValid() ) HighlightOutline.Enabled = false;
+			return;
+		}
+
 		if ( Input.EscapePressed )
 		{
 			Input.EscapePressed = false;
-			if ( Target == Origin ) return;
-			Defocus();
-		}
-		if ( Target is not null && Target == Origin )
-		{
-
-			SceneTraceResult result = Scene.Trace.Ray( MouseInput.Ray, Scene.Camera.ZFar ).IgnoreGameObject( Target.GameObject ).Run();
-			var h = result.GameObject.Components.Get<HighlightOutline>( FindMode.InChildren );
-			if ( h == null && HighlightOutlined != null )
-			{
-				HighlightOutlined.Enabled = false;
-			}
-			else if ( HighlightOutlined != null )
-			{
-				HighlightOutlined.Enabled = true;
-			}
-			HighlightOutlined = h;
-		}
-		else if ( HighlightOutlined != null )
-		{
-			HighlightOutlined.Enabled = false;
-		}
-		if ( Input.Pressed( "Attack1" ) )
-		{
-			SceneTraceResult result = Scene.Trace.Ray( MouseInput.Ray, Scene.Camera.ZFar ).IgnoreGameObject( Target.GameObject ).Run();
-
-			if ( result.Hit ) Focus( result.GameObject );
+			if ( Target != Origin ) Defocus();
 		}
 
 		if ( IsOnOrigin )
@@ -144,12 +125,27 @@ public sealed class InteractiveCamera : Component
 			angles = Target.Clamp( angles + Input.AnalogLook );
 			TargetRotation = angles.ToRotation();
 		}
+
+		SceneTraceResult result = Scene.Trace.Ray( MouseInput.Ray, Scene.Camera.ZFar ).IgnoreGameObject( Target.GameObject ).Run();
+		GameObject obj = result.GameObject;
+		if ( !obj.IsValid() ) return;
+
+		if ( Input.Pressed( "Attack1" ) ) Focus( obj );
+		if ( IsOnOrigin )
+		{
+			HighlightOutline highlight = obj.Components.Get<HighlightOutline>( FindMode.EverythingInSelfAndChildren );
+			if ( HighlightOutline.IsValid() ) HighlightOutline.Enabled = highlight.IsValid();
+			HighlightOutline = highlight;
+		}
 	}
 
 	private void UpdatePosition()
 	{
-		Transform.Position = TargetPosition + TargetRotation.Backward * TargetDistance;
-		Transform.Rotation = TargetRotation;
+		Ray ray = new Ray( TargetPosition, TargetRotation.Backward );
+		SceneTraceResult result = Scene.Trace.Sphere( 4f, ray, TargetDistance ).IgnoreGameObject( Target.GameObject ).Run();
+
+		WorldPosition = result.EndPosition;
+		WorldRotation = TargetRotation;
 	}
 
 	private void StartAnimation( Vector3 endPos, Rotation endRot, float distance )
@@ -166,7 +162,6 @@ public sealed class InteractiveCamera : Component
 		float lerpDist = TargetDistance;
 		anim.OnAnimationProgress += ( float delta ) =>
 		{
-
 			TargetPosition = lerpPos.LerpTo( endPos, delta );
 			TargetRotation = Rotation.Lerp( lerpRot, endRot, delta );
 			TargetDistance = lerpDist.LerpTo( distance, delta );
@@ -182,10 +177,8 @@ public sealed class InteractiveCamera : Component
 		base.OnStart();
 
 		Target = Origin;
-
 		TargetPosition = Origin.Position;
 		TargetRotation = Origin.Rotation;
-
 	}
 
 

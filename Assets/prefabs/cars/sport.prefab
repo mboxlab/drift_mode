@@ -236,9 +236,7 @@
         "CameraTarget": {
           "_type": "gameobject",
           "go": "a7552737-ddb9-4c5f-9ede-cc937f4c2a20"
-        },
-        "PitchLimits": "-50,50",
-        "VelocityFOVScale": 50
+        }
       },
       {
         "__type": "DM.Engine.SoundInterpolator",
@@ -1890,7 +1888,7 @@
             "__guid": "a7552737-ddb9-4c5f-9ede-cc937f4c2a20",
             "Flags": 0,
             "Name": "camera position",
-            "Position": "-224.7686,0,45.50676",
+            "Position": "-224,0,0",
             "Enabled": true
           }
         ]

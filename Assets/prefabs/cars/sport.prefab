@@ -232,10 +232,6 @@
         "Boom": {
           "_type": "gameobject",
           "go": "b813da2b-460b-42b5-bdd8-f62b556fd189"
-        },
-        "CameraTarget": {
-          "_type": "gameobject",
-          "go": "a7552737-ddb9-4c5f-9ede-cc937f4c2a20"
         }
       },
       {
@@ -1882,16 +1878,7 @@
         "__guid": "b813da2b-460b-42b5-bdd8-f62b556fd189",
         "Flags": 0,
         "Name": "boom arm",
-        "Enabled": true,
-        "Children": [
-          {
-            "__guid": "a7552737-ddb9-4c5f-9ede-cc937f4c2a20",
-            "Flags": 0,
-            "Name": "camera position",
-            "Position": "-224,0,0",
-            "Enabled": true
-          }
-        ]
+        "Enabled": true
       },
       {
         "__guid": "3152b35f-3a1a-433a-8f30-935f7e43556d",

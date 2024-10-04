@@ -11,7 +11,7 @@
   },
   ".Viewport0": {
     "Value": "{\u0022CameraPosition\u0022:\u00221799.407,2090.331,49.27648\u0022,\u0022CameraRotation\u0022:\u0022-0.03189389,0.009265466,0.9597684,0.2788215\u0022,\u0022CameraOrthoHeight\u0022:32}",
-    "Timeout": 1730676598,
+    "Timeout": 1730676778,
     "DeleteAt": 0
   },
   "gizmo.settings": {
@@ -190,8 +190,8 @@
     "DeleteAt": 0
   },
   "prefabs/cars/sport.prefab.Viewport0": {
-    "Value": "{\u0022CameraPosition\u0022:\u0022-12.72364,91.54389,56.9598\u0022,\u0022CameraRotation\u0022:\u00220.009606753,0.007641551,-0.7825494,0.6224675\u0022,\u0022CameraOrthoHeight\u0022:32}",
-    "Timeout": 1730676598,
+    "Value": "{\u0022CameraPosition\u0022:\u0022-14.88233,131.7089,64.70161\u0022,\u0022CameraRotation\u0022:\u00220.06636845,0.07042833,-0.6826003,0.7243562\u0022,\u0022CameraOrthoHeight\u0022:32}",
+    "Timeout": 1730676778,
     "DeleteAt": 0
   },
   "expand.1bc170b6-017d-4e41-98a4-3a935f33497f.ModelRenderer": {
@@ -706,7 +706,7 @@
   },
   "scenes/games/sprint_mode/001.scene.Viewport0": {
     "Value": "{\u0022CameraPosition\u0022:\u00221500.505,1860.949,508.2959\u0022,\u0022CameraRotation\u0022:\u0022-0.1956525,0.2001364,0.6711128,0.6864933\u0022,\u0022CameraOrthoHeight\u0022:32}",
-    "Timeout": 1730676598,
+    "Timeout": 1730676778,
     "DeleteAt": 0
   },
   "prefabs/cars/in_garage/test.prefab.Viewport0": {
@@ -751,12 +751,12 @@
   },
   "SceneView.Viewport0.Settings": {
     "Value": "{\u0022CameraPosition\u0022:\u00221799.407,2090.331,49.27648\u0022,\u0022CameraRotation\u0022:\u0022-0.03189389,0.009265466,0.9597684,0.2788215\u0022,\u0022View\u0022:0,\u0022RenderMode\u0022:0,\u0022WireframeMode\u0022:false,\u0022EnablePostProcessing\u0022:true,\u0022ShowGrid\u0022:true,\u0022GridOpacity\u0022:0.2,\u0022GridAxis\u0022:0,\u0022CameraOrthoHeight\u0022:32}",
-    "Timeout": 1730676598,
+    "Timeout": 1730676778,
     "DeleteAt": 0
   },
   "SceneView.Layout": {
     "Value": "{\u0022Layout\u0022:0,\u0022SplitterState\u0022:[]}",
-    "Timeout": 1730676246,
+    "Timeout": 1730676688,
     "DeleteAt": 0
   },
   "expand.00000000-0000-0000-0000-000000000000.GameTransform": {

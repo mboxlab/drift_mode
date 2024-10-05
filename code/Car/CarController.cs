@@ -31,7 +31,7 @@ public sealed class CarController : Component
 	[Property, ShowIf( nameof( EnableSteerAngleMultiplier ), true )] public float MaxSpeedForMinAngleMultiplier { get; set; } = 250;
 	[Property, ShowIf( nameof( EnableSteerAngleMultiplier ), true )] public float MinSteerAngleMultiplier { get; set; } = 0.05f;
 	[Property, ShowIf( nameof( EnableSteerAngleMultiplier ), true )] public float MaxSteerAngleMultiplier { get; set; } = 1f;
-	public PacejkaCurve FrictionPreset { get; set; } = PacejkaCurve.Asphalt;
+	public PacejkaCurve FrictionPreset { get; set; } = PacejkaCurve.Street;
 
 	/// <summary>
 	/// Speed, magnitude of velocity.

@@ -188,7 +188,7 @@
             "InputRPM": 0,
             "IsRunning": false,
             "IsStalled": false,
-            "MaxPower": 390,
+            "MaxPower": 190,
             "Name": "Engine",
             "Output": {
               "_type": "component",
@@ -383,18 +383,6 @@
             "SlipTorque": 400,
             "Stiffness": 0.5,
             "Type": "Open"
-          },
-          {
-            "__type": "Sandbox.Powertrain.Modules.ESCModule",
-            "__guid": "6260748e-4548-44df-be01-3576cc6f2739",
-            "CarController": {
-              "_type": "component",
-              "component_id": "a1b35236-c51e-4171-9681-46446ad56b18",
-              "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
-              "component_type": "CarController"
-            },
-            "Intensity": 0.4,
-            "LowerSpeedThreshold": 4
           }
         ]
       },

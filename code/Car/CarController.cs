@@ -31,7 +31,7 @@ public sealed class CarController : Component
 	[Property] public bool EnableSteerAngleMultiplier { get; set; } = true;
 
 
-	[Property, ShowIf( nameof( EnableSteerAngleMultiplier ), true )] public float MaxSpeedForMinAngleMultiplier { get; set; } = 250;
+	[Property, ShowIf( nameof( EnableSteerAngleMultiplier ), true )] public float MaxSpeedForMinAngleMultiplier { get; set; } = 100;
 	[Property, ShowIf( nameof( EnableSteerAngleMultiplier ), true )] public float MinSteerAngleMultiplier { get; set; } = 0.05f;
 	[Property, ShowIf( nameof( EnableSteerAngleMultiplier ), true )] public float MaxSteerAngleMultiplier { get; set; } = 1f;
 	[Property] public PacejkaCurve.PresetsEnum FrictionPresetEnum { get => _frictionPresetEnum; set { _frictionPresetEnum = value; OnFrictionChanged(); } }

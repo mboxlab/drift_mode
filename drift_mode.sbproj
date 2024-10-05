@@ -59,7 +59,7 @@
         {
           "Name": "Clutch",
           "KeyboardCode": "shift",
-          "GamepadCode": "LeftJoystickButton",
+          "GamepadCode": "X",
           "GroupName": "Movement"
         },
         {

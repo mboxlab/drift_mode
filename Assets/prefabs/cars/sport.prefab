@@ -29,7 +29,7 @@
           "AutoSetInput": true
         },
         "MaxBrakeTorque": 7000,
-        "MaxSpeedForMinAngleMultiplier": 250,
+        "MaxSpeedForMinAngleMultiplier": 100,
         "MaxSteerAngle": 35,
         "MaxSteerAngleMultiplier": 1,
         "MinSteerAngleMultiplier": 0.05,

@@ -1,9 +1,6 @@
 ﻿
-using AltCurves;
 using Sandbox.Engine;
-using Sandbox.Car.Config;
 using Sandbox.GamePlay;
-using Sandbox.Powertrain;
 
 namespace Sandbox.Car;
 
@@ -69,7 +66,7 @@ public sealed class CarController : Component
 		SoundInterpolator.Value = Powertrain.Engine.OutputRPM;
 		SoundInterpolator.Volume = 1;
 	}
-	public event EventHandler<ICarConfig> FrictionChanged;
+	public event EventHandler<PacejkaCurve> FrictionChanged;
 	private void OnFrictionChanged()
 	{
 		UpdateWheelsFriction();

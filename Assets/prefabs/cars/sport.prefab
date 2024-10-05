@@ -10,138 +10,7 @@
       {
         "__type": "Sandbox.Car.CarController",
         "__guid": "a1b35236-c51e-4171-9681-46446ad56b18",
-        "BrakeMaxTorque": 0,
-        "CarConfig": {
-          "DriveType": "RWD",
-          "AutomaticGearBox": true,
-          "MaxMotorTorque": 300,
-          "MaxRPM": 7000,
-          "MinRPM": 700,
-          "CutOffRPM": 6800,
-          "CutOffOffsetRPM": 500,
-          "CutOffTime": 0.1,
-          "ProbabilityBackfire": 0.2,
-          "RpmToNextGear": 6500,
-          "RpmToPrevGear": 4500,
-          "MaxForwardSlipToBlockChangeGear": 0.5,
-          "RpmEngineToRpmWheelsLerpSpeed": 15,
-          "GearsRatio": [
-            3.59,
-            2.02,
-            1.38,
-            1,
-            0.87
-          ],
-          "MainRatio": 4.3,
-          "ReversGearRatio": 4,
-          "MaxBrakeTorque": 3000,
-          "TargetSpeedIfBrakingGround": 20,
-          "EnableSteerAngleMultiplier": true,
-          "MinSteerAngleMultiplier": 0.05,
-          "MaxSteerAngleMultiplier": 1,
-          "MaxSpeedForMinAngleMultiplier": 250,
-          "MaxSteerAngle": 25,
-          "SteerAngleChangeSpeed": 5,
-          "MinSpeedForSteerHelp": 20,
-          "HelpSteerPower": 0.8,
-          "OppositeAngularVelocityHelpPower": 0.03,
-          "PositiveAngularVelocityHelpPower": 0.03,
-          "MaxAngularVelocityHelpAngle": 90,
-          "AngularVelucityInMaxAngle": 0.5,
-          "AngularVelucityInMinAngle": 4,
-          "HandBrakeForwardStiffness": 0.5,
-          "HandBrakeSidewaysStiffness": 0.5,
-          "FrictionPreset": {
-            "Stiffnes": 9,
-            "ShapeFactor": 1.87,
-            "PeakValue": 1,
-            "CurvatureFactor": 0.6,
-            "PeakSlip": 0.16,
-            "Curve": {
-              "_ace_v": 1,
-              "pri": "Linear",
-              "keys": [
-                {},
-                {
-                  "x": 0.02,
-                  "y": 0.32495183
-                },
-                {
-                  "x": 0.04,
-                  "y": 0.5906001
-                },
-                {
-                  "x": 0.06,
-                  "y": 0.77485526
-                },
-                {
-                  "x": 0.08,
-                  "y": 0.88849187
-                },
-                {
-                  "x": 0.099999994,
-                  "y": 0.9525209
-                },
-                {
-                  "x": 0.11999999,
-                  "y": 0.9849679
-                },
-                {
-                  "x": 0.13999999,
-                  "y": 0.9980856
-                },
-                {
-                  "x": 0.15999998,
-                  "y": 0.99950093
-                },
-                {
-                  "x": 0.17999998,
-                  "y": 0.9938326
-                },
-                {
-                  "x": 0.19999997,
-                  "y": 0.98387945
-                },
-                {
-                  "x": 0.21999997,
-                  "y": 0.97135943
-                },
-                {
-                  "x": 0.31999996,
-                  "y": 0.89686674
-                },
-                {
-                  "x": 0.41999996,
-                  "y": 0.8256475
-                },
-                {
-                  "x": 0.52,
-                  "y": 0.76444596
-                },
-                {
-                  "x": 0.62,
-                  "y": 0.71274304
-                },
-                {
-                  "x": 0.72,
-                  "y": 0.66898924
-                },
-                {
-                  "x": 0.82000005,
-                  "y": 0.6317036
-                },
-                {
-                  "x": 0.9200001,
-                  "y": 0.5996628
-                },
-                {
-                  "x": 1.0200001,
-                  "y": 0.5718953
-                }
-              ]
-            }
-          }
-        },
+        "EnableSteerAngleMultiplier": true,
         "Input": {
           "CarController": {
             "_type": "component",
@@ -152,6 +21,11 @@
           "SwapInputInReverse": true,
           "AutoSetInput": true
         },
+        "MaxBrakeTorque": 7000,
+        "MaxSpeedForMinAngleMultiplier": 250,
+        "MaxSteerAngle": 35,
+        "MaxSteerAngleMultiplier": 1,
+        "MinSteerAngleMultiplier": 0.05,
         "Powertrain": {
           "Clutch": {
             "_type": "component",
@@ -198,30 +72,6 @@
           "component_id": "314e48b0-43b3-40d0-b9d4-3601e9745bb2",
           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
           "component_type": "SoundInterpolator"
-        },
-        "TorqueCurve": {
-          "_ace_v": 1,
-          "keys": [
-            {
-              "y": 0.4
-            },
-            {
-              "x": 2.3,
-              "y": 0.85,
-              "ti": 0.0967742,
-              "to": 0.0967742
-            },
-            {
-              "x": 6.2,
-              "y": 1,
-              "ti": -0.018469837,
-              "to": -0.018469837,
-              "tm": "Mirrored"
-            },
-            {
-              "x": 8
-            }
-          ]
         },
         "Wheels": [
           {
@@ -284,7 +134,8 @@
         "Boom": {
           "_type": "gameobject",
           "go": "b813da2b-460b-42b5-bdd8-f62b556fd189"
-        }
+        },
+        "CameraDistance": 224
       },
       {
         "__type": "Sandbox.Engine.SoundInterpolator",
@@ -542,8 +393,8 @@
               "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
               "component_type": "CarController"
             },
-            "intensity": 0.4,
-            "lowerSpeedThreshold": 4
+            "Intensity": 0.4,
+            "LowerSpeedThreshold": 4
           }
         ]
       },

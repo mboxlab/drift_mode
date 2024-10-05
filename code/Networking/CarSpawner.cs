@@ -1,7 +1,4 @@
 ﻿
-using Sandbox.Car;
-using Sandbox.Car.Config;
-using System;
 using System.Threading.Tasks;
 namespace Sandbox;
 
@@ -17,7 +14,6 @@ public sealed class CarSpawner : Component, Component.INetworkListener
 	/// </summary>
 	[Property] public bool StartServer { get; set; } = true;
 
-	[Property] public CarConfigEnum CarConfig { get; set; } = CarConfigEnum.Street;
 
 	/// <summary>
 	/// The prefab to spawn for the player to control.

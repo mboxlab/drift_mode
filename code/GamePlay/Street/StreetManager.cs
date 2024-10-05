@@ -1,5 +1,4 @@
 ﻿using Sandbox.Car;
-using Sandbox.Car.Config;
 using System.Threading.Tasks;
 namespace Sandbox.GamePlay.Street;
 

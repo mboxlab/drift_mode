@@ -13,7 +13,7 @@ public sealed class CarController : Component
 	[Property] public WheelCollider[] Wheels { get; private set; }
 	[Property] public CarInputHandler Input { get; set; }
 	[Property] public Powertrain.Powertrain Powertrain { get; set; }
-	[Property] public ABSModule ABSModule { get; set; }
+	[Property, Title("ABS Module")] public ABSModule ABSModule { get; set; }
 
 	public bool IsBot;
 	public static CarController Local { get; private set; }

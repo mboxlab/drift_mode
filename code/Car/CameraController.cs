@@ -62,7 +62,7 @@ public sealed class CameraController : Component
 		rotation = rotation.RotateAroundAxis( Vector3.Up, degressLook );
 		rotation = rotation.RotateAroundAxis( Vector3.Left, 10f );
 
-		if ( degressLook != 0 )
+		if ( degressLook == 0 )
 			rotation = Rotation.Lerp( rotation, direction.EulerAngles, velocity.Length / 8192f );
 
 		EyeAngles = rotation;

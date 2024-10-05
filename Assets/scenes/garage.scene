@@ -175,11 +175,11 @@
           "Cars": [
             {
               "_type": "gameobject",
-              "prefab": "prefabs/cars/in_garage/g_sport.prefab"
+              "prefab": "prefabs/cars/in_garage/g_350z.prefab"
             },
             {
               "_type": "gameobject",
-              "prefab": "prefabs/cars/in_garage/g_sedan.prefab"
+              "prefab": "prefabs/cars/in_garage/g_sport.prefab"
             }
           ]
         }
@@ -276,8 +276,7 @@
         {
           "__type": "Sandbox.GamesPanel",
           "__guid": "38a41dd4-823b-48bc-a20a-832e8dad234b",
-          "Race": "scenes/games/sprint_mode/001.scene",
-          "MyStringValue": "Hello World!"
+          "Race": "scenes/games/sprint_mode/001.scene"
         }
       ]
     }

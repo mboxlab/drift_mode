@@ -34,7 +34,6 @@
             "_type": "gameobject",
             "go": "002f6b80-1ede-4e0f-918e-edc1c4c600fd"
           },
-          "CarConfig": "Street",
           "CurrentCheckpoint": {
             "_type": "component",
             "component_id": "816262ff-6287-4e5d-904c-5c64090940d6",
@@ -52,7 +51,7 @@
           "MaxPlayers": 0,
           "PlayerPrefab": {
             "_type": "gameobject",
-            "prefab": "prefabs/cars/sport.prefab"
+            "prefab": "prefabs/cars/350z.prefab"
           },
           "SpawnPoints": [
             {

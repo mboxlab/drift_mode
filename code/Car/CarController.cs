@@ -31,7 +31,9 @@ public sealed class CarController : Component
 	[Property, ShowIf( nameof( EnableSteerAngleMultiplier ), true )] public float MaxSpeedForMinAngleMultiplier { get; set; } = 250;
 	[Property, ShowIf( nameof( EnableSteerAngleMultiplier ), true )] public float MinSteerAngleMultiplier { get; set; } = 0.05f;
 	[Property, ShowIf( nameof( EnableSteerAngleMultiplier ), true )] public float MaxSteerAngleMultiplier { get; set; } = 1f;
-	public PacejkaCurve FrictionPreset { get; set; } = PacejkaCurve.Street;
+	[Property] public PacejkaCurve.PresetsEnum FrictionPresetEnum { get => _frictionPresetEnum; set { _frictionPresetEnum = value; OnFrictionChanged(); } }
+	public PacejkaCurve.PresetsEnum _frictionPresetEnum { get; set; }
+	public PacejkaCurve FrictionPreset { get; set; } = PacejkaCurve.Asphalt;
 
 	/// <summary>
 	/// Speed, magnitude of velocity.
@@ -69,7 +71,9 @@ public sealed class CarController : Component
 	public event EventHandler<PacejkaCurve> FrictionChanged;
 	private void OnFrictionChanged()
 	{
+		FrictionPreset = PacejkaCurve.Presets[_frictionPresetEnum];
 		UpdateWheelsFriction();
+		FrictionChanged?.Invoke( this, FrictionPreset );
 	}
 	private void UpdateWheelsFriction()
 	{

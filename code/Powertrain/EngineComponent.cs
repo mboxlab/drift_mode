@@ -363,13 +363,11 @@ public class EngineComponent : PowertrainComponent
 			return;
 
 		float drivetrainAngularVelocity = QueryAngularVelocity( OutputAngularVelocity, dt );
-		float targetAngularVelocity = Inertia / inertiaSum * OutputAngularVelocity +
-									  drivetrainInertia / inertiaSum * drivetrainAngularVelocity;
+		float targetAngularVelocity = Inertia / inertiaSum * OutputAngularVelocity + drivetrainInertia / inertiaSum * drivetrainAngularVelocity;
 
 		// Calculate generated torque and power
 		float generatedTorque = CalculateTorqueDelegate( OutputAngularVelocity, dt );
 		generatedPower = TorqueToPowerInKW( in OutputAngularVelocity, in generatedTorque );
-
 
 		// Calculate reaction torque
 		float reactionTorque = (targetAngularVelocity - OutputAngularVelocity) * Inertia / dt;
@@ -465,7 +463,6 @@ public class EngineComponent : PowertrainComponent
 			lossTorque *= 0.25f;
 
 		generatedTorque += _starterTorque + lossTorque;
-
 		return generatedTorque;
 	}
 
@@ -476,8 +473,9 @@ public class EngineComponent : PowertrainComponent
 			return -OutputAngularVelocity * MaxPower * 0.03f;
 
 		float angVelPercent = OutputAngularVelocity < 10f ? 0.1f : Math.Clamp( OutputAngularVelocity, _stallAngularVelocity, _revLimiterAngularVelocity ) / _revLimiterAngularVelocity;
-		float lossPower = PowerCurve.Evaluate( angVelPercent ) * -MaxPower *
-						  Math.Clamp( _userThrottleInput + 0.5f, 0, 1 ) * EngineLossPercent;
+
+		float lossPower = PowerCurve.Evaluate( angVelPercent ) * -MaxPower * Math.Clamp( _userThrottleInput + 0.5f, 0, 1 ) * EngineLossPercent;
+
 		return PowerInKWToTorque( OutputAngularVelocity, lossPower );
 	}
 

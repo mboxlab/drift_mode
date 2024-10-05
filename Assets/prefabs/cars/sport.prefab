@@ -11,6 +11,7 @@
         "__type": "Sandbox.Car.CarController",
         "__guid": "a1b35236-c51e-4171-9681-46446ad56b18",
         "EnableSteerAngleMultiplier": true,
+        "FrictionPresetEnum": "Asphalt",
         "Input": {
           "CarController": {
             "_type": "component",
@@ -182,9 +183,9 @@
             "EstimatedPeakPowerRPM": 0,
             "EstimatedPeakTorque": 0,
             "EstimatedPeakTorqueRPM": 0,
-            "FlyingStartEnabled": false,
+            "FlyingStartEnabled": true,
             "IdleRPM": 900,
-            "Ignition": true,
+            "Ignition": false,
             "InputRPM": 0,
             "IsRunning": false,
             "IsStalled": false,
@@ -229,7 +230,7 @@
             "RevLimiterCutoffDuration": 0.15,
             "RevLimiterRPM": 7000,
             "RPMPercent": 0,
-            "StallingEnabled": true,
+            "StallingEnabled": false,
             "ThrottlePosition": 0,
             "Type": "ICE"
           },
@@ -299,7 +300,7 @@
             "ClutchInputShiftThreshold": 1,
             "DNRShiftType": "Auto",
             "DnrSpeedThreshold": 0.4,
-            "DownshiftRPM": 3400,
+            "DownshiftRPM": 2400,
             "FinalGearRatio": 4.3,
             "Gear": 0,
             "GearingProfile": {
@@ -341,7 +342,7 @@
             "TargetDownshiftRPM": 0,
             "TargetUpshiftRPM": 0,
             "TransmissionType": "Automatic",
-            "UpshiftRPM": 5800,
+            "UpshiftRPM": 4800,
             "VariableShiftIntensity": 0.3,
             "VariableShiftPoint": true,
             "\u0421urrentGearRatio": 0

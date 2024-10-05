@@ -76,7 +76,7 @@ public class PacejkaCurve
 		for ( int i = 0; i < frames.Length; i++ )
 		{
 			float v = GetFrictionValue( t );
-			frames[i] = new Keyframe( t, v, AltCurve.Interpolation.Cubic, TangentMode.Automatic );
+			frames[i] = new Keyframe( t, v, Interpolation.Cubic, TangentMode.Automatic );
 
 			if ( i <= 10 )
 			{
@@ -87,7 +87,7 @@ public class PacejkaCurve
 				t += 0.1f;
 			}
 		}
-		Curve = new( frames, Extrapolation.Linear, Extrapolation.Constant );
+		Curve = new( frames, Extrapolation.Constant, Extrapolation.Constant );
 
 		PeakSlip = GetPeakSlip();
 	}
@@ -115,7 +115,7 @@ public class PacejkaCurve
 	public static readonly PacejkaCurve Snow = new( 8.5f, 1.1f, 0.4f, 0.9f );
 	public static readonly PacejkaCurve Tracks = new( 0.1f, 2f, 2f, 1f );
 	public static readonly PacejkaCurve Arcade = new( 7.09f, 0.87f, 2f, 0.5f );
-	public static readonly PacejkaCurve Street = new( 9f, 1.87f, 1f, 0.6f );
+	public static readonly PacejkaCurve Street = new( 9f, 1.87f, 1.3f, 0.6f );
 
 	public readonly static Dictionary<PresetsEnum, PacejkaCurve> Presets = new()
 {
@@ -131,6 +131,7 @@ public class PacejkaCurve
 	{PresetsEnum.Snow         ,       Snow},
 	{PresetsEnum.Tracks       ,     Tracks},
 	{PresetsEnum.Arcade       ,     Arcade},
+	{PresetsEnum.Street       ,     Street},
 };
 
 	public enum PresetsEnum
@@ -147,6 +148,7 @@ public class PacejkaCurve
 		Snow,
 		Tracks,
 		Arcade,
+		Street,
 	}
 
 	public void Apply( PacejkaCurve preset )

@@ -327,9 +327,8 @@ public class WheelCollider : Stereable
 				float absSideForce = SidewayFriction.Force < 0 ? -SidewayFriction.Force : SidewayFriction.Force;
 				float f = absForwardForce * cosBeta * cosBeta + absSideForce * sinBeta * sinBeta;
 
-				float invSlipCircleCoeff = 1f - 1f;
-				ForwardFriction.Force = invSlipCircleCoeff * ForwardFriction.Force - 1f * f * cosBeta;
-				SidewayFriction.Force = invSlipCircleCoeff * SidewayFriction.Force - 1f * f * sinBeta;
+				ForwardFriction.Force = 0.5f * ForwardFriction.Force - 1f * f * cosBeta;
+				SidewayFriction.Force = 0.5f * SidewayFriction.Force - 1f * f * sinBeta;
 			}
 		}
 

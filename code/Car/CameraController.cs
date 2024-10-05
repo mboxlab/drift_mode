@@ -1,7 +1,4 @@
-using System;
-using Sandbox;
-
-namespace DM.Car;
+namespace Sandbox.Car;
 
 /// <summary>
 /// I've pulled this out into its own component because I feel like we'll want different camera behaviors when we have weapons, building, etc..
@@ -20,6 +17,8 @@ public sealed class CameraController : Component
 	/// </summary>
 	[Property, Group( "Setup" )]
 	public GameObject Boom { get; set; }
+
+	[Property] public float CameraDistance { get; set; } = 224f;
 
 	public Angles EyeAngles { get; set; }
 
@@ -42,8 +41,6 @@ public sealed class CameraController : Component
 		if ( IsProxy )
 			return;
 
-		base.OnUpdate();
-
 		CameraComponent camera = Scene.Camera;
 
 		Vector3 velocity = Body.Velocity;
@@ -54,8 +51,8 @@ public sealed class CameraController : Component
 
 		Rotation rotation = Body.WorldRotation;
 
-		float front = Input.Down( "Front View" ) ? -1 : 0;
-		float side = (Input.Down( "Left View" ) ? 1 : 0) - (Input.Down( "Right View" ) ? 1 : 0);
+		float front = (Input.Down( "Front View" ) ? 1 : 0) - (Input.Down( "Back View" ) ? 1 : 0);
+		float side = (Input.Down( "Right View" ) ? 1 : 0) - (Input.Down( "Left View" ) ? 1 : 0);
 
 		float RightStickX = -Input.GetAnalog( InputAnalog.RightStickX );
 		float RightStickY = -Input.GetAnalog( InputAnalog.RightStickY );
@@ -71,7 +68,7 @@ public sealed class CameraController : Component
 		EyeAngles = rotation;
 		camera.WorldRotation = Rotation.Lerp( camera.WorldRotation, EyeAngles, Time.Delta * 8f );
 
-		Vector3 position = Boom.WorldPosition + camera.WorldRotation.Backward * 192f;
+		Vector3 position = Boom.WorldPosition + camera.WorldRotation.Backward * CameraDistance;
 		camera.WorldPosition = position;
 	}
 

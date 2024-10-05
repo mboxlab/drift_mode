@@ -38,7 +38,7 @@ public sealed class SoundInterpolator : Component
 			soundObject.Volume = vol;
 			soundObject.Pitch = smoothValue / time;
 
-			soundObject.Position = Parent.Transform.Position;
+			soundObject.Position = Parent.WorldPosition;
 		}
 
 	}

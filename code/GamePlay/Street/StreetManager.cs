@@ -79,7 +79,7 @@ public sealed class StreetManager : Component, Component.INetworkListener, IMana
 
 		var player = PlayerPrefab.Clone( startLocation, name: $"Player - {channel.DisplayName}" );
 
-		player.Transform.Position = startLocation.PointToWorld( Vector3.Backward * player.GetBounds().Extents.y );
+		player.WorldPosition = startLocation.PointToWorld( Vector3.Backward * player.GetBounds().Extents.y );
 
 		player.NetworkSpawn( channel );
 		// FIX ME
@@ -140,8 +140,8 @@ public sealed class StreetManager : Component, Component.INetworkListener, IMana
 	}
 	protected override void OnUpdate()
 	{
-		Arrow.Transform.Position = CarController.Local.Transform.Position + Vector3.Up * 125f;
-		Arrow.Transform.Rotation = (CurrentCheckpoint.Transform.Position.WithZ( 0 ) - CarController.Local.Transform.Position.WithZ( 0 ) + Vector3.Down * 30).EulerAngles.WithPitch( 0f );
+		Arrow.WorldPosition = CarController.Local.WorldPosition + Vector3.Up * 125f;
+		Arrow.WorldRotation = (CurrentCheckpoint.WorldPosition.WithZ( 0 ) - CarController.Local.WorldPosition.WithZ( 0 ) + Vector3.Down * 30).EulerAngles.WithPitch( 0f );
 	}
 	private void Win()
 	{

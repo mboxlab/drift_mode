@@ -43,7 +43,7 @@ public sealed class CarSelector : Component
 		ActiveCar?.Destroy();
 		GameObject car = newCar.Clone();
 		car.Name = newCar.Name;
-		car.Transform.Position = Transform.Position;
+		car.WorldPosition = WorldPosition;
 		ActiveCar = car;
 		ActiveCarBounds = car.GetBounds();
 		ActiveCarCenter = ActiveCarBounds.Center;

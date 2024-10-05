@@ -66,10 +66,10 @@ public class WheelCollider : Stereable
 			return;
 
 		SmokeEmitter.Enabled = IsGrounded && (Math.Abs( ForwardSlip ) + Math.Abs( SidewaySlip )) > 2f;
-		SmokeEmitter.Transform.Position = groundHit.Point;
+		SmokeEmitter.WorldPosition = groundHit.Point;
 
 		var steerRotation = Rotation.FromAxis( Vector3.Up, SteerAngle );
-		TransformRotationSteer = Transform.Rotation * steerRotation;
+		TransformRotationSteer = WorldRotation * steerRotation;
 		UpdateHitVariables();
 		UpdateSuspension();
 		UpdateFriction();
@@ -136,7 +136,7 @@ public class WheelCollider : Stereable
 
 
 		//// Calculate effect of camber on friction
-		float camberFrictionCoeff = Transform.Rotation.Up.Dot( groundHit.Normal );
+		float camberFrictionCoeff = WorldRotation.Up.Dot( groundHit.Normal );
 		camberFrictionCoeff = camberFrictionCoeff < 0f ? 0f : camberFrictionCoeff;
 
 		// *******************************
@@ -252,7 +252,7 @@ public class WheelCollider : Stereable
 		if ( IsGrounded && absForwardSpeed < 0.12f && absSideSpeed < 0.12f )
 		{
 			float verticalOffset = _suspensionTotalLength.InchToMeter() + Radius;
-			var _transformPosition = Transform.Position;
+			var _transformPosition = WorldPosition;
 			var _transformUp = TransformRotationSteer.Up;
 			currentPosition.x = _transformPosition.x - _transformUp.x * verticalOffset;
 			currentPosition.y = _transformPosition.y - _transformUp.y * verticalOffset;
@@ -339,7 +339,7 @@ public class WheelCollider : Stereable
 	}
 	public Vector3 GetCenter()
 	{
-		return Transform.Position + (Vector3.Down * (groundHit.Distance - (_suspensionTotalLength - maxSuspensionLength)));
+		return WorldPosition + (Vector3.Down * (groundHit.Distance - (_suspensionTotalLength - maxSuspensionLength)));
 	}
 
 	private void UpdateHitVariables()
@@ -379,7 +379,7 @@ public class WheelCollider : Stereable
 		var totalForce = Load.MeterToInch() * Time.Delta;
 
 		var suspensionForce = groundHit.Normal * totalForce.MeterToInch();
-		_rigidbody.ApplyForceAt( Transform.Position, suspensionForce );
+		_rigidbody.ApplyForceAt( WorldPosition, suspensionForce );
 	}
 	public void UpdateStiffness( float forward = 1f, float side = 1f )
 	{
@@ -389,8 +389,8 @@ public class WheelCollider : Stereable
 
 	private void DoTrace()
 	{
-		var down = _rigidbody.Transform.Rotation.Down;
-		var startPos = Transform.Position + down * MinSuspensionLength;
+		var down = _rigidbody.WorldRotation.Down;
+		var startPos = WorldPosition + down * MinSuspensionLength;
 		var endPos = startPos + down * (MaxSuspensionLength + Radius);
 
 		groundHit = new( Scene.Trace

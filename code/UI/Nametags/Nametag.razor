@@ -15,16 +15,16 @@
 	protected override void OnStart()
 	{
 		if (IsProxy)
-			PlayerName = Network.OwnerConnection.DisplayName;
+			PlayerName = Network.Owner.DisplayName;
 		else Enabled = false;
 	}
 
 	protected override void OnUpdate()
 	{
 		if (!Scene.Camera.IsValid()) return;
-		Transform.Rotation = Scene.Camera.Transform.Rotation * new Angles(0, 180, 0);
-		Transform.Position = GameObject.Parent.Transform.Position + Vector3.Up * 24f;
-		var distance = (Scene.Camera.Transform.Position - Transform.Position).Length;
+		WorldRotation = Scene.Camera.WorldRotation * new Angles(0, 180, 0);
+		WorldPosition = GameObject.Parent.WorldPosition + Vector3.Up * 24f;
+		var distance = (Scene.Camera.WorldPosition - WorldPosition).Length;
 		var opacity = MathX.Clamp(1.0f - ((distance - 512f) / 1000.0f), 0.0f, 1.0f);
 		Panel.Style.Opacity = opacity;
 	}

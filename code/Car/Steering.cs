@@ -22,7 +22,7 @@ public sealed class Steering : Component
 			return;
 		var speed = Rigidbody.Velocity.Length;
 		float clamp = Math.Max( speed * 0.001f, 1f );
-		float corr = speed > 11f ? (float)((360 / (Math.PI * 2)) * Math.Acos( Transform.Rotation.Right.Dot( Rigidbody.Velocity.Normal ) ) - 90f) : 0;
+		float corr = speed > 11f ? (float)((360 / (Math.PI * 2)) * Math.Acos( WorldRotation.Right.Dot( Rigidbody.Velocity.Normal ) ) - 90f) : 0;
 
 		SteerAngle = MathX.Lerp( MaxSteeringAngle, MinSteeringAngle, clamp * 0.04f ) * Input.AnalogMove.y;
 

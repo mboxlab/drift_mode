@@ -321,7 +321,7 @@ public sealed class CarController : Component
 	{
 		var needHelp = CurrentSpeed > MinSpeedForSteerHelp && CarDirection > 0;
 		float targetAngle = 0;
-		VelocityAngle = -SignedAngle( Rigidbody.Velocity, Transform.Rotation.Forward, Vector3.Up );
+		VelocityAngle = -SignedAngle( Rigidbody.Velocity, WorldRotation.Forward, Vector3.Up );
 		if ( needHelp )
 		{
 			//Wheel turning helper.

@@ -2,7 +2,6 @@
 @using Sandbox;
 @using Sandbox.UI;
 @using Sandbox.Car;
-@using Sandbox.UI;
 @inherits PanelComponent
 
 <root>
@@ -15,8 +14,8 @@
 @code
 {
 	[Property] public bool IsInterspace;
-	[Property, ShowIf("IsInterspace", false)] Part Part;
-	[Property, ShowIf("IsInterspace", true)] string Name;
+	[Property, ShowIf("IsInterspace", false)] Part Part { get; set; }
+	[Property, ShowIf("IsInterspace", true)] string Name { get; set; }
 
 	private string _name { get { return IsInterspace ? Name : Part.Name; } }
 	private InteractiveObject Object;
@@ -50,7 +49,7 @@
 	{
 		base.OnUpdate();
 
-		float dot = MathF.Max(0, Object.Rotation.Forward.Dot(InteractiveCamera.Instance.Transform.Rotation.Forward));
+		float dot = MathF.Max(0, Object.Rotation.Forward.Dot(InteractiveCamera.Instance.WorldRotation.Forward));
 		dot *= dot * dot;
 
 		Panel.Style.Opacity = MathF.Max(0f, dot);

@@ -19,7 +19,7 @@ public class Checkpoint : Component
 				Gizmo.Transform = Scene.Transform.World;
 				Gizmo.Draw.IgnoreDepth = true;
 
-				Gizmo.Draw.Arrow( Transform.Position, Next.Transform.Position, 220, 50 );
+				Gizmo.Draw.Arrow( WorldPosition, Next.WorldPosition, 220, 50 );
 			}
 
 	}

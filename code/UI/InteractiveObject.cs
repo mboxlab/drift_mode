@@ -57,12 +57,12 @@ public sealed class InteractiveObject : Component
 
 	public Vector3 Position
 	{
-		get => Transform.Position + OffsetPosition * Transform.Rotation;
+		get => WorldPosition + OffsetPosition * WorldRotation;
 	}
 
 	public Rotation Rotation
 	{
-		get => (LocalAngles + Transform.Rotation.Angles()).ToRotation();
+		get => (LocalAngles + WorldRotation.Angles()).ToRotation();
 	}
 
 	public Angles Clamp( Angles angles )

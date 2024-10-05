@@ -9,7 +9,7 @@ public sealed class Music : Component
 		base.OnStart();
 
 		SoundHandle handle = Sound.PlayFile( File );
-		handle.Position = Transform.Position;
+		handle.Position = WorldPosition;
 		handle.Occlusion = false;
 		handle.Volume = 1f;
 	}

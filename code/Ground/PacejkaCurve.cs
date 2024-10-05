@@ -117,13 +117,13 @@ public class PacejkaCurve
 	public static readonly PacejkaCurve Arcade = new( 7.09f, 0.87f, 2f, 0.5f );
 	public static readonly PacejkaCurve Street = new( 9f, 1.87f, 1f, 0.6f );
 
-	public static Dictionary<PresetsEnum, PacejkaCurve> Presets = new()
+	public readonly static Dictionary<PresetsEnum, PacejkaCurve> Presets = new()
 {
 	{PresetsEnum.Asphalt      ,    Asphalt},
 	{PresetsEnum.AsphaltWet   , AsphaltWet},
 	{PresetsEnum.Generic      ,    Generic},
 	{PresetsEnum.Grass        ,      Grass},
-	{PresetsEnum.Dirt        ,      Dirt},
+	{PresetsEnum.Dirt         ,       Dirt},
 	{PresetsEnum.Gravel       ,     Gravel},
 	{PresetsEnum.Ice          ,        Ice},
 	{PresetsEnum.Rock         ,       Rock},

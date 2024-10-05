@@ -115,6 +115,7 @@ public class PacejkaCurve
 	public static readonly PacejkaCurve Snow = new( 8.5f, 1.1f, 0.4f, 0.9f );
 	public static readonly PacejkaCurve Tracks = new( 0.1f, 2f, 2f, 1f );
 	public static readonly PacejkaCurve Arcade = new( 7.09f, 0.87f, 2f, 0.5f );
+	public static readonly PacejkaCurve Street = new( 9f, 1.87f, 1f, 0.6f );
 
 	public static Dictionary<PresetsEnum, PacejkaCurve> Presets = new()
 {

@@ -39,5 +39,5 @@ public class StreetCarConfig : ICarConfig
 	public override float HandBrakeForwardStiffness { get; set; } = 0.5f;
 	public override float HandBrakeSidewaysStiffness { get; set; } = 0.5f;
 
-	public override PacejkaCurve FrictionPreset { get; set; } = PacejkaCurve.Arcade;
+	public override PacejkaCurve FrictionPreset { get; set; } = PacejkaCurve.Street;
 }

@@ -15,36 +15,24 @@ public sealed class CameraController : Component
 	public Rigidbody Body { get; set; }
 
 	/// <summary>
-	/// The camera
-	/// </summary>
-	[Property, Group( "Setup" )]
-	public GameObject CameraTarget { get; set; }
-
-	/// <summary>
 	/// The boom arm for the character's camera.
 	/// </summary>
 	[Property, Group( "Setup" )]
 	public GameObject Boom { get; set; }
-
-	/// <summary>
-	/// How far can we look up / down?
-	/// </summary>
-	[Property, Group( "Config" )]
-	public Vector2 PitchLimits { get; set; } = new( -10f, 50f );
-
-	[Property, Group( "Config" )]
-	public float VelocityFOVScale { get; set; } = 500f;
+	
 	public Angles EyeAngles { get; set; }
-	public TimeSince ReturnCameraTime { get; set; }
+	
 	protected override void OnStart()
 	{
 		if ( IsProxy )
 			return;
 
+		Boom.LocalPosition = new Vector3( 0f, 0f, GameObject.Parent.GetBounds().Size.z / 1.5f );
+
 		if ( !(Scene?.Camera?.IsValid() ?? false) )
 		{
 			var prefab = ResourceLibrary.Get<PrefabFile>( "prefabs/camera.prefab" );
-			SceneUtility.GetPrefabScene( prefab ).Clone( position: CameraTarget.Transform.Position, rotation: CameraTarget.Transform.Rotation );
+			SceneUtility.GetPrefabScene( prefab ).Clone();
 		}
 	}
 
@@ -55,60 +43,32 @@ public sealed class CameraController : Component
 
 		base.OnUpdate();
 
+		CameraComponent camera = Scene.Camera;
 
-		CameraTarget.Transform.LocalPosition = CameraTarget.Transform.LocalPosition.WithX( Math.Min( -120, CameraTarget.Transform.LocalPosition.x + Input.MouseWheel.y * 10 ) );
+		Vector3 velocity = Body.Velocity;
+		Vector3 direction = velocity.Normal;
 
-		EyeAngles += Input.AnalogLook;
-		EyeAngles = EyeAngles.WithPitch( EyeAngles.pitch.Clamp( PitchLimits.x, PitchLimits.y ) );
+		float targetFov = Math.Min( Preferences.FieldOfView + 24f, Preferences.FieldOfView + Body.Velocity.Length / 192f );
+		camera.FieldOfView = camera.FieldOfView.LerpTo( targetFov, Time.Delta * 4f );
 
-		if ( !Input.AnalogLook.IsNearlyZero() )
-			ReturnCameraTime = 0;
+		Rotation rotation = Body.WorldRotation;
 
-		// todo: improve
-		if ( ReturnCameraTime > 3 )
-			EyeAngles = EyeAngles.LerpTo( Body.Transform.Rotation.RotateAroundAxis( Vector3.Right, -15f ), Time.Delta * 5f );
+		bool front = Input.Down( "Front View" );
+		bool left = Input.Down( "Left View" );
+		bool right = Input.Down( "Right View" );
 
-		EyeAngles = EyeAngles.WithRoll( 0 );
-		Boom.Transform.Rotation = EyeAngles.ToRotation();
+		float degrees = front ? 180f : left ? -90f : right ? 90f : 0;
+		rotation = rotation.RotateAroundAxis( Vector3.Up, degrees );
+		rotation = rotation.RotateAroundAxis( Vector3.Left, 10f );
 
-		Boom.Transform.Position = Boom.Transform.Position.LerpTo( Body.Transform.Position - Body.Velocity.WithZ( 0 ) / 48f, Time.Delta * 20 );
+		if ( !(front || left || right) )
+			rotation = Rotation.Lerp( rotation, direction.EulerAngles, velocity.Length / 8192f );
 
-		float targetFov = Preferences.FieldOfView + Body.Velocity.Length / VelocityFOVScale;
-		Scene.Camera.FieldOfView = Scene.Camera.FieldOfView.LerpTo( MathX.Clamp( targetFov, 10, 100 ), Time.Delta * 10 );
-		Scene.Camera.Transform.Rotation = CameraTarget.Transform.Rotation;
+		EyeAngles = rotation;
+		camera.WorldRotation = Rotation.Lerp( camera.WorldRotation, EyeAngles, Time.Delta * 8f );
 
-		Scene.Camera.Transform.Position = CameraTarget.Transform.Position.WithZ( Scene.Camera.Transform.Position.z );
-
-		Scene.Camera.Transform.Position = Scene.Camera.Transform.Position.LerpTo( CameraTarget.Transform.Position, Time.Delta * 12f );
-
-		if ( Game.IsEditor && Input.Pressed( "flymode" ) )
-		{
-			FlyMode = !FlyMode;
-
-			Body.MotionEnabled = !FlyMode;
-		}
-
-		if ( FlyMode ) DoFlyMode();
-
-	}
-	void DoFlyMode()
-	{
-
-		Vector3 movement = Input.AnalogMove;
-
-		float speed = 350.0f;
-
-		if ( Input.Down( "Clutch" ) )
-		{
-			speed = 750.0f;
-		}
-
-		GameObject.Transform.Position += EyeAngles.ToRotation() * movement * speed * Time.Delta;
-
-		Body.Velocity = EyeAngles.ToRotation() * movement * speed;
-
-		return;
-
+		Vector3 position = Boom.WorldPosition + camera.WorldRotation.Backward * 192f;
+		camera.WorldPosition = position;
 	}
 
 	[Sync]

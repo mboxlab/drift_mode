@@ -235,6 +235,24 @@
           "KeyboardCode": "mouse2",
           "GamepadCode": "None",
           "GroupName": "Other"
+        },
+        {
+          "Name": "Front View",
+          "KeyboardCode": "downarrow",
+          "GamepadCode": "None",
+          "GroupName": "Other"
+        },
+        {
+          "Name": "Left View",
+          "KeyboardCode": "rightarrow",
+          "GamepadCode": "None",
+          "GroupName": "Other"
+        },
+        {
+          "Name": "Right View",
+          "KeyboardCode": "leftarrow",
+          "GamepadCode": "None",
+          "GroupName": "Other"
         }
       ],
       "__guid": "05b490fd-6a62-4f75-93a1-b988ce85d8af"

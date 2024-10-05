@@ -90,7 +90,6 @@ public sealed class CarController : Component
 		UpdateSteerAngle();
 	}
 
-
 	float CurrentSteerAngle;
 	public float VelocityAngle { get; private set; }
 	void UpdateSteerAngle()
@@ -117,30 +116,4 @@ public sealed class CarController : Component
 		Wheels[1].SteerAngle = targetAngle;
 
 	}
-
-	#region Controls
-	//public void UpdateControls( float horizontal, float vertical, bool brake )
-	//{
-	//	float targetSteerAngle = horizontal * MaxSteerAngle;
-
-	//	if ( EnableSteerAngleMultiplier )
-	//		targetSteerAngle *= Math.Clamp( 1 - CurrentSpeed.InchToMeter() / MaxSpeedForMinAngleMultiplier, MinSteerAngleMultiplier, MaxSteerAngleMultiplier );
-
-	//	CurrentSteerAngle = MathX.Lerp( CurrentSteerAngle, targetSteerAngle, Time.Delta * SteerAngleChangeSpeed );
-
-	//	CurrentAcceleration = MathF.Max( Input.GetAnalog( InputAnalog.RightTrigger ), vertical );
-	//	if ( InHandBrake != brake )
-	//	{
-	//		float forwardStiffness = brake ? CarConfig.HandBrakeForwardStiffness : 1;
-	//		float sidewaysStiffness = brake ? CarConfig.HandBrakeSidewaysStiffness : 1;
-	//		Wheels[2].UpdateStiffness( forwardStiffness, sidewaysStiffness );
-	//		Wheels[3].UpdateStiffness( forwardStiffness, sidewaysStiffness );
-	//	}
-	//	InHandBrake = brake;
-	//	InClutch = Input.Down( "Clutch" );
-	//}
-	//private void UpdateControls() => UpdateControls( Input.AnalogMove.y, Input.AnalogMove.x, Input.Down( "HandBrake" ) );
-
-
-	#endregion
 }

@@ -10,9 +10,7 @@
       "IncludeSourceFiles": false,
       "Resources": null,
       "PackageReferences": [],
-      "EditorReferences": [
-        "eurorp.door01_right_01#12553"
-      ],
+      "EditorReferences": [],
       "IsWhitelistDisabled": false,
       "Metadata": {
         "SingleAssetSource": "maps/racetrack.vmap",

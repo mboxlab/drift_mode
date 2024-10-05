@@ -178,6 +178,7 @@ public partial class CarInputHandler
 
 		Throttle = MathF.Max( Input.GetAnalog( InputAnalog.RightTrigger ), Input.AnalogMove.x );
 		Brakes = MathF.Max( Input.GetAnalog( InputAnalog.LeftTrigger ), -Input.AnalogMove.x );
+		Handbrake = Input.Down( "HandBrake" ) ? 1 : 0;
 
 		Steering = Input.AnalogMove.y;
 
@@ -185,7 +186,6 @@ public partial class CarInputHandler
 
 		ShiftUp |= Input.Pressed( "Attack1" );
 		ShiftDown |= Input.Pressed( "Attack2" );
-
 		CalculateInputSwappedValues();
 	}
 	public void ResetShiftFlags()

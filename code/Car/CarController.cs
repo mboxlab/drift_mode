@@ -1,6 +1,7 @@
 ﻿
 using Sandbox.Engine;
 using Sandbox.GamePlay;
+using Sandbox.Powertrain.Modules;
 
 namespace Sandbox.Car;
 
@@ -12,6 +13,8 @@ public sealed class CarController : Component
 	[Property] public WheelCollider[] Wheels { get; private set; }
 	[Property] public CarInputHandler Input { get; set; }
 	[Property] public Powertrain.Powertrain Powertrain { get; set; }
+	[Property] public ABSModule ABSModule { get; set; }
+
 	public bool IsBot;
 	public static CarController Local { get; private set; }
 	[Authority]
@@ -89,7 +92,13 @@ public sealed class CarController : Component
 		foreach ( WheelCollider wheel in Wheels )
 		{
 			wheel.BrakeTorque = Input.InputSwappedBrakes * MaxBrakeTorque;
+			if ( ABSModule is not null )
+				wheel.BrakeTorque *= ABSModule.BrakeTorqueModifier();
+
 		}
+
+		foreach ( var wheel in Powertrain.Wheels )
+			wheel.Wheel.BrakeTorque += (Input.Handbrake * MaxBrakeTorque * 2);
 
 		UpdateSteerAngle();
 	}

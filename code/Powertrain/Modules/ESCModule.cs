@@ -6,7 +6,6 @@
 ///     direction do not match.
 /// </summary>
 
-[Category( "Vehicle Module" )]
 [Title( "ESC Module" )]
 public class ESCModule : BaseModule
 {

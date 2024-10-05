@@ -10,6 +10,12 @@
       {
         "__type": "Sandbox.Car.CarController",
         "__guid": "a1b35236-c51e-4171-9681-46446ad56b18",
+        "ABSModule": {
+          "_type": "component",
+          "component_id": "550fab10-fb15-44a9-b343-b54c545b3865",
+          "go": "a3e593f0-e311-4d65-b30a-e02afa1db2a6",
+          "component_type": "ABSModule"
+        },
         "EnableSteerAngleMultiplier": true,
         "FrictionPresetEnum": "Asphalt",
         "Input": {
@@ -384,6 +390,19 @@
             "SlipTorque": 400,
             "Stiffness": 0.5,
             "Type": "Open"
+          },
+          {
+            "__type": "Sandbox.Powertrain.Modules.ABSModule",
+            "__guid": "550fab10-fb15-44a9-b343-b54c545b3865",
+            "CarController": {
+              "_type": "component",
+              "component_id": "a1b35236-c51e-4171-9681-46446ad56b18",
+              "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+              "component_type": "CarController"
+            },
+            "IsActive": false,
+            "LowerSpeedThreshold": 1,
+            "SlipThreshold": 0.1
           }
         ]
       },

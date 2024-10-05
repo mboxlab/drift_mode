@@ -1,5 +1,4 @@
-﻿
-using Sandbox.Car;
+﻿using Sandbox.Car;
 
 namespace Sandbox.Powertrain;
 
@@ -26,9 +25,7 @@ public partial class WheelComponent : PowertrainComponent
 	/// <summary>
 	///     Adds brake torque to the wheel on top of the existing torque. Value is clamped to max brake torque.
 	/// </summary>
-	/// <param name="torque">Torque in Nm that will be applied to the wheel to slow it down.</param>
-	/// <param name="isHandbrake">If true brakes.IsBraking flag will be set. This triggers brake lights.</param>
-	public void AddBrakeTorque( float torque, bool isHandbrake = false )
+	public void AddBrakeTorque( float torque )
 	{
 		float brakeTorque = Wheel.BrakeTorque;
 
@@ -43,9 +40,9 @@ public partial class WheelComponent : PowertrainComponent
 		{
 			brakeTorque = 0;
 		}
-
 		Wheel.BrakeTorque = brakeTorque;
 	}
+
 
 
 	public override float QueryAngularVelocity( float angularVelocity, float dt )

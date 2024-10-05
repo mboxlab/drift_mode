@@ -1,4 +1,5 @@
 using System;
+using Sandbox;
 
 namespace DM.Car;
 
@@ -19,9 +20,9 @@ public sealed class CameraController : Component
 	/// </summary>
 	[Property, Group( "Setup" )]
 	public GameObject Boom { get; set; }
-	
+
 	public Angles EyeAngles { get; set; }
-	
+
 	protected override void OnStart()
 	{
 		if ( IsProxy )
@@ -53,15 +54,18 @@ public sealed class CameraController : Component
 
 		Rotation rotation = Body.WorldRotation;
 
-		bool front = Input.Down( "Front View" );
-		bool left = Input.Down( "Left View" );
-		bool right = Input.Down( "Right View" );
+		float front = Input.Down( "Front View" ) ? -1 : 0;
+		float side = (Input.Down( "Left View" ) ? 1 : 0) - (Input.Down( "Right View" ) ? 1 : 0);
 
-		float degrees = front ? 180f : left ? -90f : right ? 90f : 0;
-		rotation = rotation.RotateAroundAxis( Vector3.Up, degrees );
+		float RightStickX = -Input.GetAnalog( InputAnalog.RightStickX );
+		float RightStickY = -Input.GetAnalog( InputAnalog.RightStickY );
+
+		float degressLook = MathF.Atan2( side + RightStickX, front + RightStickY ) * 180.0f / MathF.PI;
+
+		rotation = rotation.RotateAroundAxis( Vector3.Up, degressLook );
 		rotation = rotation.RotateAroundAxis( Vector3.Left, 10f );
 
-		if ( !(front || left || right) )
+		if ( degressLook != 0 )
 			rotation = Rotation.Lerp( rotation, direction.EulerAngles, velocity.Length / 8192f );
 
 		EyeAngles = rotation;

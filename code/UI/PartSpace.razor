@@ -49,7 +49,8 @@
 	{
 		base.OnUpdate();
 
-		float dot = MathF.Max(0, Object.Rotation.Forward.Dot(InteractiveCamera.Instance.WorldRotation.Forward));
+		float dot = MathF.Max(0, (Object.Rotation + Object.LocalAngles.ToRotation()).Forward.Dot(InteractiveCamera.Instance.WorldRotation.Forward));
+		dot /= MathF.Max(1, Object.WorldPosition.DistanceSquared(InteractiveCamera.Instance.WorldPosition) / 20000);
 		dot *= dot * dot;
 
 		Panel.Style.Opacity = MathF.Max(0f, dot);

@@ -57,6 +57,7 @@ public sealed class Part : Component
 
 	public void Dress( int index )
 	{
+		if ( index < 0 ) return;
 		if ( Models.Count == 0 ) return;
 		Dress( Models[index] );
 	}

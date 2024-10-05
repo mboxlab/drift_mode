@@ -41,8 +41,8 @@
 	protected override void OnUpdate()
 	{
 		base.OnUpdate();
-
 		if (!Object.IsLooked) GameObject.Destroy();
+		if (Part.Models.Count == 0) return;
 
 		int index = Part.Index;
 		index += (int)Input.MouseWheel.y;

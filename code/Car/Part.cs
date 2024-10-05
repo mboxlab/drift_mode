@@ -55,7 +55,11 @@ public sealed class Part : Component
 		Dress( _current );
 	}
 
-	public void Dress( int index ) => Dress( Models[index] );
+	public void Dress( int index )
+	{
+		if ( Models.Count == 0 ) return;
+		Dress( Models[index] );
+	}
 	public void Dress( Model model )
 	{
 

@@ -10,6 +10,7 @@
       {
         "__type": "Sandbox.Car.CarController",
         "__guid": "a1b35236-c51e-4171-9681-46446ad56b18",
+        "BrakeMaxTorque": 0,
         "CarConfig": {
           "DriveType": "RWD",
           "AutomaticGearBox": true,
@@ -141,6 +142,51 @@
             }
           }
         },
+        "Input": {
+          "CarController": {
+            "_type": "component",
+            "component_id": "a1b35236-c51e-4171-9681-46446ad56b18",
+            "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+            "component_type": "CarController"
+          },
+          "SwapInputInReverse": true,
+          "AutoSetInput": true
+        },
+        "Powertrain": {
+          "Clutch": {
+            "_type": "component",
+            "component_id": "dc4a21b4-e022-4adc-8c69-ea6c10756914",
+            "go": "a3e593f0-e311-4d65-b30a-e02afa1db2a6",
+            "component_type": "ClutchComponent"
+          },
+          "Engine": {
+            "_type": "component",
+            "component_id": "7755429d-5c82-48a1-8515-0d6b258a4a6d",
+            "go": "a3e593f0-e311-4d65-b30a-e02afa1db2a6",
+            "component_type": "EngineComponent"
+          },
+          "Transmission": {
+            "_type": "component",
+            "component_id": "8aa46dfb-17ef-428f-863c-dc8815aabc7a",
+            "go": "a3e593f0-e311-4d65-b30a-e02afa1db2a6",
+            "component_type": "TransmissionComponent"
+          },
+          "Wheels": [
+            {
+              "_type": "component",
+              "component_id": "030a9b01-898b-4bb4-8b9e-adf087d7bdde",
+              "go": "fc04e594-0d78-49bb-bb9d-6a0887b8dae7",
+              "component_type": "WheelComponent"
+            },
+            {
+              "_type": "component",
+              "component_id": "c602e27d-288f-4d51-9109-9e65712e8376",
+              "go": "4eaa3d57-e9df-4268-b733-3e3ad411e6c7",
+              "component_type": "WheelComponent"
+            }
+          ],
+          "WheelCount": 2
+        },
         "Rigidbody": {
           "_type": "component",
           "component_id": "63f289fd-6e4a-4084-b6c5-b497bb5fbec5",
@@ -149,7 +195,7 @@
         },
         "SoundInterpolator": {
           "_type": "component",
-          "component_id": "eea8bcda-35f3-4a8f-8ee7-db4758c05cba",
+          "component_id": "314e48b0-43b3-40d0-b9d4-3601e9745bb2",
           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
           "component_type": "SoundInterpolator"
         },
@@ -227,39 +273,280 @@
         "Static": false
       },
       {
-        "__type": "DM.Car.CameraController",
-        "__guid": "87640b59-aa17-43cc-9fdf-0873c1c3979d",
+        "__type": "WheelManager",
+        "__guid": "41bb8ead-9992-4977-a3c1-9183d78e597a",
+        "Wheels": [],
+        "CombinedLoad": 0
+      },
+      {
+        "__type": "Sandbox.Car.CameraController",
+        "__guid": "9fe64d1f-4023-4cd7-bb95-43316588154f",
         "Boom": {
           "_type": "gameobject",
           "go": "b813da2b-460b-42b5-bdd8-f62b556fd189"
         }
       },
       {
-        "__type": "DM.Engine.SoundInterpolator",
-        "__guid": "eea8bcda-35f3-4a8f-8ee7-db4758c05cba",
-        "MaxValue": 7000,
+        "__type": "Sandbox.Engine.SoundInterpolator",
+        "__guid": "314e48b0-43b3-40d0-b9d4-3601e9745bb2",
+        "MaxValue": 0,
         "Parent": {
           "_type": "gameobject",
           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376"
         },
         "Sounds": {
-          "2745": "sound/engines/supra/adam lz chaser 1jz 2020 engine dynorun 2745,472rpm.vsnd",
-          "3101": "sound/engines/supra/adam lz chaser 1jz 2020 engine dynorun 3101,777rpm.vsnd",
-          "5161": "sound/engines/supra/adam lz chaser 1jz 2020 engine dynorun 5161,291rpm.vsnd",
-          "6428": "sound/engines/supra/adam lz chaser 1jz 2020 engine dynorun 6428,572rpm.vsnd",
-          "7024": "sound/engines/supra/adam lz chaser 1jz 2020 engine dynorun 7024,391rpm.vsnd"
+          "2109": "sound/engines/raptor/acc_2109_adpcm.vsnd",
+          "2464": "sound/engines/raptor/acc_2464_adpcm.vsnd",
+          "3076": "sound/engines/raptor/acc_3076_adpcm.vsnd",
+          "4108": "sound/engines/raptor/acc_4108_adpcm.vsnd",
+          "4921": "sound/engines/raptor/acc_4921_adpcm.vsnd",
+          "5579": "sound/engines/raptor/acc_5579_adpcm.vsnd"
         },
         "Value": 0,
-        "Volume": 0
-      },
-      {
-        "__type": "WheelManager",
-        "__guid": "41bb8ead-9992-4977-a3c1-9183d78e597a",
-        "Wheels": [],
-        "CombinedLoad": 0
+        "Volume": 1
       }
     ],
     "Children": [
+      {
+        "__guid": "a3e593f0-e311-4d65-b30a-e02afa1db2a6",
+        "Flags": 0,
+        "Name": "Powertrain",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.Powertrain.EngineComponent",
+            "__guid": "7755429d-5c82-48a1-8515-0d6b258a4a6d",
+            "CarController": {
+              "_type": "component",
+              "component_id": "a1b35236-c51e-4171-9681-46446ad56b18",
+              "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+              "component_type": "CarController"
+            },
+            "Inertia": 0.25,
+            "StartDuration": 0.5,
+            "StarterActive": false,
+            "AutoStartOnThrottle": true,
+            "EngineLossPercent": 0.25,
+            "EstimatedPeakPower": 0,
+            "EstimatedPeakPowerRPM": 0,
+            "EstimatedPeakTorque": 0,
+            "EstimatedPeakTorqueRPM": 0,
+            "FlyingStartEnabled": false,
+            "IdleRPM": 900,
+            "Ignition": true,
+            "InputRPM": 0,
+            "IsRunning": false,
+            "IsStalled": false,
+            "MaxPower": 390,
+            "Name": "Engine",
+            "Output": {
+              "_type": "component",
+              "component_id": "dc4a21b4-e022-4adc-8c69-ea6c10756914",
+              "go": "a3e593f0-e311-4d65-b30a-e02afa1db2a6",
+              "component_type": "ClutchComponent"
+            },
+            "OutputRPM": 0,
+            "PowerCurve": [
+              {
+                "y": 0.34607023
+              },
+              {
+                "x": 0.41291115,
+                "y": 0.9439307
+              },
+              {
+                "x": 0.5213332,
+                "y": 0.8954418
+              },
+              {
+                "x": 0.67331773,
+                "y": 0.89643687,
+                "in": 0.71146476,
+                "out": -0.71146476
+              },
+              {
+                "x": 0.929332,
+                "y": 0.60451967,
+                "in": 0.5555556,
+                "out": -0.5555556
+              },
+              {
+                "x": 1,
+                "y": 0.22340426
+              }
+            ],
+            "RevLimiterCutoffDuration": 0.15,
+            "RevLimiterRPM": 7000,
+            "RPMPercent": 0,
+            "StallingEnabled": true,
+            "ThrottlePosition": 0,
+            "Type": "ICE"
+          },
+          {
+            "__type": "Sandbox.Powertrain.ClutchComponent",
+            "__guid": "dc4a21b4-e022-4adc-8c69-ea6c10756914",
+            "CarController": {
+              "_type": "component",
+              "component_id": "a1b35236-c51e-4171-9681-46446ad56b18",
+              "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+              "component_type": "CarController"
+            },
+            "Inertia": 0.02,
+            "ClutchInput": 0,
+            "CreepSpeedLimit": 1,
+            "CreepTorque": 0,
+            "Engagement": 0,
+            "EngagementCurve": {
+              "_ace_v": 1,
+              "keys": [
+                {
+                  "i": "Linear"
+                },
+                {
+                  "x": 1,
+                  "y": 1,
+                  "i": "Linear"
+                }
+              ]
+            },
+            "EngagementRange": 400,
+            "EngagementRPM": 1200,
+            "Input": {
+              "_type": "component",
+              "component_id": "7755429d-5c82-48a1-8515-0d6b258a4a6d",
+              "go": "a3e593f0-e311-4d65-b30a-e02afa1db2a6",
+              "component_type": "EngineComponent"
+            },
+            "InputRPM": 0,
+            "Name": "Clutch",
+            "Output": {
+              "_type": "component",
+              "component_id": "8aa46dfb-17ef-428f-863c-dc8815aabc7a",
+              "go": "a3e593f0-e311-4d65-b30a-e02afa1db2a6",
+              "component_type": "TransmissionComponent"
+            },
+            "OutputRPM": 0,
+            "SlipTorque": 500,
+            "\u0421ontrolType": "Automatic"
+          },
+          {
+            "__type": "Sandbox.Powertrain.TransmissionComponent",
+            "__guid": "8aa46dfb-17ef-428f-863c-dc8815aabc7a",
+            "CarController": {
+              "_type": "component",
+              "component_id": "a1b35236-c51e-4171-9681-46446ad56b18",
+              "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+              "component_type": "CarController"
+            },
+            "CurrentGearRatio": 0,
+            "Gears": [
+              0
+            ],
+            "Inertia": 0.05,
+            "AllowDownshiftGearSkipping": true,
+            "AllowUpshiftGearSkipping": false,
+            "ClutchInputShiftThreshold": 1,
+            "DNRShiftType": "Auto",
+            "DnrSpeedThreshold": 0.4,
+            "DownshiftRPM": 3400,
+            "FinalGearRatio": 4.3,
+            "Gear": 0,
+            "GearingProfile": {
+              "ForwardGears": [
+                3.59,
+                2.02,
+                1.38,
+                1,
+                0.87
+              ],
+              "ReverseGears": [
+                -4
+              ]
+            },
+            "HoldToKeepInGear": false,
+            "IgnorePostShiftBanInManual": true,
+            "InclineEffectCoeff": 0,
+            "Input": {
+              "_type": "component",
+              "component_id": "dc4a21b4-e022-4adc-8c69-ea6c10756914",
+              "go": "a3e593f0-e311-4d65-b30a-e02afa1db2a6",
+              "component_type": "ClutchComponent"
+            },
+            "InputRPM": 0,
+            "IsPostShiftBanActive": false,
+            "IsSequential": false,
+            "IsShifting": false,
+            "Name": "Transmission",
+            "Output": {
+              "_type": "component",
+              "component_id": "7608fdf9-9581-4e61-8c75-6e3325f941cd",
+              "go": "a3e593f0-e311-4d65-b30a-e02afa1db2a6",
+              "component_type": "DifferentialComponent"
+            },
+            "OutputRPM": 0,
+            "PostShiftBan": 0.5,
+            "ShiftDuration": 0.2,
+            "ShiftProgress": 0,
+            "TargetDownshiftRPM": 0,
+            "TargetUpshiftRPM": 0,
+            "TransmissionType": "Automatic",
+            "UpshiftRPM": 5800,
+            "VariableShiftIntensity": 0.3,
+            "VariableShiftPoint": true,
+            "\u0421urrentGearRatio": 0
+          },
+          {
+            "__type": "Sandbox.Powertrain.DifferentialComponent",
+            "__guid": "7608fdf9-9581-4e61-8c75-6e3325f941cd",
+            "CarController": {
+              "_type": "component",
+              "component_id": "a1b35236-c51e-4171-9681-46446ad56b18",
+              "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+              "component_type": "CarController"
+            },
+            "Inertia": 0.02,
+            "BiasAB": 0.5,
+            "CoastRamp": 0.5,
+            "Input": {
+              "_type": "component",
+              "component_id": "8aa46dfb-17ef-428f-863c-dc8815aabc7a",
+              "go": "a3e593f0-e311-4d65-b30a-e02afa1db2a6",
+              "component_type": "TransmissionComponent"
+            },
+            "InputRPM": 0,
+            "Name": "Differential",
+            "Output": {
+              "_type": "component",
+              "component_id": "030a9b01-898b-4bb4-8b9e-adf087d7bdde",
+              "go": "fc04e594-0d78-49bb-bb9d-6a0887b8dae7",
+              "component_type": "WheelComponent"
+            },
+            "OutputB": {
+              "_type": "component",
+              "component_id": "c602e27d-288f-4d51-9109-9e65712e8376",
+              "go": "4eaa3d57-e9df-4268-b733-3e3ad411e6c7",
+              "component_type": "WheelComponent"
+            },
+            "OutputRPM": 0,
+            "PowerRamp": 1,
+            "SlipTorque": 400,
+            "Stiffness": 0.5,
+            "Type": "Open"
+          },
+          {
+            "__type": "Sandbox.Powertrain.Modules.ESCModule",
+            "__guid": "6260748e-4548-44df-be01-3576cc6f2739",
+            "CarController": {
+              "_type": "component",
+              "component_id": "a1b35236-c51e-4171-9681-46446ad56b18",
+              "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+              "component_type": "CarController"
+            },
+            "intensity": 0.4,
+            "lowerSpeedThreshold": 4
+          }
+        ]
+      },
       {
         "__guid": "91db50b9-b1fd-48f9-811a-97aa487f23e0",
         "Flags": 0,
@@ -727,7 +1014,7 @@
                     ]
                   }
                 },
-                "Inertia": 37.337997,
+                "Inertia": 0,
                 "Load": 0,
                 "LoadContribution": 0.25,
                 "LoadRating": 5400,
@@ -1037,7 +1324,7 @@
                     ]
                   }
                 },
-                "Inertia": 37.337997,
+                "Inertia": 0,
                 "Load": 0,
                 "LoadContribution": 0.25,
                 "LoadRating": 5400,
@@ -1356,7 +1643,7 @@
                     ]
                   }
                 },
-                "Inertia": 37.337997,
+                "Inertia": 0,
                 "Load": 0,
                 "LoadContribution": 0.25,
                 "LoadRating": 5400,
@@ -1378,6 +1665,32 @@
                 "SuspensionDamping": 4500,
                 "SuspensionStiffness": 35000,
                 "Width": 6
+              },
+              {
+                "__type": "Sandbox.Powertrain.WheelComponent",
+                "__guid": "030a9b01-898b-4bb4-8b9e-adf087d7bdde",
+                "CarController": {
+                  "_type": "component",
+                  "component_id": "a1b35236-c51e-4171-9681-46446ad56b18",
+                  "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+                  "component_type": "CarController"
+                },
+                "Inertia": 0.05,
+                "Input": {
+                  "_type": "component",
+                  "component_id": "7608fdf9-9581-4e61-8c75-6e3325f941cd",
+                  "go": "a3e593f0-e311-4d65-b30a-e02afa1db2a6",
+                  "component_type": "DifferentialComponent"
+                },
+                "InputRPM": 0,
+                "Name": "Wheel1",
+                "OutputRPM": 0,
+                "Wheel": {
+                  "_type": "component",
+                  "component_id": "7f986f98-d31d-434a-9082-40e133370a1a",
+                  "go": "fc04e594-0d78-49bb-bb9d-6a0887b8dae7",
+                  "component_type": "WheelCollider"
+                }
               }
             ],
             "Children": [
@@ -1666,7 +1979,7 @@
                     ]
                   }
                 },
-                "Inertia": 37.337997,
+                "Inertia": 0,
                 "Load": 0,
                 "LoadContribution": 0.25,
                 "LoadRating": 5400,
@@ -1688,6 +2001,32 @@
                 "SuspensionDamping": 4500,
                 "SuspensionStiffness": 35000,
                 "Width": 6
+              },
+              {
+                "__type": "Sandbox.Powertrain.WheelComponent",
+                "__guid": "c602e27d-288f-4d51-9109-9e65712e8376",
+                "CarController": {
+                  "_type": "component",
+                  "component_id": "a1b35236-c51e-4171-9681-46446ad56b18",
+                  "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+                  "component_type": "CarController"
+                },
+                "Inertia": 0.05,
+                "Input": {
+                  "_type": "component",
+                  "component_id": "7608fdf9-9581-4e61-8c75-6e3325f941cd",
+                  "go": "a3e593f0-e311-4d65-b30a-e02afa1db2a6",
+                  "component_type": "DifferentialComponent"
+                },
+                "InputRPM": 0,
+                "Name": "Wheel2",
+                "OutputRPM": 0,
+                "Wheel": {
+                  "_type": "component",
+                  "component_id": "e81e0068-09d9-434e-a6ff-223f351715a0",
+                  "go": "4eaa3d57-e9df-4268-b733-3e3ad411e6c7",
+                  "component_type": "WheelCollider"
+                }
               }
             ],
             "Children": [

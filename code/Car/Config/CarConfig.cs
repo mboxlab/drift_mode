@@ -55,17 +55,7 @@ public abstract class ICarConfig
 	/// Lerp Speed change of RPM.
 	/// </summary>
 	[Property, Group( "Engine" )] public virtual float RpmEngineToRpmWheelsLerpSpeed { get; set; }
-	/// <summary>
-	/// Forward gears ratio.
-	/// </summary>
-	[Property, Group( "Engine" )] public virtual float[] GearsRatio { get; set; }
-	[Property, Group( "Engine" )] public virtual float MainRatio { get; set; }
-	/// <summary>
-	/// Reverse gear ratio.
-	/// </summary>
-	[Property, Group( "Engine" )] public virtual float ReversGearRatio { get; set; }
 
-	[Property, Group( "Brake" )] public virtual float MaxBrakeTorque { get; set; }
 	[Property, Group( "Brake" )] public virtual float TargetSpeedIfBrakingGround { get; set; }
 	[Property, Group( "Brake" )] public virtual bool EnableSteerAngleMultiplier { get; set; }
 	/// <summary>

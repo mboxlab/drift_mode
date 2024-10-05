@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DM.Ground;
+namespace Sandbox.Ground;
 
 [Serializable]
 /// <summary>

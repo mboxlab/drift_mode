@@ -1,6 +1,6 @@
 ﻿using System;
-using DM.Car;
-using DM.Ground;
+using Sandbox.Car;
+using Sandbox.Ground;
 namespace Sandbox.Car;
 
 [Category( "Vehicles" )]
@@ -13,7 +13,7 @@ public class WheelCollider : Stereable
 	[Property] public float Radius { get => wheelRadius; set { wheelRadius = value; UpdateTotalSuspensionLength(); } }
 	[Property] public float Width { get; set; } = 6;
 	[Property] public float Mass { get; set; } = 15;
-	[Property, ReadOnly] public float Inertia { get => 0.5f * Mass * (Radius * Radius).InchToMeter(); }
+	[Property, ReadOnly] public float Inertia { get => _inertia; set => _inertia = value; }
 	//[Property] public WheelFrictionInfo ForwardFriction { get; set; }
 	//[Property] public WheelFrictionInfo SidewayFriction { get; set; }
 	[Property] public PacejkaCurve FrictionPreset { get; set; } = PacejkaCurve.Asphalt;
@@ -45,6 +45,7 @@ public class WheelCollider : Stereable
 	private Rotation TransformRotationSteer;
 	protected override void OnEnabled()
 	{
+		Inertia = 0.5f * Mass * (Radius.InchToMeter() * Radius.InchToMeter());
 		SmokeEmitter.Enabled = false;
 		Manager ??= Components.Get<WheelManager>( FindMode.InAncestors );
 		Manager.Register( this );
@@ -55,7 +56,8 @@ public class WheelCollider : Stereable
 	{
 		_suspensionTotalLength = (maxSuspensionLength + wheelRadius) - minSuspensionLength;
 	}
-	protected override void OnFixedUpdate()
+
+	public void Update()
 	{
 		if ( !_rigidbody.IsValid() )
 			return;
@@ -74,6 +76,12 @@ public class WheelCollider : Stereable
 		UpdateSuspension();
 		UpdateFriction();
 	}
+
+	protected override void OnFixedUpdate()
+	{
+		if ( AutoSimulate )
+			Update();
+	}
 	[Description( "Constant torque acting similar to brake torque.\r\nImitates rolling resistance." )]
 	[Property, Range( 0, 500 )] public float RollingResistanceTorque { get; set; } = 30f;
 	[Description( "The percentage this wheel is contributing to the total vehicle load bearing." )]
@@ -88,6 +96,7 @@ public class WheelCollider : Stereable
 	/// When there is wheel spin, the value will be less than the input torque.
 	/// </summary>
 	[Property, ReadOnly] public float CounterTorque { get; private set; }
+	public bool AutoSimulate { get; set; } = true;
 
 	private Vector3 FrictionForce;
 	public Vector3 hitContactVelocity;
@@ -98,6 +107,7 @@ public class WheelCollider : Stereable
 	private Vector3 currentPosition;
 	private bool _lowSpeedReferenceIsSet;
 	private Vector3 _lowSpeedReferencePosition;
+	private float _inertia;
 
 	protected void UpdateFriction()
 	{

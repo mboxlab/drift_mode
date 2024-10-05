@@ -1,5 +1,5 @@
 using System;
-namespace DM.Engine;
+namespace Sandbox.Engine;
 
 [Category( "Audio" )]
 public sealed class SoundInterpolator : Component

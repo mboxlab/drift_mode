@@ -238,7 +238,7 @@
         },
         {
           "Name": "Front View",
-          "KeyboardCode": "downarrow",
+          "KeyboardCode": "uparrow",
           "GamepadCode": "None",
           "GroupName": "Other"
         },
@@ -251,6 +251,12 @@
         {
           "Name": "Right View",
           "KeyboardCode": "leftarrow",
+          "GamepadCode": "None",
+          "GroupName": "Other"
+        },
+        {
+          "Name": "Back View",
+          "KeyboardCode": "downarrow",
           "GamepadCode": "None",
           "GroupName": "Other"
         }

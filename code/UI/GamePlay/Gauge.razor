@@ -34,8 +34,8 @@
 		if (Car is null) return;
 		Lap = GameManager.Lap.ToString();
 		Speed = Math.Floor(Car.Rigidbody.Velocity.Length * VEL_TO_KMH).ToString();
-		RPM = Math.Floor(Car.EngineRPM).ToString();
-		Gear = Car.CurrentGear.ToString();
+		RPM = Math.Floor(Car.Powertrain.Engine.OutputRPM).ToString();
+		Gear = Car.Powertrain.Transmission.GearName.ToString();
 	}
 	/// <summary>
 	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt

@@ -15,11 +15,7 @@ public class DriftCarConfig : ICarConfig
 	public override float RpmToPrevGear { get; set; } = 4500f;
 	public override float MaxForwardSlipToBlockChangeGear { get; set; } = 0.5f;
 	public override float RpmEngineToRpmWheelsLerpSpeed { get; set; } = 15f;
-	public override float[] GearsRatio { get; set; } = new float[5] { 3.59f, 2.02f, 1.38f, 1f, 0.87f };
-	public override float MainRatio { get; set; } = 4.3f;
-	public override float ReversGearRatio { get; set; } = 4f;
 
-	public override float MaxBrakeTorque { get; set; } = 1000;
 	public override float TargetSpeedIfBrakingGround { get; set; } = 20f;
 	public override bool EnableSteerAngleMultiplier { get; set; } = true;
 	public override float MinSteerAngleMultiplier { get; set; } = 0.05f;

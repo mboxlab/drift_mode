@@ -1,6 +1,4 @@
-using System;
-using Sandbox.Car;
-namespace DM.Car;
+namespace Sandbox.Car;
 
 [Category( "Vehicles" )]
 public sealed class Steering : Component
@@ -11,7 +9,7 @@ public sealed class Steering : Component
 	[Property] public float SteeringSmoothness { get; set; } = 10f;
 	[Property] public Angles Offset { get; set; }
 	[Property] public Rigidbody Rigidbody { get; set; }
-	private float SteerAngle { get; set; }
+	public float SteerAngle { get; private set; }
 
 	protected override void OnFixedUpdate()
 	{

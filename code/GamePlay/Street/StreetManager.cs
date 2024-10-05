@@ -27,8 +27,6 @@ public sealed class StreetManager : Component, Component.INetworkListener, IMana
 	/// </summary>
 	[Property] public bool StartServer { get; set; } = true;
 
-	[Property] public CarConfigEnum CarConfig { get; set; } = CarConfigEnum.Street;
-
 	/// <summary>
 	/// The prefab to spawn for the player to control.
 	/// </summary>
@@ -85,11 +83,6 @@ public sealed class StreetManager : Component, Component.INetworkListener, IMana
 		// FIX ME
 
 		var car = player.Components.Get<CarController>();
-
-		if ( CarConfig == CarConfigEnum.Drift )
-			car.CarConfig = new DriftCarConfig();
-		else if ( CarConfig == CarConfigEnum.Street )
-			car.CarConfig = new StreetCarConfig();
 
 		car.ClientInit();
 

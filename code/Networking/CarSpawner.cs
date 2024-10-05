@@ -64,11 +64,6 @@ public sealed class CarSpawner : Component, Component.INetworkListener
 
 		player.NetworkSpawn( channel );
 
-		// FIX ME
-		if ( CarConfig == CarConfigEnum.Drift )
-			player.Components.Get<CarController>().CarConfig = new DriftCarConfig();
-		else if ( CarConfig == CarConfigEnum.Street )
-			player.Components.Get<CarController>().CarConfig = new StreetCarConfig();
 	}
 
 	/// <summary>

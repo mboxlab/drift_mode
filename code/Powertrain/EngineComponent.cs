@@ -399,6 +399,7 @@ public class EngineComponent : PowertrainComponent
 			return;
 
 		RevLimiterActive = true;
+		OnRevLimiter?.Invoke();
 		await GameTask.DelayRealtimeSeconds( RevLimiterCutoffDuration );
 		RevLimiterActive = false;
 	}

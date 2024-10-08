@@ -2,7 +2,7 @@
   "RootObject": {
     "__guid": "9129ed10-c30b-4dd2-9800-b160f93b3376",
     "Flags": 0,
-    "Name": "g_benz124",
+    "Name": "g_benz190e",
     "Tags": "car",
     "Enabled": true,
     "Components": [
@@ -39,7 +39,7 @@
             "__type": "Sandbox.ModelRenderer",
             "__guid": "8e4d9c6a-e979-4a95-9f16-a76b1e4be3de",
             "BodyGroups": 18446744073709551615,
-            "Model": "models/cars/benz124/benz124.vmdl",
+            "Model": "models/cars/benz190e/benz190e.vmdl",
             "RenderOptions": {
               "GameLayer": true,
               "OverlayLayer": false,
@@ -76,7 +76,7 @@
                 "__type": "Sandbox.Car.Part",
                 "__guid": "4b45bcd0-b8ef-424c-aa46-6d598a600243",
                 "Models": [
-                  "models/cars/benz124/wheel_stock.vmdl",
+                  "models/cars/benz190e/wheel_stock.vmdl",
                   "models/carparts/wheels2/lp_veh_wheel_01.vmdl"
                 ],
                 "Name": "Wheels",
@@ -115,7 +115,7 @@
                 "Flags": 0,
                 "Name": "Wheel Front Left",
                 "Position": "63,35,0",
-                "Rotation": "0,0,1,-0.00000002980232",
+                "Rotation": "0,0,1,-0.00000004371139",
                 "Enabled": true,
                 "Children": [
                   {

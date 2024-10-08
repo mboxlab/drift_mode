@@ -175,7 +175,7 @@
           "Cars": [
             {
               "_type": "gameobject",
-              "prefab": "prefabs/cars/in_garage/g_benz124.prefab"
+              "prefab": "prefabs/cars/in_garage/g_benz190e.prefab"
             }
           ]
         }

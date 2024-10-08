@@ -17,6 +17,10 @@
 								from = "0.038.vmat"
 								to = "materials/car/lp_cars_texture.vmat"
 							},
+							{
+								from = "lp_veh_sedan_glass_001_06.vmat"
+								to = "materials/car/windows.vmat"
+							},
 						]
 						use_global_default = false
 						global_default_material = "materials/default.vmat"
@@ -29,20 +33,22 @@
 				[
 					{
 						_class = "RenderMeshFile"
-						filename = "models/cars/benz124/lp_veh_sedan_06.fbx"
+						filename = "models/cars/benz190e/lp_veh_sedan_06.fbx"
 						import_translation = [ 0.0, 0.0, 0.0 ]
 						import_rotation = [ 0.0, 0.0, 0.0 ]
 						import_scale = 1.0
-						align_origin_x_type = "BoundsCenter"
-						align_origin_y_type = "BoundsCenter"
-						align_origin_z_type = "BoundsCenter"
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
 						parent_bone = ""
 						import_filter = 
 						{
 							exclude_by_default = true
 							exception_list = 
 							[
-								"LP_Veh_Sedan_Wheel_002_06",
+								"LP_Veh_Sedan_06",
+								"LP_Veh_Sedan_Glass_001_06",
+								"LP_Veh_Sports_Steering_wheel_03_004",
 							]
 						}
 					},

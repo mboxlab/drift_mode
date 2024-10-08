@@ -321,15 +321,22 @@
                 "Enabled": true,
                 "Components": [
                   {
-                    "__type": "Sandbox.Car.Part",
-                    "__guid": "ca226717-c16f-4c69-8105-93fd1cbdfa13",
-                    "Models": [
-                      "models/carparts/wheels2/lp_veh_wheel_01.vmdl"
-                    ],
-                    "Name": "Wheels",
-                    "Objects": [],
-                    "Index": -1,
-                    "Rendering": false
+                    "__type": "Sandbox.UI.InteractiveObject",
+                    "__guid": "8d753588-8a45-4083-8ef7-adbfe7afc6dd",
+                    "ClampEqual": false,
+                    "Clamping": false,
+                    "Distance": 32,
+                    "LocalAngles": "0,0,0",
+                    "OffsetPosition": "0,0,0",
+                    "Parent": {
+                      "_type": "component",
+                      "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
+                      "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+                      "component_type": "InteractiveObject"
+                    },
+                    "TriggerAnimation": true,
+                    "ClampMax": "0,0,0",
+                    "ClampMin": "0,0,0"
                   }
                 ],
                 "Children": [

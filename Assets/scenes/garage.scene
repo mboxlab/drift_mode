@@ -6,6 +6,7 @@
       "Flags": 0,
       "Name": "DIY audio system",
       "Position": "-22.48538,-239.2046,31.5975",
+      "Tags": "car",
       "Enabled": true,
       "Components": [
         {
@@ -211,7 +212,7 @@
           "Clamping": true,
           "Distance": 160,
           "LocalAngles": "90,0,0",
-          "OffsetPosition": "0,0,0",
+          "OffsetPosition": "0,0,14",
           "TriggerAnimation": true,
           "ClampMax": "20,20,0",
           "ClampMin": "-20,-20,0"

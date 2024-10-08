@@ -41,7 +41,7 @@ public sealed class CarDresser : Component, Component.INetworkListener, ICarDres
 		return Default;
 	}
 
-	void ICarDresserEvent.OnSave()
+	void ICarDresserEvent.OnSave( Part p )
 	{
 		bool exists = FileSystem.OrganizationData.FileExists( SavePath );
 		CarDresses dresses = exists ? FileSystem.OrganizationData.ReadJson<CarDresses>( SavePath ) : new();
@@ -84,6 +84,6 @@ public struct CarDresses
 public interface ICarDresserEvent : ISceneEvent<ICarDresserEvent>
 {
 
-	void OnSave() { }
+	void OnSave( Part part ) { }
 	void OnLoad( List<Part> parts ) { }
 }

@@ -19,8 +19,21 @@ public sealed class WheelMover : Component, ICarDresserEvent
 	void ICarDresserEvent.OnLoad( List<Part> parts )
 	{
 		Part wheelPart = parts.Find( part => part.Name == "Wheels" );
-		Wheel.Radius = wheelPart.Current.RenderBounds.Size.z / 2 - 1f;
-		Wheel.Width = wheelPart.Current.RenderBounds.Size.y / 2;
+		SetupWheelBounds( wheelPart.Current.RenderBounds.Size.z / 2 - 1f, wheelPart.Current.RenderBounds.Size.y / 2 );
+	}
+
+	void ICarDresserEvent.OnSave( Part part )
+	{
+		if ( part.Name != "Wheels" )
+			return;
+
+		SetupWheelBounds( part.Current.RenderBounds.Size.z / 2 - 1f, part.Current.RenderBounds.Size.y / 2 );
+	}
+
+	private void SetupWheelBounds( float radius, float width )
+	{
+		Wheel.Radius = radius;
+		Wheel.Width = width;
 	}
 
 	protected override void OnFixedUpdate()

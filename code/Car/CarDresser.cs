@@ -8,8 +8,7 @@ public sealed class CarDresser : Component, Component.INetworkListener, ICarDres
 	[Property] public List<Part> Parts = new();
 
 	public ModelRenderer CarRenderer;
-
-	private const string Path = "dress.json";
+	public string SavePath { get; set; } = "dress.json";
 
 	public Dictionary<string, int> Default
 	{
@@ -33,24 +32,24 @@ public sealed class CarDresser : Component, Component.INetworkListener, ICarDres
 
 	private Dictionary<string, int> Get()
 	{
-		if ( !FileSystem.OrganizationData.FileExists( Path ) ) return Default;
+		if ( !FileSystem.OrganizationData.FileExists( SavePath ) ) return Default;
 
-		CarDresses dresses = FileSystem.OrganizationData.ReadJson<CarDresses>( Path );
+		CarDresses dresses = FileSystem.OrganizationData.ReadJson<CarDresses>( SavePath );
 		Dictionary<string, int> json = dresses.Cars.GetValueOrDefault( CarRenderer.Model.Name );
 		if ( json is not null ) return json;
 
 		return Default;
 	}
 
-	void ICarDresserEvent.Save()
+	void ICarDresserEvent.OnSave()
 	{
-		bool exists = FileSystem.OrganizationData.FileExists( Path );
-		CarDresses dresses = exists ? FileSystem.OrganizationData.ReadJson<CarDresses>( Path ) : new();
+		bool exists = FileSystem.OrganizationData.FileExists( SavePath );
+		CarDresses dresses = exists ? FileSystem.OrganizationData.ReadJson<CarDresses>( SavePath ) : new();
 
 		dresses.Cars = dresses.Cars is null ? new() : dresses.Cars;
 		dresses.Cars[CarRenderer.Model.Name] = Current;
 
-		FileSystem.OrganizationData.WriteJson( Path, dresses );
+		FileSystem.OrganizationData.WriteJson( SavePath, dresses );
 	}
 
 	public void Dress() => Dress( Get() );
@@ -82,5 +81,7 @@ public struct CarDresses
 
 public interface ICarDresserEvent : ISceneEvent<ICarDresserEvent>
 {
-	void Save() { }
+	public string SavePath { get; set; }
+
+	void OnSave() { }
 }

@@ -176,6 +176,10 @@
             {
               "_type": "gameobject",
               "prefab": "prefabs/cars/in_garage/g_benz190e.prefab"
+            },
+            {
+              "_type": "gameobject",
+              "prefab": "prefabs/cars/in_garage/g_350z.prefab"
             }
           ]
         }

@@ -81,6 +81,6 @@ public sealed class Part : Component
 
 	public void Save()
 	{
-		ICarDresserEvent.Post( x => x.Save() );
+		ICarDresserEvent.Post( x => x.OnSave() );
 	}
 }

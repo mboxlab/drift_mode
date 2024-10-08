@@ -1,4 +1,5 @@
 ﻿
+using System.Text.Json.Serialization;
 using Sandbox.UI;
 
 namespace Sandbox.Car;
@@ -6,17 +7,16 @@ namespace Sandbox.Car;
 public sealed class CarSelector : Component
 {
 	[Property] public List<GameObject> Cars { get; set; }
-	public Action<GameObject> OnCarChanged { get; set; }
-	public static GameObject ActiveCar { get; set; }
-	public BBox ActiveCarBounds { get; set; }
-	public Vector3 ActiveCarCenter { get; set; }
-	public int car { get; set; }
+
+	public event Action<GameObject> OnCarChanged;
+	public GameObject ActiveCar { get; private set; }
+	public int CarIndex { get; private set; }
+	public string SavePath { get; private set; } = "ActiveCar.json";
 
 	protected override void OnStart()
 	{
 		base.OnStart();
-
-		ChangeCar( Cars.First() );
+		LoadCar();
 	}
 
 	protected override void OnUpdate()
@@ -24,10 +24,10 @@ public sealed class CarSelector : Component
 
 		if ( InteractiveCamera.IsOnOrigin && Input.Pressed( "Left" ) )
 		{
-			car = (car + 1) % Cars.Count;
+			CarIndex = (CarIndex + 1) % Cars.Count;
 			if ( ActiveCar.IsValid() )
 			{
-				ChangeCar( Cars[car] );
+				ChangeCar( Cars[CarIndex] );
 			}
 		}
 	}
@@ -38,10 +38,50 @@ public sealed class CarSelector : Component
 		GameObject car = newCar.Clone();
 		car.Name = newCar.Name;
 		car.WorldPosition = WorldPosition;
+
 		ActiveCar = car;
-		ActiveCarBounds = car.GetBounds();
-		ActiveCarCenter = ActiveCarBounds.Center;
-		//ActiveCar.Components.Get<InteractiveObject>().LocalPosition = new Vector3( 0, 0, ActiveCarBounds.Center.z );
+		CarIndex = Cars.IndexOf( newCar );
+
 		OnCarChanged?.Invoke( car );
+		SaveCar();
+	}
+
+	private void SaveCar()
+	{
+		CarJson dresses = new()
+		{
+			CarIndex = CarIndex,
+			CarPrefabSource = ActiveCar.PrefabInstanceSource,
+			CarName = ActiveCar.Name
+		};
+
+		FileSystem.Data.WriteJson( SavePath, dresses );
+	}
+	private void LoadCar()
+	{
+		bool exists = FileSystem.Data.FileExists( SavePath );
+		if ( !exists )
+		{
+			ChangeCar( Cars.First() );
+			return;
+		}
+
+		CarJson dresses = FileSystem.Data.ReadJson<CarJson>( SavePath );
+
+		if ( dresses.CarPrefabSource is null )
+		{
+			ChangeCar( Cars.First() );
+			return;
+		}
+
+		ChangeCar( Cars.Find( ( car ) => car.Name == dresses.CarName ) );
+	}
+
+
+	public struct CarJson
+	{
+		[JsonInclude] public int CarIndex { get; set; }
+		[JsonInclude] public string CarPrefabSource { get; set; }
+		[JsonInclude] public string CarName { get; set; }
 	}
 }

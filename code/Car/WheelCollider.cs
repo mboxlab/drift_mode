@@ -383,7 +383,7 @@ public class WheelCollider : Stereable
 		var dampingForce = -SuspensionDamping * localVel;
 		var springForce = -SuspensionStiffness * suspensionCompression;
 
-		Load = Math.Abs( dampingForce + springForce );
+		Load = Math.Max( 0, dampingForce + springForce );
 
 		var totalForce = Load.MeterToInch() * Time.Delta;
 

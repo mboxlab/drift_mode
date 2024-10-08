@@ -141,8 +141,8 @@ public sealed class InteractiveCamera : Component
 
 	private void UpdatePosition()
 	{
-		Ray ray = new Ray( TargetPosition, TargetRotation.Backward );
-		SceneTraceResult result = Scene.Trace.Sphere( 4f, ray, TargetDistance ).WithoutTags("car").Run();
+		Ray ray = new( TargetPosition, TargetRotation.Backward );
+		SceneTraceResult result = Scene.Trace.Sphere( 4f, ray, TargetDistance ).WithoutTags( "car" ).Run();
 
 		WorldPosition = result.EndPosition;
 		WorldRotation = TargetRotation;

@@ -10,8 +10,9 @@ public sealed class CarSelector : Component
 
 	public event Action<GameObject> OnCarChanged;
 	public GameObject ActiveCar { get; private set; }
+	[Property]
 	public int CarIndex { get; private set; }
-	public string SavePath { get; private set; } = "ActiveCar.json";
+	public static string SavePath { get; private set; } = "ActiveCar.json";
 
 	protected override void OnStart()
 	{
@@ -21,14 +22,18 @@ public sealed class CarSelector : Component
 
 	protected override void OnUpdate()
 	{
+		if ( !InteractiveCamera.IsOnOrigin )
+			return;
 
-		if ( InteractiveCamera.IsOnOrigin && Input.Pressed( "Left" ) )
+		int index = (Input.Pressed( "Right" ) ? 1 : 0) - (Input.Pressed( "Left" ) ? 1 : 0);
+		if ( index != 0 )
 		{
-			CarIndex = (CarIndex + 1) % Cars.Count;
+
+			CarIndex = (CarIndex + index) % Cars.Count;
+			if ( CarIndex == -1 )
+				CarIndex = Cars.Count - 1;
 			if ( ActiveCar.IsValid() )
-			{
 				ChangeCar( Cars[CarIndex] );
-			}
 		}
 	}
 
@@ -39,6 +44,9 @@ public sealed class CarSelector : Component
 		car.Name = newCar.Name;
 		car.WorldPosition = WorldPosition;
 
+		car.GetComponent<CameraController>().Enabled = false;
+		car.GetComponent<CarController>().Enabled = false;
+		car.GetComponent<Rigidbody>().Locking = new PhysicsLock() { Pitch = true, Yaw = true, Roll = true };
 		ActiveCar = car;
 		CarIndex = Cars.IndexOf( newCar );
 

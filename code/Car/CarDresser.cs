@@ -8,7 +8,7 @@ public sealed class CarDresser : Component, Component.INetworkListener, ICarDres
 	[Property] public List<Part> Parts = new();
 
 	public ModelRenderer CarRenderer;
-	public string SavePath { get; set; } = "dress.json";
+	public static string SavePath { get; set; } = "dress.json";
 
 	public Dictionary<string, int> Default
 	{
@@ -71,6 +71,8 @@ public sealed class CarDresser : Component, Component.INetworkListener, ICarDres
 		CarRenderer = Components.Get<ModelRenderer>();
 
 		Dress();
+
+		ICarDresserEvent.Post( x => x.OnLoad( Parts ) );
 	}
 }
 
@@ -81,7 +83,7 @@ public struct CarDresses
 
 public interface ICarDresserEvent : ISceneEvent<ICarDresserEvent>
 {
-	public string SavePath { get; set; }
 
 	void OnSave() { }
+	void OnLoad( List<Part> parts ) { }
 }

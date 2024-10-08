@@ -182,7 +182,7 @@ public partial class CarInputHandler
 
 		Steering = Input.AnalogMove.y;
 
-		Clutch = Input.Down( "Clutch" ) ? 1 : 0;
+		Clutch = (Input.Down( "Clutch" ) || Input.Down( "HandBrake" )) ? 1 : 0;
 
 		ShiftUp |= Input.Pressed( "Attack1" );
 		ShiftDown |= Input.Pressed( "Attack2" );

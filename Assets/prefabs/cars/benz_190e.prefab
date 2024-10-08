@@ -2,7 +2,7 @@
   "RootObject": {
     "__guid": "9129ed10-c30b-4dd2-9800-b160f93b3376",
     "Flags": 0,
-    "Name": "350z",
+    "Name": "benz_190e",
     "Tags": "car",
     "Enabled": true,
     "Components": [
@@ -114,7 +114,7 @@
         "LinearDamping": 0,
         "Locking": {},
         "MassCenterOverride": "5,0,10",
-        "MassOverride": 1637,
+        "MassOverride": 1340,
         "MotionEnabled": true,
         "OverrideMassCenter": true,
         "RigidbodyFlags": "DisableCollisionSounds",
@@ -177,596 +177,6 @@
     ],
     "Children": [
       {
-        "__guid": "6f55146a-b7f1-4260-8be4-aab990eda8ff",
-        "Flags": 0,
-        "Name": "Model",
-        "Enabled": true,
-        "Components": [
-          {
-            "__type": "Sandbox.ModelRenderer",
-            "__guid": "c3b065f2-75a6-4e89-b428-04434ef76e33",
-            "BodyGroups": 18446744073709551615,
-            "Model": "models/cars/350z/350z.vmdl",
-            "RenderOptions": {
-              "GameLayer": true,
-              "OverlayLayer": false,
-              "BloomLayer": false,
-              "AfterUILayer": false
-            },
-            "RenderType": "On",
-            "Tint": "1,1,1,1"
-          },
-          {
-            "__type": "Sandbox.Car.CarDresser",
-            "__guid": "7afae29d-37d4-4587-81a8-17c7d9c586d0",
-            "Parts": []
-          },
-          {
-            "__type": "Sandbox.HighlightOutline",
-            "__guid": "53697db4-481f-44c0-a5f6-18ecfbf93386",
-            "__enabled": false,
-            "Color": "1,1,1,1",
-            "InsideColor": "0,0,0,0",
-            "InsideObscuredColor": "0,0,0,0",
-            "ObscuredColor": "0,0,0,0.4",
-            "Width": 0.25
-          }
-        ],
-        "Children": [
-          {
-            "__guid": "a0941ada-6006-4928-a8c3-4de2e6e1e987",
-            "Flags": 0,
-            "Name": "spoiler",
-            "Enabled": true,
-            "Components": [
-              {
-                "__type": "Sandbox.Car.Part",
-                "__guid": "a55a49b3-3cef-4675-8a0c-c419e8b7a99e",
-                "Models": [
-                  "models/cars/350z/spoiler1.vmdl",
-                  "models/cars/350z/spoiler2.vmdl",
-                  "models/cars/350z/spoiler3.vmdl"
-                ],
-                "Name": "Spoiler",
-                "Objects": [],
-                "Index": -1,
-                "Rendering": false
-              }
-            ],
-            "Children": [
-              {
-                "__guid": "efdf538e-0883-45aa-bf79-78356846a336",
-                "Flags": 0,
-                "Name": "poses",
-                "Enabled": true,
-                "Children": [
-                  {
-                    "__guid": "06f15e9b-3c4d-47f2-9d82-2e080ea9bc2c",
-                    "Flags": 0,
-                    "Name": "1",
-                    "Position": "-100.665,-0.000003485864,47.15435",
-                    "Enabled": true,
-                    "Components": [
-                      {
-                        "__type": "Sandbox.WorldPanel",
-                        "__guid": "7e0b71d9-e8bc-44ad-b906-6ac369aab5b0",
-                        "HorizontalAlign": "Center",
-                        "InteractionRange": 1000,
-                        "LookAtCamera": true,
-                        "PanelSize": "512,128",
-                        "RenderOptions": {
-                          "GameLayer": false,
-                          "OverlayLayer": true,
-                          "BloomLayer": false,
-                          "AfterUILayer": false
-                        },
-                        "RenderScale": 1,
-                        "VerticalAlign": "Center"
-                      },
-                      {
-                        "__type": "PartSpace",
-                        "__guid": "d6f2d500-5b2b-4e2b-812a-9cfe5ecab410",
-                        "IsInterspace": false,
-                        "Part": {
-                          "_type": "component",
-                          "component_id": "a55a49b3-3cef-4675-8a0c-c419e8b7a99e",
-                          "go": "a0941ada-6006-4928-a8c3-4de2e6e1e987",
-                          "component_type": "Part"
-                        }
-                      },
-                      {
-                        "__type": "Sandbox.UI.InteractiveObject",
-                        "__guid": "31b125cd-d3d8-455e-b57d-980cc0af5b0d",
-                        "ClampEqual": true,
-                        "Clamping": true,
-                        "Distance": 96,
-                        "LocalAngles": "30,0,0",
-                        "OffsetPosition": "0,0,0",
-                        "TriggerAnimation": true,
-                        "ClampMax": "45,75,0",
-                        "ClampMin": "-45,-75,0"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "__guid": "94136ef1-6f9b-4d98-813b-560249904a99",
-            "Flags": 0,
-            "Name": "disks",
-            "Enabled": true,
-            "NetworkMode": 0,
-            "Components": [
-              {
-                "__type": "Sandbox.Car.Part",
-                "__guid": "97d9555a-4ba4-4e6b-bf57-3fb8ff530f3d",
-                "Models": [
-                  "models/cars/350z/wheel_stock.vmdl",
-                  "models/carparts/wheels2/lp_veh_wheel_01.vmdl"
-                ],
-                "Name": "Wheels",
-                "Objects": [
-                  {
-                    "_type": "gameobject",
-                    "go": "50a9c913-c202-40fd-a59b-dea4104849d9"
-                  },
-                  {
-                    "_type": "gameobject",
-                    "go": "1ae9f358-80d0-46e0-ae81-b6fa1bf7783f"
-                  },
-                  {
-                    "_type": "gameobject",
-                    "go": "78a2cec0-808a-4717-bd38-8ecdff9ad098"
-                  },
-                  {
-                    "_type": "gameobject",
-                    "go": "894b6134-9d64-422a-9dfc-066857463c7b"
-                  }
-                ],
-                "Index": -1,
-                "Rendering": false
-              }
-            ]
-          },
-          {
-            "__guid": "410cd1b4-bb28-4e30-befd-405120c2835f",
-            "Flags": 0,
-            "Name": "kit",
-            "Enabled": true,
-            "Components": [
-              {
-                "__type": "Sandbox.Car.Part",
-                "__guid": "25420ec7-622d-4a03-a4a4-6e7cde40ae0b",
-                "Models": [
-                  "models/cars/350z/kit1.vmdl",
-                  "models/cars/350z/kit2.vmdl",
-                  "models/cars/350z/kit3.vmdl"
-                ],
-                "Name": "Body kit",
-                "Objects": [],
-                "Index": -1,
-                "Rendering": false
-              }
-            ],
-            "Children": [
-              {
-                "__guid": "2627d5f3-7a5e-49cf-9ca6-b915f58011cc",
-                "Flags": 0,
-                "Name": "poses",
-                "Enabled": true,
-                "Children": [
-                  {
-                    "__guid": "831ada22-2106-4c0e-ba4c-a005a3fa72a9",
-                    "Flags": 0,
-                    "Name": "1",
-                    "Position": "-190.6,-109.6,30",
-                    "Enabled": true,
-                    "Components": [
-                      {
-                        "__type": "Sandbox.WorldPanel",
-                        "__guid": "df058ad2-afee-4bf5-8737-ab9d3a6f591e",
-                        "HorizontalAlign": "Center",
-                        "InteractionRange": 1000,
-                        "LookAtCamera": true,
-                        "PanelSize": "512,128",
-                        "RenderOptions": {
-                          "GameLayer": false,
-                          "OverlayLayer": true,
-                          "BloomLayer": false,
-                          "AfterUILayer": false
-                        },
-                        "RenderScale": 1,
-                        "VerticalAlign": "Center"
-                      },
-                      {
-                        "__type": "PartSpace",
-                        "__guid": "6e43b0a5-dd3d-46b5-80a7-8f2b7d22c41d",
-                        "IsInterspace": false,
-                        "Part": {
-                          "_type": "component",
-                          "component_id": "25420ec7-622d-4a03-a4a4-6e7cde40ae0b",
-                          "go": "410cd1b4-bb28-4e30-befd-405120c2835f",
-                          "component_type": "Part"
-                        }
-                      },
-                      {
-                        "__type": "Sandbox.UI.InteractiveObject",
-                        "__guid": "c7f67fef-457e-456a-ac65-de8e52735b3a",
-                        "ClampEqual": true,
-                        "Clamping": true,
-                        "Distance": 200,
-                        "LocalAngles": "90,0,0",
-                        "OffsetPosition": "190.6,109.6,0",
-                        "TriggerAnimation": true,
-                        "ClampMax": "-90,180,0",
-                        "ClampMin": "90,-180,0"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "__guid": "bc4a569a-2f5e-4c46-af89-032c3d7b761d",
-            "Flags": 0,
-            "Name": "wheels",
-            "Position": "0,0,14",
-            "Enabled": true,
-            "Children": [
-              {
-                "__guid": "50a9c913-c202-40fd-a59b-dea4104849d9",
-                "Flags": 0,
-                "Name": "Wheel Front Left",
-                "Position": "63,35,0",
-                "Rotation": "0,0,1,-0.00000002980232",
-                "Enabled": true,
-                "Components": [
-                  {
-                    "__type": "WheelMover",
-                    "__guid": "17c63ab0-4235-4ee2-8ea6-63b82a6bedbe",
-                    "ReverseRotation": true,
-                    "Speed": 3.1415927,
-                    "Wheel": {
-                      "_type": "component",
-                      "component_id": "89edb492-b2a6-454e-b664-cb4d190a292b",
-                      "go": "a67d5021-9e51-483f-a1b7-a628c5bb2909",
-                      "component_type": "WheelCollider"
-                    }
-                  }
-                ],
-                "Children": [
-                  {
-                    "__guid": "f5ca5144-b17b-46bc-a8ca-b648180381bd",
-                    "Flags": 0,
-                    "Name": "poses",
-                    "Rotation": "0,0,0.7071068,0.7071068",
-                    "Enabled": true,
-                    "Children": [
-                      {
-                        "__guid": "da133cb7-e69e-4d25-94bd-58b2b25fbc21",
-                        "Flags": 0,
-                        "Name": "disks",
-                        "Position": "-10,0,0",
-                        "Enabled": true,
-                        "Components": [
-                          {
-                            "__type": "Sandbox.WorldPanel",
-                            "__guid": "5fd5f5f1-f7df-4575-9ad7-e8cc7ca3a41b",
-                            "HorizontalAlign": "Center",
-                            "InteractionRange": 1000,
-                            "LookAtCamera": true,
-                            "PanelSize": "512,128",
-                            "RenderOptions": {
-                              "GameLayer": true,
-                              "OverlayLayer": true,
-                              "BloomLayer": false,
-                              "AfterUILayer": false
-                            },
-                            "RenderScale": 1,
-                            "VerticalAlign": "Center"
-                          },
-                          {
-                            "__type": "PartSpace",
-                            "__guid": "718327dd-da71-451a-9ead-1bd26af0ee3b",
-                            "IsInterspace": false,
-                            "Part": {
-                              "_type": "component",
-                              "component_id": "97d9555a-4ba4-4e6b-bf57-3fb8ff530f3d",
-                              "go": "94136ef1-6f9b-4d98-813b-560249904a99",
-                              "component_type": "Part"
-                            }
-                          },
-                          {
-                            "__type": "Sandbox.UI.InteractiveObject",
-                            "__guid": "90b94a44-888b-4d1c-a775-6b40f0d6addd",
-                            "ClampEqual": false,
-                            "Clamping": true,
-                            "Distance": 64,
-                            "LocalAngles": "0,0,0",
-                            "OffsetPosition": "0,0,0",
-                            "Parent": {
-                              "_type": "component",
-                              "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
-                              "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
-                              "component_type": "InteractiveObject"
-                            },
-                            "TriggerAnimation": false,
-                            "ClampMax": "60,90,0",
-                            "ClampMin": "-5,-80,0"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "__guid": "1ae9f358-80d0-46e0-ae81-b6fa1bf7783f",
-                "Flags": 0,
-                "Name": "Wheel Front Right",
-                "Position": "63,-35,0",
-                "Enabled": true,
-                "Components": [
-                  {
-                    "__type": "WheelMover",
-                    "__guid": "e3933fbd-2b55-410a-b5a2-7363e6445c07",
-                    "ReverseRotation": false,
-                    "Speed": 3.1415927,
-                    "Wheel": {
-                      "_type": "component",
-                      "component_id": "837ea77c-9b94-4f03-9f8e-85f322ad659a",
-                      "go": "8c9526f3-7634-43e5-812f-67d706b9022f",
-                      "component_type": "WheelCollider"
-                    }
-                  }
-                ],
-                "Children": [
-                  {
-                    "__guid": "448de69c-3682-459c-b8ea-ea88b11c3834",
-                    "Flags": 0,
-                    "Name": "poses",
-                    "Rotation": "0,0,0.7071068,0.7071068",
-                    "Enabled": true,
-                    "Children": [
-                      {
-                        "__guid": "7b7f97f7-215d-4fcf-8758-f8ab1d80e850",
-                        "Flags": 0,
-                        "Name": "disks",
-                        "Position": "-10,0,0",
-                        "Enabled": true,
-                        "Components": [
-                          {
-                            "__type": "Sandbox.WorldPanel",
-                            "__guid": "11af9bb9-d1e8-4123-b4fd-136b666eccb1",
-                            "HorizontalAlign": "Center",
-                            "InteractionRange": 1000,
-                            "LookAtCamera": true,
-                            "PanelSize": "512,128",
-                            "RenderOptions": {
-                              "GameLayer": true,
-                              "OverlayLayer": true,
-                              "BloomLayer": false,
-                              "AfterUILayer": false
-                            },
-                            "RenderScale": 1,
-                            "VerticalAlign": "Center"
-                          },
-                          {
-                            "__type": "PartSpace",
-                            "__guid": "ad9ea2e6-9d95-49ad-a707-ae635be45000",
-                            "IsInterspace": false,
-                            "Part": {
-                              "_type": "component",
-                              "component_id": "97d9555a-4ba4-4e6b-bf57-3fb8ff530f3d",
-                              "go": "94136ef1-6f9b-4d98-813b-560249904a99",
-                              "component_type": "Part"
-                            }
-                          },
-                          {
-                            "__type": "Sandbox.UI.InteractiveObject",
-                            "__guid": "b6a3810c-512d-4937-b2cd-ac97cdb3e85c",
-                            "ClampEqual": false,
-                            "Clamping": true,
-                            "Distance": 64,
-                            "LocalAngles": "0,0,0",
-                            "OffsetPosition": "0,0,0",
-                            "Parent": {
-                              "_type": "component",
-                              "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
-                              "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
-                              "component_type": "InteractiveObject"
-                            },
-                            "TriggerAnimation": false,
-                            "ClampMax": "60,90,0",
-                            "ClampMin": "-5,-80,0"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "__guid": "78a2cec0-808a-4717-bd38-8ecdff9ad098",
-                "Flags": 0,
-                "Name": "Wheel Rear Left",
-                "Position": "-64,35,0",
-                "Rotation": "0,0,1,-0.00000004371139",
-                "Enabled": true,
-                "Components": [
-                  {
-                    "__type": "WheelMover",
-                    "__guid": "7eb59ee8-5ac7-46db-8862-d9f6133456a7",
-                    "ReverseRotation": true,
-                    "Speed": 3.1415927,
-                    "Wheel": {
-                      "_type": "component",
-                      "component_id": "7f986f98-d31d-434a-9082-40e133370a1a",
-                      "go": "fc04e594-0d78-49bb-bb9d-6a0887b8dae7",
-                      "component_type": "WheelCollider"
-                    }
-                  }
-                ],
-                "Children": [
-                  {
-                    "__guid": "da3af272-7dbc-47f9-91dd-a6dea2849a34",
-                    "Flags": 0,
-                    "Name": "poses",
-                    "Rotation": "0,0,0.7071068,0.7071068",
-                    "Enabled": true,
-                    "Children": [
-                      {
-                        "__guid": "36c0d54a-98c0-46c8-87e6-5d9a39cda5a7",
-                        "Flags": 0,
-                        "Name": "disks",
-                        "Position": "-10,0,0",
-                        "Enabled": true,
-                        "Components": [
-                          {
-                            "__type": "Sandbox.WorldPanel",
-                            "__guid": "5c572026-22a0-4c61-92b7-4892a1a1050f",
-                            "HorizontalAlign": "Center",
-                            "InteractionRange": 1000,
-                            "LookAtCamera": true,
-                            "PanelSize": "512,128",
-                            "RenderOptions": {
-                              "GameLayer": true,
-                              "OverlayLayer": true,
-                              "BloomLayer": false,
-                              "AfterUILayer": false
-                            },
-                            "RenderScale": 1,
-                            "VerticalAlign": "Center"
-                          },
-                          {
-                            "__type": "PartSpace",
-                            "__guid": "3e907d2f-74bd-49c7-a9ff-d4210f719667",
-                            "IsInterspace": false,
-                            "Part": {
-                              "_type": "component",
-                              "component_id": "97d9555a-4ba4-4e6b-bf57-3fb8ff530f3d",
-                              "go": "94136ef1-6f9b-4d98-813b-560249904a99",
-                              "component_type": "Part"
-                            }
-                          },
-                          {
-                            "__type": "Sandbox.UI.InteractiveObject",
-                            "__guid": "e2428c5c-c990-46b0-afdd-ee2f36bcccee",
-                            "ClampEqual": false,
-                            "Clamping": true,
-                            "Distance": 64,
-                            "LocalAngles": "0,0,0",
-                            "OffsetPosition": "0,0,0",
-                            "Parent": {
-                              "_type": "component",
-                              "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
-                              "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
-                              "component_type": "InteractiveObject"
-                            },
-                            "TriggerAnimation": false,
-                            "ClampMax": "60,90,0",
-                            "ClampMin": "-5,-80,0"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "__guid": "894b6134-9d64-422a-9dfc-066857463c7b",
-                "Flags": 0,
-                "Name": "Wheel Rear Right",
-                "Position": "-64,-35,0",
-                "Enabled": true,
-                "Components": [
-                  {
-                    "__type": "WheelMover",
-                    "__guid": "d9c1e4b0-8142-4840-a860-0786b01dbd83",
-                    "ReverseRotation": false,
-                    "Speed": 3.1415927,
-                    "Wheel": {
-                      "_type": "component",
-                      "component_id": "e81e0068-09d9-434e-a6ff-223f351715a0",
-                      "go": "4eaa3d57-e9df-4268-b733-3e3ad411e6c7",
-                      "component_type": "WheelCollider"
-                    }
-                  }
-                ],
-                "Children": [
-                  {
-                    "__guid": "7580c105-9058-426e-9a0f-9f469ac727dc",
-                    "Flags": 0,
-                    "Name": "poses",
-                    "Rotation": "0,0,0.7071068,0.7071068",
-                    "Enabled": true,
-                    "Children": [
-                      {
-                        "__guid": "2755935e-b3f5-40b7-8126-85499d54cfd1",
-                        "Flags": 0,
-                        "Name": "disks",
-                        "Position": "-10,0,0",
-                        "Enabled": true,
-                        "Components": [
-                          {
-                            "__type": "Sandbox.WorldPanel",
-                            "__guid": "dad95a3a-1149-47d9-9266-1bf1ca6a89d4",
-                            "HorizontalAlign": "Center",
-                            "InteractionRange": 1000,
-                            "LookAtCamera": true,
-                            "PanelSize": "512,128",
-                            "RenderOptions": {
-                              "GameLayer": true,
-                              "OverlayLayer": true,
-                              "BloomLayer": false,
-                              "AfterUILayer": false
-                            },
-                            "RenderScale": 1,
-                            "VerticalAlign": "Center"
-                          },
-                          {
-                            "__type": "Sandbox.UI.InteractiveObject",
-                            "__guid": "b4494abb-06a1-44a2-9901-16241685267c",
-                            "ClampEqual": false,
-                            "Clamping": true,
-                            "Distance": 64,
-                            "LocalAngles": "0,0,0",
-                            "OffsetPosition": "0,0,0",
-                            "Parent": {
-                              "_type": "component",
-                              "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
-                              "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
-                              "component_type": "InteractiveObject"
-                            },
-                            "TriggerAnimation": false,
-                            "ClampMax": "60,90,0",
-                            "ClampMin": "-5,-80,0"
-                          },
-                          {
-                            "__type": "PartSpace",
-                            "__guid": "63209dbe-b107-48a3-91e0-a6e640287c2b",
-                            "IsInterspace": false,
-                            "Part": {
-                              "_type": "component",
-                              "component_id": "97d9555a-4ba4-4e6b-bf57-3fb8ff530f3d",
-                              "go": "94136ef1-6f9b-4d98-813b-560249904a99",
-                              "component_type": "Part"
-                            }
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
         "__guid": "a3e593f0-e311-4d65-b30a-e02afa1db2a6",
         "Flags": 0,
         "Name": "Powertrain",
@@ -796,7 +206,7 @@
             "InputRPM": 0,
             "IsRunning": false,
             "IsStalled": false,
-            "MaxPower": 190,
+            "MaxPower": 290,
             "Name": "Engine",
             "Output": {
               "_type": "component",
@@ -1008,10 +418,442 @@
         ]
       },
       {
+        "__guid": "4d765a2b-c446-4a98-aa8e-f512d256f5fe",
+        "Flags": 0,
+        "Name": "Model",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "29976bcd-7c65-4391-a56f-97cad72e8deb",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/cars/benz190e/benz190e.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          },
+          {
+            "__type": "Sandbox.Car.CarDresser",
+            "__guid": "90dff773-ebf8-4727-ba00-750bc241baa1",
+            "Parts": []
+          },
+          {
+            "__type": "Sandbox.HighlightOutline",
+            "__guid": "d5a0f5af-e2ef-4b4d-a8f6-9e8270ce1663",
+            "__enabled": false,
+            "Color": "1,1,1,1",
+            "InsideColor": "0,0,0,0",
+            "InsideObscuredColor": "0,0,0,0",
+            "ObscuredColor": "0,0,0,0.4",
+            "Width": 0.25
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "da6e61d7-925d-45c6-911f-1ab763618ccf",
+            "Flags": 0,
+            "Name": "disks",
+            "Enabled": true,
+            "NetworkMode": 0,
+            "Components": [
+              {
+                "__type": "Sandbox.Car.Part",
+                "__guid": "7f16bcca-a61f-452a-98df-86ea04f9617d",
+                "Models": [
+                  "models/cars/benz190e/wheel_stock.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_01.vmdl"
+                ],
+                "Name": "Wheels",
+                "Objects": [
+                  {
+                    "_type": "gameobject",
+                    "go": "57616474-0170-4931-a768-02a972181b37"
+                  },
+                  {
+                    "_type": "gameobject",
+                    "go": "7af87492-0d56-4cdd-9920-079abf8c3cc2"
+                  },
+                  {
+                    "_type": "gameobject",
+                    "go": "d0d2db4f-6f23-4df3-abb3-97482840e210"
+                  },
+                  {
+                    "_type": "gameobject",
+                    "go": "cc0311e1-4135-4f62-836f-d13291f5c31b"
+                  }
+                ],
+                "Index": -1,
+                "Rendering": false
+              }
+            ]
+          },
+          {
+            "__guid": "479b5f17-812b-447b-8099-c664b99ad65b",
+            "Flags": 0,
+            "Name": "wheels",
+            "Position": "0,0,15",
+            "Enabled": true,
+            "Children": [
+              {
+                "__guid": "57616474-0170-4931-a768-02a972181b37",
+                "Flags": 0,
+                "Name": "Wheel Front Left",
+                "Position": "63,35,0",
+                "Rotation": "0,0,1,-0.00000004371139",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "WheelMover",
+                    "__guid": "0f5893d1-1746-47a5-9515-8d8ae5c6eacd",
+                    "ReverseRotation": true,
+                    "Speed": 3.1415927,
+                    "Wheel": {
+                      "_type": "component",
+                      "component_id": "89edb492-b2a6-454e-b664-cb4d190a292b",
+                      "go": "a67d5021-9e51-483f-a1b7-a628c5bb2909",
+                      "component_type": "WheelCollider"
+                    }
+                  }
+                ],
+                "Children": [
+                  {
+                    "__guid": "9063569d-d6a2-4622-8e61-d8d28421c068",
+                    "Flags": 0,
+                    "Name": "poses",
+                    "Rotation": "0,0,0.7071068,0.7071068",
+                    "Enabled": true,
+                    "Children": [
+                      {
+                        "__guid": "740083f4-18ee-4b22-9cd6-2263009acc5a",
+                        "Flags": 0,
+                        "Name": "disks",
+                        "Position": "-10,0,0",
+                        "Enabled": true,
+                        "Components": [
+                          {
+                            "__type": "Sandbox.WorldPanel",
+                            "__guid": "cf534f14-a404-4612-bba4-a9b366ded907",
+                            "HorizontalAlign": "Center",
+                            "InteractionRange": 1000,
+                            "LookAtCamera": true,
+                            "PanelSize": "512,128",
+                            "RenderOptions": {
+                              "GameLayer": true,
+                              "OverlayLayer": true,
+                              "BloomLayer": false,
+                              "AfterUILayer": false
+                            },
+                            "RenderScale": 1,
+                            "VerticalAlign": "Center"
+                          },
+                          {
+                            "__type": "PartSpace",
+                            "__guid": "21361737-d6b1-42ff-8f94-37dbd9b3ec8e",
+                            "IsInterspace": false,
+                            "Part": {
+                              "_type": "component",
+                              "component_id": "7f16bcca-a61f-452a-98df-86ea04f9617d",
+                              "go": "da6e61d7-925d-45c6-911f-1ab763618ccf",
+                              "component_type": "Part"
+                            }
+                          },
+                          {
+                            "__type": "Sandbox.UI.InteractiveObject",
+                            "__guid": "684b2a51-9e09-4710-9049-1456946b09e6",
+                            "ClampEqual": false,
+                            "Clamping": true,
+                            "Distance": 64,
+                            "LocalAngles": "0,0,0",
+                            "OffsetPosition": "0,0,0",
+                            "Parent": {
+                              "_type": "component",
+                              "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
+                              "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+                              "component_type": "InteractiveObject"
+                            },
+                            "TriggerAnimation": false,
+                            "ClampMax": "60,90,0",
+                            "ClampMin": "-5,-70,0"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "__guid": "7af87492-0d56-4cdd-9920-079abf8c3cc2",
+                "Flags": 0,
+                "Name": "Wheel Front Right",
+                "Position": "63,-35,0",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "WheelMover",
+                    "__guid": "f8f89ec6-3aa4-456f-b2df-f7dd3e9d5d87",
+                    "ReverseRotation": false,
+                    "Speed": 3.1415927,
+                    "Wheel": {
+                      "_type": "component",
+                      "component_id": "837ea77c-9b94-4f03-9f8e-85f322ad659a",
+                      "go": "8c9526f3-7634-43e5-812f-67d706b9022f",
+                      "component_type": "WheelCollider"
+                    }
+                  }
+                ],
+                "Children": [
+                  {
+                    "__guid": "d7e19380-a043-454b-9efd-abe8c07eefd8",
+                    "Flags": 0,
+                    "Name": "poses",
+                    "Rotation": "0,0,0.7071068,0.7071068",
+                    "Enabled": true,
+                    "Children": [
+                      {
+                        "__guid": "b7de11fd-4ab8-4a67-aa1e-9332bcaeb094",
+                        "Flags": 0,
+                        "Name": "disks",
+                        "Position": "-10,0,0",
+                        "Enabled": true,
+                        "Components": [
+                          {
+                            "__type": "Sandbox.WorldPanel",
+                            "__guid": "7252edc8-61c6-471f-98c7-f053f1c7a59d",
+                            "HorizontalAlign": "Center",
+                            "InteractionRange": 1000,
+                            "LookAtCamera": true,
+                            "PanelSize": "512,128",
+                            "RenderOptions": {
+                              "GameLayer": true,
+                              "OverlayLayer": true,
+                              "BloomLayer": false,
+                              "AfterUILayer": false
+                            },
+                            "RenderScale": 1,
+                            "VerticalAlign": "Center"
+                          },
+                          {
+                            "__type": "PartSpace",
+                            "__guid": "657020de-55c6-477e-8c5c-7b1591938b37",
+                            "IsInterspace": false,
+                            "Part": {
+                              "_type": "component",
+                              "component_id": "7f16bcca-a61f-452a-98df-86ea04f9617d",
+                              "go": "da6e61d7-925d-45c6-911f-1ab763618ccf",
+                              "component_type": "Part"
+                            }
+                          },
+                          {
+                            "__type": "Sandbox.UI.InteractiveObject",
+                            "__guid": "2a51e3b0-05d8-4596-bea3-1ee4d9483185",
+                            "ClampEqual": false,
+                            "Clamping": true,
+                            "Distance": 64,
+                            "LocalAngles": "0,0,0",
+                            "OffsetPosition": "0,0,0",
+                            "Parent": {
+                              "_type": "component",
+                              "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
+                              "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+                              "component_type": "InteractiveObject"
+                            },
+                            "TriggerAnimation": false,
+                            "ClampMax": "60,70,0",
+                            "ClampMin": "-5,-90,0"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "__guid": "d0d2db4f-6f23-4df3-abb3-97482840e210",
+                "Flags": 0,
+                "Name": "Wheel Rear Left",
+                "Position": "-63,35,0",
+                "Rotation": "0,0,1,-0.00000004371139",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "WheelMover",
+                    "__guid": "1459c0f5-4f75-4d92-a596-c2afa32f4a1a",
+                    "ReverseRotation": true,
+                    "Speed": 3.1415927,
+                    "Wheel": {
+                      "_type": "component",
+                      "component_id": "7f986f98-d31d-434a-9082-40e133370a1a",
+                      "go": "fc04e594-0d78-49bb-bb9d-6a0887b8dae7",
+                      "component_type": "WheelCollider"
+                    }
+                  }
+                ],
+                "Children": [
+                  {
+                    "__guid": "a9a3a969-5c74-4632-9e03-01d81cfb22ea",
+                    "Flags": 0,
+                    "Name": "poses",
+                    "Rotation": "0,0,0.7071068,0.7071068",
+                    "Enabled": true,
+                    "Children": [
+                      {
+                        "__guid": "7a19da7d-af3a-45af-8cda-c0ee069274fa",
+                        "Flags": 0,
+                        "Name": "disks",
+                        "Position": "-10,0,0",
+                        "Enabled": true,
+                        "Components": [
+                          {
+                            "__type": "Sandbox.WorldPanel",
+                            "__guid": "a76817d6-7b8d-4a16-b2cd-7c3906b2e534",
+                            "HorizontalAlign": "Center",
+                            "InteractionRange": 1000,
+                            "LookAtCamera": true,
+                            "PanelSize": "512,128",
+                            "RenderOptions": {
+                              "GameLayer": true,
+                              "OverlayLayer": true,
+                              "BloomLayer": false,
+                              "AfterUILayer": false
+                            },
+                            "RenderScale": 1,
+                            "VerticalAlign": "Center"
+                          },
+                          {
+                            "__type": "PartSpace",
+                            "__guid": "080109f8-85fc-414a-8e6a-038f8e3255bd",
+                            "IsInterspace": false,
+                            "Part": {
+                              "_type": "component",
+                              "component_id": "7f16bcca-a61f-452a-98df-86ea04f9617d",
+                              "go": "da6e61d7-925d-45c6-911f-1ab763618ccf",
+                              "component_type": "Part"
+                            }
+                          },
+                          {
+                            "__type": "Sandbox.UI.InteractiveObject",
+                            "__guid": "d52f17c8-7c0c-4610-873f-6ff9e1672f5e",
+                            "ClampEqual": false,
+                            "Clamping": true,
+                            "Distance": 64,
+                            "LocalAngles": "0,0,0",
+                            "OffsetPosition": "0,0,0",
+                            "Parent": {
+                              "_type": "component",
+                              "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
+                              "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+                              "component_type": "InteractiveObject"
+                            },
+                            "TriggerAnimation": false,
+                            "ClampMax": "60,70,0",
+                            "ClampMin": "-5,-90,0"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "__guid": "cc0311e1-4135-4f62-836f-d13291f5c31b",
+                "Flags": 0,
+                "Name": "Wheel Rear Right",
+                "Position": "-63,-35,0",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "WheelMover",
+                    "__guid": "511dda71-a054-4269-afe2-f382d6d56a51",
+                    "ReverseRotation": false,
+                    "Speed": 3.1415927,
+                    "Wheel": {
+                      "_type": "component",
+                      "component_id": "e81e0068-09d9-434e-a6ff-223f351715a0",
+                      "go": "4eaa3d57-e9df-4268-b733-3e3ad411e6c7",
+                      "component_type": "WheelCollider"
+                    }
+                  }
+                ],
+                "Children": [
+                  {
+                    "__guid": "fb92169b-333d-4ff2-bd01-feeeda8c7f03",
+                    "Flags": 0,
+                    "Name": "poses",
+                    "Rotation": "0,0,0.7071068,0.7071068",
+                    "Enabled": true,
+                    "Children": [
+                      {
+                        "__guid": "7abf5208-3f95-4155-b91c-065642d76d42",
+                        "Flags": 0,
+                        "Name": "disks",
+                        "Position": "-10,0,0",
+                        "Enabled": true,
+                        "Components": [
+                          {
+                            "__type": "Sandbox.WorldPanel",
+                            "__guid": "622f9fad-2b59-46e8-a246-db1c10fe7fcc",
+                            "HorizontalAlign": "Center",
+                            "InteractionRange": 1000,
+                            "LookAtCamera": true,
+                            "PanelSize": "512,128",
+                            "RenderOptions": {
+                              "GameLayer": true,
+                              "OverlayLayer": true,
+                              "BloomLayer": false,
+                              "AfterUILayer": false
+                            },
+                            "RenderScale": 1,
+                            "VerticalAlign": "Center"
+                          },
+                          {
+                            "__type": "PartSpace",
+                            "__guid": "372ced02-4ec2-4462-b86a-fa0febd432fa",
+                            "IsInterspace": false,
+                            "Part": {
+                              "_type": "component",
+                              "component_id": "7f16bcca-a61f-452a-98df-86ea04f9617d",
+                              "go": "da6e61d7-925d-45c6-911f-1ab763618ccf",
+                              "component_type": "Part"
+                            }
+                          },
+                          {
+                            "__type": "Sandbox.UI.InteractiveObject",
+                            "__guid": "e27b282c-7395-4efd-8181-33010f0bb34e",
+                            "ClampEqual": false,
+                            "Clamping": true,
+                            "Distance": 64,
+                            "LocalAngles": "0,0,0",
+                            "OffsetPosition": "0,0,0",
+                            "Parent": {
+                              "_type": "component",
+                              "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
+                              "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+                              "component_type": "InteractiveObject"
+                            },
+                            "TriggerAnimation": false,
+                            "ClampMax": "60,90,0",
+                            "ClampMin": "-5,-70,0"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
         "__guid": "7ad25a1a-171f-4f43-af08-1e2d3803fe1d",
         "Flags": 0,
         "Name": "Front Axle",
-        "Position": "63,0,14",
+        "Position": "63,0,15",
         "Enabled": true,
         "Children": [
           {
@@ -1125,7 +967,7 @@
                 "Mass": 15,
                 "MaxSuspensionLength": 6,
                 "MinSuspensionLength": 3,
-                "Radius": 16,
+                "Radius": 14,
                 "RollingResistanceTorque": 30,
                 "RPM": 0,
                 "SidewayFriction": {
@@ -1137,7 +979,7 @@
                   "go": "2975f00d-da58-489f-9537-fbf58e7126db",
                   "component_type": "ParticleSphereEmitter"
                 },
-                "SuspensionDamping": 7500,
+                "SuspensionDamping": 6500,
                 "SuspensionStiffness": 45000,
                 "Width": 6
               }
@@ -1435,7 +1277,7 @@
                 "Mass": 15,
                 "MaxSuspensionLength": 6,
                 "MinSuspensionLength": 3,
-                "Radius": 16,
+                "Radius": 14,
                 "RollingResistanceTorque": 30,
                 "RPM": 0,
                 "SidewayFriction": {
@@ -1447,7 +1289,7 @@
                   "go": "3d6724c8-3082-4bbe-955c-db0f81af2917",
                   "component_type": "ParticleSphereEmitter"
                 },
-                "SuspensionDamping": 7500,
+                "SuspensionDamping": 6500,
                 "SuspensionStiffness": 45000,
                 "Width": 6
               }
@@ -1640,7 +1482,7 @@
         "__guid": "ce1a3692-9cc8-471e-8460-bedc2caecdd5",
         "Flags": 0,
         "Name": "Rear Axle",
-        "Position": "-64,0,14",
+        "Position": "-63,0,15",
         "Enabled": true,
         "Children": [
           {
@@ -1754,7 +1596,7 @@
                 "Mass": 15,
                 "MaxSuspensionLength": 6,
                 "MinSuspensionLength": 3,
-                "Radius": 16,
+                "Radius": 14,
                 "RollingResistanceTorque": 30,
                 "RPM": 0,
                 "SidewayFriction": {
@@ -1766,7 +1608,7 @@
                   "go": "b5bba3fd-7dbb-4990-9492-218279c1ead6",
                   "component_type": "ParticleSphereEmitter"
                 },
-                "SuspensionDamping": 7500,
+                "SuspensionDamping": 6500,
                 "SuspensionStiffness": 45000,
                 "Width": 6
               },
@@ -2090,7 +1932,7 @@
                 "Mass": 15,
                 "MaxSuspensionLength": 6,
                 "MinSuspensionLength": 3,
-                "Radius": 16,
+                "Radius": 14,
                 "RollingResistanceTorque": 30,
                 "RPM": 0,
                 "SidewayFriction": {
@@ -2102,7 +1944,7 @@
                   "go": "b07cdec1-bc05-4d8c-904d-9b2ded747d7a",
                   "component_type": "ParticleSphereEmitter"
                 },
-                "SuspensionDamping": 7500,
+                "SuspensionDamping": 6500,
                 "SuspensionStiffness": 45000,
                 "Width": 6
               },
@@ -2357,192 +2199,6 @@
                 "__guid": "fb89b148-4cd9-4b57-9273-7d8d2ec1317b"
               }
             ]
-          }
-        ]
-      },
-      {
-        "__guid": "60297eab-c53f-4262-977f-f6be09ae22dc",
-        "Flags": 0,
-        "Name": "exhaust_smoke",
-        "Position": "-87.47783,19.5858,10.99364",
-        "Rotation": "-0.7071068,0,0.7071068,0",
-        "Tags": "particles",
-        "Components": [
-          {
-            "__type": "Sandbox.ParticleEffect",
-            "__guid": "a27f689f-677a-49fb-90c3-eb300ee8b032",
-            "__version": 1,
-            "Alpha": {
-              "Type": "Curve",
-              "CurveA": [
-                {
-                  "in": -0.7169809,
-                  "out": 0.7169809
-                },
-                {
-                  "x": 0.21854475,
-                  "y": 0.0879032,
-                  "in": 0.4041076,
-                  "out": -0.4041076
-                },
-                {
-                  "x": 1
-                }
-              ],
-              "Constants": "1,0,0,0"
-            },
-            "ApplyAlpha": true,
-            "ApplyColor": false,
-            "ApplyRotation": true,
-            "ApplyShape": true,
-            "Bounce": {
-              "Constants": "1,0,0,0"
-            },
-            "Brightness": {
-              "Constants": "5,0,0,0"
-            },
-            "Bumpiness": {},
-            "Collision": false,
-            "CollisionRadius": 1,
-            "Damping": {
-              "Constants": "5,0,0,0"
-            },
-            "DieOnCollisionChance": {},
-            "Force": true,
-            "ForceDirection": "-1,0,0",
-            "ForceScale": {
-              "Constants": "600,0,0,0"
-            },
-            "Friction": {
-              "Constants": "1,0,0,0"
-            },
-            "Gradient": {
-              "Type": "Range",
-              "Evaluation": "Particle",
-              "GradientA": {
-                "color": [
-                  {
-                    "t": 0.5,
-                    "c": "1,1,1,1"
-                  }
-                ],
-                "alpha": []
-              },
-              "GradientB": {
-                "color": [
-                  {
-                    "t": 0.5,
-                    "c": "1,1,1,1"
-                  }
-                ],
-                "alpha": []
-              },
-              "ConstantA": "0.71628,0.71628,0.71628,1",
-              "ConstantB": "1,1,1,1"
-            },
-            "Lifetime": {
-              "Constants": "1,8,0,0"
-            },
-            "MaxParticles": 5000,
-            "OrbitalForce": {},
-            "OrbitalPull": {},
-            "PerParticleTimeScale": {
-              "Type": "Curve",
-              "CurveA": [
-                {
-                  "y": 1
-                },
-                {
-                  "x": 0.5818452,
-                  "y": 0.42938364
-                },
-                {
-                  "x": 1
-                }
-              ],
-              "Constants": "1,0.4,0,0"
-            },
-            "Pitch": {},
-            "PreWarm": 0,
-            "PushStrength": {},
-            "Roll": {
-              "Type": "Range",
-              "Evaluation": "Particle",
-              "Constants": "0,360,0,0"
-            },
-            "Scale": {
-              "Type": "Curve",
-              "CurveA": {
-                "rangey": "0,100",
-                "frames": [
-                  {
-                    "y": 0.109042555
-                  },
-                  {
-                    "x": 1,
-                    "y": 0.5212766
-                  }
-                ]
-              },
-              "Constants": "10,60,0,0"
-            },
-            "SequenceId": {},
-            "SequenceSpeed": {
-              "Constants": "0.5,0,0,0"
-            },
-            "SequenceTime": {
-              "Constants": "1,0,0,0"
-            },
-            "SheetSequence": true,
-            "Space": "Local",
-            "StartDelay": {},
-            "StartVelocity": {
-              "Constants": "0,70,0,0"
-            },
-            "Stretch": {},
-            "TimeScale": 1,
-            "Tint": "1,1,1,1",
-            "Yaw": {}
-          },
-          {
-            "__type": "Sandbox.ParticleSpriteRenderer",
-            "__guid": "9310ecdd-ad21-49a3-bc63-1d13c517a34a",
-            "Additive": false,
-            "Alignment": "LookAtCamera",
-            "BlurAmount": 0.5,
-            "BlurOpacity": 0.91,
-            "BlurSpacing": 0.73,
-            "DepthFeather": 0,
-            "FaceVelocity": true,
-            "FogStrength": 1,
-            "LeadingTrail": true,
-            "Lighting": false,
-            "MotionBlur": false,
-            "Opaque": false,
-            "RenderOptions": {
-              "GameLayer": true,
-              "OverlayLayer": false,
-              "BloomLayer": false,
-              "AfterUILayer": false
-            },
-            "RotationOffset": 0,
-            "Scale": 0.64,
-            "Shadows": false,
-            "SortMode": "Unsorted",
-            "Texture": "materials/particle/smoke1/smoke1.vtex"
-          },
-          {
-            "__type": "Sandbox.ParticleBoxEmitter",
-            "__guid": "8f20797d-849a-4456-9b8f-d9d5e3f52cf7",
-            "Burst": 0,
-            "Delay": 0,
-            "DestroyOnEnd": false,
-            "Duration": 10,
-            "Loop": true,
-            "OnEdge": false,
-            "Rate": 25,
-            "RateOverDistance": 0,
-            "Size": "3,3,3"
           }
         ]
       }

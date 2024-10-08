@@ -166,20 +166,21 @@
       "__guid": "57154d5c-5938-4f86-9794-6ed227ab4ac0",
       "Flags": 0,
       "Name": "Car Selector",
-      "Position": "0,19.5,25",
+      "Position": "0,19.5,22",
       "Enabled": true,
       "Components": [
         {
           "__type": "Sandbox.Car.CarSelector",
           "__guid": "09195db0-f369-4da4-b3e2-55ec1f73122a",
+          "CarIndex": 0,
           "Cars": [
             {
               "_type": "gameobject",
-              "prefab": "prefabs/cars/in_garage/g_benz190e.prefab"
+              "prefab": "prefabs/cars/benz_190e.prefab"
             },
             {
               "_type": "gameobject",
-              "prefab": "prefabs/cars/in_garage/g_350z.prefab"
+              "prefab": "prefabs/cars/350z.prefab"
             }
           ]
         }

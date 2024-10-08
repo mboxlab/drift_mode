@@ -1,5 +1,7 @@
 ﻿using Sandbox.Car;
+using Sandbox.UI;
 using System.Threading.Tasks;
+using static Sandbox.Car.CarSelector;
 namespace Sandbox.GamePlay.Street;
 
 
@@ -25,11 +27,6 @@ public sealed class StreetManager : Component, Component.INetworkListener, IMana
 	/// Create a server (if we're not joining one)
 	/// </summary>
 	[Property] public bool StartServer { get; set; } = true;
-
-	/// <summary>
-	/// The prefab to spawn for the player to control.
-	/// </summary>
-	[Property] public GameObject PlayerPrefab { get; set; }
 
 	/// <summary>
 	/// A list of points to choose from randomly to spawn the player in. If not set, we'll spawn at the
@@ -64,9 +61,6 @@ public sealed class StreetManager : Component, Component.INetworkListener, IMana
 	{
 		Log.Info( $"Player '{channel.DisplayName}' has joined the game" );
 
-		if ( !PlayerPrefab.IsValid() )
-			return;
-
 		//
 		// Find a spawn location for this player
 		//
@@ -74,8 +68,19 @@ public sealed class StreetManager : Component, Component.INetworkListener, IMana
 
 		// Spawn this object and make the client the owner
 
-		var player = PlayerPrefab.Clone( startLocation, name: $"Player - {channel.DisplayName}" );
+		//var player = PlayerPrefab.Clone( startLocation, name: $"Player - {channel.DisplayName}" );
+		CarJson dresses = FileSystem.Data.ReadJson<CarJson>( CarSelector.SavePath );
 
+		//var player = new GameObject( true, name: $"Player - {channel.DisplayName}" );
+
+		var prefab = ResourceLibrary.Get<PrefabFile>( "prefabs/camera.prefab" );
+		var player = SceneUtility.GetPrefabScene( prefab ).Clone();
+		player.Name = $"Player - {channel.DisplayName}";
+		player.SetPrefabSource( dresses.CarPrefabSource );
+		player.UpdateFromPrefab();
+		player.GetComponentsInChildren<InteractiveObject>().ToList().ForEach( x => x.Destroy() );
+		player.GetComponentsInChildren<PartSpace>().ToList().ForEach( x => x.Destroy() );
+		player.WorldRotation = startLocation.Forward.EulerAngles;
 		player.WorldPosition = startLocation.PointToWorld( Vector3.Backward * player.GetBounds().Extents.y );
 
 		player.NetworkSpawn( channel );

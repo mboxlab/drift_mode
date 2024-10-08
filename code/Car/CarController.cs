@@ -13,7 +13,7 @@ public sealed class CarController : Component
 	[Property] public WheelCollider[] Wheels { get; private set; }
 	[Property] public CarInputHandler Input { get; set; }
 	[Property] public Powertrain.Powertrain Powertrain { get; set; }
-	[Property, Title("ABS Module")] public ABSModule ABSModule { get; set; }
+	[Property, Title( "ABS Module" )] public ABSModule ABSModule { get; set; }
 
 	public bool IsBot;
 	public static CarController Local { get; private set; }
@@ -34,9 +34,8 @@ public sealed class CarController : Component
 	[Property, ShowIf( nameof( EnableSteerAngleMultiplier ), true )] public float MaxSpeedForMinAngleMultiplier { get; set; } = 100;
 	[Property, ShowIf( nameof( EnableSteerAngleMultiplier ), true )] public float MinSteerAngleMultiplier { get; set; } = 0.05f;
 	[Property, ShowIf( nameof( EnableSteerAngleMultiplier ), true )] public float MaxSteerAngleMultiplier { get; set; } = 1f;
-	[Property] public PacejkaCurve.PresetsEnum FrictionPresetEnum { get => _frictionPresetEnum; set { _frictionPresetEnum = value; OnFrictionChanged(); } }
-	public PacejkaCurve.PresetsEnum _frictionPresetEnum { get; set; }
-	public PacejkaCurve FrictionPreset { get; set; } = PacejkaCurve.Asphalt;
+	[Property] public PacejkaCurve.PresetsEnum FrictionPresetEnum { get; set; } = PacejkaCurve.PresetsEnum.Asphalt;
+	public PacejkaCurve FrictionPreset { get; set; }
 
 	/// <summary>
 	/// Speed, magnitude of velocity.
@@ -44,8 +43,6 @@ public sealed class CarController : Component
 	public float CurrentSpeed { get; private set; }
 	public int CarDirection { get { return CurrentSpeed < 1 ? 0 : (VelocityAngle < 90 && VelocityAngle > -90 ? 1 : -1); } }
 	public Vector3 LocalVelocity;
-
-	private IManager GameManager;
 	protected override void OnAwake()
 	{
 		base.OnAwake();
@@ -53,11 +50,25 @@ public sealed class CarController : Component
 		if ( !IsProxy )
 			ClientInit();
 	}
+	protected override void OnEnabled()
+	{
+		base.OnEnabled();
+
+		Powertrain.Engine.Enabled = true;
+		SoundInterpolator.Enabled = true;
+	}
+	protected override void OnDisabled()
+	{
+		base.OnDisabled();
+
+		Powertrain.Engine.Enabled = false;
+		SoundInterpolator.Enabled = false;
+
+	}
 	protected override void OnStart()
 	{
 		SoundInterpolator.MaxValue = Powertrain.Engine.RevLimiterRPM;
-		UpdateWheelsFriction();
-		GameManager = Scene.Components.Get<IManager>( FindMode.InDescendants );
+		OnFrictionChanged();
 		var gauge = Scene.Components.Get<Gauge>( FindMode.InDescendants );
 		if ( gauge != null )
 			gauge.Car = this;
@@ -74,7 +85,7 @@ public sealed class CarController : Component
 	public event EventHandler<PacejkaCurve> FrictionChanged;
 	private void OnFrictionChanged()
 	{
-		FrictionPreset = PacejkaCurve.Presets[_frictionPresetEnum];
+		FrictionPreset = PacejkaCurve.Presets[FrictionPresetEnum];
 		UpdateWheelsFriction();
 		FrictionChanged?.Invoke( this, FrictionPreset );
 	}
@@ -118,7 +129,7 @@ public sealed class CarController : Component
 		float targetAngle = 0;
 		VelocityAngle = -Rigidbody.Velocity.SignedAngle( WorldRotation.Forward, Vector3.Up );
 		if ( needHelp )
-			targetAngle = VelocityAngle;
+			targetAngle = VelocityAngle * 0.8f;
 
 
 		//Wheel turn limitation.

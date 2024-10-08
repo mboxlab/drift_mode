@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Sandbox.Car;
-public sealed class WheelMover : Component
+public sealed class WheelMover : Component, ICarDresserEvent
 {
 	[Property] public WheelCollider Wheel { get; set; }
 	[Property] public bool ReverseRotation { get; set; }
@@ -13,6 +14,13 @@ public sealed class WheelMover : Component
 	{
 		_rigidbody = Components.Get<Rigidbody>( FindMode.InAncestors );
 		VelocityRotation = LocalRotation;
+
+	}
+	void ICarDresserEvent.OnLoad( List<Part> parts )
+	{
+		Part wheelPart = parts.Find( part => part.Name == "Wheels" );
+		Wheel.Radius = wheelPart.Current.RenderBounds.Size.z / 2 - 1f;
+		Wheel.Width = wheelPart.Current.RenderBounds.Size.y / 2;
 	}
 
 	protected override void OnFixedUpdate()

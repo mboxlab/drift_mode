@@ -189,6 +189,7 @@
             "Flags": 0,
             "Name": "disks",
             "Enabled": true,
+            "NetworkMode": 0,
             "Components": [
               {
                 "__type": "Sandbox.Car.Part",

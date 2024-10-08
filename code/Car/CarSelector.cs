@@ -46,7 +46,7 @@ public sealed class CarSelector : Component
 
 		car.GetComponent<CameraController>().Enabled = false;
 		car.GetComponent<CarController>().Enabled = false;
-		car.GetComponent<Rigidbody>().Locking = new PhysicsLock() { Pitch = true, Yaw = true, Roll = true };
+		car.GetComponent<Rigidbody>().Locking = new PhysicsLock() { Pitch = true, Yaw = true, Roll = true, X = true, Y = true };
 		ActiveCar = car;
 		CarIndex = Cars.IndexOf( newCar );
 

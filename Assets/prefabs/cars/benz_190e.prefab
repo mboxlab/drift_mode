@@ -466,7 +466,8 @@
                 "__guid": "7f16bcca-a61f-452a-98df-86ea04f9617d",
                 "Models": [
                   "models/cars/benz190e/wheel_stock.vmdl",
-                  "models/carparts/wheels2/lp_veh_wheel_01.vmdl"
+                  "models/carparts/wheels2/lp_veh_wheel_01.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_02.vmdl"
                 ],
                 "Name": "Wheels",
                 "Objects": [

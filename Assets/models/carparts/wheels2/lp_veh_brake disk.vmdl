@@ -11,8 +11,14 @@
 				[
 					{
 						_class = "DefaultMaterialGroup"
-						remaps = [  ]
-						use_global_default = true
+						remaps = 
+						[
+							{
+								from = "wh.vmat"
+								to = "materials/car/lp_cars_texture.vmat"
+							},
+						]
+						use_global_default = false
 						global_default_material = "materials/default.vmat"
 					},
 				]
@@ -23,7 +29,7 @@
 				[
 					{
 						_class = "RenderMeshFile"
-						filename = "models/cars/muscle/parts/bonnets/sm_veh_muscle_01_bonnet_01.fbx"
+						filename = "models/carparts/wheels2/lp_veh_brake disk.fbx"
 						import_translation = [ 0.0, 0.0, 0.0 ]
 						import_rotation = [ 0.0, 0.0, 0.0 ]
 						import_scale = 1.0
@@ -36,7 +42,7 @@
 							exclude_by_default = true
 							exception_list = 
 							[
-								"SM_Veh_Muscle_01_Bonnet_01",
+								"LP_Veh_Brake_disk",
 							]
 						}
 					},
@@ -48,7 +54,7 @@
 				[
 					{
 						_class = "ModelModifier_ScaleAndMirror"
-						scale = 0.3937
+						scale = 39.369999
 						mirror_x = false
 						mirror_y = false
 						mirror_z = false

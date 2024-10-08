@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using Sandbox.UI;
 
 namespace Sandbox.Car;
@@ -21,21 +21,15 @@ public sealed class CarSelector : Component
 
 	protected override void OnUpdate()
 	{
-		//if ( MouseWorldInput.Input.MouseLeftPressed )
-		//{
-		//	Ray ray = MouseWorldInput.Input.Ray;
-		//	SceneTraceResult result = Scene.Trace.Ray( ray, Scene.Camera.ZFar ).WithTag( "car" ).Run();
-		//	if ( result.Hit ) InteractiveCamera.Instance.Focus( ActiveCar );
-		//}
 
-		//if ( Input.Pressed( "Left" ) )
-		//{
-		//	car = (car + 1) % Cars.Count;
-		//	if ( ActiveCar.IsValid() )
-		//	{
-		//		ChangeCar( Cars[car] );
-		//	}
-		//}
+		if ( InteractiveCamera.IsOnOrigin && Input.Pressed( "Left" ) )
+		{
+			car = (car + 1) % Cars.Count;
+			if ( ActiveCar.IsValid() )
+			{
+				ChangeCar( Cars[car] );
+			}
+		}
 	}
 
 	private void ChangeCar( GameObject newCar )

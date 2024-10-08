@@ -234,7 +234,7 @@
           "NoOrigin": false,
           "OnMapLoaded": null,
           "OnMapUnloaded": null,
-          "UseMapFromLaunch": false
+          "UseMapFromLaunch": true
         }
       ],
       "Children": []

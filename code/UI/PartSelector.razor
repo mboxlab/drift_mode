@@ -45,7 +45,7 @@
 		if (Part.Models.Count == 0) return;
 
 		int index = Part.Index;
-		index += (int)Input.MouseWheel.y;
+		index -= (int)Input.MouseWheel.y;
 		if (Input.Pressed("Left"))
 			index--;
 		else if (Input.Pressed("Right"))

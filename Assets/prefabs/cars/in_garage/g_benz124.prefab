@@ -2,7 +2,7 @@
   "RootObject": {
     "__guid": "9129ed10-c30b-4dd2-9800-b160f93b3376",
     "Flags": 0,
-    "Name": "benz124",
+    "Name": "g_benz124",
     "Tags": "car",
     "Enabled": true,
     "Components": [
@@ -32,6 +32,7 @@
         "__guid": "ce0fb670-0ba2-4ac0-b182-1c0fb4afcc32",
         "Flags": 0,
         "Name": "Model",
+        "Position": "0,0,-2",
         "Enabled": true,
         "Components": [
           {
@@ -165,7 +166,7 @@
                             "Clamping": true,
                             "Distance": 64,
                             "LocalAngles": "0,0,0",
-                            "OffsetPosition": "0,-10,0",
+                            "OffsetPosition": "0,0,0",
                             "Parent": {
                               "_type": "component",
                               "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
@@ -173,8 +174,8 @@
                               "component_type": "InteractiveObject"
                             },
                             "TriggerAnimation": false,
-                            "ClampMax": "30,60,0",
-                            "ClampMin": "-5,-60,0"
+                            "ClampMax": "60,80,0",
+                            "ClampMin": "-5,-90,0"
                           }
                         ]
                       }
@@ -237,7 +238,7 @@
                             "Clamping": true,
                             "Distance": 64,
                             "LocalAngles": "0,0,0",
-                            "OffsetPosition": "0,-10,0",
+                            "OffsetPosition": "0,0,0",
                             "Parent": {
                               "_type": "component",
                               "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
@@ -245,8 +246,8 @@
                               "component_type": "InteractiveObject"
                             },
                             "TriggerAnimation": false,
-                            "ClampMax": "30,60,0",
-                            "ClampMin": "-5,-60,0"
+                            "ClampMax": "60,80,0",
+                            "ClampMin": "-5,-90,0"
                           }
                         ]
                       }
@@ -310,7 +311,7 @@
                             "Clamping": true,
                             "Distance": 64,
                             "LocalAngles": "0,0,0",
-                            "OffsetPosition": "0,-10,0",
+                            "OffsetPosition": "0,0,0",
                             "Parent": {
                               "_type": "component",
                               "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
@@ -318,8 +319,8 @@
                               "component_type": "InteractiveObject"
                             },
                             "TriggerAnimation": false,
-                            "ClampMax": "30,60,0",
-                            "ClampMin": "-5,-60,0"
+                            "ClampMax": "60,90,0",
+                            "ClampMin": "-5,-80,0"
                           }
                         ]
                       }
@@ -382,7 +383,7 @@
                             "Clamping": true,
                             "Distance": 64,
                             "LocalAngles": "0,0,0",
-                            "OffsetPosition": "0,-10,0",
+                            "OffsetPosition": "0,0,0",
                             "Parent": {
                               "_type": "component",
                               "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
@@ -390,8 +391,8 @@
                               "component_type": "InteractiveObject"
                             },
                             "TriggerAnimation": false,
-                            "ClampMax": "30,60,0",
-                            "ClampMin": "-5,-60,0"
+                            "ClampMax": "60,90,0",
+                            "ClampMin": "-5,-80,0"
                           }
                         ]
                       }

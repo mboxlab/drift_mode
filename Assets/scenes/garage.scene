@@ -175,15 +175,7 @@
           "Cars": [
             {
               "_type": "gameobject",
-              "prefab": "prefabs/cars/in_garage/g_350z.prefab"
-            },
-            {
-              "_type": "gameobject",
-              "prefab": "prefabs/cars/in_garage/benz124.prefab"
-            },
-            {
-              "_type": "gameobject",
-              "prefab": "prefabs/cars/in_garage/g_sport.prefab"
+              "prefab": "prefabs/cars/in_garage/g_benz124.prefab"
             }
           ]
         }
@@ -225,6 +217,7 @@
       "__guid": "4e086460-8942-4695-a3d1-cc17ed11c63e",
       "Flags": 0,
       "Name": "Map",
+      "Tags": "solid",
       "Enabled": true,
       "Components": [
         {

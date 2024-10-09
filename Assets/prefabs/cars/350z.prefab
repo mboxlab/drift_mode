@@ -303,7 +303,6 @@
                 "__type": "Sandbox.Car.Part",
                 "__guid": "97d9555a-4ba4-4e6b-bf57-3fb8ff530f3d",
                 "Models": [
-                  "models/cars/350z/wheel_stock.vmdl",
                   "models/carparts/wheels2/lp_veh_wheel_01.vmdl",
                   "models/carparts/wheels2/lp_veh_wheel_02.vmdl",
                   "models/carparts/wheels2/lp_veh_wheel_03.vmdl",

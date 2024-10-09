@@ -37,7 +37,7 @@ public sealed class CarSelector : Component
 		}
 	}
 
-	private static CarJson? GetJsonByName( string carName )
+	public static CarJson? GetJsonByName( string carName )
 	{
 		string path = carName + ".json";
 		bool exists = FileSystem.Data.FileExists( path );

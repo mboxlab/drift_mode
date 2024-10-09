@@ -105,7 +105,8 @@
             "go": "4eaa3d57-e9df-4268-b733-3e3ad411e6c7",
             "component_type": "WheelCollider"
           }
-        ]
+        ],
+        "WheelWidth": 0
       },
       {
         "__type": "Sandbox.Rigidbody",
@@ -362,7 +363,7 @@
                 "OnValueChanged": {
                   "__version": 8,
                   "__guid": "2376bf0e-9326-4b96-a753-69f542a55a79",
-                  "__changeId": 129,
+                  "__changeId": 130,
                   "UserData": {
                     "Title": "On Value Changed",
                     "ReferencedComponentTypes": []
@@ -433,7 +434,7 @@
                       "DstName": "_value"
                     },
                     {
-                      "Id": 39,
+                      "Id": 41,
                       "Value": "EverythingInAncestors",
                       "DstId": 28,
                       "DstName": "search"
@@ -1257,7 +1258,7 @@
                 "LoadContribution": 0.25,
                 "LoadRating": 5400,
                 "Mass": 15,
-                "MaxSuspensionLength": 6,
+                "MaxSuspensionLength": 3,
                 "MinSuspensionLength": 3,
                 "Radius": 16,
                 "RollingResistanceTorque": 30,
@@ -1567,7 +1568,7 @@
                 "LoadContribution": 0.25,
                 "LoadRating": 5400,
                 "Mass": 15,
-                "MaxSuspensionLength": 6,
+                "MaxSuspensionLength": 3,
                 "MinSuspensionLength": 3,
                 "Radius": 16,
                 "RollingResistanceTorque": 30,
@@ -1886,7 +1887,7 @@
                 "LoadContribution": 0.25,
                 "LoadRating": 5400,
                 "Mass": 15,
-                "MaxSuspensionLength": 6,
+                "MaxSuspensionLength": 3,
                 "MinSuspensionLength": 3,
                 "Radius": 16,
                 "RollingResistanceTorque": 30,
@@ -2222,7 +2223,7 @@
                 "LoadContribution": 0.25,
                 "LoadRating": 5400,
                 "Mass": 15,
-                "MaxSuspensionLength": 6,
+                "MaxSuspensionLength": 3,
                 "MinSuspensionLength": 3,
                 "Radius": 16,
                 "RollingResistanceTorque": 30,

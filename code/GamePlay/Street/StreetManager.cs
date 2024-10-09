@@ -1,5 +1,6 @@
 ﻿using Sandbox.Car;
 using Sandbox.UI;
+using Sandbox.VR;
 using System.Threading.Tasks;
 using static Sandbox.Car.CarSelector;
 namespace Sandbox.GamePlay.Street;
@@ -73,15 +74,22 @@ public sealed class StreetManager : Component, Component.INetworkListener, IMana
 
 		//var player = new GameObject( true, name: $"Player - {channel.DisplayName}" );
 
-		var prefab = ResourceLibrary.Get<PrefabFile>( "prefabs/camera.prefab" );
+		var prefab = ResourceLibrary.Get<PrefabFile>( dresses.CarPrefabSource );
 		var player = SceneUtility.GetPrefabScene( prefab ).Clone();
 		player.Name = $"Player - {channel.DisplayName}";
-		player.SetPrefabSource( dresses.CarPrefabSource );
-		player.UpdateFromPrefab();
 		player.GetComponentsInChildren<InteractiveObject>().ToList().ForEach( x => x.Destroy() );
 		player.GetComponentsInChildren<PartSpace>().ToList().ForEach( x => x.Destroy() );
 		player.WorldRotation = startLocation.Forward.EulerAngles;
 		player.WorldPosition = startLocation.PointToWorld( Vector3.Backward * player.GetBounds().Extents.y );
+		CarController controller = player.GetComponentInChildren<CarController>();
+		CarJson? config = GetJsonByName( dresses.CarName );
+		if ( config.HasValue )
+		{
+			controller.WheelRadius = config.Value.WheelRadius;
+			controller.WheelWidth = config.Value.WheelWidth;
+		}
+
+		controller.UpdateCarProperties();
 
 		player.NetworkSpawn( channel );
 		// FIX ME

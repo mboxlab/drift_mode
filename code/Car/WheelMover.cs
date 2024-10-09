@@ -20,7 +20,7 @@ public sealed class WheelMover : Component, ICarDresserEvent
 		Part wheelPart = parts.Find( part => part.Name == "Wheels" );
 		TuningPart = wheelPart;
 		ModelScale( Wheel.Radius );
-
+		Log.Info( TuningPart.Value );
 		Wheel.OnRadiusChanged += ModelScale;
 	}
 

@@ -627,7 +627,7 @@
             "__guid": "479b5f17-812b-447b-8099-c664b99ad65b",
             "Flags": 0,
             "Name": "wheels",
-            "Position": "0,0,14",
+            "Position": "0,0,13",
             "Enabled": true,
             "Children": [
               {
@@ -984,7 +984,7 @@
         "__guid": "7ad25a1a-171f-4f43-af08-1e2d3803fe1d",
         "Flags": 0,
         "Name": "Front Axle",
-        "Position": "60,0,14",
+        "Position": "60,0,13",
         "Enabled": true,
         "Children": [
           {
@@ -1613,7 +1613,7 @@
         "__guid": "ce1a3692-9cc8-471e-8460-bedc2caecdd5",
         "Flags": 0,
         "Name": "Rear Axle",
-        "Position": "-61,0,14",
+        "Position": "-61,0,13",
         "Enabled": true,
         "Children": [
           {

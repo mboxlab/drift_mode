@@ -182,6 +182,14 @@
             {
               "_type": "gameobject",
               "prefab": "prefabs/cars/350z.prefab"
+            },
+            {
+              "_type": "gameobject",
+              "prefab": "prefabs/cars/bmw_e30.prefab"
+            },
+            {
+              "_type": "gameobject",
+              "prefab": "prefabs/cars/huracan.prefab"
             }
           ]
         }

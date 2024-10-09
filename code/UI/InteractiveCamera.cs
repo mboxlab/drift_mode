@@ -141,10 +141,14 @@ public sealed class InteractiveCamera : Component
 
 	private void UpdatePosition()
 	{
-		Ray ray = new( TargetPosition, TargetRotation.Backward );
-		SceneTraceResult result = Scene.Trace.Sphere( 4f, ray, TargetDistance ).WithoutTags( "car" ).Run();
+		CameraComponent camera = Scene.Camera;
+		float fov = camera.FieldOfView / 4f;
 
-		WorldPosition = result.EndPosition;
+		Vector3 direction = TargetRotation.Backward;
+		Ray ray = new( TargetPosition, direction );
+		SceneTraceResult result = Scene.Trace.Ray( ray, TargetDistance + fov ).IgnoreGameObject( Target.GameObject ).Run();
+
+		WorldPosition = result.EndPosition - direction * fov;
 		WorldRotation = TargetRotation;
 	}
 

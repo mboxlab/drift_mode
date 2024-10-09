@@ -10,10 +10,12 @@ public sealed class CarController : Component
 {
 	[Property] public Rigidbody Rigidbody { get; private set; }
 	[Property] public SoundInterpolator SoundInterpolator { get; set; }
-	[Property] public WheelCollider[] Wheels { get; private set; }
 	[Property] public CarInputHandler Input { get; set; }
 	[Property] public Powertrain.Powertrain Powertrain { get; set; }
 	[Property, Title( "ABS Module" )] public ABSModule ABSModule { get; set; }
+
+	[Property] public WheelCollider[] Wheels { get; private set; }
+	[Property, Group( "Wheel Properties" )] public float WheelRadius { get; set; }
 
 	public bool IsBot;
 	public static CarController Local { get; private set; }
@@ -27,14 +29,14 @@ public sealed class CarController : Component
 	}
 
 	[Property] public float MaxBrakeTorque { get; set; }
-	[Property] public float MaxSteerAngle { get; set; }
-	[Property] public bool EnableSteerAngleMultiplier { get; set; } = true;
+	[Property, Group( "Steering" )] public float MaxSteerAngle { get; set; }
+	[Property, Group( "Steering" )] public bool EnableSteerAngleMultiplier { get; set; } = true;
 
 
-	[Property, ShowIf( nameof( EnableSteerAngleMultiplier ), true )] public float MaxSpeedForMinAngleMultiplier { get; set; } = 100;
-	[Property, ShowIf( nameof( EnableSteerAngleMultiplier ), true )] public float MinSteerAngleMultiplier { get; set; } = 0.05f;
-	[Property, ShowIf( nameof( EnableSteerAngleMultiplier ), true )] public float MaxSteerAngleMultiplier { get; set; } = 1f;
-	[Property] public PacejkaCurve.PresetsEnum FrictionPresetEnum { get; set; } = PacejkaCurve.PresetsEnum.Asphalt;
+	[Property, Group( "Steering" ), ShowIf( nameof( EnableSteerAngleMultiplier ), true )] public float MaxSpeedForMinAngleMultiplier { get; set; } = 100;
+	[Property, Group( "Steering" ), ShowIf( nameof( EnableSteerAngleMultiplier ), true )] public float MinSteerAngleMultiplier { get; set; } = 0.05f;
+	[Property, Group( "Steering" ), ShowIf( nameof( EnableSteerAngleMultiplier ), true )] public float MaxSteerAngleMultiplier { get; set; } = 1f;
+	[Property, Group( "Wheel Properties" )] public PacejkaCurve.PresetsEnum FrictionPresetEnum { get; set; } = PacejkaCurve.PresetsEnum.Asphalt;
 	public PacejkaCurve FrictionPreset { get; set; }
 
 	/// <summary>
@@ -43,12 +45,30 @@ public sealed class CarController : Component
 	public float CurrentSpeed { get; private set; }
 	public int CarDirection { get { return CurrentSpeed < 1 ? 0 : (VelocityAngle < 90 && VelocityAngle > -90 ? 1 : -1); } }
 	public Vector3 LocalVelocity;
+	private float _initialWheelRadius;
 	protected override void OnAwake()
 	{
 		base.OnAwake();
 
+		_initialWheelRadius = WheelRadius;
+
 		if ( !IsProxy )
 			ClientInit();
+	}
+	public void UpdateCarProperties()
+	{
+		UpdateWheelsProperties();
+	}
+	private void UpdateWheelsProperties()
+	{
+		foreach ( WheelCollider wheel in Wheels )
+		{
+			wheel.Radius = WheelRadius;
+		}
+	}
+	public float GetStockWheelRadius()
+	{
+		return _initialWheelRadius;
 	}
 	protected override void OnEnabled()
 	{
@@ -56,6 +76,7 @@ public sealed class CarController : Component
 
 		Powertrain.Engine.Enabled = true;
 		SoundInterpolator.Enabled = true;
+		UpdateCarProperties();
 	}
 	protected override void OnDisabled()
 	{

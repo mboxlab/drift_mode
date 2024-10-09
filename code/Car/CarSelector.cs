@@ -1,6 +1,9 @@
 ﻿
+using System.IO;
 using System.Text.Json.Serialization;
 using Sandbox.UI;
+using Sandbox.VR;
+using static Sandbox.Car.CarSelector;
 
 namespace Sandbox.Car;
 
@@ -12,8 +15,8 @@ public sealed class CarSelector : Component
 	public GameObject ActiveCar { get; private set; }
 	[Property]
 	public int CarIndex { get; private set; }
-	public static string SavePath { get; private set; } = "ActiveCar.json";
 
+	public static string SavePath { get; private set; } = "ActiveCar.json";
 	protected override void OnStart()
 	{
 		base.OnStart();
@@ -37,6 +40,16 @@ public sealed class CarSelector : Component
 		}
 	}
 
+	private static CarJson? GetJsonByName( string carName )
+	{
+		string path = carName + ".json";
+		bool exists = FileSystem.Data.FileExists( path );
+		if ( !exists )
+			return null;
+
+		return FileSystem.Data.ReadJson<CarJson>( path );
+	}
+
 	private void ChangeCar( GameObject newCar )
 	{
 		ActiveCar?.Destroy();
@@ -45,7 +58,14 @@ public sealed class CarSelector : Component
 		car.WorldPosition = WorldPosition;
 
 		car.GetComponent<CameraController>().Enabled = false;
-		car.GetComponent<CarController>().Enabled = false;
+		CarController controller = car.GetComponent<CarController>();
+		controller.Enabled = false;
+		CarJson? config = GetJsonByName( car.Name );
+		if ( config.HasValue )
+			controller.WheelRadius = config.Value.WheelRadius;
+
+		controller.UpdateCarProperties();
+
 		car.GetComponent<Rigidbody>().Locking = new PhysicsLock() { Pitch = true, Yaw = true, Roll = true, X = true, Y = true };
 		ActiveCar = car;
 		CarIndex = Cars.IndexOf( newCar );
@@ -56,40 +76,44 @@ public sealed class CarSelector : Component
 
 	private void SaveCar()
 	{
-		CarJson dresses = new()
+		CarJson carJson = new()
 		{
 			CarIndex = CarIndex,
 			CarPrefabSource = ActiveCar.PrefabInstanceSource,
-			CarName = ActiveCar.Name
+			CarName = ActiveCar.Name,
+			WheelRadius = ActiveCar.GetComponentInChildren<CarController>( true ).WheelRadius,
 		};
 
-		FileSystem.Data.WriteJson( SavePath, dresses );
+		FileSystem.Data.WriteJson( ActiveCar.Name + ".json", carJson );
+		FileSystem.Data.WriteJson( SavePath, carJson );
 	}
-	private void LoadCar()
+
+	private void LoadCar() => LoadCar( SavePath );
+	private void LoadCar( string path )
 	{
-		bool exists = FileSystem.Data.FileExists( SavePath );
+		bool exists = FileSystem.Data.FileExists( path );
 		if ( !exists )
 		{
 			ChangeCar( Cars.First() );
 			return;
 		}
 
-		CarJson dresses = FileSystem.Data.ReadJson<CarJson>( SavePath );
+		CarJson carJson = FileSystem.Data.ReadJson<CarJson>( path );
 
-		if ( dresses.CarPrefabSource is null )
+		if ( carJson.CarPrefabSource is null )
 		{
 			ChangeCar( Cars.First() );
 			return;
 		}
 
-		ChangeCar( Cars.Find( ( car ) => car.Name == dresses.CarName ) );
+		ChangeCar( Cars.Find( ( car ) => car.Name == carJson.CarName ) );
 	}
-
 
 	public struct CarJson
 	{
 		[JsonInclude] public int CarIndex { get; set; }
 		[JsonInclude] public string CarPrefabSource { get; set; }
 		[JsonInclude] public string CarName { get; set; }
+		[JsonInclude] public float WheelRadius { get; set; }
 	}
 }

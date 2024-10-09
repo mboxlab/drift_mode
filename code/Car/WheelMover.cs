@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿
 using Sandbox.Car;
 public sealed class WheelMover : Component, ICarDresserEvent
 {
@@ -19,7 +18,8 @@ public sealed class WheelMover : Component, ICarDresserEvent
 	void ICarDresserEvent.OnLoad( List<Part> parts )
 	{
 		Part wheelPart = parts.Find( part => part.Name == "Wheels" );
-		SetupWheelBounds( wheelPart.Current.RenderBounds.Size.z / 2 - 1f, wheelPart.Current.RenderBounds.Size.y / 2 );
+		wheelPart.LocalScale = Wheel.Radius / (wheelPart.Current.RenderBounds.Size.z / 2);
+		LocalScale = wheelPart.LocalScale;
 	}
 
 	void ICarDresserEvent.OnSave( Part part )
@@ -27,13 +27,8 @@ public sealed class WheelMover : Component, ICarDresserEvent
 		if ( part.Name != "Wheels" )
 			return;
 
-		SetupWheelBounds( part.Current.RenderBounds.Size.z / 2 - 1f, part.Current.RenderBounds.Size.y / 2 );
-	}
-
-	private void SetupWheelBounds( float radius, float width )
-	{
-		Wheel.Radius = radius;
-		Wheel.Width = width;
+		part.LocalScale = Wheel.Radius / (part.Current.RenderBounds.Size.z / 2);
+		LocalScale = part.LocalScale;
 	}
 
 	protected override void OnFixedUpdate()

@@ -79,6 +79,7 @@
           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
           "component_type": "SoundInterpolator"
         },
+        "WheelRadius": 15,
         "Wheels": [
           {
             "_type": "component",
@@ -467,7 +468,36 @@
                 "Models": [
                   "models/cars/benz190e/wheel_stock.vmdl",
                   "models/carparts/wheels2/lp_veh_wheel_01.vmdl",
-                  "models/carparts/wheels2/lp_veh_wheel_02.vmdl"
+                  "models/carparts/wheels2/lp_veh_wheel_02.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_03.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_04.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_05.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_06.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_07.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_08.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_09.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_10.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_11.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_12.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_13.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_14.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_15.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_16.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_17.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_18.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_19.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_20.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_21.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_22.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_23.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_24.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_25.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_26.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_27.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_28.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_29.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_30.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_31.vmdl"
                 ],
                 "Name": "Wheels",
                 "Objects": [
@@ -578,8 +608,8 @@
                               "component_type": "InteractiveObject"
                             },
                             "TriggerAnimation": false,
-                            "ClampMax": "60,90,0",
-                            "ClampMin": "-5,-70,0"
+                            "ClampMax": "60,80,0",
+                            "ClampMin": "-5,-90,0"
                           }
                         ]
                       }
@@ -664,8 +694,8 @@
                               "component_type": "InteractiveObject"
                             },
                             "TriggerAnimation": false,
-                            "ClampMax": "60,70,0",
-                            "ClampMin": "-5,-90,0"
+                            "ClampMax": "60,90,0",
+                            "ClampMin": "-5,-80,0"
                           }
                         ]
                       }
@@ -751,8 +781,8 @@
                               "component_type": "InteractiveObject"
                             },
                             "TriggerAnimation": false,
-                            "ClampMax": "60,70,0",
-                            "ClampMin": "-5,-90,0"
+                            "ClampMax": "60,90,0",
+                            "ClampMin": "-5,-80,0"
                           }
                         ]
                       }
@@ -837,8 +867,8 @@
                               "component_type": "InteractiveObject"
                             },
                             "TriggerAnimation": false,
-                            "ClampMax": "60,90,0",
-                            "ClampMin": "-5,-70,0"
+                            "ClampMax": "60,80,0",
+                            "ClampMin": "-5,-90,0"
                           }
                         ]
                       }
@@ -968,7 +998,7 @@
                 "Mass": 15,
                 "MaxSuspensionLength": 6,
                 "MinSuspensionLength": 3,
-                "Radius": 14,
+                "Radius": 15,
                 "RollingResistanceTorque": 30,
                 "RPM": 0,
                 "SidewayFriction": {
@@ -1278,7 +1308,7 @@
                 "Mass": 15,
                 "MaxSuspensionLength": 6,
                 "MinSuspensionLength": 3,
-                "Radius": 14,
+                "Radius": 15,
                 "RollingResistanceTorque": 30,
                 "RPM": 0,
                 "SidewayFriction": {
@@ -1597,7 +1627,7 @@
                 "Mass": 15,
                 "MaxSuspensionLength": 6,
                 "MinSuspensionLength": 3,
-                "Radius": 14,
+                "Radius": 15,
                 "RollingResistanceTorque": 30,
                 "RPM": 0,
                 "SidewayFriction": {
@@ -1933,7 +1963,7 @@
                 "Mass": 15,
                 "MaxSuspensionLength": 6,
                 "MinSuspensionLength": 3,
-                "Radius": 14,
+                "Radius": 15,
                 "RollingResistanceTorque": 30,
                 "RPM": 0,
                 "SidewayFriction": {

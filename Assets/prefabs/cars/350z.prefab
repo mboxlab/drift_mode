@@ -305,7 +305,25 @@
                 "Models": [
                   "models/cars/350z/wheel_stock.vmdl",
                   "models/carparts/wheels2/lp_veh_wheel_01.vmdl",
-                  "models/carparts/wheels2/lp_veh_wheel_02.vmdl"
+                  "models/carparts/wheels2/lp_veh_wheel_02.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_03.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_04.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_05.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_06.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_07.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_08.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_09.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_10.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_11.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_12.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_13.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_14.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_15.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_16.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_17.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_18.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_19.vmdl",
+                  "models/carparts/wheels2/lp_veh_wheel_20.vmdl"
                 ],
                 "Name": "Wheels",
                 "Objects": [

@@ -9,26 +9,33 @@ public sealed class WheelMover : Component, ICarDresserEvent
 	private Rigidbody _rigidbody;
 	private Rotation VelocityRotation;
 	private float AxleAngle;
+	private Part TuningPart;
 	protected override void OnEnabled()
 	{
 		_rigidbody = Components.Get<Rigidbody>( FindMode.InAncestors );
 		VelocityRotation = LocalRotation;
-
 	}
 	void ICarDresserEvent.OnLoad( List<Part> parts )
 	{
 		Part wheelPart = parts.Find( part => part.Name == "Wheels" );
-		wheelPart.LocalScale = Wheel.Radius / (wheelPart.Current.RenderBounds.Size.z / 2);
-		LocalScale = wheelPart.LocalScale;
+		TuningPart = wheelPart;
+		ModelScale( Wheel.Radius );
+
+		Wheel.OnRadiusChanged += ModelScale;
 	}
 
 	void ICarDresserEvent.OnSave( Part part )
 	{
 		if ( part.Name != "Wheels" )
 			return;
+		ModelScale( Wheel.Radius );
+	}
 
-		part.LocalScale = Wheel.Radius / (part.Current.RenderBounds.Size.z / 2);
-		LocalScale = part.LocalScale;
+	private void ModelScale( float wheelRadius )
+	{
+		TuningPart.Value = wheelRadius;
+		var scale = wheelRadius / (TuningPart.Current.RenderBounds.Maxs.z);
+		LocalScale = new Vector3( scale, LocalScale.y, scale );
 	}
 
 	protected override void OnFixedUpdate()

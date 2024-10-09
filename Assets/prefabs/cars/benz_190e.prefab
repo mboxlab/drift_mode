@@ -105,7 +105,8 @@
             "go": "4eaa3d57-e9df-4268-b733-3e3ad411e6c7",
             "component_type": "WheelCollider"
           }
-        ]
+        ],
+        "WheelWidth": 0
       },
       {
         "__type": "Sandbox.Rigidbody",
@@ -518,8 +519,105 @@
                     "go": "cc0311e1-4135-4f62-836f-d13291f5c31b"
                   }
                 ],
+                "OnValueChanged": {
+                  "__version": 8,
+                  "__guid": "a8b2a657-1923-461d-8ef6-dd16c00e98bd",
+                  "__changeId": 4,
+                  "UserData": {
+                    "Title": "On Value Changed",
+                    "ReferencedComponentTypes": []
+                  },
+                  "Variables": [],
+                  "Nodes": [
+                    {
+                      "Id": 1,
+                      "Type": "input",
+                      "UserData": {
+                        "Position": "12,-24"
+                      }
+                    },
+                    {
+                      "Id": 2,
+                      "Type": "property",
+                      "Properties": {
+                        "_name": "WheelRadius",
+                        "_type": "Sandbox.Car.CarController"
+                      },
+                      "UserData": {
+                        "Position": "264,0"
+                      }
+                    },
+                    {
+                      "Id": 3,
+                      "Type": "call",
+                      "Properties": {
+                        "_isStatic": false,
+                        "_name": "Get",
+                        "_type": "Sandbox.IComponentLister",
+                        "T": "Sandbox.Car.CarController"
+                      },
+                      "UserData": {
+                        "Position": "-24,96"
+                      }
+                    },
+                    {
+                      "Id": 4,
+                      "Type": "call",
+                      "Properties": {
+                        "_isStatic": false,
+                        "_name": "UpdateCarProperties",
+                        "_type": "Sandbox.Car.CarController"
+                      },
+                      "UserData": {
+                        "Position": "624,96"
+                      }
+                    }
+                  ],
+                  "Links": [
+                    {
+                      "SrcId": 1,
+                      "SrcName": "_signal",
+                      "DstId": 2,
+                      "DstName": "_signal"
+                    },
+                    {
+                      "SrcId": 3,
+                      "SrcName": "_result",
+                      "DstId": 2,
+                      "DstName": "_target"
+                    },
+                    {
+                      "SrcId": 1,
+                      "SrcName": "obj",
+                      "DstId": 2,
+                      "DstName": "_value"
+                    },
+                    {
+                      "Id": 6,
+                      "Value": "EverythingInAncestors",
+                      "DstId": 3,
+                      "DstName": "search"
+                    },
+                    {
+                      "SrcId": 2,
+                      "SrcName": "_signal",
+                      "DstId": 4,
+                      "DstName": "_signal"
+                    },
+                    {
+                      "SrcId": 3,
+                      "SrcName": "_result",
+                      "DstId": 4,
+                      "DstName": "_target"
+                    }
+                  ]
+                },
+                "HasSlider": true,
                 "Index": -1,
-                "Rendering": false
+                "MaxValue": 16,
+                "MinValue": 14,
+                "Rendering": false,
+                "Value": 15
               }
             ]
           },
@@ -1012,7 +1110,7 @@
                 },
                 "SuspensionDamping": 6500,
                 "SuspensionStiffness": 45000,
-                "Width": 6
+                "Width": 0
               }
             ],
             "Children": [
@@ -1322,7 +1420,7 @@
                 },
                 "SuspensionDamping": 6500,
                 "SuspensionStiffness": 45000,
-                "Width": 6
+                "Width": 0
               }
             ],
             "Children": [
@@ -1641,7 +1739,7 @@
                 },
                 "SuspensionDamping": 6500,
                 "SuspensionStiffness": 45000,
-                "Width": 6
+                "Width": 0
               },
               {
                 "__type": "Sandbox.Powertrain.WheelComponent",
@@ -1977,7 +2075,7 @@
                 },
                 "SuspensionDamping": 6500,
                 "SuspensionStiffness": 45000,
-                "Width": 6
+                "Width": 0
               },
               {
                 "__type": "Sandbox.Powertrain.WheelComponent",

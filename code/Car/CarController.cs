@@ -16,6 +16,7 @@ public sealed class CarController : Component
 
 	[Property] public WheelCollider[] Wheels { get; private set; }
 	[Property, Group( "Wheel Properties" )] public float WheelRadius { get; set; }
+	[Property, Group( "Wheel Properties" )] public float WheelWidth { get; set; }
 
 	public bool IsBot;
 	public static CarController Local { get; private set; }
@@ -46,11 +47,13 @@ public sealed class CarController : Component
 	public int CarDirection { get { return CurrentSpeed < 1 ? 0 : (VelocityAngle < 90 && VelocityAngle > -90 ? 1 : -1); } }
 	public Vector3 LocalVelocity;
 	private float _initialWheelRadius;
+	private float _initialWheelWidth;
 	protected override void OnAwake()
 	{
 		base.OnAwake();
 
 		_initialWheelRadius = WheelRadius;
+		_initialWheelWidth = WheelWidth;
 
 		if ( !IsProxy )
 			ClientInit();
@@ -58,12 +61,16 @@ public sealed class CarController : Component
 	public void UpdateCarProperties()
 	{
 		UpdateWheelsProperties();
+		OnCarPropertiesChanged?.Invoke();
 	}
+	public Action OnCarPropertiesChanged;
+
 	private void UpdateWheelsProperties()
 	{
 		foreach ( WheelCollider wheel in Wheels )
 		{
 			wheel.Radius = WheelRadius;
+			wheel.Width = WheelWidth;
 		}
 	}
 	public float GetStockWheelRadius()
@@ -137,6 +144,7 @@ public sealed class CarController : Component
 
 	float CurrentSteerAngle;
 	public float VelocityAngle { get; private set; }
+
 	void UpdateSteerAngle()
 	{
 		float targetSteerAngle = Input.Steering * MaxSteerAngle;

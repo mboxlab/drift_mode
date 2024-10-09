@@ -230,8 +230,12 @@
                 ],
                 "Name": "Spoiler",
                 "Objects": [],
+                "HasSlider": false,
                 "Index": -1,
-                "Rendering": false
+                "MaxValue": 0,
+                "MinValue": 0,
+                "Rendering": false,
+                "Value": 0
               }
             ],
             "Children": [
@@ -355,8 +359,105 @@
                     "go": "894b6134-9d64-422a-9dfc-066857463c7b"
                   }
                 ],
+                "OnValueChanged": {
+                  "__version": 8,
+                  "__guid": "2376bf0e-9326-4b96-a753-69f542a55a79",
+                  "__changeId": 129,
+                  "UserData": {
+                    "Title": "On Value Changed",
+                    "ReferencedComponentTypes": []
+                  },
+                  "Variables": [],
+                  "Nodes": [
+                    {
+                      "Id": 0,
+                      "Type": "input",
+                      "UserData": {
+                        "Position": "0,0"
+                      }
+                    },
+                    {
+                      "Id": 26,
+                      "Type": "property",
+                      "Properties": {
+                        "_name": "WheelRadius",
+                        "_type": "Sandbox.Car.CarController"
+                      },
+                      "UserData": {
+                        "Position": "324,36"
+                      }
+                    },
+                    {
+                      "Id": 28,
+                      "Type": "call",
+                      "Properties": {
+                        "_isStatic": false,
+                        "_name": "Get",
+                        "_type": "Sandbox.IComponentLister",
+                        "T": "Sandbox.Car.CarController"
+                      },
+                      "UserData": {
+                        "Position": "36,120"
+                      }
+                    },
+                    {
+                      "Id": 40,
+                      "Type": "call",
+                      "Properties": {
+                        "_isStatic": false,
+                        "_name": "UpdateCarProperties",
+                        "_type": "Sandbox.Car.CarController"
+                      },
+                      "UserData": {
+                        "Position": "684,120"
+                      }
+                    }
+                  ],
+                  "Links": [
+                    {
+                      "SrcId": 0,
+                      "SrcName": "_signal",
+                      "DstId": 26,
+                      "DstName": "_signal"
+                    },
+                    {
+                      "SrcId": 28,
+                      "SrcName": "_result",
+                      "DstId": 26,
+                      "DstName": "_target"
+                    },
+                    {
+                      "SrcId": 0,
+                      "SrcName": "obj",
+                      "DstId": 26,
+                      "DstName": "_value"
+                    },
+                    {
+                      "Id": 39,
+                      "Value": "EverythingInAncestors",
+                      "DstId": 28,
+                      "DstName": "search"
+                    },
+                    {
+                      "SrcId": 26,
+                      "SrcName": "_signal",
+                      "DstId": 40,
+                      "DstName": "_signal"
+                    },
+                    {
+                      "SrcId": 28,
+                      "SrcName": "_result",
+                      "DstId": 40,
+                      "DstName": "_target"
+                    }
+                  ]
+                },
+                "HasSlider": true,
                 "Index": -1,
-                "Rendering": false
+                "MaxValue": 18,
+                "MinValue": 14,
+                "Rendering": false,
+                "Value": 16
               }
             ]
           },
@@ -375,8 +476,12 @@
                 ],
                 "Name": "Body kit",
                 "Objects": [],
+                "HasSlider": false,
                 "Index": -1,
-                "Rendering": false
+                "MaxValue": 0,
+                "MinValue": 0,
+                "Rendering": false,
+                "Value": 0
               }
             ],
             "Children": [

@@ -45,4 +45,27 @@ PartSelector {
         transition: all 0.15s ease;
         transform: translate(0%, -100%);
     }
+
+    .slidercontrol .value-tooltip {
+        position: absolute;
+        bottom: 14px;
+        left: -8px;
+        z-index: 1000;
+        flex-direction: column;
+
+        > .label {
+            font-size: 26px;
+            background-color: black;
+            padding: 4px 8px;
+        }
+    }
+
+    .slidercontrol {
+        position: relative;
+
+        label {
+            color: white;
+            font-size: 20px;
+        }
+    }
 }

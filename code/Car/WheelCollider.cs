@@ -1,6 +1,4 @@
-﻿using System;
-using Sandbox.Car;
-using Sandbox.Ground;
+﻿using Sandbox.Ground;
 namespace Sandbox.Car;
 
 [Category( "Vehicles" )]
@@ -10,7 +8,19 @@ public class WheelCollider : Stereable
 	[Property] public float MaxSuspensionLength { get => maxSuspensionLength; set { maxSuspensionLength = value; UpdateTotalSuspensionLength(); } }
 	[Property] public float SuspensionStiffness { get; set; } = 3000.0f;
 	[Property] public float SuspensionDamping { get; set; } = 140.0f;
-	[Property] public float Radius { get => wheelRadius; set { wheelRadius = value; UpdateTotalSuspensionLength(); } }
+	[Property]
+	public float Radius
+	{
+		get => wheelRadius;
+		set
+		{
+			if ( value != wheelRadius )
+				OnRadiusChanged?.Invoke( value );
+
+			wheelRadius = value;
+			UpdateTotalSuspensionLength();
+		}
+	}
 	[Property] public float Width { get; set; } = 6;
 	[Property] public float Mass { get; set; } = 15;
 	[Property, ReadOnly] public float Inertia { get => _inertia; set => _inertia = value; }
@@ -43,6 +53,9 @@ public class WheelCollider : Stereable
 	[Property, Group( "Friction" )] public Friction SidewayFriction { get; set; } = new();
 	public WheelManager Manager { get; set; }
 	private Rotation TransformRotationSteer;
+
+	public event Action<float> OnRadiusChanged;
+
 	protected override void OnEnabled()
 	{
 		Inertia = 0.5f * Mass * (Radius.InchToMeter() * Radius.InchToMeter());

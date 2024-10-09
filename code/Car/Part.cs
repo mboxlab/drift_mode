@@ -1,9 +1,28 @@
-﻿namespace Sandbox.Car;
+﻿
+namespace Sandbox.Car;
 
 [Icon( "extension" )]
 public sealed class Part : Component
 {
 	[Property] public string Name;
+	[Property, Group( "Tuning" )] public bool HasSlider { get; set; }
+	[Property, Group( "Tuning" ), ShowIf( nameof( HasSlider ), true )] public float MinValue { get; set; }
+	[Property, Group( "Tuning" ), ShowIf( nameof( HasSlider ), true )]
+	public float Value
+	{
+		get => _value;
+		set
+		{
+			if ( _value != value )
+			{
+				_value = value;
+				OnValueChanged?.Invoke( value );
+			}
+
+		}
+	}
+
+	[Property, Group( "Tuning" ), ShowIf( nameof( HasSlider ), true )] public float MaxValue { get; set; }
 
 	private Model _current;
 	[Property]
@@ -20,7 +39,7 @@ public sealed class Part : Component
 		get => _rendering;
 		set
 		{
-			_rendering = _current is null ? false : value;
+			_rendering = _current is not null && value;
 			Renderers.ForEach( x => x.Enabled = _rendering );
 		}
 	}
@@ -28,7 +47,10 @@ public sealed class Part : Component
 	[Property] public List<Model> Models = new();
 	[Property] public List<GameObject> Objects = new();
 
-	private List<ModelRenderer> Renderers = new();
+	private readonly List<ModelRenderer> Renderers = new();
+	private float _value;
+
+	[Property] public event Action<float> OnValueChanged;
 
 	protected override void OnStart()
 	{
@@ -81,6 +103,6 @@ public sealed class Part : Component
 
 	public void Save()
 	{
-		ICarDresserEvent.Post( x => x.OnSave(this) );
+		ICarDresserEvent.Post( x => x.OnSave( this ) );
 	}
 }

@@ -1,9 +1,6 @@
 ﻿
-using System.IO;
 using System.Text.Json.Serialization;
 using Sandbox.UI;
-using Sandbox.VR;
-using static Sandbox.Car.CarSelector;
 
 namespace Sandbox.Car;
 
@@ -57,16 +54,22 @@ public sealed class CarSelector : Component
 		car.Name = newCar.Name;
 		car.WorldPosition = WorldPosition;
 
+		car.GetComponent<Rigidbody>().Locking = new PhysicsLock() { Pitch = true, Yaw = true, Roll = true, X = true, Y = true };
 		car.GetComponent<CameraController>().Enabled = false;
+
 		CarController controller = car.GetComponent<CarController>();
 		controller.Enabled = false;
+
 		CarJson? config = GetJsonByName( car.Name );
 		if ( config.HasValue )
+		{
 			controller.WheelRadius = config.Value.WheelRadius;
+			controller.WheelWidth = config.Value.WheelWidth;
+		}
 
 		controller.UpdateCarProperties();
+		controller.OnCarPropertiesChanged += SaveCar;
 
-		car.GetComponent<Rigidbody>().Locking = new PhysicsLock() { Pitch = true, Yaw = true, Roll = true, X = true, Y = true };
 		ActiveCar = car;
 		CarIndex = Cars.IndexOf( newCar );
 
@@ -115,5 +118,6 @@ public sealed class CarSelector : Component
 		[JsonInclude] public string CarPrefabSource { get; set; }
 		[JsonInclude] public string CarName { get; set; }
 		[JsonInclude] public float WheelRadius { get; set; }
+		[JsonInclude] public float WheelWidth { get; set; }
 	}
 }

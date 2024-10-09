@@ -5,19 +5,28 @@
 @inherits PanelComponent
 
 <root>
-	<div class="container" style="pointer-events: @(MouseVisible ? "all" : "none")">
-		@{
-			int i = 1;
-			foreach (Model model in Part.Models)
-			{
-				<div class="point @(Part.Current == model ? "active" : "")" onclick=@( () => OnClick( model ) )>
-					<title>@i</title>
-				</div>
-				i++;
-			}
-		}
-	</div>
 
+	<div class="container" style="pointer-events: @(MouseVisible ? "all" : "none")">
+		<div>
+
+			@{
+				if (Part.HasSlider)
+				{
+
+					<SliderControl Step="@(1)" style="pointer-events: @(MouseVisible ? "all" : "none")" Value:bind="@Part.Value" Min="@(Part.MinValue)" Max="@Part.MaxValue"></SliderControl>
+				}
+				int i = 1;
+				foreach (Model model in Part.Models)
+				{
+					<div class="point @(Part.Current == model ? "active" : "")" onclick=@( () => OnClick( model ) )>
+						<title>@i</title>
+					</div>
+					i++;
+				}
+
+			}
+		</div>
+	</div>
 </root>
 
 @code
@@ -25,7 +34,6 @@
 	[Property] public Part Part;
 	[Property] public InteractiveObject Object;
 	private bool MouseVisible = true;
-
 	private String PartName { get => Part.Index.ToString(); }
 
 	private void OnClick(Model model)

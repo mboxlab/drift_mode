@@ -49,10 +49,6 @@
           "Lap": 0,
           "MaxLaps": 1,
           "MaxPlayers": 0,
-          "PlayerPrefab": {
-            "_type": "gameobject",
-            "prefab": "prefabs/cars/350z.prefab"
-          },
           "SpawnPoints": [
             {
               "_type": "gameobject",
@@ -149,6 +145,7 @@
         {
           "__type": "Sandbox.SkyBox2D",
           "__guid": "bbf2eb2b-6b26-47c6-b362-35df63dc426a",
+          "SkyIndirectLighting": true,
           "SkyMaterial": "materials/skybox/skybox_day_01.vmat",
           "Tint": "1,1,1,1"
         },
@@ -965,6 +962,5 @@
   "Description": "",
   "ResourceVersion": 1,
   "__references": [],
-  "IsValid": true,
   "__version": 1
 }

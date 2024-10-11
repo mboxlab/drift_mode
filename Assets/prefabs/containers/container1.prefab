@@ -6,55 +6,104 @@
     "Enabled": true,
     "Components": [
       {
-        "__type": "Sandbox.SkinnedModelRenderer",
-        "__guid": "c611d06c-0150-4004-bb79-539d12f172f9",
-        "AnimationGraph": "animgraphs/containter1.vanmgrph",
-        "BodyGroups": 18446744073709551615,
-        "CreateBoneObjects": true,
-        "MaterialOverride": "materials/containers/container_texture_01.vmat",
-        "Model": "models/containers/sm_prop_container_doors_01.vmdl",
-        "Morphs": {},
-        "Parameters": {
-          "bools": {},
-          "ints": {
-            "doors_pos": 0
+        "__type": "Sandbox.Container.ContainerCompoent",
+        "__guid": "83fba125-ff8b-4935-9a95-f4b11351cbcf",
+        "Cars": [
+          {
+            "_type": "gameobject",
+            "prefab": "prefabs/cars/350z.prefab"
           },
-          "floats": {},
-          "vectors": {},
-          "rotations": {}
+          {
+            "_type": "gameobject",
+            "prefab": "prefabs/cars/benz_190e.prefab"
+          }
+        ],
+        "CarTransform": {
+          "_type": "gameobject",
+          "go": "56ab2a23-361c-41a8-a9aa-9c14c2c8e61e"
         },
-        "RenderOptions": {
-          "GameLayer": true,
-          "OverlayLayer": false,
-          "BloomLayer": false,
-          "AfterUILayer": false
-        },
-        "RenderType": "On",
-        "Tint": "1,1,1,1",
-        "UseAnimGraph": true
+        "ContainerRenderer": {
+          "_type": "component",
+          "component_id": "d6a94197-b867-4dcd-8fe3-e3895529f4b0",
+          "go": "4f353699-630e-4614-a889-18dbf31973ce",
+          "component_type": "SkinnedModelRenderer"
+        }
       }
     ],
     "Children": [
       {
-        "__guid": "912bd8d8-71ab-443e-8e66-408bd048e0f2",
-        "Flags": 4,
-        "Name": "Root",
-        "Rotation": "0.4999998,0.4999995,0.4999999,0.5000008",
+        "__guid": "56ab2a23-361c-41a8-a9aa-9c14c2c8e61e",
+        "Flags": 0,
+        "Name": "carpos",
+        "Position": "0,0,10",
+        "Enabled": true
+      },
+      {
+        "__guid": "4f353699-630e-4614-a889-18dbf31973ce",
+        "Flags": 0,
+        "Name": "Model",
+        "Rotation": "0,-0,-0.7071068,0.7071068",
         "Enabled": true,
-        "Children": [
+        "Components": [
           {
-            "__guid": "2f450969-f668-44b3-9fdb-97be0536e8d1",
-            "Flags": 4,
-            "Name": "LeftDoor",
-            "Position": "118.479,101.9694,44.38952",
-            "Enabled": true
+            "__type": "Sandbox.SkinnedModelRenderer",
+            "__guid": "d6a94197-b867-4dcd-8fe3-e3895529f4b0",
+            "AnimationGraph": "animgraphs/containter1.vanmgrph",
+            "BodyGroups": 18446744073709551615,
+            "CreateBoneObjects": true,
+            "MaterialOverride": "materials/containers/container_texture_01.vmat",
+            "Model": "models/containers/sm_prop_container_doors_01.vmdl",
+            "Morphs": {},
+            "Parameters": {
+              "bools": {},
+              "ints": {
+                "doors_pos": 0
+              },
+              "floats": {},
+              "vectors": {},
+              "rotations": {}
+            },
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderType": "On",
+            "Tint": "1,1,1,1",
+            "UseAnimGraph": true
           },
           {
-            "__guid": "edca1a05-2b55-4f0c-b178-c22a71664a1a",
+            "__type": "Sandbox.ModelCollider",
+            "__guid": "969d218c-ff14-4697-bc8f-9ce4941bcb7e",
+            "IsTrigger": false,
+            "Model": "models/containers/sm_prop_container_doors_01.vmdl",
+            "Static": false
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "4c71bcc3-be60-477f-8b4d-f422c979e69c",
             "Flags": 4,
-            "Name": "RightDoor",
-            "Position": "118.479,101.9694,-42.33164",
-            "Enabled": true
+            "Name": "Root",
+            "Rotation": "0.4999998,0.4999995,0.4999999,0.5000008",
+            "Enabled": true,
+            "Children": [
+              {
+                "__guid": "9db67f27-56d9-489a-a9ef-5bca84ceccba",
+                "Flags": 4,
+                "Name": "LeftDoor",
+                "Position": "118.479,101.9694,44.38952",
+                "Enabled": true
+              },
+              {
+                "__guid": "0fefb29d-d3a0-46f8-bc11-26f18fb6c77a",
+                "Flags": 4,
+                "Name": "RightDoor",
+                "Position": "118.479,101.9694,-42.33164",
+                "Enabled": true
+              }
+            ]
           }
         ]
       }

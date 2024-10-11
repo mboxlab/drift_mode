@@ -1,0 +1,71 @@
+{
+  "RootObject": {
+    "__guid": "d4e7b84a-f3f7-4ecc-b4e9-188f89f17f2f",
+    "Flags": 0,
+    "Name": "container1",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Sandbox.SkinnedModelRenderer",
+        "__guid": "c611d06c-0150-4004-bb79-539d12f172f9",
+        "AnimationGraph": "animgraphs/containter1.vanmgrph",
+        "BodyGroups": 18446744073709551615,
+        "CreateBoneObjects": true,
+        "MaterialOverride": "materials/containers/container_texture_01.vmat",
+        "Model": "models/containers/sm_prop_container_doors_01.vmdl",
+        "Morphs": {},
+        "Parameters": {
+          "bools": {},
+          "ints": {
+            "doors_pos": 0
+          },
+          "floats": {},
+          "vectors": {},
+          "rotations": {}
+        },
+        "RenderOptions": {
+          "GameLayer": true,
+          "OverlayLayer": false,
+          "BloomLayer": false,
+          "AfterUILayer": false
+        },
+        "RenderType": "On",
+        "Tint": "1,1,1,1",
+        "UseAnimGraph": true
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "912bd8d8-71ab-443e-8e66-408bd048e0f2",
+        "Flags": 4,
+        "Name": "Root",
+        "Rotation": "0.4999998,0.4999995,0.4999999,0.5000008",
+        "Enabled": true,
+        "Children": [
+          {
+            "__guid": "2f450969-f668-44b3-9fdb-97be0536e8d1",
+            "Flags": 4,
+            "Name": "LeftDoor",
+            "Position": "118.479,101.9694,44.38952",
+            "Enabled": true
+          },
+          {
+            "__guid": "edca1a05-2b55-4f0c-b178-c22a71664a1a",
+            "Flags": 4,
+            "Name": "RightDoor",
+            "Position": "118.479,101.9694,-42.33164",
+            "Enabled": true
+          }
+        ]
+      }
+    ],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

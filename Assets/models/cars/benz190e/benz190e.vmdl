@@ -60,12 +60,45 @@
 				[
 					{
 						_class = "ModelModifier_ScaleAndMirror"
-						scale = 39.369999
+						scale = 0.3937
 						mirror_x = false
 						mirror_y = false
 						mirror_z = false
 						flip_bone_forward = false
 						swap_left_and_right_bones = false
+					},
+				]
+			},
+			{
+				_class = "PhysicsShapeList"
+				children = 
+				[
+					{
+						_class = "PhysicsHullFile"
+						name = "lp_veh_sedan_06"
+						parent_bone = ""
+						surface_prop = "default"
+						collision_tags = "solid"
+						recenter_on_parent_bone = false
+						offset_origin = [ 0.0, 0.0, 0.0 ]
+						offset_angles = [ 0.0, 0.0, 0.0 ]
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
+						filename = "models/cars/benz190e/lp_veh_sedan_06.fbx"
+						import_scale = 1.0
+						faceMergeAngle = 5.0
+						maxHullVertices = 0
+						import_mode = "SingleHull"
+						optimization_algorithm = "QEM"
+						import_filter = 
+						{
+							exclude_by_default = true
+							exception_list = 
+							[
+								"Collider",
+							]
+						}
 					},
 				]
 			},

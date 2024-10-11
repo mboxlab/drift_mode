@@ -123,11 +123,10 @@
         "StartAsleep": false
       },
       {
-        "__type": "Sandbox.BoxCollider",
+        "__type": "Sandbox.ModelCollider",
         "__guid": "d9394def-1ad3-4a36-b0f0-a69361d079cb",
-        "Center": "-1,0,30",
         "IsTrigger": false,
-        "Scale": "198.9001,61.99998,40",
+        "Model": "models/cars/bmwe30/bmwe30.vmdl",
         "Static": false
       },
       {
@@ -593,7 +592,7 @@
                       "DstName": "_value"
                     },
                     {
-                      "Id": 6,
+                      "Id": 5,
                       "Value": "EverythingInAncestors",
                       "DstId": 3,
                       "DstName": "search"
@@ -2340,6 +2339,5 @@
   "DontBreakAsTemplate": false,
   "ResourceVersion": 1,
   "__references": [],
-  "IsValid": true,
   "__version": 1
 }

@@ -1,8 +1,7 @@
 ﻿using Sandbox.Car;
 using Sandbox.UI;
-using Sandbox.VR;
+using Sandbox.Utils;
 using System.Threading.Tasks;
-using static Sandbox.Car.CarSelector;
 namespace Sandbox.GamePlay.Street;
 
 
@@ -70,7 +69,7 @@ public sealed class StreetManager : Component, Component.INetworkListener, IMana
 		// Spawn this object and make the client the owner
 
 		//var player = PlayerPrefab.Clone( startLocation, name: $"Player - {channel.DisplayName}" );
-		CarJson dresses = FileSystem.Data.ReadJson<CarJson>( CarSelector.SavePath );
+		CarJson dresses = FileSystem.Data.ReadJson<CarJson>( CarSaver.ActiveCarSavePath );
 
 		//var player = new GameObject( true, name: $"Player - {channel.DisplayName}" );
 
@@ -82,12 +81,10 @@ public sealed class StreetManager : Component, Component.INetworkListener, IMana
 		player.WorldRotation = startLocation.Forward.EulerAngles;
 		player.WorldPosition = startLocation.PointToWorld( Vector3.Backward * player.GetBounds().Extents.y );
 		CarController controller = player.GetComponentInChildren<CarController>();
-		CarJson? config = GetJsonByName( dresses.CarName );
+		CarJson? config = CarSaver.GetJsonByName( dresses.CarName );
+
 		if ( config.HasValue )
-		{
-			controller.WheelRadius = config.Value.WheelRadius;
-			controller.WheelWidth = config.Value.WheelWidth;
-		}
+			controller.ApplyTunings( config.Value.Tunings );
 
 		controller.UpdateCarProperties();
 

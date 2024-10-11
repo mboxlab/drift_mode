@@ -1,5 +1,6 @@
 @using System;
 @using Sandbox;
+@using Sandbox.Tuning
 @using Sandbox.UI;
 @using Sandbox.Car;
 @inherits PanelComponent
@@ -10,10 +11,20 @@
 		<div>
 
 			@{
-				if (Part.HasSlider)
+				if (Part.HasTuning)
 				{
-
-					<SliderControl Step="@(1)" style="pointer-events: @(MouseVisible ? "all" : "none")" Value:bind="@Part.Value" Min="@(Part.MinValue)" Max="@Part.MaxValue"></SliderControl>
+					TuningOption option = Part.TuningOption;
+					for (int id = 0; id < option.Count; id++)
+					{
+						CarTuning tuning = option.Get(id);
+						<SliderControl Step="@(1)"
+									   style="pointer-events: @(MouseVisible ? "all" : "none")"
+									   Value:bind="@(tuning.BindValue)"
+									   Min="@(tuning.MinValue)"
+									   Max="@(tuning.MaxValue)">
+							@(tuning.Name)
+						</SliderControl>
+					}
 				}
 				int i = 1;
 				foreach (Model model in Part.Models)

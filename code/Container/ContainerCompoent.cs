@@ -1,5 +1,6 @@
 ﻿
 using Sandbox.Car;
+using Sandbox.Utils;
 
 namespace Sandbox.Container;
 
@@ -14,6 +15,6 @@ public sealed class ContainerCompoent : Component
 		base.OnStart();
 
 		var car = Cars[Game.Random.Int( 0, Cars.Count - 1 )].Clone( CarTransform.WorldTransform );
-		CarSelector.FakeCar( car );
+		CarSaver.FakeCar( car );
 	}
 }

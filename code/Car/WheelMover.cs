@@ -1,39 +1,32 @@
 ﻿
 using Sandbox.Car;
-public sealed class WheelMover : Component, ICarDresserEvent
+using Sandbox.Utils;
+public sealed class WheelMover : Component, ICarSaverEvent, ICarDresserEvent
 {
 	[Property] public WheelCollider Wheel { get; set; }
 	[Property] public bool ReverseRotation { get; set; }
 	[Property] public float Speed { get; set; } = MathF.PI;
 
-	private Rigidbody _rigidbody;
 	private Rotation VelocityRotation;
 	private float AxleAngle;
-	private Part TuningPart;
 	protected override void OnEnabled()
 	{
-		_rigidbody = Components.Get<Rigidbody>( FindMode.InAncestors );
 		VelocityRotation = LocalRotation;
 	}
-	void ICarDresserEvent.OnLoad( List<Part> parts )
+	void ICarSaverEvent.OnLoad()
 	{
-		Part wheelPart = parts.Find( part => part.Name == "Wheels" );
-		TuningPart = wheelPart;
-		ModelScale( Wheel.Radius );
-		Wheel.OnRadiusChanged += ModelScale;
-	}
 
-	void ICarDresserEvent.OnSave( Part part )
+		ModelScale( Wheel.Radius );
+	}
+	void ICarDresserEvent.OnPartChanged( Part part )
 	{
-		if ( part.Name != "Wheels" )
-			return;
+		Log.Info( "awd" );
 		ModelScale( Wheel.Radius );
 	}
 
 	private void ModelScale( float wheelRadius )
 	{
-		TuningPart.Value = wheelRadius;
-		var scale = wheelRadius / (TuningPart.Current.RenderBounds.Maxs.z);
+		var scale = wheelRadius / (GetComponent<ModelRenderer>().Model.RenderBounds.Maxs.z);
 		LocalScale = new Vector3( scale, LocalScale.y, scale );
 	}
 

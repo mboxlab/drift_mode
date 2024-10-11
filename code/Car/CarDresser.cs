@@ -41,7 +41,7 @@ public sealed class CarDresser : Component, Component.INetworkListener, ICarDres
 		return Default;
 	}
 
-	void ICarDresserEvent.OnSave( Part p )
+	void ICarDresserEvent.OnSave( Part part )
 	{
 		bool exists = FileSystem.OrganizationData.FileExists( SavePath );
 		CarDresses dresses = exists ? FileSystem.OrganizationData.ReadJson<CarDresses>( SavePath ) : new();
@@ -50,6 +50,9 @@ public sealed class CarDresser : Component, Component.INetworkListener, ICarDres
 		dresses.Cars[CarRenderer.Model.Name] = Current;
 
 		FileSystem.OrganizationData.WriteJson( SavePath, dresses );
+		part.TuningOption.Apply();
+
+		ICarDresserEvent.Post( x => x.OnPartChanged( part ) );
 	}
 
 	public void Dress() => Dress( Get() );
@@ -85,5 +88,6 @@ public interface ICarDresserEvent : ISceneEvent<ICarDresserEvent>
 {
 
 	void OnSave( Part part ) { }
+	void OnPartChanged( Part part ) { }
 	void OnLoad( List<Part> parts ) { }
 }

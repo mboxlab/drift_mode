@@ -1,7 +1,9 @@
 ﻿
 using Sandbox.Engine;
-using Sandbox.GamePlay;
 using Sandbox.Powertrain.Modules;
+using Sandbox.Tuning;
+using Sandbox.VR;
+using static Sandbox.Diagnostics.PerformanceStats;
 
 namespace Sandbox.Car;
 
@@ -32,8 +34,6 @@ public sealed class CarController : Component
 	[Property] public float MaxBrakeTorque { get; set; }
 	[Property, Group( "Steering" )] public float MaxSteerAngle { get; set; }
 	[Property, Group( "Steering" )] public bool EnableSteerAngleMultiplier { get; set; } = true;
-
-
 	[Property, Group( "Steering" ), ShowIf( nameof( EnableSteerAngleMultiplier ), true )] public float MaxSpeedForMinAngleMultiplier { get; set; } = 100;
 	[Property, Group( "Steering" ), ShowIf( nameof( EnableSteerAngleMultiplier ), true )] public float MinSteerAngleMultiplier { get; set; } = 0.05f;
 	[Property, Group( "Steering" ), ShowIf( nameof( EnableSteerAngleMultiplier ), true )] public float MaxSteerAngleMultiplier { get; set; } = 1f;
@@ -46,14 +46,10 @@ public sealed class CarController : Component
 	public float CurrentSpeed { get; private set; }
 	public int CarDirection { get { return CurrentSpeed < 1 ? 0 : (VelocityAngle < 90 && VelocityAngle > -90 ? 1 : -1); } }
 	public Vector3 LocalVelocity;
-	private float _initialWheelRadius;
-	private float _initialWheelWidth;
 	protected override void OnAwake()
 	{
 		base.OnAwake();
 
-		_initialWheelRadius = WheelRadius;
-		_initialWheelWidth = WheelWidth;
 
 		if ( !IsProxy )
 			ClientInit();
@@ -69,13 +65,9 @@ public sealed class CarController : Component
 	{
 		foreach ( WheelCollider wheel in Wheels )
 		{
-			wheel.Radius = WheelRadius;
-			wheel.Width = WheelWidth;
+			if ( WheelRadius > 0 ) wheel.Radius = WheelRadius;
+			if ( WheelWidth > 0 ) wheel.Width = WheelWidth;
 		}
-	}
-	public float GetStockWheelRadius()
-	{
-		return _initialWheelRadius;
 	}
 	protected override void OnEnabled()
 	{
@@ -169,4 +161,23 @@ public sealed class CarController : Component
 		Wheels[1].SteerAngle = targetAngle;
 
 	}
+
+	#region Tuning
+	Dictionary<string, TuningOption> Tunings { get; set; }
+	public void ApplyTunings( Dictionary<string, TuningOption> tunings )
+	{
+		Tunings = tunings;
+		foreach ( TuningOption item in tunings.Values )
+			item.Apply();
+
+		UpdateCarProperties();
+	}
+
+	public void UpdateTuning()
+	{
+
+		foreach ( TuningOption item in Tunings.Values )
+			item.Apply();
+	}
+	#endregion
 }

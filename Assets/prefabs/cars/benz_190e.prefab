@@ -79,7 +79,7 @@
           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
           "component_type": "SoundInterpolator"
         },
-        "WheelRadius": 15,
+        "WheelRadius": 0,
         "Wheels": [
           {
             "_type": "component",
@@ -518,13 +518,21 @@
                     "go": "cc0311e1-4135-4f62-836f-d13291f5c31b"
                   }
                 ],
-                "OnValueChanged": {
+                "Index": -1,
+                "Rendering": false
+              },
+              {
+                "__type": "Sandbox.Tuning.WheelTuningOption",
+                "__guid": "d4f6f92e-8611-49b3-a634-ed9b7f68b172",
+                "OnApply": {
                   "__version": 8,
-                  "__guid": "a8b2a657-1923-461d-8ef6-dd16c00e98bd",
-                  "__changeId": 4,
+                  "__guid": "089e61ca-ba97-491d-800c-d72fc6cc26b2",
+                  "__changeId": 3,
                   "UserData": {
-                    "Title": "On Value Changed",
-                    "ReferencedComponentTypes": []
+                    "Title": "On Apply",
+                    "ReferencedComponentTypes": [
+                      "Sandbox.Tuning.WheelTuningOption"
+                    ]
                   },
                   "Variables": [],
                   "Nodes": [
@@ -532,7 +540,7 @@
                       "Id": 1,
                       "Type": "input",
                       "UserData": {
-                        "Position": "12,-24"
+                        "Position": "348,-36"
                       }
                     },
                     {
@@ -543,11 +551,85 @@
                         "_type": "Sandbox.Car.CarController"
                       },
                       "UserData": {
-                        "Position": "264,0"
+                        "Position": "588,36"
                       }
                     },
                     {
                       "Id": 3,
+                      "Type": "scene.get",
+                      "Properties": {
+                        "T": "Sandbox.Tuning.WheelTuningOption"
+                      },
+                      "UserData": {
+                        "Position": "-456,132"
+                      }
+                    },
+                    {
+                      "Id": 4,
+                      "Type": "property",
+                      "Properties": {
+                        "_name": "Options",
+                        "_type": "Sandbox.Tuning.WheelTuningOption"
+                      },
+                      "UserData": {
+                        "Position": "-192,132"
+                      }
+                    },
+                    {
+                      "Id": 5,
+                      "Type": "list.get",
+                      "Properties": {
+                        "T": "Sandbox.Tuning.CarTuning"
+                      },
+                      "UserData": {
+                        "Position": "156,36"
+                      }
+                    },
+                    {
+                      "Id": 6,
+                      "Type": "property",
+                      "Properties": {
+                        "_name": "Value",
+                        "_type": "Sandbox.Tuning.CarTuning"
+                      },
+                      "UserData": {
+                        "Position": "300,60"
+                      }
+                    },
+                    {
+                      "Id": 7,
+                      "Type": "list.get",
+                      "Properties": {
+                        "T": "Sandbox.Tuning.CarTuning"
+                      },
+                      "UserData": {
+                        "Position": "156,156"
+                      }
+                    },
+                    {
+                      "Id": 8,
+                      "Type": "property",
+                      "Properties": {
+                        "_name": "WheelWidth",
+                        "_type": "Sandbox.Car.CarController"
+                      },
+                      "UserData": {
+                        "Position": "588,156"
+                      }
+                    },
+                    {
+                      "Id": 9,
+                      "Type": "property",
+                      "Properties": {
+                        "_name": "Value",
+                        "_type": "Sandbox.Tuning.CarTuning"
+                      },
+                      "UserData": {
+                        "Position": "300,180"
+                      }
+                    },
+                    {
+                      "Id": 10,
                       "Type": "call",
                       "Properties": {
                         "_isStatic": false,
@@ -556,19 +638,7 @@
                         "T": "Sandbox.Car.CarController"
                       },
                       "UserData": {
-                        "Position": "-24,96"
-                      }
-                    },
-                    {
-                      "Id": 4,
-                      "Type": "call",
-                      "Properties": {
-                        "_isStatic": false,
-                        "_name": "UpdateCarProperties",
-                        "_type": "Sandbox.Car.CarController"
-                      },
-                      "UserData": {
-                        "Position": "624,96"
+                        "Position": "300,120"
                       }
                     }
                   ],
@@ -580,43 +650,113 @@
                       "DstName": "_signal"
                     },
                     {
-                      "SrcId": 3,
+                      "SrcId": 10,
                       "SrcName": "_result",
                       "DstId": 2,
                       "DstName": "_target"
                     },
                     {
-                      "SrcId": 1,
-                      "SrcName": "obj",
+                      "SrcId": 6,
+                      "SrcName": "_result",
                       "DstId": 2,
                       "DstName": "_value"
                     },
                     {
-                      "Id": 5,
-                      "Value": "EverythingInAncestors",
+                      "SrcId": 1,
+                      "SrcName": "_target",
                       "DstId": 3,
-                      "DstName": "search"
-                    },
-                    {
-                      "SrcId": 2,
-                      "SrcName": "_signal",
-                      "DstId": 4,
-                      "DstName": "_signal"
+                      "DstName": "_this"
                     },
                     {
                       "SrcId": 3,
                       "SrcName": "_result",
                       "DstId": 4,
                       "DstName": "_target"
+                    },
+                    {
+                      "Id": 14,
+                      "Value": 0,
+                      "DstId": 5,
+                      "DstName": "index"
+                    },
+                    {
+                      "SrcId": 4,
+                      "SrcName": "_result",
+                      "DstId": 5,
+                      "DstName": "list"
+                    },
+                    {
+                      "SrcId": 5,
+                      "SrcName": "_result",
+                      "DstId": 6,
+                      "DstName": "_target"
+                    },
+                    {
+                      "Id": 15,
+                      "Value": 1,
+                      "DstId": 7,
+                      "DstName": "index"
+                    },
+                    {
+                      "SrcId": 4,
+                      "SrcName": "_result",
+                      "DstId": 7,
+                      "DstName": "list"
+                    },
+                    {
+                      "SrcId": 1,
+                      "SrcName": "_signal",
+                      "DstId": 8,
+                      "DstName": "_signal"
+                    },
+                    {
+                      "SrcId": 10,
+                      "SrcName": "_result",
+                      "DstId": 8,
+                      "DstName": "_target"
+                    },
+                    {
+                      "SrcId": 9,
+                      "SrcName": "_result",
+                      "DstId": 8,
+                      "DstName": "_value"
+                    },
+                    {
+                      "SrcId": 7,
+                      "SrcName": "_result",
+                      "DstId": 9,
+                      "DstName": "_target"
+                    },
+                    {
+                      "SrcId": 1,
+                      "SrcName": "_target",
+                      "DstId": 10,
+                      "DstName": "_target"
+                    },
+                    {
+                      "Id": 16,
+                      "Value": "InAncestors",
+                      "DstId": 10,
+                      "DstName": "search"
                     }
                   ]
                 },
-                "HasSlider": true,
-                "Index": -1,
-                "MaxValue": 16,
-                "MinValue": 14,
-                "Rendering": false,
-                "Value": 15
+                "Count": 2,
+                "Name": "Wheels",
+                "Options": [
+                  {
+                    "Name": "Radius",
+                    "MinValue": 14,
+                    "Value": 15,
+                    "MaxValue": 16
+                  },
+                  {
+                    "Name": "Width",
+                    "MinValue": 5,
+                    "Value": 6,
+                    "MaxValue": 7
+                  }
+                ]
               }
             ]
           },

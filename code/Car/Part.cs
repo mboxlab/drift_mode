@@ -1,28 +1,14 @@
 ﻿
+using Sandbox.Tuning;
+
 namespace Sandbox.Car;
 
 [Icon( "extension" )]
 public sealed class Part : Component
 {
 	[Property] public string Name;
-	[Property, Group( "Tuning" )] public bool HasSlider { get; set; }
-	[Property, Group( "Tuning" ), ShowIf( nameof( HasSlider ), true )] public float MinValue { get; set; }
-	[Property, Group( "Tuning" ), ShowIf( nameof( HasSlider ), true )]
-	public float Value
-	{
-		get => _value;
-		set
-		{
-			if ( _value != value )
-			{
-				_value = value;
-				OnValueChanged?.Invoke( value );
-			}
-
-		}
-	}
-
-	[Property, Group( "Tuning" ), ShowIf( nameof( HasSlider ), true )] public float MaxValue { get; set; }
+	public TuningOption TuningOption { get; set; }
+	public bool HasTuning { get => TuningOption is not null; }
 
 	private Model _current;
 	[Property]
@@ -48,10 +34,11 @@ public sealed class Part : Component
 	[Property] public List<GameObject> Objects = new();
 
 	private readonly List<ModelRenderer> Renderers = new();
-	private float _value;
-
-	[Property] public event Action<float> OnValueChanged;
-
+	protected override void OnAwake()
+	{
+		base.OnAwake();
+		TuningOption = GetComponent<TuningOption>();
+	}
 	protected override void OnStart()
 	{
 		base.OnStart();

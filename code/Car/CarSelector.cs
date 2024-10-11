@@ -54,8 +54,20 @@ public sealed class CarSelector : Component
 		car.Name = newCar.Name;
 		car.WorldPosition = WorldPosition;
 
+		CarController controller = FakeCar( car );
+
+		controller.OnCarPropertiesChanged += SaveCar;
+
+		ActiveCar = car;
+		CarIndex = Cars.IndexOf( newCar );
+
+		OnCarChanged?.Invoke( car );
+		SaveCar();
+	}
+	public static CarController FakeCar( GameObject car )
+	{
 		car.GetComponent<Rigidbody>().Locking = new PhysicsLock() { Pitch = true, Yaw = true, Roll = true, X = true, Y = true };
-		car.GetComponent<CameraController>().Enabled = false;
+		car.GetComponent<CameraController>().Destroy();
 
 		CarController controller = car.GetComponent<CarController>();
 		controller.Enabled = false;
@@ -68,15 +80,8 @@ public sealed class CarSelector : Component
 		}
 
 		controller.UpdateCarProperties();
-		controller.OnCarPropertiesChanged += SaveCar;
-
-		ActiveCar = car;
-		CarIndex = Cars.IndexOf( newCar );
-
-		OnCarChanged?.Invoke( car );
-		SaveCar();
+		return controller;
 	}
-
 	private void SaveCar()
 	{
 		CarJson carJson = new()

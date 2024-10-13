@@ -10,6 +10,13 @@ public class CarTuning : GameResource
 		Wheel,
 	}
 
+	public enum CarCategory
+	{
+		All,
+		Sport,
+		OffRoad,
+	}
+
 	[Flags]
 	public enum Slots
 	{
@@ -80,6 +87,10 @@ public class CarTuning : GameResource
 	/// What kind of tuning this is?
 	/// </summary>
 	[Category( "Display Information" )] public virtual CarTuningCategory Category { get; set; }
+	/// <summary>
+	/// To which category of car is it applied
+	/// </summary>
+	[Category( "Display Information" )] public virtual CarCategory CarAffected { get; set; } = CarCategory.All;
 
 	/// <summary>
 	/// A list of conditional models. (key) = tag(s), (value) = model

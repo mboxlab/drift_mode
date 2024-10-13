@@ -217,7 +217,7 @@ public sealed class TuningContainer
 		{
 			var c = entry.CarTuning;
 			var modelPath = c.GetModel( CarTuning.Select( x => x.CarTuning ).Except( new[] { c } ) );
-			
+
 			if ( string.IsNullOrEmpty( modelPath ) )
 				continue;
 
@@ -226,9 +226,7 @@ public sealed class TuningContainer
 				continue;
 
 			foreach ( var item in body.Model.Bones.AllBones )
-			{
 				if ( Enum.TryParse( item.Name, out CarTuning.BodyGroups flag ) )
-				{
 					if ( c.HideBody.HasFlag( flag ) )
 					{
 						GameObject go = new( false, $"Tuning - {c.ResourceName}" )
@@ -251,9 +249,6 @@ public sealed class TuningContainer
 						go.Enabled = true;
 
 					}
-				}
-			}
-
 		}
 
 	}

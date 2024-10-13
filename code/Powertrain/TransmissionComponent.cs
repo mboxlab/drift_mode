@@ -395,7 +395,7 @@ public class TransmissionComponent : PowertrainComponent
 	/// <returns>RPM as it would be if the wheels are not slipping or in the air.</returns>
 	private float CalculateNoSlipRPM()
 	{
-		float vehicleLocalVelocity = CarController.LocalVelocity.x.InchToMeter();
+		float vehicleLocalVelocity = CarController.LocalVelocity.y.InchToMeter();
 
 		// Get the average no-slip wheel RPM
 		// Use the vehicle velocity as the friction velocities for the wheel are 0 when in air and 

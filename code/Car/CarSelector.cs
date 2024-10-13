@@ -39,32 +39,34 @@ public sealed class CarSelector : Component
 
 	private void ChangeCar( GameObject newCar )
 	{
-		CarSaver.SaveActiveCar();
 		ActiveCar?.Destroy();
-		SetCar( newCar );
+		SetCar( newCar.Name );
 		OnCarChanged?.Invoke( ActiveCar );
-		CarSaver.SetActiveCar( ActiveCar );
+		CarSaver.SetActiveCar( ActiveCar.Name );
 	}
 
-	private void SetCar( GameObject newCar )
-	{
-		GameObject car = newCar.Clone();
-		car.Name = newCar.Name;
-		car.WorldPosition = WorldPosition;
-		CarController controller = CarSaver.FakeCar( car );
+	private void SetCar( GameObject car ) => SetupCar( car );
+	private void SetCar( string carName ) => SetupCar( CarSaver.LoadFakeCar( carName + ".json" ) );
 
-		controller.ClientInit();
+	private void SetupCar( GameObject car )
+	{
+		car.WorldPosition = WorldPosition;
+		car.WorldRotation = WorldRotation;
+		car.GetComponent<CarController>().ClientInit();
 
 		ActiveCar = car;
-		CarIndex = Cars.IndexOf( newCar );
+		CarIndex = Cars.FindIndex( x => x.Name == car.Name );
 	}
-
 	private void LoadCar()
 	{
-		GameObject car = CarSaver.LoadActiveCar();
-		if ( car != null )
-			SetCar( car );
+
+		if ( CarSaver.GetActiveCarName() != null )
+			SetCar( CarSaver.GetActiveCarName() );
 		else
-			SetCar( Cars.First() );
+		{
+			SetCar( Cars.First().Name );
+			CarSaver.SetActiveCar( Cars.First().Name );
+			CarSaver.SaveActiveCar();
+		}
 	}
 }

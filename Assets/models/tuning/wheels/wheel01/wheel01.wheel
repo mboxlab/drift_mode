@@ -1,0 +1,28 @@
+{
+  "Category": "Wheel",
+  "Radius": 1,
+  "Width": 1,
+  "SlotsOver": 0,
+  "SlotsUnder": 0,
+  "Title": null,
+  "Subtitle": null,
+  "ConditionalModels": null,
+  "Tags": null,
+  "SubCategory": null,
+  "Parent": null,
+  "AllowTintSelect": false,
+  "TintSelection": {
+    "color": [
+      {
+        "t": 0.5,
+        "c": "1,1,1,1"
+      }
+    ],
+    "alpha": []
+  },
+  "TintDefault": 0.5,
+  "HideBody": 0,
+  "Model": null,
+  "__references": [],
+  "__version": 0
+}

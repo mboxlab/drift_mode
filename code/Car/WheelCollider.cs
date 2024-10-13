@@ -2,7 +2,7 @@
 namespace Sandbox.Car;
 
 [Category( "Vehicles" )]
-public class WheelCollider : Stereable
+public class WheelCollider : Stereable, ICarDresserEvent
 {
 	[Property] public float MinSuspensionLength { get => minSuspensionLength; set { minSuspensionLength = value; UpdateTotalSuspensionLength(); } }
 	[Property] public float MaxSuspensionLength { get => maxSuspensionLength; set { maxSuspensionLength = value; UpdateTotalSuspensionLength(); } }
@@ -16,7 +16,6 @@ public class WheelCollider : Stereable
 		{
 			if ( value != wheelRadius )
 				OnRadiusChanged?.Invoke( value );
-
 			wheelRadius = value;
 			UpdateTotalSuspensionLength();
 		}
@@ -29,9 +28,15 @@ public class WheelCollider : Stereable
 	[Property] public PacejkaCurve FrictionPreset { get; set; } = PacejkaCurve.Asphalt;
 
 	[Property] public ParticleSphereEmitter SmokeEmitter { get; set; }
+	[Property] public Renderer Visual { get; set; }
+	[Property] public bool IsLeft { get; set; }
 
 	[Property] public float Load { get; private set; }
 
+	void ICarDresserEvent.PostLoad( CarController controller )
+	{
+		Visual ??= Components.Get<ModelRenderer>( FindMode.InDescendants );
+	}
 
 	public bool IsGrounded => groundHit.Hit;
 	public float ForwardSlip { get => ForwardFriction.Slip; }
@@ -56,6 +61,28 @@ public class WheelCollider : Stereable
 
 	public event Action<float> OnRadiusChanged;
 
+	protected override void OnAwake()
+	{
+		base.OnAwake();
+		SmokeEmitter ??= Components.Get<ParticleSphereEmitter>( FindMode.InDescendants );
+		VelocityRotation = LocalRotation;
+	}
+
+	private Rotation VelocityRotation;
+	private float AxleAngle;
+	private void UpdateVisual()
+	{
+		if ( Visual is null )
+			return;
+		AxleAngle = AngularVelocity.RadianToDegree() * Time.Delta;
+
+		Visual.WorldPosition = GetCenter();
+
+		VelocityRotation *= Rotation.From( 0, 0, (IsLeft ? -1 : 1) * AxleAngle );
+
+		Visual.LocalRotation = Rotation.FromYaw( SteerAngle + (IsLeft ? 180 : 0) ) * VelocityRotation;
+
+	}
 	protected override void OnEnabled()
 	{
 		Inertia = 0.5f * Mass * (Radius.InchToMeter() * Radius.InchToMeter());
@@ -77,6 +104,7 @@ public class WheelCollider : Stereable
 			return;
 
 		DoTrace();
+		UpdateVisual();
 
 		if ( IsProxy )
 			return;
@@ -89,6 +117,7 @@ public class WheelCollider : Stereable
 		UpdateHitVariables();
 		UpdateSuspension();
 		UpdateFriction();
+
 	}
 
 	protected override void OnFixedUpdate()

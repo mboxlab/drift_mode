@@ -27,7 +27,7 @@ public sealed class CameraController : Component
 		if ( IsProxy )
 			return;
 
-		Boom.LocalPosition = new Vector3( 0f, 0f, GameObject.Parent.GetBounds().Size.z / 1.5f );
+		Boom.LocalPosition = new Vector3( 0f, 0f, Body.PhysicsBody.GetBounds().Size.z / 1.5f );
 
 		if ( !(Scene?.Camera?.IsValid() ?? false) )
 		{
@@ -59,7 +59,7 @@ public sealed class CameraController : Component
 
 		float degressLook = MathF.Atan2( side + RightStickX, front + RightStickY ) * 180.0f / MathF.PI;
 
-		rotation = rotation.RotateAroundAxis( Vector3.Up, degressLook );
+		rotation = rotation.RotateAroundAxis( Vector3.Up, 90 + degressLook );
 		rotation = rotation.RotateAroundAxis( Vector3.Left, 10f );
 
 		if ( degressLook == 0 )

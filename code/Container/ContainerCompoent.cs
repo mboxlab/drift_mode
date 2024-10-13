@@ -14,7 +14,7 @@ public sealed class ContainerCompoent : Component
 	{
 		base.OnStart();
 
-		var car = Cars[Game.Random.Int( 0, Cars.Count - 1 )].Clone( CarTransform.WorldTransform );
-		CarSaver.FakeCar( car );
+		var car = Cars[Game.Random.Int( 0, Cars.Count - 1 )];
+		CarSaver.LoadFakeCar( car.Name ).WorldTransform = CarTransform.WorldTransform;
 	}
 }

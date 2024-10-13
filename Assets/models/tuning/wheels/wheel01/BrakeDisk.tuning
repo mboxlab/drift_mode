@@ -1,0 +1,26 @@
+{
+  "SlotsOver": "BrakeDisk",
+  "SlotsUnder": 0,
+  "Title": null,
+  "Subtitle": null,
+  "Category": "BrakeDisk",
+  "ConditionalModels": {},
+  "Tags": null,
+  "SubCategory": null,
+  "Parent": null,
+  "AllowTintSelect": false,
+  "TintSelection": {
+    "color": [
+      {
+        "t": 0.5,
+        "c": "1,1,1,1"
+      }
+    ],
+    "alpha": []
+  },
+  "TintDefault": 0.5,
+  "HideBody": "BrakeDisk",
+  "Model": "models/tuning/wheels/wheel01/models/brakedisk.vmdl",
+  "__references": [],
+  "__version": 0
+}

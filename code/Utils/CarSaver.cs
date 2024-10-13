@@ -7,94 +7,84 @@ namespace Sandbox.Utils;
 
 public static class CarSaver
 {
+	public static readonly string CarSaveFolder = "cars";
 	public static readonly string ActiveCarSavePath = "ActiveCar.json";
 	public static bool CanSave() => CarSelector.ActiveCar.IsValid();
-	public static void SaveActiveCar() => SaveCar( CarSelector.ActiveCar );
-	private static CarJson GetCarJson( GameObject car )
+	public static void SaveActiveCar() => SaveCar( CarSelector.ActiveCar.GetComponent<CarController>() );
+	public static string GetSavePath( CarController car ) => GetSavePath( car.Name );
+	public static string GetSavePath( string name )
 	{
-
-		Dictionary<string, TuningOption> tunings = new();
-		ITuningEvent.Post( x =>
-		{
-			TuningOption tuning = x.GetOpiton();
-			tunings.Add( tuning.Name, tuning );
-		} );
-
-		CarJson carJson = new()
-		{
-			CarPrefabSource = car.PrefabInstanceSource,
-			CarName = car.Name,
-			Tunings = tunings,
-		};
-		return carJson;
+		FileSystem.Data.CreateDirectory( CarSaveFolder );
+		return $"{CarSaveFolder}/{name}.json";
+	}
+	public static void SetActiveCar( string name )
+	{
+		FileSystem.Data.WriteJson( ActiveCarSavePath, name );
 	}
 
-	public static void SetActiveCar( GameObject car )
+	public static void SaveCar( CarController car )
 	{
-		CarJson carJson = GetCarJson( car );
-
-		FileSystem.Data.WriteJson( ActiveCarSavePath, carJson );
-	}
-
-	public static void SaveCar( GameObject car )
-	{
-		CarJson carJson = GetCarJson( car );
-
-		FileSystem.Data.WriteJson( car.Name + ".json", carJson );
-
+		FileSystem.Data.WriteAllText( GetSavePath( car ), car.TuningContainer.Serialize() );
 		ICarSaverEvent.Post( x => x.OnSave() );
 	}
-
-	public static GameObject LoadActiveCar() => LoadCar( ActiveCarSavePath );
+	public static string GetActiveCarName()
+	{
+		return FileSystem.Data.FileExists( ActiveCarSavePath ) ? FileSystem.Data.ReadJson<string>( ActiveCarSavePath ) : null;
+	}
+	public static GameObject LoadActiveCar()
+	{
+		return LoadCar( GetActiveCarName() + ".json" );
+	}
 
 	public static GameObject LoadCar( string path )
 	{
+		var prefab = ResourceLibrary.Get<PrefabFile>( $"prefabs/cars/{path[..^5]}.prefab" );
+		var carPrefab = SceneUtility.GetPrefabScene( prefab );
+		GameObject car = carPrefab.Clone();
+		CarController controller = car.GetComponent<CarController>();
+		ICarSaverEvent.Post( x => x.OnPreLoad( controller ) );
+
 		bool exists = FileSystem.Data.FileExists( path );
-		if ( !exists )
-			return default;
 
-		CarJson carJson = FileSystem.Data.ReadJson<CarJson>( path );
+		ICarSaverEvent.Post( x => x.OnLoad( controller ) );
 
-		var prefab = ResourceLibrary.Get<PrefabFile>( carJson.CarPrefabSource );
-		var player = SceneUtility.GetPrefabScene( prefab );
-		ICarSaverEvent.Post( x => x.OnLoad() );
-
-		return player;
+		return car;
 	}
-	public static CarController FakeCar( GameObject car )
+	public static GameObject LoadFakeCar( string path )
 	{
+		return SetCarIsFake( LoadCar( path ) );
+	}
+	public static GameObject SetCarIsFake( GameObject car )
+	{
+
 		car.GetComponent<Rigidbody>().Locking = new PhysicsLock() { Pitch = true, Yaw = true, Roll = true, X = true, Y = true };
 		car.GetComponent<CameraController>().Destroy();
 
 		CarController controller = car.GetComponent<CarController>();
-		controller.Enabled = false;
+		controller.Disable();
 
-		CarJson? config = GetJsonByName( car.Name );
-		if ( config.HasValue )
-			controller.ApplyTunings( config.Value.Tunings );
-
-		return controller;
+		return car;
 	}
-	public static CarJson? GetJsonByName( string carName )
+	public static CarData? GetJsonByName( string carName )
 	{
 		string path = carName + ".json";
 		bool exists = FileSystem.Data.FileExists( path );
 		if ( !exists )
 			return null;
 
-		return FileSystem.Data.ReadJson<CarJson>( path );
+		return FileSystem.Data.ReadJson<CarData>( path );
 	}
 
 }
 public interface ICarSaverEvent : ISceneEvent<ICarSaverEvent>
 {
 	void OnSave() { }
-	void OnLoad() { }
+	void OnPreLoad( CarController car ) { }
+	void OnLoad( CarController car ) { }
 }
 
-public struct CarJson
+public struct CarData
 {
-	[JsonInclude] public string CarPrefabSource { get; set; }
 	[JsonInclude] public string CarName { get; set; }
-	[JsonInclude] public Dictionary<string, TuningOption> Tunings { get; set; }
+	[JsonInclude] public TuningContainer Tunings { get; set; }
 }

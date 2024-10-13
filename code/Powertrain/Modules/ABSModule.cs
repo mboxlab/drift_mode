@@ -46,7 +46,7 @@ public class ABSModule : BaseModule
 				}
 
 				float longSlip = wheelComponent.Wheel.ForwardSlip;
-				if ( longSlip * Math.Sign( CarController.LocalVelocity.x ) > SlipThreshold )
+				if ( longSlip * Math.Sign( CarController.LocalVelocity.y ) > SlipThreshold )
 				{
 					IsActive = true;
 					return 0.01f;

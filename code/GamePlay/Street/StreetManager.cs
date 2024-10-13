@@ -68,31 +68,16 @@ public sealed class StreetManager : Component, Component.INetworkListener, IMana
 
 		// Spawn this object and make the client the owner
 
-		//var player = PlayerPrefab.Clone( startLocation, name: $"Player - {channel.DisplayName}" );
-		CarJson dresses = FileSystem.Data.ReadJson<CarJson>( CarSaver.ActiveCarSavePath );
-
-		//var player = new GameObject( true, name: $"Player - {channel.DisplayName}" );
-
-		var prefab = ResourceLibrary.Get<PrefabFile>( dresses.CarPrefabSource );
-		var player = SceneUtility.GetPrefabScene( prefab ).Clone();
+		var player = CarSaver.LoadActiveCar();
 		player.Name = $"Player - {channel.DisplayName}";
 		player.GetComponentsInChildren<InteractiveObject>().ToList().ForEach( x => x.Destroy() );
-		player.GetComponentsInChildren<PartSpace>().ToList().ForEach( x => x.Destroy() );
-		player.WorldRotation = startLocation.Forward.EulerAngles;
+
+		player.WorldRotation = startLocation.Forward.EulerAngles + new Angles( 0, -90, 0 );
 		player.WorldPosition = startLocation.PointToWorld( Vector3.Backward * player.GetBounds().Extents.y );
-		CarController controller = player.GetComponentInChildren<CarController>();
-		CarJson? config = CarSaver.GetJsonByName( dresses.CarName );
-
-		if ( config.HasValue )
-			controller.ApplyTunings( config.Value.Tunings );
-
-		controller.UpdateCarProperties();
 
 		player.NetworkSpawn( channel );
-		// FIX ME
 
 		var car = player.Components.Get<CarController>();
-
 		car.ClientInit();
 
 	}

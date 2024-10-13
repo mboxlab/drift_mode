@@ -2,14 +2,16 @@
 using Sandbox.Engine;
 using Sandbox.Powertrain.Modules;
 using Sandbox.Tuning;
-using Sandbox.VR;
-using static Sandbox.Diagnostics.PerformanceStats;
+using Sandbox.Utils;
 
 namespace Sandbox.Car;
 
 [Category( "Vehicles" )]
 public sealed class CarController : Component
 {
+	[Property] public string Name { get; set; }
+	[Property] public TuningContainer TuningContainer { get; set; } = new();
+	[Property] public SkinnedModelRenderer BodyRenderer { get; set; }
 	[Property] public Rigidbody Rigidbody { get; private set; }
 	[Property] public SoundInterpolator SoundInterpolator { get; set; }
 	[Property] public CarInputHandler Input { get; set; }
@@ -61,30 +63,41 @@ public sealed class CarController : Component
 	}
 	public Action OnCarPropertiesChanged;
 
-	private void UpdateWheelsProperties()
+	private void UpdateWheelsProperties() => UpdateWheelsProperties( WheelRadius, WheelWidth );
+	private void UpdateWheelsProperties( float radius, float width )
 	{
 		foreach ( WheelCollider wheel in Wheels )
 		{
-			if ( WheelRadius > 0 ) wheel.Radius = WheelRadius;
-			if ( WheelWidth > 0 ) wheel.Width = WheelWidth;
+			if ( radius > 0 ) wheel.Radius = radius;
+			if ( width > 0 ) wheel.Width = width;
 		}
 	}
-	protected override void OnEnabled()
+
+	private bool IsEnabled = true;
+	public void Disable()
+	{
+		base.OnEnabled();
+
+		Powertrain.Engine.Enabled = false;
+		SoundInterpolator.Enabled = false;
+		IsEnabled = false;
+	}
+	public void Enable()
 	{
 		base.OnEnabled();
 
 		Powertrain.Engine.Enabled = true;
 		SoundInterpolator.Enabled = true;
+		IsEnabled = true;
+	}
+
+	protected override void OnEnabled()
+	{
+		base.OnEnabled();
+
 		UpdateCarProperties();
 	}
-	protected override void OnDisabled()
-	{
-		base.OnDisabled();
 
-		Powertrain.Engine.Enabled = false;
-		SoundInterpolator.Enabled = false;
-
-	}
 	protected override void OnStart()
 	{
 		SoundInterpolator.MaxValue = Powertrain.Engine.RevLimiterRPM;
@@ -96,6 +109,8 @@ public sealed class CarController : Component
 	}
 	protected override void OnUpdate()
 	{
+		if ( !IsEnabled )
+			return;
 		LocalVelocity = WorldTransform.PointToLocal( Rigidbody.GetVelocityAtPoint( WorldPosition ) + WorldPosition );
 		Input.Update();
 
@@ -148,7 +163,7 @@ public sealed class CarController : Component
 
 		var needHelp = CurrentSpeed > 20 && CarDirection > 0;
 		float targetAngle = 0;
-		VelocityAngle = -Rigidbody.Velocity.SignedAngle( WorldRotation.Forward, Vector3.Up );
+		VelocityAngle = -Rigidbody.Velocity.SignedAngle( WorldRotation.Left, Vector3.Up );
 		if ( needHelp )
 			targetAngle = VelocityAngle * 0.8f;
 
@@ -162,22 +177,4 @@ public sealed class CarController : Component
 
 	}
 
-	#region Tuning
-	Dictionary<string, TuningOption> Tunings { get; set; }
-	public void ApplyTunings( Dictionary<string, TuningOption> tunings )
-	{
-		Tunings = tunings;
-		foreach ( TuningOption item in tunings.Values )
-			item.Apply();
-
-		UpdateCarProperties();
-	}
-
-	public void UpdateTuning()
-	{
-
-		foreach ( TuningOption item in Tunings.Values )
-			item.Apply();
-	}
-	#endregion
 }

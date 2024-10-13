@@ -1,0 +1,27 @@
+{
+  "Radius": 1,
+  "SlotsOver": "Wheel",
+  "SlotsUnder": 0,
+  "Title": "Stock",
+  "Subtitle": null,
+  "Category": "Wheel",
+  "ConditionalModels": {},
+  "Tags": null,
+  "SubCategory": null,
+  "Parent": null,
+  "AllowTintSelect": true,
+  "TintSelection": {
+    "color": [
+      {
+        "t": 0.5,
+        "c": "1,1,1,1"
+      }
+    ],
+    "alpha": []
+  },
+  "TintDefault": 0.5,
+  "HideBody": "RL, RR, FL, FR",
+  "Model": "models/cars/benz190e/wheel_stock.vmdl",
+  "__references": [],
+  "__version": 0
+}

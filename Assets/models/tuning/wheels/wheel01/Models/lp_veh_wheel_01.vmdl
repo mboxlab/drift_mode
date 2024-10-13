@@ -14,7 +14,7 @@
 						remaps = 
 						[
 							{
-								from = "0.038.vmat"
+								from = "wh.vmat"
 								to = "materials/car/lp_cars_texture.vmat"
 							},
 						]
@@ -29,7 +29,7 @@
 				[
 					{
 						_class = "RenderMeshFile"
-						filename = "models/cars/benz190e/lp_veh_sedan_06.fbx"
+						filename = "models/tuning/wheels/wheel01/models/lp_veh_wheel_01.fbx"
 						import_translation = [ 0.0, 0.0, 0.0 ]
 						import_rotation = [ 0.0, 0.0, 0.0 ]
 						import_scale = 1.0
@@ -42,7 +42,7 @@
 							exclude_by_default = true
 							exception_list = 
 							[
-								"LP_Veh_Sedan_Wheel_FL",
+								"LP_Veh_Wheel_01",
 							]
 						}
 					},
@@ -54,7 +54,7 @@
 				[
 					{
 						_class = "ModelModifier_ScaleAndMirror"
-						scale = 0.3937
+						scale = 39.369999
 						mirror_x = false
 						mirror_y = false
 						mirror_z = false

@@ -2,7 +2,6 @@
 using Sandbox.Engine;
 using Sandbox.Powertrain.Modules;
 using Sandbox.Tuning;
-using Sandbox.Utils;
 
 namespace Sandbox.Car;
 
@@ -17,6 +16,7 @@ public sealed class CarController : Component
 	[Property] public CarInputHandler Input { get; set; }
 	[Property] public Powertrain.Powertrain Powertrain { get; set; }
 	[Property, Title( "ABS Module" )] public ABSModule ABSModule { get; set; }
+	[Property] public CarTuning.CarCategory Category { get; set; }
 
 	[Property] public WheelCollider[] Wheels { get; private set; }
 	[Property, Group( "Wheel Properties" )] public float WheelRadius { get; set; }

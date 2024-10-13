@@ -21,6 +21,7 @@
           "go": "4d765a2b-c446-4a98-aa8e-f512d256f5fe",
           "component_type": "SkinnedModelRenderer"
         },
+        "Category": "Sport",
         "EnableSteerAngleMultiplier": true,
         "FrictionPresetEnum": "Asphalt",
         "Input": {

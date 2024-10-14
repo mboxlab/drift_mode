@@ -170,12 +170,9 @@ public sealed class TuningContainer : ISaveData
 	{
 		var allTunings = ResourceLibrary.GetAll<CarTuning>();
 		var tunings = data.Split( ',' );
-		var i = 0;
 
 		foreach ( var tuning in tunings )
 		{
-			i++;
-
 			if ( tuning == "null" )
 				continue;
 

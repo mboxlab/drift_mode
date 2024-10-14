@@ -39,7 +39,6 @@
 		Dresser ??= Components.Get<CarDresser>(FindMode.EverythingInSelfAndAncestors);
 
 		var allTunings = ResourceLibrary.GetAll<CarTuning>();
-
 		CarCategory = CarController.Local.Category;
 
 		TuningList = Dresser.Defaults.Where((x) => x.Category == Category);
@@ -47,7 +46,7 @@
 		if (Dresser.Exclusives is not null)
 			TuningList = TuningList.Concat(Dresser.Exclusives.Where((x) => x.Category == Category));
 
-		TuningList.Concat(allTunings.Where(FindOption));
+		TuningList = TuningList.Concat(allTunings.Where(FindOption));
 
 	}
 	private bool FindOption(CarTuning x)

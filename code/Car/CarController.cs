@@ -169,7 +169,7 @@ public sealed class CarController : Component
 		float targetAngle = 0;
 		VelocityAngle = -Rigidbody.Velocity.SignedAngle( WorldRotation.Left, Vector3.Up );
 		if ( needHelp )
-			targetAngle = VelocityAngle * 0.8f;
+			targetAngle = VelocityAngle * 0.1f;
 
 
 		//Wheel turn limitation.
@@ -236,7 +236,7 @@ public sealed class CarController : Component
 	/// </summary>
 	[Property, Group( "Traction Control" )] bool IsSimulateTCS { get; set; } = false;
 	[Property, Group( "Traction Control" ), ShowIf( nameof( IsSimulateTCS ), true )] private float SlipThreshold { get; set; } = 0.1f;
-	public void SimulateTCS()
+	private void SimulateTCS()
 	{
 		Powertrain.Engine.PowerMultiplayer = 1;
 		if ( !IsSimulateTCS )

@@ -73,7 +73,7 @@
 				[
 					{
 						_class = "ModelModifier_ScaleAndMirror"
-						scale = 39.369999
+						scale = 0.3937
 						mirror_x = false
 						mirror_y = false
 						mirror_z = false
@@ -102,16 +102,68 @@
 						import_scale = 1.0
 						faceMergeAngle = 5.0
 						maxHullVertices = 0
-						import_mode = "HullPerElement"
+						import_mode = "HullPerMesh"
 						optimization_algorithm = "QEM"
 						import_filter = 
 						{
 							exclude_by_default = true
 							exception_list = 
 							[
-								"Collider",
+								"LP_Veh_Sedan_21",
+								"LP_Veh_Sedan_Stock_21",
 							]
 						}
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "FL"
+						parent_bone = "FL"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "RR"
+						parent_bone = "RR"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "RL"
+						parent_bone = "RL"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "FR"
+						parent_bone = "FR"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "Body"
+						parent_bone = "Body"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
 					},
 				]
 			},

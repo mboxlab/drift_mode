@@ -2,13 +2,13 @@
   "SlotsOver": "Wheel",
   "HideBody": "RL, RR, FL, FR",
   "Category": "Wheel",
-  "RadiusDefault": 15,
-  "WidthDefault": 10,
+  "RadiusDefault": 16,
+  "WidthDefault": 11,
   "SlotsUnder": 0,
-  "Title": "Wheel 1",
+  "Title": "Stock",
   "Subtitle": null,
   "CarAffected": "Sport",
-  "Exclusive": false,
+  "Exclusive": true,
   "ConditionalModels": {},
   "Tags": null,
   "SubCategory": null,
@@ -24,7 +24,7 @@
     "alpha": []
   },
   "TintDefault": 0.5,
-  "Model": "models/tuning/wheels/wheel01/models/lp_veh_wheel_01.vmdl",
+  "Model": "models/cars/350z/wheel_stock.vmdl",
   "__references": [],
   "__version": 0
 }

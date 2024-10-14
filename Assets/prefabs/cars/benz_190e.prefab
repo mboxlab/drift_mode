@@ -98,7 +98,7 @@
           "component_type": "SoundInterpolator"
         },
         "TuningContainer": {},
-        "WheelRadius": 0,
+        "WheelRadius": 15,
         "Wheels": [
           {
             "_type": "component",
@@ -125,7 +125,7 @@
             "component_type": "WheelCollider"
           }
         ],
-        "WheelWidth": 0
+        "WheelWidth": 10
       },
       {
         "__type": "Sandbox.Rigidbody",

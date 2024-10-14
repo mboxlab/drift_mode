@@ -43,6 +43,7 @@
 							exception_list = 
 							[
 								"LP_Veh_Sedan_Wheel_TT1_002_21",
+								"LP_Veh_Sedan_Wheel_St_001_21",
 							]
 						}
 					},
@@ -54,7 +55,7 @@
 				[
 					{
 						_class = "ModelModifier_ScaleAndMirror"
-						scale = 39.369999
+						scale = 0.3937
 						mirror_x = false
 						mirror_y = false
 						mirror_z = false

@@ -42,7 +42,7 @@
 							exclude_by_default = true
 							exception_list = 
 							[
-								"LP_Veh_Sedan_Spoiler_003_21",
+								"LP_Veh_Sedan_Spoiler_004_21",
 							]
 						}
 					},

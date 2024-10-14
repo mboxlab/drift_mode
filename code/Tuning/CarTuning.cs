@@ -33,6 +33,7 @@ public class CarTuning : GameResource
 		None,
 		BrakeDisk,
 		Wheel,
+		Spoiler,
 	}
 
 	[Flags]
@@ -48,7 +49,7 @@ public class CarTuning : GameResource
 		Body = 1,
 		BrakeDisk = 2,
 		Wheel = 4,
-		// x = 8,
+		Spoiler = 8,
 		// x = 0x10,
 		// x = 0x20,
 		// x = 0x40,

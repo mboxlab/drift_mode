@@ -1,0 +1,28 @@
+{
+  "SlotsOver": "Spoiler",
+  "SlotsUnder": 0,
+  "Title": "Spoiler 1",
+  "Subtitle": null,
+  "Category": "Spoiler",
+  "CarAffected": "Sport",
+  "Exclusive": true,
+  "ConditionalModels": {},
+  "Tags": null,
+  "SubCategory": null,
+  "Parent": null,
+  "AllowTintSelect": false,
+  "TintSelection": {
+    "color": [
+      {
+        "t": 0.5,
+        "c": "1,1,1,1"
+      }
+    ],
+    "alpha": []
+  },
+  "TintDefault": 0.5,
+  "HideBody": "Spoiler",
+  "Model": "models/cars/350z/spoiler1.vmdl",
+  "__references": [],
+  "__version": 0
+}

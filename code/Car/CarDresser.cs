@@ -8,6 +8,7 @@ public sealed class CarDresser : Component, Component.INetworkListener
 {
 	[Property] public CarController CarController { get; private set; }
 	[Property] public List<CarTuning> Defaults { get; private set; }
+	[Property] public List<CarTuning> Exclusives { get; private set; }
 	protected override void OnStart()
 	{
 		base.OnStart();

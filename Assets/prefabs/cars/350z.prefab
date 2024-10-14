@@ -222,11 +222,11 @@
             "FlyingStartEnabled": true,
             "IdleRPM": 900,
             "Ignition": false,
-            "Inertia": 0.05,
+            "Inertia": 0.15,
             "InputRPM": 0,
             "IsRunning": false,
             "IsStalled": false,
-            "MaxPower": 113,
+            "MaxPower": 183,
             "Name": "Engine",
             "Output": {
               "_type": "component",
@@ -468,6 +468,12 @@
             },
             "Defaults": [
               "models/cars/350z/stock.wheel"
+            ],
+            "Exclusives": [
+              "models/cars/350z/null.tuning",
+              "models/cars/350z/spoiler1.tuning",
+              "models/cars/350z/spoiler2.tuning",
+              "models/cars/350z/spoiler3.tuning"
             ]
           },
           {
@@ -1942,6 +1948,70 @@
             "Position": "-0.000002363476,-1.440612,26.94401",
             "Rotation": "0.00000003231164,0.00000003231164,0.7071065,0.7071069",
             "Enabled": true
+          },
+          {
+            "__guid": "1f1201de-fda1-4e82-b859-ab07a24819ff",
+            "Flags": 4,
+            "Name": "Spoiler",
+            "Position": "-0.00004632043,-93.9779,44.78827",
+            "Rotation": "0.00000003231164,0.00000003231164,0.7071065,0.7071069",
+            "Enabled": true,
+            "Children": [
+              {
+                "__guid": "79fdf1fa-24bb-4209-984c-e2da1c021cdb",
+                "Flags": 0,
+                "Name": "panel",
+                "Tags": "garage",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.WorldPanel",
+                    "__guid": "dfa284a2-3ea4-41d0-83a4-5abef1f06f0c",
+                    "HorizontalAlign": "Center",
+                    "InteractionRange": 1000,
+                    "LookAtCamera": true,
+                    "PanelSize": "512,128",
+                    "RenderOptions": {
+                      "GameLayer": false,
+                      "OverlayLayer": true,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderScale": 1,
+                    "VerticalAlign": "Center"
+                  },
+                  {
+                    "__type": "Sandbox.UI.InteractiveObject",
+                    "__guid": "51be7d04-ce0c-4e13-b718-4d33d7c1c3cf",
+                    "ClampEqual": false,
+                    "Clamping": true,
+                    "Distance": 64,
+                    "LocalAngles": "0,0,0",
+                    "OffsetPosition": "0,0,0",
+                    "Parent": {
+                      "_type": "component",
+                      "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
+                      "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+                      "component_type": "InteractiveObject"
+                    },
+                    "TriggerAnimation": false,
+                    "ClampMax": "60,90,0",
+                    "ClampMin": "-5,-80,0"
+                  },
+                  {
+                    "__type": "Sandbox.Tuning.UI.TuningPanel",
+                    "__guid": "7ba77b80-80e4-48ab-b9ab-7ae2320ea8c5",
+                    "Category": "Spoiler",
+                    "Object": {
+                      "_type": "component",
+                      "component_id": "51be7d04-ce0c-4e13-b718-4d33d7c1c3cf",
+                      "go": "79fdf1fa-24bb-4209-984c-e2da1c021cdb",
+                      "component_type": "InteractiveObject"
+                    }
+                  }
+                ]
+              }
+            ]
           }
         ]
       },

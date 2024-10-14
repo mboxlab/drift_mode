@@ -10,8 +10,8 @@ public class WheelTuning : CarTuning
 		return new( this )
 		{
 			Tint = int.Parse( data[1] ),
-			Radius = AllowRadiusSelect ? float.Parse( data[2] ) : RadiusDefault,
-			Width = AllowWidthSelect ? float.Parse( data[3] ) : WidthDefault,
+			Radius = float.Parse( data[2] ),
+			Width = float.Parse( data[3] ),
 		}; ;
 	}
 
@@ -23,23 +23,31 @@ public class WheelTuning : CarTuning
 	{
 		public WheelTuningEntry( WheelTuning tuning ) : base( tuning )
 		{
-			Radius = tuning.RadiusDefault;
-			Width = tuning.WidthDefault;
 		}
 
 		public override void Apply( GameObject body, SkinnedModelRenderer renderer, TuningEntry entry )
 		{
+			var c = body.Components.Get<CarController>( FindMode.InAncestors );
+
+			if ( !Radius.HasValue || Radius <= 0 )
+				Radius = c.WheelRadius;
+
+			if ( !Width.HasValue || Width <= 0 )
+				Width = c.WheelWidth;
+
 			Vector3 size = renderer.Model.Bounds.Size;
 
-			body.WorldScale = new( Width / size.x, Radius / (size.y / 2), Radius / (size.z / 2) );
+			body.WorldScale = new( Width.Value / size.x, Radius.Value / (size.y / 2), Radius.Value / (size.z / 2) );
+
 			var wheel = body.Components.Get<WheelCollider>( FindMode.InParent );
-			wheel.Radius = Radius;
-			wheel.Width = Width;
+
+			wheel.Radius = Radius.Value;
+			wheel.Width = Width.Value;
 			wheel.ApplyVisual( renderer );
 		}
 		public new WheelTuning CarTuning { get; set; }
-		public float Radius { get; set; } = 1f;
-		public float Width { get; set; } = 1f;
+		public float? Radius { get; set; }
+		public float? Width { get; set; }
 
 		public override string GetSerialized()
 		{
@@ -52,12 +60,5 @@ public class WheelTuning : CarTuning
 
 	[Category( "User Customization" )] bool AllowRadiusSelect { get; set; } = false;
 	[Category( "User Customization" )] bool AllowWidthSelect { get; set; } = false;
-
-	[Category( "User Customization" )]
-	public virtual float RadiusDefault { get; set; } = 15f;
-
-
-	[Category( "User Customization" )]
-	public virtual float WidthDefault { get; set; } = 8f;
 
 }

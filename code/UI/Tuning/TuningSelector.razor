@@ -43,7 +43,9 @@
 	{
 		base.OnStart();
 		Index = TuningList.FindIndex((x) => CarController.Local.TuningContainer.Has(x));
-		CurrentId = TuningList.Find((x) => CarController.Local.TuningContainer.Has(x)).ResourceId;
+		CarTuning activeTuning = TuningList.Find((x) => CarController.Local.TuningContainer.Has(x));
+		if (activeTuning is not null)
+			CurrentId = activeTuning.ResourceId;
 	}
 
 	protected override void OnUpdate()

@@ -152,6 +152,9 @@ public sealed class TuningContainer : ISaveData
 
 	public void Load( string data )
 	{
+		if ( string.IsNullOrEmpty( data ) )
+			return;
+
 		var allTunings = ResourceLibrary.GetAll<CarTuning>();
 		var tunings = data.Split( ',' );
 

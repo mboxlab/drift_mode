@@ -20,13 +20,17 @@ public sealed class TuningContainer
 		{
 			CarTuning = tuning;
 		}
-		public virtual string GetSerialized()
+		public virtual Entry GetEntry()
 		{
-			return JsonSerializer.Serialize( new Entry()
+			return new Entry()
 			{
 				Id = CarTuning.ResourceId,
 				Tint = Tint
-			} );
+			};
+		}
+		public virtual string GetSerialized()
+		{
+			return JsonSerializer.Serialize( GetEntry() );
 		}
 	}
 
@@ -113,11 +117,11 @@ public sealed class TuningContainer
 		return CarTuning.Where( ( TuningEntry x ) => x.CarTuning == tuning ).FirstOrDefault();
 	}
 
-	private IEnumerable<string> GetSerialized()
+	private IEnumerable<Entry> GetSerialized()
 	{
 		foreach ( TuningEntry item in CarTuning )
 		{
-			yield return item.GetSerialized();
+			yield return item.GetEntry();
 		}
 	}
 	/// <summary>

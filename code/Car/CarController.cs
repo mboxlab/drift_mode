@@ -1,6 +1,4 @@
-﻿
-using System;
-using Sandbox.Engine;
+﻿using Sandbox.Engine;
 using Sandbox.Powertrain;
 using Sandbox.Powertrain.Modules;
 using Sandbox.Tuning;

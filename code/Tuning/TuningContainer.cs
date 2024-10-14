@@ -1,52 +1,24 @@
-﻿
-using System.Text.Json;
-using System.Text.Json.Nodes;
-using System.Text.Json.Serialization;
+﻿using Sandbox.Utils;
 
 namespace Sandbox.Tuning;
 
-public sealed class TuningContainer
+public sealed class TuningContainer : ISaveData
 {
 	public class TuningEntry
 	{
-		public CarTuning CarTuning { get; set; }
+		public virtual CarTuning CarTuning { get; set; }
 
-		/// <summary>
-		/// Used to select a tint
-		/// </summary>
-		public float? Tint { get; set; }
-
+		public float Tint { get; set; } = 1f;
 		public TuningEntry( CarTuning tuning )
 		{
 			CarTuning = tuning;
 		}
-		public virtual Entry GetEntry()
-		{
-			return new Entry()
-			{
-				Id = CarTuning.ResourceId,
-				Tint = Tint
-			};
-		}
+
 		public virtual string GetSerialized()
 		{
-			return JsonSerializer.Serialize( GetEntry() );
+			return $"{CarTuning.ResourceId}:{Tint}";
 		}
-	}
-
-	/// <summary>
-	/// Used for serialization
-	/// </summary>
-	public class Entry
-	{
-		[JsonPropertyName( "id" )]
-		public int Id { get; set; }
-
-		/// <summary>
-		/// Tint variable used to evaluate the model tint color gradient
-		/// </summary>
-		[JsonPropertyName( "t" )]
-		public float? Tint { get; set; }
+		public virtual void Apply( GameObject body ) { }
 	}
 
 	public List<TuningEntry> CarTuning = new();
@@ -106,86 +78,6 @@ public sealed class TuningContainer
 		CarTuning.Add( tuningEntry );
 		return tuningEntry;
 	}
-
-	/// <summary>
-	/// Find a tuning entry matching this tuning item
-	/// </summary>
-	/// <param name="tuning"></param>
-	/// <returns></returns>
-	public TuningEntry FindEntry( CarTuning tuning )
-	{
-		return CarTuning.Where( ( TuningEntry x ) => x.CarTuning == tuning ).FirstOrDefault();
-	}
-
-	private IEnumerable<Entry> GetSerialized()
-	{
-		foreach ( TuningEntry item in CarTuning )
-		{
-			yield return item.GetEntry();
-		}
-	}
-	/// <summary>
-	/// Serialize to Json
-	/// </summary>
-	/// <returns></returns>
-	public string Serialize()
-	{
-		return JsonSerializer.Serialize( GetSerialized() );
-	}
-	/// <summary>
-	/// Deserialize from Json
-	/// </summary>
-	/// <param name="json"></param>
-	public void Deserialize( string json )
-	{
-		CarTuning.Clear();
-		if ( string.IsNullOrWhiteSpace( json ) )
-			return;
-
-		try
-		{
-			JsonNode jsonNode = JsonNode.Parse( json );
-			if ( jsonNode is JsonArray array )
-			{
-				ParseEntries( array );
-			}
-			else if ( jsonNode is JsonObject jsonObject )
-			{
-				ParseEntries( jsonObject["Items"] as JsonArray );
-			}
-		}
-		catch ( Exception ex )
-		{
-			Log.Warning( ex, $"Exception when deserailizing CarTuning ({ex.Message})" );
-		}
-	}
-
-	private void ParseEntries( JsonArray array )
-	{
-		if ( array == null )
-			return;
-
-		Entry[] array2 = array.Deserialize<Entry[]>();
-		foreach ( Entry entry in array2 )
-		{
-			CarTuning tuning = ResourceLibrary.Get<CarTuning>( entry.Id );
-			if ( tuning != null )
-				Add( tuning ).Tint = entry.Tint;
-		}
-	}
-
-	/// <summary>
-	/// Create the container from json definitions
-	/// </summary>
-	/// <param name="json"></param>
-	/// <returns></returns>
-	public static TuningContainer CreateFromJson( string json )
-	{
-		TuningContainer tuningContainer = new();
-		tuningContainer.Deserialize( json );
-		return tuningContainer;
-	}
-
 
 
 	/// <summary>
@@ -248,17 +140,55 @@ public sealed class TuningContainer
 
 						var r = go.Components.Create<SkinnedModelRenderer>();
 						r.Model = Model.Load( c.Model );
+						entry.Apply( go );
 
-						if ( c.AllowTintSelect )
-						{
-							var tintValue = entry.Tint?.Clamp( 0, 1 ) ?? c.TintDefault;
-							var tintColor = c.TintSelection.Evaluate( tintValue );
-							r.Tint = tintColor;
-						}
 						go.Enabled = true;
-
 					}
 		}
 
+	}
+
+	public string Save()
+	{
+		var itemString = "";
+
+		foreach ( var item in CarTuning )
+		{
+			if ( item is null )
+				itemString += "null,";
+			else
+				itemString += $"{item.GetSerialized()},";
+		}
+
+		if ( itemString.EndsWith( "," ) )
+			itemString = itemString[..^1];
+
+		return itemString;
+	}
+
+	public void Load( string data )
+	{
+		var allTunings = ResourceLibrary.GetAll<CarTuning>();
+		var tunings = data.Split( ',' );
+		var i = 0;
+
+		foreach ( var tuning in tunings )
+		{
+			i++;
+
+			if ( tuning == "null" )
+				continue;
+
+			var tuningData = tuning.Split( ':' );
+			var id = int.Parse( tuningData[0] );
+			var tuningResource = allTunings.FirstOrDefault( x => x.ResourceId == id );
+
+			if ( tuningResource is null )
+			{
+				Log.Warning( $"Couldn't find tuning resource {tuningData[0]}" );
+				continue;
+			}
+			CarTuning.Add( tuningResource.Parse( tuningData ) );
+		}
 	}
 }

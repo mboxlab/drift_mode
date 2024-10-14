@@ -1,6 +1,4 @@
-﻿
-using System;
-using Sandbox.Car;
+﻿using Sandbox.Car;
 
 [Category( "Vehicles" )]
 public class WheelManager : Component
@@ -12,7 +10,7 @@ public class WheelManager : Component
 	[Property] public List<WheelCollider> Wheels = new();
 
 	protected override void OnStart()
-	{	
+	{
 		Wheels = Components.GetAll<WheelCollider>( FindMode.InDescendants ).ToList();
 		_wheelCount = Wheels.Count;
 	}

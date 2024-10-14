@@ -1,8 +1,6 @@
 ﻿
 using Sandbox.Tuning;
 using Sandbox.Utils;
-using Sandbox.VR;
-
 namespace Sandbox.Car;
 
 [Icon( "checkroom" )]
@@ -14,7 +12,8 @@ public sealed class CarDresser : Component, Component.INetworkListener
 	{
 		base.OnStart();
 		CarController ??= Components.Get<CarController>( FindMode.EverythingInSelfAndAncestors );
-		CarController.TuningContainer.Deserialize( FileSystem.Data.ReadAllText( CarSaver.GetSavePath( CarController ) ) );
+		if ( FileSystem.Data.FileExists( CarSaver.GetSavePath( CarController ) ) )
+			CarController.TuningContainer.Load( FileSystem.Data.ReadAllText( CarSaver.GetSavePath( CarController ) ) );
 
 		foreach ( var item in Defaults )
 			CarController.TuningContainer.TryAdd( item );

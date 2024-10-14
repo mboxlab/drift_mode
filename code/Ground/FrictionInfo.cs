@@ -1,6 +1,4 @@
-﻿using System;
-
-public struct WheelFrictionInfo
+﻿public struct WheelFrictionInfo
 {
 	public float ExtremumSlip { get; set; } = 1.0f;
 	public float ExtremumValue { get; set; } = 20000.0f;

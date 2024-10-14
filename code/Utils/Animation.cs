@@ -1,5 +1,4 @@
-﻿
-namespace Sandbox.Utils;
+﻿namespace Sandbox.Utils;
 
 [Hide]
 public class Animation : Component

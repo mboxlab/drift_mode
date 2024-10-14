@@ -1,9 +1,4 @@
-﻿
-using System;
-using System.Diagnostics;
-using System.Xml.Linq;
-
-namespace Sandbox.Powertrain;
+﻿namespace Sandbox.Powertrain;
 
 public partial class DifferentialComponent : PowertrainComponent
 {

@@ -1,5 +1,4 @@
-﻿using System;
-using AltCurves;
+﻿using AltCurves;
 using static AltCurves.AltCurve;
 public class PacejkaCurve
 {

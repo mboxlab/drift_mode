@@ -23,7 +23,7 @@ public sealed class MouseInput : Component
 		LeftPressed = Sandbox.Input.Pressed( "Attack1" );
 		RightPressed = Sandbox.Input.Pressed( "Attack2" );
 
-	    Input.Ray = Ray;
+		Input.Ray = Ray;
 		Input.MouseLeftPressed = LeftPressed;
 		Input.MouseRightPressed = RightPressed;
 	}

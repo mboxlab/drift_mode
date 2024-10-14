@@ -1,6 +1,4 @@
-﻿
-using System;
-using AltCurves;
+﻿using AltCurves;
 
 namespace Sandbox.Powertrain;
 

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Sandbox.Ground;
+﻿namespace Sandbox.Ground;
 
 [Serializable]
 /// <summary>

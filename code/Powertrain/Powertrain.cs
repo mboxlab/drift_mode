@@ -1,7 +1,4 @@
-﻿
-using Sandbox.Car;
-
-namespace Sandbox.Powertrain;
+﻿namespace Sandbox.Powertrain;
 
 public partial class Powertrain
 {

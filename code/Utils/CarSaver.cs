@@ -15,7 +15,7 @@ public static class CarSaver
 	public static string GetSavePath( string name )
 	{
 		FileSystem.Data.CreateDirectory( CarSaveFolder );
-		return $"{CarSaveFolder}/{name}.json";
+		return $"{CarSaveFolder}/{name}";
 	}
 	public static void SetActiveCar( string name )
 	{
@@ -24,7 +24,7 @@ public static class CarSaver
 
 	public static void SaveCar( CarController car )
 	{
-		FileSystem.Data.WriteAllText( GetSavePath( car ), car.TuningContainer.Serialize() );
+		FileSystem.Data.WriteAllText( GetSavePath( car ), car.TuningContainer.Save() );
 		ICarSaverEvent.Post( x => x.OnSave() );
 	}
 	public static string GetActiveCarName()
@@ -33,18 +33,16 @@ public static class CarSaver
 	}
 	public static GameObject LoadActiveCar()
 	{
-		return LoadCar( GetActiveCarName() + ".json" );
+		return LoadCar( GetActiveCarName() );
 	}
 
 	public static GameObject LoadCar( string path )
 	{
-		var prefab = ResourceLibrary.Get<PrefabFile>( $"prefabs/cars/{path[..^5]}.prefab" );
+		var prefab = ResourceLibrary.Get<PrefabFile>( $"prefabs/cars/{path}.prefab" );
 		var carPrefab = SceneUtility.GetPrefabScene( prefab );
+
 		GameObject car = carPrefab.Clone();
 		CarController controller = car.GetComponent<CarController>();
-		ICarSaverEvent.Post( x => x.OnPreLoad( controller ) );
-
-		bool exists = FileSystem.Data.FileExists( path );
 
 		ICarSaverEvent.Post( x => x.OnLoad( controller ) );
 
@@ -67,7 +65,7 @@ public static class CarSaver
 	}
 	public static CarData? GetJsonByName( string carName )
 	{
-		string path = carName + ".json";
+		string path = carName;
 		bool exists = FileSystem.Data.FileExists( path );
 		if ( !exists )
 			return null;
@@ -79,7 +77,6 @@ public static class CarSaver
 public interface ICarSaverEvent : ISceneEvent<ICarSaverEvent>
 {
 	void OnSave() { }
-	void OnPreLoad( CarController car ) { }
 	void OnLoad( CarController car ) { }
 }
 
@@ -87,4 +84,9 @@ public struct CarData
 {
 	[JsonInclude] public string CarName { get; set; }
 	[JsonInclude] public TuningContainer Tunings { get; set; }
+}
+public interface ISaveData
+{
+	string Save();
+	void Load( string data );
 }

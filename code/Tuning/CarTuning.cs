@@ -5,9 +5,13 @@ namespace Sandbox.Tuning;
 [GameResource( "Car Tuning Definition", "tuning", "Describes the car tuning element and indirectly indicates which other elements it can be combined with.", Icon = "directions_car", IconBgColor = "gray", IconFgColor = "black" )]
 public class CarTuning : GameResource
 {
+	public virtual TuningEntry Parse( string[] data )
+	{
+		return new( this ) { Tint = int.Parse( data[1] ) };
+	}
 	public virtual TuningEntry GetEntry()
 	{
-		return new TuningEntry( this );
+		return new( this );
 	}
 	public enum CarTuningCategory
 	{

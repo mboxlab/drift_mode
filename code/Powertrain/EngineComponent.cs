@@ -1,5 +1,4 @@
-﻿using AltCurves;
-using Sandbox.Utils;
+﻿using Sandbox.Utils;
 
 namespace Sandbox.Powertrain;
 

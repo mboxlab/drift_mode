@@ -46,7 +46,7 @@ public sealed class CarSelector : Component
 	}
 
 	private void SetCar( GameObject car ) => SetupCar( car );
-	private void SetCar( string carName ) => SetupCar( CarSaver.LoadFakeCar( carName + ".json" ) );
+	private void SetCar( string carName ) => SetupCar( CarSaver.LoadFakeCar( carName ) );
 
 	private void SetupCar( GameObject car )
 	{

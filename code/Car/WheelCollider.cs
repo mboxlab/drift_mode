@@ -176,7 +176,7 @@ public class WheelCollider : Stereable, ICarDresserEvent
 		float loadPercent = Load / LoadRating;
 		loadPercent = loadPercent < 0f ? 0f : loadPercent > 1f ? 1f : loadPercent;
 		float slipLoadModifier = 1f - loadPercent * 0.4f;
-		
+
 		float mass = _rigidbody.PhysicsBody.Mass;
 		float absForwardSpeed = ForwardFriction.Speed < 0 ? -ForwardFriction.Speed : ForwardFriction.Speed;
 		float forwardForceClamp = mass * LoadContribution * absForwardSpeed * invDt;

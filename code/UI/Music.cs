@@ -1,5 +1,3 @@
-using Sandbox;
-
 public sealed class Music : Component
 {
 	[Property] public SoundFile File;

@@ -18,7 +18,7 @@ public sealed class CameraController : Component
 	[Property, Group( "Setup" )]
 	public GameObject Boom { get; set; }
 
-	[Property] public float CameraDistance { get; set; } = 224f;
+	[Property] public float CameraDistance { get; set; } = 324f;
 
 	public Angles EyeAngles { get; set; }
 

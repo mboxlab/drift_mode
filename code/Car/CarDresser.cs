@@ -22,6 +22,8 @@ public sealed class CarDresser : Component, Component.INetworkListener
 		CarController.TuningContainer.Apply( CarController.BodyRenderer );
 
 		ICarDresserEvent.Post( x => x.PostLoad( CarController ) );
+		CarSaver.SaveCar( CarController );
+
 	}
 }
 public interface ICarDresserEvent : ISceneEvent<ICarDresserEvent>

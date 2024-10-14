@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Sandbox.Engine;
 using Sandbox.Powertrain.Modules;
 using Sandbox.Tuning;
@@ -147,6 +148,7 @@ public sealed class CarController : Component
 			wheel.Wheel.BrakeTorque += (Input.Handbrake * MaxBrakeTorque * 2);
 
 		UpdateSteerAngle();
+		SimulateAerodinamics();
 	}
 
 	float CurrentSteerAngle;
@@ -177,4 +179,53 @@ public sealed class CarController : Component
 
 	}
 
+	#region Aerodinamics
+	private class DownforcePoint
+	{
+		public float maxForce;
+		public Vector3 position;
+	}
+	public const float RHO = 1.225f;
+	[Property, Group( "Aerodinamics" )] public Vector3 Dimensions = new( 2f, 4.5f, 1.5f );
+	[Property, Group( "Aerodinamics" )] public float DamageDragEffect { get; set; } = 0.5f;
+	[Property, Group( "Aerodinamics" )] public float FrontalCd { get; set; } = 0.35f;
+	[Property, Group( "Aerodinamics" )] public float SideCd { get; set; } = 1.05f;
+	[Property, Group( "Aerodinamics" )] public float MaxDownforceSpeed { get; set; } = 80f;
+	[Property, Group( "Aerodinamics" )] private List<DownforcePoint> DownforcePoints { get; set; } = new();
+
+	private float _forwardSpeed;
+	private float _frontalArea;
+
+	private float _sideArea;
+	private float _sideSpeed;
+	private float lateralDragForce;
+	private float longitudinalDragForce;
+
+	private void SimulateAerodinamics()
+	{
+		if ( CurrentSpeed < 1f )
+		{
+			longitudinalDragForce = 0;
+			lateralDragForce = 0;
+			return;
+		}
+
+		_frontalArea = Dimensions.x * Dimensions.z * 0.85f;
+		_sideArea = Dimensions.y * Dimensions.z * 0.8f;
+		_forwardSpeed = LocalVelocity.y.InchToMeter();
+		_sideSpeed = LocalVelocity.x.InchToMeter();
+		longitudinalDragForce = 0.5f * RHO * _frontalArea * FrontalCd * (_forwardSpeed * _forwardSpeed) * (_forwardSpeed > 0 ? -1f : 1f);
+		lateralDragForce = 0.5f * RHO * _sideArea * SideCd * (_sideSpeed * _sideSpeed) * (_sideSpeed > 0 ? -1f : 1f);
+
+
+		Rigidbody.ApplyForce( new Vector3( lateralDragForce.MeterToInch(), longitudinalDragForce.MeterToInch(), 0 ).RotateAround( Vector3.Zero, WorldRotation ) );
+
+		float speedPercent = CurrentSpeed / MaxDownforceSpeed;
+		float forceCoeff = 1f - (1f - MathF.Pow( speedPercent, 2f ));
+
+		foreach ( DownforcePoint dp in DownforcePoints )
+			Rigidbody.ApplyForceAt( Transform.World.PointToWorld( dp.position ), forceCoeff.MeterToInch() * dp.maxForce.MeterToInch() * -WorldRotation.Up );
+	}
+	#endregion
 }
+

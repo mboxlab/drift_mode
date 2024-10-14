@@ -9,6 +9,7 @@
       {
         "__type": "Sandbox.Car.CarController",
         "__guid": "a1b35236-c51e-4171-9681-46446ad56b18",
+        "Dimensions": "2,1.5,4.5",
         "ABSModule": {
           "_type": "component",
           "component_id": "550fab10-fb15-44a9-b343-b54c545b3865",
@@ -22,8 +23,13 @@
           "component_type": "SkinnedModelRenderer"
         },
         "Category": "Sport",
+        "DamageDragEffect": 0.5,
+        "DownforcePoints": [
+          {}
+        ],
         "EnableSteerAngleMultiplier": true,
         "FrictionPresetEnum": "Asphalt",
+        "FrontalCd": 0.35,
         "Input": {
           "CarController": {
             "_type": "component",
@@ -35,6 +41,7 @@
           "AutoSetInput": true
         },
         "MaxBrakeTorque": 7000,
+        "MaxDownforceSpeed": 80,
         "MaxSpeedForMinAngleMultiplier": 100,
         "MaxSteerAngle": 35,
         "MaxSteerAngleMultiplier": 1,
@@ -81,6 +88,7 @@
           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
           "component_type": "Rigidbody"
         },
+        "SideCd": 1.05,
         "SoundInterpolator": {
           "_type": "component",
           "component_id": "314e48b0-43b3-40d0-b9d4-3601e9745bb2",
@@ -151,7 +159,7 @@
           "_type": "gameobject",
           "go": "b813da2b-460b-42b5-bdd8-f62b556fd189"
         },
-        "CameraDistance": 224
+        "CameraDistance": 284
       },
       {
         "__type": "Sandbox.Engine.SoundInterpolator",
@@ -591,7 +599,7 @@
                 "IsLeft": true,
                 "Load": 0,
                 "LoadContribution": 0.25,
-                "LoadRating": 5400,
+                "LoadRating": 4400,
                 "Mass": 15,
                 "MaxSuspensionLength": 3,
                 "MinSuspensionLength": 3,
@@ -929,7 +937,7 @@
                 "IsLeft": false,
                 "Load": 0,
                 "LoadContribution": 0.25,
-                "LoadRating": 5400,
+                "LoadRating": 4400,
                 "Mass": 15,
                 "MaxSuspensionLength": 3,
                 "MinSuspensionLength": 3,
@@ -1293,7 +1301,7 @@
                 "IsLeft": true,
                 "Load": 0,
                 "LoadContribution": 0.25,
-                "LoadRating": 5400,
+                "LoadRating": 4400,
                 "Mass": 15,
                 "MaxSuspensionLength": 3,
                 "MinSuspensionLength": 3,
@@ -1658,7 +1666,7 @@
                 "IsLeft": false,
                 "Load": 0,
                 "LoadContribution": 0.25,
-                "LoadRating": 5400,
+                "LoadRating": 4400,
                 "Mass": 15,
                 "MaxSuspensionLength": 3,
                 "MinSuspensionLength": 3,

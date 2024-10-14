@@ -1,8 +1,14 @@
-﻿namespace Sandbox.Tuning;
+﻿using static Sandbox.Tuning.TuningContainer;
+
+namespace Sandbox.Tuning;
 
 [GameResource( "Car Tuning Definition", "tuning", "Describes the car tuning element and indirectly indicates which other elements it can be combined with.", Icon = "directions_car", IconBgColor = "gray", IconFgColor = "black" )]
 public class CarTuning : GameResource
 {
+	public virtual TuningEntry GetEntry()
+	{
+		return new TuningEntry( this );
+	}
 	public enum CarTuningCategory
 	{
 		None,

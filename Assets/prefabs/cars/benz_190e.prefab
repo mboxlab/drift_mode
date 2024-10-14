@@ -468,7 +468,8 @@
             },
             "Defaults": [
               "models/cars/benz190e/stock.wheel"
-            ]
+            ],
+            "Exclusives": []
           },
           {
             "__type": "Sandbox.HighlightOutline",

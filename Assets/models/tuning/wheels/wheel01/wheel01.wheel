@@ -2,8 +2,6 @@
   "SlotsOver": "Wheel",
   "HideBody": "RL, RR, FL, FR",
   "Category": "Wheel",
-  "RadiusDefault": 15,
-  "WidthDefault": 10,
   "SlotsUnder": 0,
   "Title": "Wheel 1",
   "Subtitle": null,

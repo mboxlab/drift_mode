@@ -23,11 +23,15 @@
 							},
 							{
 								from = "lp_veh_sedan_glass_002_21.vmat"
-								to = "materials/car/windows.vmat"
+								to = "materials/car/white_window.vmat"
 							},
 							{
 								from = "lp_veh_sedan_glass_003_21.vmat"
-								to = "materials/car/windows.vmat"
+								to = "materials/car/red_window.vmat"
+							},
+							{
+								from = "0.001.vmat"
+								to = "models/cars/350z/lp_veh_sedan_21_texture_002.vmat"
 							},
 						]
 						use_global_default = false

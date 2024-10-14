@@ -337,7 +337,7 @@
             "DNRShiftType": "Auto",
             "DnrSpeedThreshold": 0.4,
             "DownshiftRPM": 2400,
-            "FinalGearRatio": 4.3,
+            "FinalGearRatio": 3.3,
             "Gear": 0,
             "GearingProfile": {
               "ForwardGears": [

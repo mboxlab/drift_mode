@@ -62,8 +62,8 @@
       "__guid": "328c3218-21d4-4cbf-b967-0d6a1fce8199",
       "Flags": 0,
       "Name": "Camera",
-      "Position": "167.0612,104.5462,91.91658",
-      "Rotation": "0.09312487,0.04336746,-0.9017258,0.4199259",
+      "Position": "167.0613,104.5462,91.91659",
+      "Rotation": "-0.09312487,-0.04336742,0.9017258,-0.4199257",
       "Enabled": true,
       "Components": [
         {
@@ -175,7 +175,7 @@
         {
           "__type": "Sandbox.Car.CarSelector",
           "__guid": "09195db0-f369-4da4-b3e2-55ec1f73122a",
-          "CarIndex": 1,
+          "CarIndex": 0,
           "Cars": [
             {
               "_type": "gameobject",
@@ -292,17 +292,6 @@
           "Race": "scenes/games/sprint_mode/001.scene"
         }
       ]
-    },
-    {
-      "__guid": "8cbf3679-cd39-4ddd-8bb5-d684fc24822c",
-      "Flags": 0,
-      "Name": "350z",
-      "Position": "0,19.5,21.90189",
-      "Rotation": "0,-0,-0.7071068,0.7071068",
-      "Tags": "car",
-      "Enabled": true,
-      "__Prefab": "prefabs/cars/350z.prefab",
-      "__PrefabVariables": {}
     }
   ],
   "SceneProperties": {

@@ -6,7 +6,7 @@
   "Title": "Stock",
   "Subtitle": null,
   "CarAffected": "Sport",
-  "Exclusive": false,
+  "Exclusive": true,
   "ConditionalModels": {},
   "Tags": null,
   "SubCategory": null,

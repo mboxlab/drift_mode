@@ -1,6 +1,7 @@
 ﻿
 using System;
 using Sandbox.Engine;
+using Sandbox.Powertrain;
 using Sandbox.Powertrain.Modules;
 using Sandbox.Tuning;
 
@@ -149,6 +150,7 @@ public sealed class CarController : Component
 
 		UpdateSteerAngle();
 		SimulateAerodinamics();
+		SimulateTCS();
 	}
 
 	float CurrentSteerAngle;
@@ -182,8 +184,8 @@ public sealed class CarController : Component
 	#region Aerodinamics
 	private class DownforcePoint
 	{
-		public float maxForce;
-		public Vector3 position;
+		public float MaxForce { get; set; }
+		public Vector3 Position { get; set; }
 	}
 	public const float RHO = 1.225f;
 	[Property, Group( "Aerodinamics" )] public Vector3 Dimensions = new( 2f, 4.5f, 1.5f );
@@ -224,8 +226,36 @@ public sealed class CarController : Component
 		float forceCoeff = 1f - (1f - MathF.Pow( speedPercent, 2f ));
 
 		foreach ( DownforcePoint dp in DownforcePoints )
-			Rigidbody.ApplyForceAt( Transform.World.PointToWorld( dp.position ), forceCoeff.MeterToInch() * dp.maxForce.MeterToInch() * -WorldRotation.Up );
+			Rigidbody.ApplyForceAt( Transform.World.PointToWorld( dp.Position ), forceCoeff.MeterToInch() * dp.MaxForce.MeterToInch() * -WorldRotation.Up );
 	}
+	#endregion
+
+	#region Traction Control System
+	/// <summary>
+	///     Traction Control System (TCS) module. Reduces engine throttle when excessive slip is present.
+	/// </summary>
+	[Property, Group( "Traction Control" )] bool IsSimulateTCS { get; set; } = false;
+	[Property, Group( "Traction Control" ), ShowIf( nameof( IsSimulateTCS ), true )] private float SlipThreshold { get; set; } = 0.1f;
+	public void SimulateTCS()
+	{
+		Powertrain.Engine.PowerMultiplayer = 1;
+		if ( !IsSimulateTCS )
+			return;
+
+		foreach ( WheelComponent wheelComponent in Powertrain.Wheels )
+		{
+			if ( !wheelComponent.Wheel.IsGrounded || Powertrain.Transmission.IsShifting )
+				continue;
+
+			float longSlip = wheelComponent.Wheel.ForwardSlip;
+			if ( -longSlip * MathF.Sign( LocalVelocity.y ) > SlipThreshold )
+			{
+				Powertrain.Engine.PowerMultiplayer = 0.05f;
+				return;
+			}
+		}
+	}
+
 	#endregion
 }
 

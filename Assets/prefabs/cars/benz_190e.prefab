@@ -40,6 +40,7 @@
           "SwapInputInReverse": true,
           "AutoSetInput": true
         },
+        "IsSimulateTCS": false,
         "MaxBrakeTorque": 7000,
         "MaxDownforceSpeed": 80,
         "MaxSpeedForMinAngleMultiplier": 100,
@@ -89,6 +90,7 @@
           "component_type": "Rigidbody"
         },
         "SideCd": 1.05,
+        "SlipThreshold": 0.1,
         "SoundInterpolator": {
           "_type": "component",
           "component_id": "314e48b0-43b3-40d0-b9d4-3601e9745bb2",
@@ -209,7 +211,6 @@
               "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
               "component_type": "CarController"
             },
-            "Inertia": 0.25,
             "StartDuration": 0.5,
             "StarterActive": false,
             "AutoStartOnThrottle": true,
@@ -221,10 +222,11 @@
             "FlyingStartEnabled": true,
             "IdleRPM": 900,
             "Ignition": false,
+            "Inertia": 0.05,
             "InputRPM": 0,
             "IsRunning": false,
             "IsStalled": false,
-            "MaxPower": 290,
+            "MaxPower": 213,
             "Name": "Engine",
             "Output": {
               "_type": "component",
@@ -235,31 +237,31 @@
             "OutputRPM": 0,
             "PowerCurve": [
               {
-                "y": 0.34607023
+                "y": 0.34341064
               },
               {
-                "x": 0.41291115,
-                "y": 0.9439307
+                "x": 0.40547067,
+                "y": 0.91999453
               },
               {
-                "x": 0.5213332,
-                "y": 0.8954418
+                "x": 0.5228213,
+                "y": 0.9007609
               },
               {
-                "x": 0.67331773,
-                "y": 0.89643687,
+                "x": 0.6837344,
+                "y": 0.93367094,
                 "in": 0.71146476,
                 "out": -0.71146476
               },
               {
-                "x": 0.929332,
-                "y": 0.60451967,
+                "x": 0.9323082,
+                "y": 0.6071792,
                 "in": 0.5555556,
                 "out": -0.5555556
               },
               {
                 "x": 1,
-                "y": 0.22340426
+                "y": 0.21808511
               }
             ],
             "RevLimiterCutoffDuration": 0.15,
@@ -278,7 +280,6 @@
               "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
               "component_type": "CarController"
             },
-            "Inertia": 0.02,
             "ClutchInput": 0,
             "CreepSpeedLimit": 1,
             "CreepTorque": 0,
@@ -297,7 +298,8 @@
               ]
             },
             "EngagementRange": 400,
-            "EngagementRPM": 1200,
+            "EngagementRPM": 900,
+            "Inertia": 0.02,
             "Input": {
               "_type": "component",
               "component_id": "7755429d-5c82-48a1-8515-0d6b258a4a6d",
@@ -329,7 +331,6 @@
             "Gears": [
               0
             ],
-            "Inertia": 0.05,
             "AllowDownshiftGearSkipping": true,
             "AllowUpshiftGearSkipping": false,
             "ClutchInputShiftThreshold": 1,
@@ -353,6 +354,7 @@
             "HoldToKeepInGear": false,
             "IgnorePostShiftBanInManual": true,
             "InclineEffectCoeff": 0,
+            "Inertia": 0.02,
             "Input": {
               "_type": "component",
               "component_id": "dc4a21b4-e022-4adc-8c69-ea6c10756914",
@@ -377,7 +379,7 @@
             "TargetDownshiftRPM": 0,
             "TargetUpshiftRPM": 0,
             "TransmissionType": "Automatic",
-            "UpshiftRPM": 4800,
+            "UpshiftRPM": 3800,
             "VariableShiftIntensity": 0.3,
             "VariableShiftPoint": true,
             "\u0421urrentGearRatio": 0
@@ -391,9 +393,9 @@
               "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
               "component_type": "CarController"
             },
-            "Inertia": 0.02,
             "BiasAB": 0.5,
             "CoastRamp": 0.5,
+            "Inertia": 0.02,
             "Input": {
               "_type": "component",
               "component_id": "8aa46dfb-17ef-428f-863c-dc8815aabc7a",
@@ -611,7 +613,7 @@
                 },
                 "SuspensionDamping": 6500,
                 "SuspensionStiffness": 45000,
-                "Width": 0
+                "Width": 9
               }
             ],
             "Children": [
@@ -949,7 +951,7 @@
                 },
                 "SuspensionDamping": 6500,
                 "SuspensionStiffness": 45000,
-                "Width": 0
+                "Width": 9
               },
               {
                 "__type": "Sandbox.Powertrain.WheelComponent",
@@ -1313,7 +1315,7 @@
                 },
                 "SuspensionDamping": 6500,
                 "SuspensionStiffness": 45000,
-                "Width": 0
+                "Width": 9
               },
               {
                 "__type": "Sandbox.Powertrain.WheelComponent",
@@ -1678,7 +1680,7 @@
                 },
                 "SuspensionDamping": 6500,
                 "SuspensionStiffness": 45000,
-                "Width": 0
+                "Width": 9
               }
             ],
             "Children": [

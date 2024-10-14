@@ -1,0 +1,84 @@
+@using Sandbox;
+@using Sandbox.Car
+@using Sandbox.UI;
+@using Sandbox.Utils
+@inherits PanelComponent
+@namespace Sandbox.Tuning.UI
+
+<root>
+	<div class="container" style="pointer-events: @(MouseVisible ? "all" : "none")">
+		<div>
+			@{
+				foreach (CarTuning tuning in TuningList)
+				{
+					<div class="point @(CurrentId == tuning.ResourceId ? "active" : "")" onclick=@( () => OnClick( tuning ) )>
+						<title>@tuning.Title</title>
+					</div>
+				}
+			}
+		</div>
+	</div>
+</root>
+
+@code
+{
+
+	[Property] public InteractiveObject Object;
+	public List<CarTuning> TuningList { get; set; }
+	public int Index { get; set; }
+	public int CurrentId { get; set; }
+
+	private void OnClick(CarTuning tuning)
+	{
+		if (!CarController.Local.TuningContainer.Has(tuning))
+		{
+			Sound.Play("ui.button.over");
+			CarController.Local.TuningContainer.Toggle(tuning);
+			CarController.Local.TuningContainer.Apply(CarController.Local.BodyRenderer);
+			CarSaver.SaveCar(CarController.Local);
+			CurrentId = tuning.ResourceId;
+		}
+	}
+	protected override void OnStart()
+	{
+		base.OnStart();
+		Index = TuningList.FindIndex((x) => CarController.Local.TuningContainer.Has(x));
+		CurrentId = TuningList.Find((x) => CarController.Local.TuningContainer.Has(x)).ResourceId;
+	}
+
+	protected override void OnUpdate()
+	{
+		base.OnUpdate();
+
+		if (!Object.IsLooked)
+			GameObject.Destroy();
+
+		if (TuningList.Count == 0)
+			return;
+		int index = Index;
+		index -= (int)Input.MouseWheel.y;
+		if (Input.Pressed("Left"))
+			index--;
+		else if (Input.Pressed("Right"))
+			index++;
+		int end = TuningList.Count;
+		index = index % end;
+		if (index < 0) index = end + index;
+		if (Index != index)
+		{
+			OnClick(TuningList[index]);
+			Index = index;
+		}
+	}
+
+	private bool MouseVisible = true;
+
+	public void OnMouseDrag(bool isDown)
+	{
+		MouseVisible = !isDown;
+	}
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine(InteractiveCamera.Target, CurrentId, MouseVisible);
+}

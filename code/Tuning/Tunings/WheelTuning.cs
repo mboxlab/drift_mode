@@ -1,5 +1,4 @@
 ﻿using Sandbox.Car;
-using static Sandbox.Tuning.TuningContainer;
 
 namespace Sandbox.Tuning.Tunings;
 
@@ -11,8 +10,8 @@ public class WheelTuning : CarTuning
 		return new( this )
 		{
 			Tint = int.Parse( data[1] ),
-			Radius = float.Parse( data[2] ),
-			Width = float.Parse( data[3] ),
+			Radius = AllowRadiusSelect ? float.Parse( data[2] ) : RadiusDefault,
+			Width = AllowWidthSelect ? float.Parse( data[3] ) : WidthDefault,
 		}; ;
 	}
 
@@ -24,14 +23,19 @@ public class WheelTuning : CarTuning
 	{
 		public WheelTuningEntry( WheelTuning tuning ) : base( tuning )
 		{
+			Radius = tuning.RadiusDefault;
+			Width = tuning.WidthDefault;
 		}
 
-		public override void Apply( GameObject body )
+		public override void Apply( GameObject body, SkinnedModelRenderer renderer, TuningEntry entry )
 		{
-			body.WorldScale = new Vector3( Width, Radius, Radius );
+			Vector3 size = renderer.Model.Bounds.Size;
+
+			body.WorldScale = new( Width / size.x, Radius / (size.y / 2), Radius / (size.z / 2) );
 			var wheel = body.Components.Get<WheelCollider>( FindMode.InParent );
-			wheel.Radius *= Radius;
-			wheel.Width *= Width;
+			wheel.Radius = Radius;
+			wheel.Width = Width;
+			wheel.ApplyVisual( renderer );
 		}
 		public new WheelTuning CarTuning { get; set; }
 		public float Radius { get; set; } = 1f;
@@ -45,4 +49,15 @@ public class WheelTuning : CarTuning
 	[BitFlags, Category( "Body Slots" )] public override Slots SlotsOver { get => Slots.Wheel; }
 	[BitFlags, Category( "Tuning Setup" )] public override BodyGroups HideBody { get => BodyGroups.FL | BodyGroups.FR | BodyGroups.RR | BodyGroups.RL; }
 	[Category( "Display Information" )] public override CarTuningCategory Category { get => CarTuningCategory.Wheel; }
+
+	[Category( "User Customization" )] bool AllowRadiusSelect { get; set; } = false;
+	[Category( "User Customization" )] bool AllowWidthSelect { get; set; } = false;
+
+	[Category( "User Customization" )]
+	public virtual float RadiusDefault { get; set; } = 15f;
+
+
+	[Category( "User Customization" )]
+	public virtual float WidthDefault { get; set; } = 8f;
+
 }

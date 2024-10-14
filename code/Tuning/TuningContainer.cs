@@ -1,26 +1,10 @@
 ﻿using Sandbox.Utils;
+using static Sandbox.Tuning.CarTuning;
 
 namespace Sandbox.Tuning;
 
 public sealed class TuningContainer : ISaveData
 {
-	public class TuningEntry
-	{
-		public virtual CarTuning CarTuning { get; set; }
-
-		public float Tint { get; set; } = 1f;
-		public TuningEntry( CarTuning tuning )
-		{
-			CarTuning = tuning;
-		}
-
-		public virtual string GetSerialized()
-		{
-			return $"{CarTuning.ResourceId}:{Tint}";
-		}
-		public virtual void Apply( GameObject body ) { }
-	}
-
 	public List<TuningEntry> CarTuning = new();
 
 	/// <summary>
@@ -40,7 +24,7 @@ public sealed class TuningContainer : ISaveData
 	/// <param name="tuning"></param>
 	public bool TryAdd( CarTuning tuning )
 	{
-		if ( Has( tuning ) )
+		if ( CarTuning.Any( ( TuningEntry x ) => !x.CarTuning.CanBeWornWith( tuning ) ) )
 			return false;
 
 		Add( tuning );
@@ -79,11 +63,11 @@ public sealed class TuningContainer : ISaveData
 		return tuningEntry;
 	}
 
-
+	private readonly List<GameObject> CreatedGameObjects = new();
 	/// <summary>
 	/// Clear the outfit from this model, make it named
 	/// </summary>
-	public static void Reset( SkinnedModelRenderer body )
+	public void Reset( SkinnedModelRenderer body )
 	{
 		//
 		// Start with defaults
@@ -94,12 +78,12 @@ public sealed class TuningContainer : ISaveData
 		//
 		// Remove old models
 		//
-		foreach ( var children in body.GameObject.Children )
+		foreach ( var children in CreatedGameObjects )
 		{
-			if ( children.Tags.Has( "tuning" ) )
-			{
-				children.Destroy();
-			}
+			//if ( children.Tags.Has( "tuning" ) )
+			//{
+			children.Destroy();
+			//}
 		}
 	}
 
@@ -127,20 +111,20 @@ public sealed class TuningContainer : ISaveData
 				continue;
 
 			foreach ( var item in body.Model.Bones.AllBones )
-				if ( Enum.TryParse( item.Name, out CarTuning.BodyGroups flag ) )
+				if ( Enum.TryParse( item.Name, out BodyGroups flag ) )
 					if ( c.HideBody.HasFlag( flag ) )
 					{
 						GameObject go = new( false, $"Tuning - {c.ResourceName}" )
 						{
 							Parent = body.GetBoneObject( item )
 						};
-
+						CreatedGameObjects.Add( go );
 						go.Tags.Add( "tuning" );
 						go.Tags.Add( c.Category.ToString() );
 
 						var r = go.Components.Create<SkinnedModelRenderer>();
 						r.Model = Model.Load( c.Model );
-						entry.Apply( go );
+						entry.Apply( go, r, entry );
 
 						go.Enabled = true;
 					}

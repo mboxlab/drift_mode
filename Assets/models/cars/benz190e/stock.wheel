@@ -1,10 +1,14 @@
 {
-  "Radius": 1,
   "SlotsOver": "Wheel",
+  "HideBody": "RL, RR, FL, FR",
+  "Category": "Wheel",
+  "RadiusDefault": 15,
+  "WidthDefault": 9,
   "SlotsUnder": 0,
   "Title": "Stock",
   "Subtitle": null,
-  "Category": "Wheel",
+  "CarAffected": "Sport",
+  "Exclusive": true,
   "ConditionalModels": {},
   "Tags": null,
   "SubCategory": null,
@@ -20,7 +24,6 @@
     "alpha": []
   },
   "TintDefault": 0.5,
-  "HideBody": "RL, RR, FL, FR",
   "Model": "models/cars/benz190e/wheel_stock.vmdl",
   "__references": [],
   "__version": 0

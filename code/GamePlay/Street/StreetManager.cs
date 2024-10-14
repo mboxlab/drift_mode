@@ -70,7 +70,13 @@ public sealed class StreetManager : Component, Component.INetworkListener, IMana
 
 		var player = CarSaver.LoadActiveCar();
 		player.Name = $"Player - {channel.DisplayName}";
-		player.GetComponentsInChildren<InteractiveObject>().ToList().ForEach( x => x.Destroy() );
+		player.Components.GetAll<InteractiveObject>( FindMode.EverythingInSelfAndDescendants ).ToList().ForEach( x => x.Destroy() );
+
+		player.Components.GetAll( FindMode.InDescendants ).ToList().ForEach( x =>
+		{
+			if ( x.Tags.Has( "garage" ) )
+				x.Destroy();
+		} );
 
 		player.WorldRotation = startLocation.Forward.EulerAngles + new Angles( 0, -90, 0 );
 		player.WorldPosition = startLocation.PointToWorld( Vector3.Backward * player.GetBounds().Extents.y );

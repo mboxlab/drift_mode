@@ -1,0 +1,82 @@
+@using Sandbox;
+@using Sandbox.Car
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace Sandbox.Tuning.UI
+
+<root>
+	@if (InteractiveCamera.Target == Object.Parent)
+	{
+		<div class="title" onclick=@OnClick>@Category</div>
+	}
+</root>
+
+@code
+{
+	[Property] public CarTuning.CarTuningCategory Category { get; set; }
+
+	/// <summary>
+	/// finds it automatically or can be set
+	/// </summary>
+	[Property] private InteractiveObject Object { get; set; }
+
+	/// <summary>
+	/// finds it automatically or can be set
+	/// </summary>
+	[Property] private CarDresser Dresser { get; set; }
+
+	/// <summary>
+	/// finds it automatically
+	/// </summary>
+	private CarTuning.CarCategory CarCategory { get; set; }
+
+	public IEnumerable<CarTuning> TuningList { get; private set; }
+
+	protected override void OnStart()
+	{
+		base.OnStart();
+		Object ??= Components.Get<InteractiveObject>();
+		Dresser ??= Components.Get<CarDresser>(FindMode.EverythingInSelfAndAncestors);
+
+		var allTunings = ResourceLibrary.GetAll<CarTuning>();
+
+		CarCategory = CarController.Local.Category;
+
+		TuningList = Dresser.Defaults.Where((x) => x.Category == Category).Concat(allTunings.Where(FindOption));
+
+	}
+	private bool FindOption(CarTuning x)
+	{
+		return (x.Category == Category) && (x.CarAffected == CarCategory) && !x.Exclusive;
+	}
+	private void OnClick()
+	{
+		if (Panel.Style.Opacity == 0f) return;
+		InteractiveCamera.Instance.Focus(Object);
+		if (Object.IsLooked)
+		{
+			GameObject obj = Scene.CreateObject(true);
+			obj.Name = "ScreenPanel";
+			obj.Components.Create<ScreenPanel>();
+			TuningSelector selector = obj.Components.Create<TuningSelector>();
+			InteractiveCamera.Instance.OnMouseDrag = selector.OnMouseDrag;
+			selector.Object = Object;
+			selector.TuningList = TuningList.ToList();
+
+		}
+	}
+
+	protected override void OnUpdate()
+	{
+		base.OnUpdate();
+		float dot = MathF.Max(0, (Object.Rotation + Object.LocalAngles.ToRotation()).Forward.Dot(InteractiveCamera.Instance.WorldRotation.Forward));
+		dot /= MathF.Max(1, Object.WorldPosition.DistanceSquared(InteractiveCamera.Instance.WorldPosition) / 20000);
+		dot *= dot * dot;
+		Panel.Style.Opacity = MathF.Max(0f, dot);
+	}
+
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine(InteractiveCamera.Target);
+}

@@ -2,7 +2,7 @@
 namespace Sandbox.Car;
 
 [Category( "Vehicles" )]
-public class WheelCollider : Stereable, ICarDresserEvent
+public class WheelCollider : Stereable
 {
 	[Property] public float MinSuspensionLength { get => minSuspensionLength; set { minSuspensionLength = value; UpdateTotalSuspensionLength(); } }
 	[Property] public float MaxSuspensionLength { get => maxSuspensionLength; set { maxSuspensionLength = value; UpdateTotalSuspensionLength(); } }
@@ -32,12 +32,6 @@ public class WheelCollider : Stereable, ICarDresserEvent
 	[Property] public bool IsLeft { get; set; }
 
 	[Property] public float Load { get; private set; }
-
-	void ICarDresserEvent.PostLoad( CarController controller )
-	{
-		Visual ??= Components.Get<ModelRenderer>( FindMode.InDescendants );
-	}
-
 	public bool IsGrounded => groundHit.Hit;
 	public float ForwardSlip { get => ForwardFriction.Slip; }
 	public float SidewaySlip { get => SidewayFriction.Slip; }
@@ -74,6 +68,21 @@ public class WheelCollider : Stereable, ICarDresserEvent
 	{
 		if ( Visual is null )
 			return;
+		AxleAngle = AngularVelocity.RadianToDegree() * Time.Delta;
+
+		Visual.WorldPosition = GetCenter();
+
+		VelocityRotation *= Rotation.From( 0, 0, (IsLeft ? -1 : 1) * AxleAngle );
+
+		Visual.LocalRotation = Rotation.FromYaw( SteerAngle + (IsLeft ? 180 : 0) ) * VelocityRotation;
+
+	}
+	public void ApplyVisual( Renderer visual )
+	{
+		if ( visual is null )
+			return;
+		Visual?.Destroy();
+		Visual = visual;
 		AxleAngle = AngularVelocity.RadianToDegree() * Time.Delta;
 
 		Visual.WorldPosition = GetCenter();

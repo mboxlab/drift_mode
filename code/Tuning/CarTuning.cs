@@ -1,10 +1,25 @@
-﻿using static Sandbox.Tuning.TuningContainer;
-
-namespace Sandbox.Tuning;
+﻿namespace Sandbox.Tuning;
 
 [GameResource( "Car Tuning Definition", "tuning", "Describes the car tuning element and indirectly indicates which other elements it can be combined with.", Icon = "directions_car", IconBgColor = "gray", IconFgColor = "black" )]
 public class CarTuning : GameResource
 {
+	public class TuningEntry
+	{
+		public virtual CarTuning CarTuning { get; set; }
+
+		public float Tint { get; set; } = 1f;
+		public TuningEntry( CarTuning tuning )
+		{
+			CarTuning = tuning;
+		}
+
+		public virtual string GetSerialized()
+		{
+			return $"{CarTuning.ResourceId}:{Tint}";
+		}
+		public virtual void Apply( GameObject body, SkinnedModelRenderer renderer, TuningEntry entry ) { }
+	}
+
 	public virtual TuningEntry Parse( string[] data )
 	{
 		return new( this ) { Tint = int.Parse( data[1] ) };
@@ -20,11 +35,11 @@ public class CarTuning : GameResource
 		Wheel,
 	}
 
+	[Flags]
 	public enum CarCategory
 	{
-		All,
-		Sport,
-		OffRoad,
+		Sport = 1,
+		OffRoad = 2,
 	}
 
 	[Flags]
@@ -100,7 +115,10 @@ public class CarTuning : GameResource
 	/// <summary>
 	/// To which category of car is it applied
 	/// </summary>
-	[Category( "Display Information" )] public virtual CarCategory CarAffected { get; set; } = CarCategory.All;
+	[BitFlags, Category( "Display Information" )] public virtual CarCategory CarAffected { get; set; }
+
+	[Category( "Display Information" )] public virtual bool Exclusive { get; set; } = false;
+
 
 	/// <summary>
 	/// A list of conditional models. (key) = tag(s), (value) = model

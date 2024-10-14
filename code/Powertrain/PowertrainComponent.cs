@@ -18,7 +18,7 @@ namespace Sandbox.Powertrain
 		///     also slower to spin down. Too high values will result in (apparent) sluggish response while too low values will
 		///     result in vehicle being easy to stall and possible powertrain instability / glitches.
 		/// </summary>
-		[Property, Range( 0.0002f, 2f )] public float Inertia = 0.05f;
+		[Property, Range( 0.0002f, 2f )] public float Inertia { get; set; } = 0.05f;
 
 		public float InputTorque;
 		public float OutputTorque;

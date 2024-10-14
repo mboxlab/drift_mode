@@ -186,6 +186,7 @@ public class EngineComponent : PowertrainComponent
 
 	private float _throttlePosition;
 
+	public float PowerMultiplayer { get; set; }
 	/// <summary>
 	/// Is the engine currently running?
 	/// Requires ignition to be enabled and stall RPM above the stall RPM.
@@ -506,7 +507,7 @@ public class EngineComponent : PowertrainComponent
 		else
 		{
 			// Add maximum losses to the maximum power when calculating the generated power since the maxPower is net value (after losses).
-			generatedPower = PowerCurve.Evaluate( _rpmPercent ) * (MaxPower * (1f + EngineLossPercent)) * _throttlePosition;
+			generatedPower = PowerCurve.Evaluate( _rpmPercent ) * (MaxPower * (1f + EngineLossPercent)) * _throttlePosition * PowerMultiplayer;
 			torque = PowerInKWToTorque( OutputAngularVelocity, generatedPower );
 		}
 		return torque;

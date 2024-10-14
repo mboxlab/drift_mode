@@ -478,7 +478,7 @@ public class WheelCollider : Stereable, ICarDresserEvent
 			Gizmo.Draw.Line( suspensionStart + Vector3.Forward, suspensionStart + Vector3.Backward );
 			Gizmo.Draw.Line( suspensionEnd + Vector3.Forward, suspensionEnd + Vector3.Backward );
 		}
-
+		var widthOffset = Vector3.Right * Width * 0.5f;
 		//
 		// Wheel radius
 		//
@@ -487,9 +487,31 @@ public class WheelCollider : Stereable, ICarDresserEvent
 			var circleAxis = Vector3.Right;
 			var circlePosition = Vector3.Zero;
 
-			Gizmo.Draw.LineThickness = 1.0f;
+			Gizmo.Draw.LineThickness = 0.5f;
 			Gizmo.Draw.Color = Color.White;
-			Gizmo.Draw.LineCircle( circlePosition, circleAxis, Radius );
+			Gizmo.Draw.LineCircle( circlePosition - widthOffset, circleAxis, Radius );
+			Gizmo.Draw.LineCircle( circlePosition + widthOffset, circleAxis, Radius );
+		}
+
+		//
+		// Wheel width
+		//
+		{
+			var circlePosition = Vector3.Zero;
+
+			Gizmo.Draw.LineThickness = 0.25f;
+			Gizmo.Draw.Color = Color.White;
+
+			for ( float i = 0; i < 16; i++ )
+			{
+
+				var pos = circlePosition + Vector3.Up.RotateAround( Vector3.Zero, new Angles( i / 16 * 360, 0, 0 ) ) * Radius;
+
+				Gizmo.Draw.Line( new Line( pos - widthOffset, pos + widthOffset ) );
+
+				var pos2 = circlePosition + Vector3.Up.RotateAround( Vector3.Zero, new Angles( (i + 1) / 16 * 360, 0, 0 ) ) * Radius;
+				Gizmo.Draw.Line( pos - widthOffset, pos2 + widthOffset );
+			}
 		}
 
 		//

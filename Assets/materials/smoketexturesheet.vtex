@@ -1,0 +1,13 @@
+{
+  "Sequences": [
+    {
+      "Source": "materials/smoketexturesheet.png",
+      "IsLooping": true,
+      "FlipBook": true,
+      "Columns": 6,
+      "Rows": 5,
+      "Frames": 30
+    }
+  ],
+  "OutputTypeString": "2D"
+}

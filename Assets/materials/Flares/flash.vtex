@@ -1,0 +1,30 @@
+{
+  "Sequences": [
+    {
+      "Source": "materials/flares/exhaustflash1.png",
+      "IsLooping": true,
+      "Frames": 64
+    },
+    {
+      "Source": "materials/flares/exhaustflash2.png",
+      "Frames": 64
+    },
+    {
+      "Source": "materials/flares/exhaustflash3.png",
+      "Frames": 64
+    },
+    {
+      "Source": "materials/flares/exhaustflash4.png",
+      "Frames": 64
+    },
+    {
+      "Source": "materials/flares/exhaustflash5.png",
+      "Frames": 64
+    },
+    {
+      "Source": "materials/flares/exhaustflash6.png",
+      "Frames": 64
+    }
+  ],
+  "OutputTypeString": "2D"
+}

@@ -66,6 +66,7 @@
 								"LP_Veh_Sedan_21",
 								"LP_Veh_Sedan_Steering_wheel_21",
 								"LP_Veh_Sedan_Stock_21",
+								"exhaust",
 							]
 						}
 					},
@@ -173,6 +174,33 @@
 						_class = "Attachment"
 						name = "Spoiler"
 						parent_bone = "Spoiler"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "exhaust_R"
+						parent_bone = "exhaust_R"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "exhaust_L"
+						parent_bone = "exhaust_L"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "exhausts"
+						parent_bone = "exhausts"
 						relative_origin = [ 0.0, 0.0, 0.0 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0

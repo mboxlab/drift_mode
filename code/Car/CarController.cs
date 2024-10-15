@@ -39,8 +39,8 @@ public sealed class CarController : Component
 	[Property, Group( "Steering" ), ShowIf( nameof( EnableSteerAngleMultiplier ), true )] public float MaxSpeedForMinAngleMultiplier { get; set; } = 100;
 	[Property, Group( "Steering" ), ShowIf( nameof( EnableSteerAngleMultiplier ), true )] public float MinSteerAngleMultiplier { get; set; } = 0.05f;
 	[Property, Group( "Steering" ), ShowIf( nameof( EnableSteerAngleMultiplier ), true )] public float MaxSteerAngleMultiplier { get; set; } = 1f;
-	[Property, Group( "Wheel Properties" )] public PacejkaCurve.PresetsEnum FrictionPresetEnum { get; set; } = PacejkaCurve.PresetsEnum.Asphalt;
-	public PacejkaCurve FrictionPreset { get; set; }
+	[Property, Group( "Wheel Properties" )] public PacejkaPreset FrictionPresetEnum { get; set; } = PacejkaPreset.Asphalt;
+	public PacejkaCurve FrictionPreset;
 
 	/// <summary>
 	/// Speed, magnitude of velocity.
@@ -120,7 +120,7 @@ public sealed class CarController : Component
 	public event EventHandler<PacejkaCurve> FrictionChanged;
 	private void OnFrictionChanged()
 	{
-		FrictionPreset = PacejkaCurve.Presets[FrictionPresetEnum];
+		FrictionPreset = PacejkaCurve.GetPreset( FrictionPresetEnum );
 		UpdateWheelsFriction();
 		FrictionChanged?.Invoke( this, FrictionPreset );
 	}
@@ -163,15 +163,11 @@ public sealed class CarController : Component
 
 		CurrentSteerAngle = MathX.Lerp( CurrentSteerAngle, targetSteerAngle, Time.Delta * 5f );
 
-		var needHelp = CurrentSpeed > 20 && CarDirection > 0;
-		float targetAngle = 0;
 		VelocityAngle = -Rigidbody.Velocity.SignedAngle( WorldRotation.Left, Vector3.Up );
-		if ( needHelp )
-			targetAngle = VelocityAngle * 0.1f;
 
 
 		//Wheel turn limitation.
-		targetAngle = MathX.Clamp( targetAngle + CurrentSteerAngle, -(MaxSteerAngle + 10), MaxSteerAngle + 10 );
+		float targetAngle = MathX.Clamp( CurrentSteerAngle, -(MaxSteerAngle + 10), MaxSteerAngle + 10 );
 
 		//Front wheel turn.
 		Wheels[0].SteerAngle = targetAngle;

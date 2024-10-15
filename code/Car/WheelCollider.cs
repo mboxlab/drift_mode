@@ -300,7 +300,7 @@ public class WheelCollider : Stereable
 		float sideSlipSign = SidewayFriction.Slip < 0 ? -1f : 1f;
 		float absSideSlip = SidewayFriction.Slip < 0 ? -SidewayFriction.Slip : SidewayFriction.Slip;
 		float peakSideFrictionForce = FrictionPreset.PeakValue * sideLoadFactor * SidewayFriction.Grip;
-		float sideForce = -sideSlipSign * FrictionPreset.Curve.Evaluate( absSideSlip ) * sideLoadFactor * SidewayFriction.Grip;
+		float sideForce = -sideSlipSign * FrictionPreset.Evaluate( absSideSlip ) * sideLoadFactor * SidewayFriction.Grip;
 		SidewayFriction.Force = sideForce > sideForceClamp ? sideForce : sideForce < -sideForceClamp ? -sideForceClamp : sideForce;
 		SidewayFriction.Force *= camberFrictionCoeff;
 

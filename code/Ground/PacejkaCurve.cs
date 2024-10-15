@@ -1,14 +1,20 @@
 ﻿using AltCurves;
 using static AltCurves.AltCurve;
-public class PacejkaCurve
+public struct PacejkaCurve
 {
+	// X // B
+	[Range( 0, 30 )] public float Stiffnes;
 
-	private float stiffnes = 12.5f;
-	private float shapeFactor = 2.05f;
-	private float peakValue = 0.925f;
-	private float curvatureFactor = 0.97f;
+	// Y // C
+	[Range( 0, 5 )] public float ShapeFactor;
 
-	public PacejkaCurve( float stiffnes, float shapeFactor, float peakValue, float curvatureFactor )
+	// Z // D
+	[Range( 0, 2 )] public float PeakValue;
+
+	// W // E
+	[Range( 0, 2 )] public float CurvatureFactor;
+
+	public PacejkaCurve( float stiffnes, float shapeFactor, float peakValue, float curvatureFactor ) : this()
 	{
 		Stiffnes = stiffnes;
 		ShapeFactor = shapeFactor;
@@ -17,35 +23,17 @@ public class PacejkaCurve
 		UpdateFrictionCurve();
 	}
 
-	public PacejkaCurve()
-	{
-		UpdateFrictionCurve();
-	}
-
-
-	// X // B
-	[Property, Range( 0, 30 )] public float Stiffnes { get => stiffnes; set { stiffnes = value; UpdateFrictionCurve(); } }
-
-	// Y // C
-	[Property, Range( 0, 5 )] public float ShapeFactor { get => shapeFactor; set { shapeFactor = value; UpdateFrictionCurve(); } }
-
-	// Z // D
-	[Property, Range( 0, 2 )] public float PeakValue { get => peakValue; set { peakValue = value; UpdateFrictionCurve(); } }
-
-	// W // E
-	[Property, Range( 0, 2 )] public float CurvatureFactor { get => curvatureFactor; set { curvatureFactor = value; UpdateFrictionCurve(); } }
-
 	/// <summary>
 	/// Slip at which the friction preset has highest friction.
 	/// </summary>
-	public float PeakSlip { get; set; }
+	public float PeakSlip;
 
-	[Property] public AltCurve Curve { get; set; }
+	private AltCurve Curve;
 
 	/// <summary>
 	/// Gets the slip at which the friction is the highest for this friction curve.
 	/// </summary>
-	private float GetPeakSlip()
+	private readonly float GetPeakSlip()
 	{
 		float peakSlip = -1;
 		float yMax = 0;
@@ -62,7 +50,7 @@ public class PacejkaCurve
 
 		return peakSlip;
 	}
-	public float Evaluate( float time ) => Curve.Evaluate( Math.Abs( time ) );
+	public readonly float Evaluate( float time ) => Curve.Evaluate( Math.Abs( time ) );
 
 	/// <summary>
 	///     Generate Curve from B,C,D and E parameters of Pacejka's simplified magic formula
@@ -92,7 +80,7 @@ public class PacejkaCurve
 	}
 
 
-	private float GetFrictionValue( float slip )
+	private readonly float GetFrictionValue( float slip )
 	{
 		float B = Stiffnes;
 		float C = ShapeFactor;
@@ -102,7 +90,7 @@ public class PacejkaCurve
 		return D * MathF.Sin( C * MathF.Atan( B * t - E * (B * t - MathF.Atan( B * t )) ) );
 	}
 
-	public static readonly PacejkaCurve Asphalt = new( 9f, 2.15f, 0.933f, 0.871f );
+	public static readonly PacejkaCurve Asphalt = new( 9f, 2.15f, 0.933f, 0.971f );
 	public static readonly PacejkaCurve AsphaltWet = new( 9f, 2.35f, 0.82f, 0.907f );
 	public static readonly PacejkaCurve Generic = new( 8f, 1.9f, 0.8f, 0.99f );
 	public static readonly PacejkaCurve Grass = new( 7.38f, 1.1f, 0.538f, 1f );
@@ -113,49 +101,37 @@ public class PacejkaCurve
 	public static readonly PacejkaCurve Sand = new( 5.13f, 1.2f, 0.443f, 0.5f );
 	public static readonly PacejkaCurve Snow = new( 8.5f, 1.1f, 0.4f, 0.9f );
 	public static readonly PacejkaCurve Tracks = new( 0.1f, 2f, 2f, 1f );
-	public static readonly PacejkaCurve Arcade = new( 7.09f, 0.87f, 2f, 0.5f );
-	public static readonly PacejkaCurve Street = new( 9f, 1.87f, 1.3f, 0.6f );
+	public static PacejkaCurve GetPreset( PacejkaPreset preset )
+	{
+		return preset switch
+		{
+			PacejkaPreset.Asphalt => Asphalt,
+			PacejkaPreset.AsphaltWet => AsphaltWet,
+			PacejkaPreset.Generic => Generic,
+			PacejkaPreset.Grass => Grass,
+			PacejkaPreset.Dirt => Dirt,
+			PacejkaPreset.Gravel => Gravel,
+			PacejkaPreset.Ice => Ice,
+			PacejkaPreset.Rock => Rock,
+			PacejkaPreset.Sand => Sand,
+			PacejkaPreset.Snow => Snow,
+			PacejkaPreset.Tracks => Tracks,
+			_ => Asphalt,
+		};
+	}
+}
 
-	public readonly static Dictionary<PresetsEnum, PacejkaCurve> Presets = new()
+public enum PacejkaPreset
 {
-	{PresetsEnum.Asphalt      ,    Asphalt},
-	{PresetsEnum.AsphaltWet   , AsphaltWet},
-	{PresetsEnum.Generic      ,    Generic},
-	{PresetsEnum.Grass        ,      Grass},
-	{PresetsEnum.Dirt         ,       Dirt},
-	{PresetsEnum.Gravel       ,     Gravel},
-	{PresetsEnum.Ice          ,        Ice},
-	{PresetsEnum.Rock         ,       Rock},
-	{PresetsEnum.Sand         ,       Sand},
-	{PresetsEnum.Snow         ,       Snow},
-	{PresetsEnum.Tracks       ,     Tracks},
-	{PresetsEnum.Arcade       ,     Arcade},
-	{PresetsEnum.Street       ,     Street},
-};
-
-	public enum PresetsEnum
-	{
-		Asphalt,
-		AsphaltWet,
-		Generic,
-		Grass,
-		Dirt,
-		Gravel,
-		Ice,
-		Rock,
-		Sand,
-		Snow,
-		Tracks,
-		Arcade,
-		Street,
-	}
-
-	public void Apply( PacejkaCurve preset )
-	{
-		stiffnes = preset.Stiffnes;
-		shapeFactor = preset.ShapeFactor;
-		peakValue = preset.PeakValue;
-		curvatureFactor = preset.CurvatureFactor;
-		UpdateFrictionCurve();
-	}
+	Asphalt,
+	AsphaltWet,
+	Generic,
+	Grass,
+	Dirt,
+	Gravel,
+	Ice,
+	Rock,
+	Sand,
+	Snow,
+	Tracks,
 }

@@ -609,63 +609,7 @@
             ],
             "Children": [
               {
-                "__guid": "740083f4-18ee-4b22-9cd6-2263009acc5a",
-                "Flags": 0,
-                "Name": "panel",
-                "Position": "0,10,0",
-                "Rotation": "0.00000003231162,-0.00000003231166,-0.7071068,0.7071068",
-                "Tags": "garage",
-                "Enabled": true,
-                "Components": [
-                  {
-                    "__type": "Sandbox.WorldPanel",
-                    "__guid": "cf534f14-a404-4612-bba4-a9b366ded907",
-                    "HorizontalAlign": "Center",
-                    "InteractionRange": 1000,
-                    "LookAtCamera": true,
-                    "PanelSize": "512,128",
-                    "RenderOptions": {
-                      "GameLayer": false,
-                      "OverlayLayer": true,
-                      "BloomLayer": false,
-                      "AfterUILayer": false
-                    },
-                    "RenderScale": 1,
-                    "VerticalAlign": "Center"
-                  },
-                  {
-                    "__type": "Sandbox.UI.InteractiveObject",
-                    "__guid": "684b2a51-9e09-4710-9049-1456946b09e6",
-                    "ClampEqual": false,
-                    "Clamping": true,
-                    "Distance": 64,
-                    "LocalAngles": "0,0,0",
-                    "OffsetPosition": "0,0,0",
-                    "Parent": {
-                      "_type": "component",
-                      "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
-                      "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
-                      "component_type": "InteractiveObject"
-                    },
-                    "TriggerAnimation": false,
-                    "ClampMax": "60,80,0",
-                    "ClampMin": "-5,-90,0"
-                  },
-                  {
-                    "__type": "Sandbox.Tuning.UI.TuningPanel",
-                    "__guid": "7f1749a9-c3da-496f-84c3-6bd1e88eec6e",
-                    "Category": "Wheel",
-                    "Object": {
-                      "_type": "component",
-                      "component_id": "684b2a51-9e09-4710-9049-1456946b09e6",
-                      "go": "740083f4-18ee-4b22-9cd6-2263009acc5a",
-                      "component_type": "InteractiveObject"
-                    }
-                  }
-                ]
-              },
-              {
-                "__guid": "edb95445-840f-4b9d-83df-1d9dc3bd9350",
+                "__guid": "ea61eac4-f40a-4ed5-82e8-33d0f53ea938",
                 "Flags": 0,
                 "Name": "Smoke",
                 "Tags": "particles",
@@ -673,7 +617,7 @@
                 "Components": [
                   {
                     "__type": "Sandbox.ParticleEffect",
-                    "__guid": "d0fbca94-e249-40e6-9068-d3f26bb440c8",
+                    "__guid": "f657f5ba-6e5e-45ba-8371-b51d400ecea1",
                     "__version": 1,
                     "Alpha": {
                       "Type": "Curve",
@@ -743,7 +687,7 @@
                     "Lifetime": {
                       "Type": "Range",
                       "Evaluation": "Particle",
-                      "Constants": "5,8,0,0"
+                      "Constants": "1,2,0,0"
                     },
                     "MaxParticles": 5000,
                     "OrbitalForce": {},
@@ -789,8 +733,7 @@
                   },
                   {
                     "__type": "Sandbox.ParticleSpriteRenderer",
-                    "__guid": "6d6cf041-533b-41d0-b69c-938c7e6ab17c",
-                    "__enabled": false,
+                    "__guid": "6afb1cd3-2a10-4de6-8b07-1f96cdd54754",
                     "Additive": false,
                     "Alignment": "LookAtCamera",
                     "BlurAmount": 0.5,
@@ -813,11 +756,12 @@
                     "Scale": 1,
                     "Shadows": true,
                     "SortMode": "Unsorted",
-                    "Texture": "materials/particles/smoke/render/smokeloop_g_1.vtex"
+                    "Texture": "materials/smoketexturesheet.vtex"
                   },
                   {
                     "__type": "Sandbox.ParticleSphereEmitter",
-                    "__guid": "00f9382f-f3ba-44b1-8b8b-a96d4e39c2a4",
+                    "__guid": "c64e7ebf-5042-4fa6-91bd-5412220e8154",
+                    "__enabled": false,
                     "Burst": 0,
                     "Delay": 0,
                     "DestroyOnEnd": false,
@@ -825,9 +769,65 @@
                     "Loop": true,
                     "OnEdge": false,
                     "Radius": 23.6,
-                    "Rate": 5,
+                    "Rate": 500,
                     "RateOverDistance": 0,
                     "Velocity": 0
+                  }
+                ]
+              },
+              {
+                "__guid": "740083f4-18ee-4b22-9cd6-2263009acc5a",
+                "Flags": 0,
+                "Name": "panel",
+                "Position": "0,10,0",
+                "Rotation": "0.00000003231162,-0.00000003231166,-0.7071068,0.7071068",
+                "Tags": "garage",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.WorldPanel",
+                    "__guid": "cf534f14-a404-4612-bba4-a9b366ded907",
+                    "HorizontalAlign": "Center",
+                    "InteractionRange": 1000,
+                    "LookAtCamera": true,
+                    "PanelSize": "512,128",
+                    "RenderOptions": {
+                      "GameLayer": false,
+                      "OverlayLayer": true,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderScale": 1,
+                    "VerticalAlign": "Center"
+                  },
+                  {
+                    "__type": "Sandbox.UI.InteractiveObject",
+                    "__guid": "684b2a51-9e09-4710-9049-1456946b09e6",
+                    "ClampEqual": false,
+                    "Clamping": true,
+                    "Distance": 64,
+                    "LocalAngles": "0,0,0",
+                    "OffsetPosition": "0,0,0",
+                    "Parent": {
+                      "_type": "component",
+                      "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
+                      "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+                      "component_type": "InteractiveObject"
+                    },
+                    "TriggerAnimation": false,
+                    "ClampMax": "60,80,0",
+                    "ClampMin": "-5,-90,0"
+                  },
+                  {
+                    "__type": "Sandbox.Tuning.UI.TuningPanel",
+                    "__guid": "7f1749a9-c3da-496f-84c3-6bd1e88eec6e",
+                    "Category": "Wheel",
+                    "Object": {
+                      "_type": "component",
+                      "component_id": "684b2a51-9e09-4710-9049-1456946b09e6",
+                      "go": "740083f4-18ee-4b22-9cd6-2263009acc5a",
+                      "component_type": "InteractiveObject"
+                    }
                   }
                 ]
               }
@@ -985,63 +985,7 @@
             ],
             "Children": [
               {
-                "__guid": "7abf5208-3f95-4155-b91c-065642d76d42",
-                "Flags": 0,
-                "Name": "panel",
-                "Position": "0,-10,0",
-                "Rotation": "0.000000000000024869,0.00000006462326,0.7071068,0.7071068",
-                "Tags": "garage",
-                "Enabled": true,
-                "Components": [
-                  {
-                    "__type": "Sandbox.WorldPanel",
-                    "__guid": "622f9fad-2b59-46e8-a246-db1c10fe7fcc",
-                    "HorizontalAlign": "Center",
-                    "InteractionRange": 1000,
-                    "LookAtCamera": true,
-                    "PanelSize": "512,128",
-                    "RenderOptions": {
-                      "GameLayer": false,
-                      "OverlayLayer": true,
-                      "BloomLayer": false,
-                      "AfterUILayer": false
-                    },
-                    "RenderScale": 1,
-                    "VerticalAlign": "Center"
-                  },
-                  {
-                    "__type": "Sandbox.UI.InteractiveObject",
-                    "__guid": "e27b282c-7395-4efd-8181-33010f0bb34e",
-                    "ClampEqual": false,
-                    "Clamping": true,
-                    "Distance": 64,
-                    "LocalAngles": "0,0,0",
-                    "OffsetPosition": "0,0,0",
-                    "Parent": {
-                      "_type": "component",
-                      "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
-                      "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
-                      "component_type": "InteractiveObject"
-                    },
-                    "TriggerAnimation": false,
-                    "ClampMax": "60,80,0",
-                    "ClampMin": "-5,-90,0"
-                  },
-                  {
-                    "__type": "Sandbox.Tuning.UI.TuningPanel",
-                    "__guid": "007c3811-25e5-49b0-ab00-b5cb508684b8",
-                    "Category": "Wheel",
-                    "Object": {
-                      "_type": "component",
-                      "component_id": "e27b282c-7395-4efd-8181-33010f0bb34e",
-                      "go": "7abf5208-3f95-4155-b91c-065642d76d42",
-                      "component_type": "InteractiveObject"
-                    }
-                  }
-                ]
-              },
-              {
-                "__guid": "8156c50d-8f0e-4324-a27c-3da9c8e5629a",
+                "__guid": "7d86931f-dec0-4819-a2ad-c88c74840bd0",
                 "Flags": 0,
                 "Name": "Smoke",
                 "Tags": "particles",
@@ -1049,7 +993,7 @@
                 "Components": [
                   {
                     "__type": "Sandbox.ParticleEffect",
-                    "__guid": "08a91339-57eb-4793-a674-aec1be85a2bb",
+                    "__guid": "5dc8fbf7-f166-40ba-bac2-942ad688471d",
                     "__version": 1,
                     "Alpha": {
                       "Type": "Curve",
@@ -1119,7 +1063,7 @@
                     "Lifetime": {
                       "Type": "Range",
                       "Evaluation": "Particle",
-                      "Constants": "5,8,0,0"
+                      "Constants": "1,2,0,0"
                     },
                     "MaxParticles": 5000,
                     "OrbitalForce": {},
@@ -1165,8 +1109,7 @@
                   },
                   {
                     "__type": "Sandbox.ParticleSpriteRenderer",
-                    "__guid": "e9e6b120-6265-43df-b74f-9f4a125ed11b",
-                    "__enabled": false,
+                    "__guid": "29008736-2ca9-42c9-b9ad-5af077990f43",
                     "Additive": false,
                     "Alignment": "LookAtCamera",
                     "BlurAmount": 0.5,
@@ -1189,11 +1132,12 @@
                     "Scale": 1,
                     "Shadows": true,
                     "SortMode": "Unsorted",
-                    "Texture": "materials/particles/smoke/render/smokeloop_g_1.vtex"
+                    "Texture": "materials/smoketexturesheet.vtex"
                   },
                   {
                     "__type": "Sandbox.ParticleSphereEmitter",
-                    "__guid": "04820b22-f8dd-43bd-ae35-22a90d5ae56e",
+                    "__guid": "40090737-63af-4306-b0fc-8f29c71fb067",
+                    "__enabled": false,
                     "Burst": 0,
                     "Delay": 0,
                     "DestroyOnEnd": false,
@@ -1201,9 +1145,65 @@
                     "Loop": true,
                     "OnEdge": false,
                     "Radius": 23.6,
-                    "Rate": 5,
+                    "Rate": 500,
                     "RateOverDistance": 0,
                     "Velocity": 0
+                  }
+                ]
+              },
+              {
+                "__guid": "7abf5208-3f95-4155-b91c-065642d76d42",
+                "Flags": 0,
+                "Name": "panel",
+                "Position": "0,-10,0",
+                "Rotation": "0.000000000000024869,0.00000006462326,0.7071068,0.7071068",
+                "Tags": "garage",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.WorldPanel",
+                    "__guid": "622f9fad-2b59-46e8-a246-db1c10fe7fcc",
+                    "HorizontalAlign": "Center",
+                    "InteractionRange": 1000,
+                    "LookAtCamera": true,
+                    "PanelSize": "512,128",
+                    "RenderOptions": {
+                      "GameLayer": false,
+                      "OverlayLayer": true,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderScale": 1,
+                    "VerticalAlign": "Center"
+                  },
+                  {
+                    "__type": "Sandbox.UI.InteractiveObject",
+                    "__guid": "e27b282c-7395-4efd-8181-33010f0bb34e",
+                    "ClampEqual": false,
+                    "Clamping": true,
+                    "Distance": 64,
+                    "LocalAngles": "0,0,0",
+                    "OffsetPosition": "0,0,0",
+                    "Parent": {
+                      "_type": "component",
+                      "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
+                      "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+                      "component_type": "InteractiveObject"
+                    },
+                    "TriggerAnimation": false,
+                    "ClampMax": "60,80,0",
+                    "ClampMin": "-5,-90,0"
+                  },
+                  {
+                    "__type": "Sandbox.Tuning.UI.TuningPanel",
+                    "__guid": "007c3811-25e5-49b0-ab00-b5cb508684b8",
+                    "Category": "Wheel",
+                    "Object": {
+                      "_type": "component",
+                      "component_id": "e27b282c-7395-4efd-8181-33010f0bb34e",
+                      "go": "7abf5208-3f95-4155-b91c-065642d76d42",
+                      "component_type": "InteractiveObject"
+                    }
                   }
                 ]
               }
@@ -1361,72 +1361,15 @@
             ],
             "Children": [
               {
-                "__guid": "7a19da7d-af3a-45af-8cda-c0ee069274fa",
-                "Flags": 0,
-                "Name": "panel",
-                "Position": "0,10,0",
-                "Rotation": "0.00000006462326,-0.00000000000002131628,-0.7071068,0.7071068",
-                "Tags": "garage",
-                "Enabled": true,
-                "Components": [
-                  {
-                    "__type": "Sandbox.WorldPanel",
-                    "__guid": "a76817d6-7b8d-4a16-b2cd-7c3906b2e534",
-                    "HorizontalAlign": "Center",
-                    "InteractionRange": 1000,
-                    "LookAtCamera": true,
-                    "PanelSize": "512,128",
-                    "RenderOptions": {
-                      "GameLayer": false,
-                      "OverlayLayer": true,
-                      "BloomLayer": false,
-                      "AfterUILayer": false
-                    },
-                    "RenderScale": 1,
-                    "VerticalAlign": "Center"
-                  },
-                  {
-                    "__type": "Sandbox.UI.InteractiveObject",
-                    "__guid": "d52f17c8-7c0c-4610-873f-6ff9e1672f5e",
-                    "ClampEqual": false,
-                    "Clamping": true,
-                    "Distance": 64,
-                    "LocalAngles": "0,0,0",
-                    "OffsetPosition": "0,0,0",
-                    "Parent": {
-                      "_type": "component",
-                      "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
-                      "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
-                      "component_type": "InteractiveObject"
-                    },
-                    "TriggerAnimation": false,
-                    "ClampMax": "60,90,0",
-                    "ClampMin": "-5,-80,0"
-                  },
-                  {
-                    "__type": "Sandbox.Tuning.UI.TuningPanel",
-                    "__guid": "c6b367ab-935b-4b08-a573-1195f8007062",
-                    "Category": "Wheel",
-                    "Object": {
-                      "_type": "component",
-                      "component_id": "d52f17c8-7c0c-4610-873f-6ff9e1672f5e",
-                      "go": "7a19da7d-af3a-45af-8cda-c0ee069274fa",
-                      "component_type": "InteractiveObject"
-                    }
-                  }
-                ]
-              },
-              {
-                "__guid": "3f801f53-8673-4772-b44c-26c74126b3e2",
+                "__guid": "29fab0ac-dda0-472c-98e4-53e71a9b7af6",
                 "Flags": 0,
                 "Name": "Smoke",
-                "Position": "-0.0000003798923,-70.40294,0.000009295227",
                 "Tags": "particles",
                 "Enabled": true,
                 "Components": [
                   {
                     "__type": "Sandbox.ParticleEffect",
-                    "__guid": "31ff3f60-cbef-466e-82d1-5d9b49ebba0f",
+                    "__guid": "e110ad05-722e-44a8-96e7-d02c1c5e8d84",
                     "__version": 1,
                     "Alpha": {
                       "Type": "Curve",
@@ -1496,7 +1439,7 @@
                     "Lifetime": {
                       "Type": "Range",
                       "Evaluation": "Particle",
-                      "Constants": "5,8,0,0"
+                      "Constants": "1,2,0,0"
                     },
                     "MaxParticles": 5000,
                     "OrbitalForce": {},
@@ -1542,8 +1485,7 @@
                   },
                   {
                     "__type": "Sandbox.ParticleSpriteRenderer",
-                    "__guid": "86fe81e0-9b53-4313-81dc-42087d6a0d5f",
-                    "__enabled": false,
+                    "__guid": "2734f524-30a5-49b1-8ced-9e2b09658f4a",
                     "Additive": false,
                     "Alignment": "LookAtCamera",
                     "BlurAmount": 0.5,
@@ -1566,11 +1508,12 @@
                     "Scale": 1,
                     "Shadows": true,
                     "SortMode": "Unsorted",
-                    "Texture": "materials/particles/smoke/render/smokeloop_g_1.vtex"
+                    "Texture": "materials/smoketexturesheet.vtex"
                   },
                   {
                     "__type": "Sandbox.ParticleSphereEmitter",
-                    "__guid": "8bba9137-3c59-47e3-9b92-f5caa24082e7",
+                    "__guid": "f55488f6-b615-4cda-930c-40005a2ed81d",
+                    "__enabled": false,
                     "Burst": 0,
                     "Delay": 0,
                     "DestroyOnEnd": false,
@@ -1578,9 +1521,65 @@
                     "Loop": true,
                     "OnEdge": false,
                     "Radius": 23.6,
-                    "Rate": 5,
+                    "Rate": 500,
                     "RateOverDistance": 0,
                     "Velocity": 0
+                  }
+                ]
+              },
+              {
+                "__guid": "7a19da7d-af3a-45af-8cda-c0ee069274fa",
+                "Flags": 0,
+                "Name": "panel",
+                "Position": "0,10,0",
+                "Rotation": "0.00000006462326,-0.00000000000002131628,-0.7071068,0.7071068",
+                "Tags": "garage",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.WorldPanel",
+                    "__guid": "a76817d6-7b8d-4a16-b2cd-7c3906b2e534",
+                    "HorizontalAlign": "Center",
+                    "InteractionRange": 1000,
+                    "LookAtCamera": true,
+                    "PanelSize": "512,128",
+                    "RenderOptions": {
+                      "GameLayer": false,
+                      "OverlayLayer": true,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderScale": 1,
+                    "VerticalAlign": "Center"
+                  },
+                  {
+                    "__type": "Sandbox.UI.InteractiveObject",
+                    "__guid": "d52f17c8-7c0c-4610-873f-6ff9e1672f5e",
+                    "ClampEqual": false,
+                    "Clamping": true,
+                    "Distance": 64,
+                    "LocalAngles": "0,0,0",
+                    "OffsetPosition": "0,0,0",
+                    "Parent": {
+                      "_type": "component",
+                      "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
+                      "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+                      "component_type": "InteractiveObject"
+                    },
+                    "TriggerAnimation": false,
+                    "ClampMax": "60,90,0",
+                    "ClampMin": "-5,-80,0"
+                  },
+                  {
+                    "__type": "Sandbox.Tuning.UI.TuningPanel",
+                    "__guid": "c6b367ab-935b-4b08-a573-1195f8007062",
+                    "Category": "Wheel",
+                    "Object": {
+                      "_type": "component",
+                      "component_id": "d52f17c8-7c0c-4610-873f-6ff9e1672f5e",
+                      "go": "7a19da7d-af3a-45af-8cda-c0ee069274fa",
+                      "component_type": "InteractiveObject"
+                    }
                   }
                 ]
               }
@@ -1712,63 +1711,7 @@
             ],
             "Children": [
               {
-                "__guid": "b7de11fd-4ab8-4a67-aa1e-9332bcaeb094",
-                "Flags": 0,
-                "Name": "panel",
-                "Position": "0,-10,0",
-                "Rotation": "0.000000000000024869,0.00000006462326,0.7071068,0.7071068",
-                "Tags": "garage",
-                "Enabled": true,
-                "Components": [
-                  {
-                    "__type": "Sandbox.WorldPanel",
-                    "__guid": "7252edc8-61c6-471f-98c7-f053f1c7a59d",
-                    "HorizontalAlign": "Center",
-                    "InteractionRange": 1000,
-                    "LookAtCamera": true,
-                    "PanelSize": "512,128",
-                    "RenderOptions": {
-                      "GameLayer": false,
-                      "OverlayLayer": true,
-                      "BloomLayer": false,
-                      "AfterUILayer": false
-                    },
-                    "RenderScale": 1,
-                    "VerticalAlign": "Center"
-                  },
-                  {
-                    "__type": "Sandbox.UI.InteractiveObject",
-                    "__guid": "2a51e3b0-05d8-4596-bea3-1ee4d9483185",
-                    "ClampEqual": false,
-                    "Clamping": true,
-                    "Distance": 64,
-                    "LocalAngles": "0,0,0",
-                    "OffsetPosition": "0,0,0",
-                    "Parent": {
-                      "_type": "component",
-                      "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
-                      "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
-                      "component_type": "InteractiveObject"
-                    },
-                    "TriggerAnimation": false,
-                    "ClampMax": "60,90,0",
-                    "ClampMin": "-5,-80,0"
-                  },
-                  {
-                    "__type": "Sandbox.Tuning.UI.TuningPanel",
-                    "__guid": "19320a45-3d88-41ec-9cbb-0446bde6b87c",
-                    "Category": "Wheel",
-                    "Object": {
-                      "_type": "component",
-                      "component_id": "2a51e3b0-05d8-4596-bea3-1ee4d9483185",
-                      "go": "b7de11fd-4ab8-4a67-aa1e-9332bcaeb094",
-                      "component_type": "InteractiveObject"
-                    }
-                  }
-                ]
-              },
-              {
-                "__guid": "e4d4428b-4558-4189-9212-20d311297c2d",
+                "__guid": "6c662966-2457-4a18-a35c-65a6917fb2a8",
                 "Flags": 0,
                 "Name": "Smoke",
                 "Tags": "particles",
@@ -1776,7 +1719,7 @@
                 "Components": [
                   {
                     "__type": "Sandbox.ParticleEffect",
-                    "__guid": "40c729b4-3218-4151-aa6d-c4b1cf1a045c",
+                    "__guid": "df5bca73-0ef5-451b-9152-ed0cf41a4c82",
                     "__version": 1,
                     "Alpha": {
                       "Type": "Curve",
@@ -1846,7 +1789,7 @@
                     "Lifetime": {
                       "Type": "Range",
                       "Evaluation": "Particle",
-                      "Constants": "5,8,0,0"
+                      "Constants": "1,2,0,0"
                     },
                     "MaxParticles": 5000,
                     "OrbitalForce": {},
@@ -1892,8 +1835,7 @@
                   },
                   {
                     "__type": "Sandbox.ParticleSpriteRenderer",
-                    "__guid": "417a1652-b1a1-495b-aa5a-17290083c330",
-                    "__enabled": false,
+                    "__guid": "4c9f78c5-ceb2-4cfa-a048-da92d6173a0d",
                     "Additive": false,
                     "Alignment": "LookAtCamera",
                     "BlurAmount": 0.5,
@@ -1916,11 +1858,12 @@
                     "Scale": 1,
                     "Shadows": true,
                     "SortMode": "Unsorted",
-                    "Texture": "materials/particles/smoke/render/smokeloop_g_1.vtex"
+                    "Texture": "materials/smoketexturesheet.vtex"
                   },
                   {
                     "__type": "Sandbox.ParticleSphereEmitter",
-                    "__guid": "fc6ad5dc-22b7-4dac-9b92-c066e47ac67e",
+                    "__guid": "2f70d42c-c260-4143-be31-b880f8087b71",
+                    "__enabled": false,
                     "Burst": 0,
                     "Delay": 0,
                     "DestroyOnEnd": false,
@@ -1928,9 +1871,65 @@
                     "Loop": true,
                     "OnEdge": false,
                     "Radius": 23.6,
-                    "Rate": 5,
+                    "Rate": 500,
                     "RateOverDistance": 0,
                     "Velocity": 0
+                  }
+                ]
+              },
+              {
+                "__guid": "b7de11fd-4ab8-4a67-aa1e-9332bcaeb094",
+                "Flags": 0,
+                "Name": "panel",
+                "Position": "0,-10,0",
+                "Rotation": "0.000000000000024869,0.00000006462326,0.7071068,0.7071068",
+                "Tags": "garage",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.WorldPanel",
+                    "__guid": "7252edc8-61c6-471f-98c7-f053f1c7a59d",
+                    "HorizontalAlign": "Center",
+                    "InteractionRange": 1000,
+                    "LookAtCamera": true,
+                    "PanelSize": "512,128",
+                    "RenderOptions": {
+                      "GameLayer": false,
+                      "OverlayLayer": true,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderScale": 1,
+                    "VerticalAlign": "Center"
+                  },
+                  {
+                    "__type": "Sandbox.UI.InteractiveObject",
+                    "__guid": "2a51e3b0-05d8-4596-bea3-1ee4d9483185",
+                    "ClampEqual": false,
+                    "Clamping": true,
+                    "Distance": 64,
+                    "LocalAngles": "0,0,0",
+                    "OffsetPosition": "0,0,0",
+                    "Parent": {
+                      "_type": "component",
+                      "component_id": "4ba5b721-02a0-4a5e-924b-4f9f8086348c",
+                      "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
+                      "component_type": "InteractiveObject"
+                    },
+                    "TriggerAnimation": false,
+                    "ClampMax": "60,90,0",
+                    "ClampMin": "-5,-80,0"
+                  },
+                  {
+                    "__type": "Sandbox.Tuning.UI.TuningPanel",
+                    "__guid": "19320a45-3d88-41ec-9cbb-0446bde6b87c",
+                    "Category": "Wheel",
+                    "Object": {
+                      "_type": "component",
+                      "component_id": "2a51e3b0-05d8-4596-bea3-1ee4d9483185",
+                      "go": "b7de11fd-4ab8-4a67-aa1e-9332bcaeb094",
+                      "component_type": "InteractiveObject"
+                    }
                   }
                 ]
               }

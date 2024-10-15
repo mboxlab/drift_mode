@@ -50,6 +50,8 @@ public sealed class CameraController : Component
 		camera.FieldOfView = camera.FieldOfView.LerpTo( targetFov, Time.Delta * 4f );
 
 		Rotation rotation = Body.WorldRotation;
+		if ( CarController.Local.LocalVelocity.y < -100 )
+			rotation = rotation.RotateAroundAxis( Vector3.Up, 180 );
 
 		float front = (Input.Down( "Front View" ) ? 1 : 0) - (Input.Down( "Back View" ) ? 1 : 0);
 		float side = (Input.Down( "Right View" ) ? 1 : 0) - (Input.Down( "Left View" ) ? 1 : 0);

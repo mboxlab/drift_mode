@@ -145,7 +145,7 @@
         "__type": "Sandbox.ModelCollider",
         "__guid": "d9394def-1ad3-4a36-b0f0-a69361d079cb",
         "IsTrigger": false,
-        "Model": "models/cars/benz190e/benz190e.vmdl",
+        "Model": "models/cars/350z/350z.vmdl",
         "Static": false
       },
       {
@@ -2330,6 +2330,7 @@
                       {
                         "__type": "Sandbox.ModelRenderer",
                         "__guid": "f3697bc0-43da-438f-a2fe-fbed1f95afea",
+                        "__enabled": false,
                         "BodyGroups": 18446744073709551615,
                         "MaterialOverride": "materials/flares/exhaustflash1.vmat",
                         "RenderOptions": {
@@ -2344,6 +2345,7 @@
                       {
                         "__type": "Sandbox.PointLight",
                         "__guid": "d1ad8d82-de5a-4502-8992-848898ae0844",
+                        "__enabled": false,
                         "Attenuation": 1,
                         "FogMode": "Enabled",
                         "FogStrength": 1,
@@ -2565,6 +2567,7 @@
                       {
                         "__type": "Sandbox.ModelRenderer",
                         "__guid": "a28e53df-9378-4d33-9117-c48fe54f16c1",
+                        "__enabled": false,
                         "BodyGroups": 18446744073709551615,
                         "MaterialOverride": "materials/flares/exhaustflash1.vmat",
                         "RenderOptions": {
@@ -2579,6 +2582,7 @@
                       {
                         "__type": "Sandbox.PointLight",
                         "__guid": "4ee35545-8d7e-4e36-a657-529cd1642449",
+                        "__enabled": false,
                         "Attenuation": 1,
                         "FogMode": "Enabled",
                         "FogStrength": 1,

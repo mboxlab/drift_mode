@@ -134,7 +134,7 @@
         "Gravity": true,
         "LinearDamping": 0,
         "Locking": {},
-        "MassCenterOverride": "0,10,20",
+        "MassCenterOverride": "0,13,20",
         "MassOverride": 1740,
         "MotionEnabled": true,
         "OverrideMassCenter": true,
@@ -683,11 +683,10 @@
                     },
                     "Scale": {
                       "Type": "Range",
-                      "Evaluation": "Particle",
                       "CurveA": [
                         {}
                       ],
-                      "Constants": "50,60,0,0"
+                      "Constants": "5,60,0,0"
                     },
                     "SequenceId": {},
                     "SequenceSpeed": {
@@ -733,8 +732,7 @@
                     "RotationOffset": 0,
                     "Scale": 1,
                     "Shadows": true,
-                    "SortMode": "Unsorted",
-                    "Texture": "materials/smoketexturesheet.vtex"
+                    "SortMode": "Unsorted"
                   },
                   {
                     "__type": "Sandbox.ParticleSphereEmitter",
@@ -743,11 +741,11 @@
                     "Burst": 0,
                     "Delay": 0,
                     "DestroyOnEnd": false,
-                    "Duration": 5,
+                    "Duration": 0.1,
                     "Loop": true,
                     "OnEdge": false,
-                    "Radius": 23.6,
-                    "Rate": 500,
+                    "Radius": 12,
+                    "Rate": 250,
                     "RateOverDistance": 0,
                     "Velocity": 0
                   }
@@ -976,11 +974,10 @@
                     },
                     "Scale": {
                       "Type": "Range",
-                      "Evaluation": "Particle",
                       "CurveA": [
                         {}
                       ],
-                      "Constants": "50,60,0,0"
+                      "Constants": "5,60,0,0"
                     },
                     "SequenceId": {},
                     "SequenceSpeed": {
@@ -1026,8 +1023,7 @@
                     "RotationOffset": 0,
                     "Scale": 1,
                     "Shadows": true,
-                    "SortMode": "Unsorted",
-                    "Texture": "materials/smoketexturesheet.vtex"
+                    "SortMode": "Unsorted"
                   },
                   {
                     "__type": "Sandbox.ParticleSphereEmitter",
@@ -1036,11 +1032,11 @@
                     "Burst": 0,
                     "Delay": 0,
                     "DestroyOnEnd": false,
-                    "Duration": 5,
+                    "Duration": 0.1,
                     "Loop": true,
                     "OnEdge": false,
-                    "Radius": 23.6,
-                    "Rate": 500,
+                    "Radius": 12,
+                    "Rate": 250,
                     "RateOverDistance": 0,
                     "Velocity": 0
                   }
@@ -1270,11 +1266,10 @@
                     },
                     "Scale": {
                       "Type": "Range",
-                      "Evaluation": "Particle",
                       "CurveA": [
                         {}
                       ],
-                      "Constants": "50,60,0,0"
+                      "Constants": "5,60,0,0"
                     },
                     "SequenceId": {},
                     "SequenceSpeed": {
@@ -1320,8 +1315,7 @@
                     "RotationOffset": 0,
                     "Scale": 1,
                     "Shadows": true,
-                    "SortMode": "Unsorted",
-                    "Texture": "materials/smoketexturesheet.vtex"
+                    "SortMode": "Unsorted"
                   },
                   {
                     "__type": "Sandbox.ParticleSphereEmitter",
@@ -1330,11 +1324,11 @@
                     "Burst": 0,
                     "Delay": 0,
                     "DestroyOnEnd": false,
-                    "Duration": 5,
+                    "Duration": 0.1,
                     "Loop": true,
                     "OnEdge": false,
-                    "Radius": 23.6,
-                    "Rate": 500,
+                    "Radius": 12,
+                    "Rate": 250,
                     "RateOverDistance": 0,
                     "Velocity": 0
                   }
@@ -1537,11 +1531,10 @@
                     },
                     "Scale": {
                       "Type": "Range",
-                      "Evaluation": "Particle",
                       "CurveA": [
                         {}
                       ],
-                      "Constants": "50,60,0,0"
+                      "Constants": "5,60,0,0"
                     },
                     "SequenceId": {},
                     "SequenceSpeed": {
@@ -1587,8 +1580,7 @@
                     "RotationOffset": 0,
                     "Scale": 1,
                     "Shadows": true,
-                    "SortMode": "Unsorted",
-                    "Texture": "materials/smoketexturesheet.vtex"
+                    "SortMode": "Unsorted"
                   },
                   {
                     "__type": "Sandbox.ParticleSphereEmitter",
@@ -1597,11 +1589,11 @@
                     "Burst": 0,
                     "Delay": 0,
                     "DestroyOnEnd": false,
-                    "Duration": 5,
+                    "Duration": 0.1,
                     "Loop": true,
                     "OnEdge": false,
-                    "Radius": 23.6,
-                    "Rate": 500,
+                    "Radius": 12,
+                    "Rate": 250,
                     "RateOverDistance": 0,
                     "Velocity": 0
                   }

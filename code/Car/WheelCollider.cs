@@ -106,7 +106,8 @@ public class WheelCollider : Stereable
 	{
 		_suspensionTotalLength = (maxSuspensionLength + wheelRadius) - minSuspensionLength;
 	}
-
+	private float _forwardSlipAcc;
+	private float _sideSlipAcc;
 	public void Update()
 	{
 		if ( !_rigidbody.IsValid() )
@@ -118,7 +119,12 @@ public class WheelCollider : Stereable
 		if ( IsProxy )
 			return;
 
-		SmokeEmitter.Enabled = IsGrounded && (Math.Abs( ForwardSlip ) + Math.Abs( SidewaySlip )) > 1.5f;
+		_forwardSlipAcc += Math.Abs( ForwardSlip );
+		_sideSlipAcc += Math.Abs( SidewaySlip );
+		_forwardSlipAcc /= 4f;
+		_sideSlipAcc /= 2f;
+
+		SmokeEmitter.Enabled = IsGrounded && ((_forwardSlipAcc > 0.5f) || (_sideSlipAcc > 0.5f));
 		SmokeEmitter.WorldPosition = groundHit.Point;
 
 		var steerRotation = Rotation.FromAxis( Vector3.Up, SteerAngle );

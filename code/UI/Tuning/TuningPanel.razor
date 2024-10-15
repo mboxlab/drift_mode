@@ -46,8 +46,7 @@
 		if (Dresser.Exclusives is not null)
 			TuningList = TuningList.Concat(Dresser.Exclusives.Where((x) => x.Category == Category));
 
-		TuningList = TuningList.Concat(allTunings.Where(FindOption));
-
+		TuningList = TuningList.UnionBy(allTunings.Where(FindOption), x => x.ResourceId);
 	}
 	private bool FindOption(CarTuning x)
 	{

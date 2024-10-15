@@ -2069,6 +2069,20 @@
                   "go": "a3e593f0-e311-4d65-b30a-e02afa1db2a6",
                   "component_type": "EngineComponent"
                 },
+                "FlashLights": [
+                  {
+                    "_type": "component",
+                    "component_id": "d1ad8d82-de5a-4502-8992-848898ae0844",
+                    "go": "2e25b55e-6570-447e-9d8f-3d4dd93bf919",
+                    "component_type": "PointLight"
+                  },
+                  {
+                    "_type": "component",
+                    "component_id": "4ee35545-8d7e-4e36-a657-529cd1642449",
+                    "go": "2c0bd1fe-6802-4c8f-8c5a-82af29f55093",
+                    "component_type": "PointLight"
+                  }
+                ],
                 "FlashMaterials": [
                   "materials/flares/exhaustflash1.vmat",
                   "materials/flares/exhaustflash2.vmat",
@@ -2091,10 +2105,8 @@
                     "component_type": "ModelRenderer"
                   }
                 ],
-                "MaxRate": 50,
-                "MaxSizeMultiplier": 1.2,
+                "MaxSizeMultiplier": 5,
                 "MaxSpeedMultiplier": 1.4,
-                "MinRate": 5,
                 "NormalColor": "0.6,0.6,0.6,0.3",
                 "PopSounds": [
                   "sound/exhaustpop/exhaustpop1-01.vsnd",
@@ -2238,7 +2250,7 @@
                               }
                             ]
                           },
-                          "Constants": "15,0,0,0"
+                          "Constants": "5,0,0,0"
                         },
                         "SequenceId": {},
                         "SequenceSpeed": {
@@ -2312,7 +2324,7 @@
                     "Position": "-10,-0.00004609018,-0.00000001560447",
                     "Rotation": "-0.000000000000001776357,-0.00000000000000000000002470745,1,-0.00000004371139",
                     "Scale": "0.3,0.3,0",
-                    "Tags": "particles",
+                    "Tags": "particles,light_point,light",
                     "Enabled": true,
                     "Components": [
                       {
@@ -2328,6 +2340,16 @@
                         },
                         "RenderType": "On",
                         "Tint": "1,1,1,1"
+                      },
+                      {
+                        "__type": "Sandbox.PointLight",
+                        "__guid": "d1ad8d82-de5a-4502-8992-848898ae0844",
+                        "Attenuation": 1,
+                        "FogMode": "Enabled",
+                        "FogStrength": 1,
+                        "LightColor": "1,0.51163,0.51163,1",
+                        "Radius": 400,
+                        "Shadows": true
                       }
                     ]
                   }
@@ -2463,7 +2485,7 @@
                               }
                             ]
                           },
-                          "Constants": "15,0,0,0"
+                          "Constants": "5,0,0,0"
                         },
                         "SequenceId": {},
                         "SequenceSpeed": {
@@ -2537,7 +2559,7 @@
                     "Position": "-9.999989,0,0.000007351793",
                     "Rotation": "0,-0.000000000000001776357,1,-0.00000005960464",
                     "Scale": "0.3,0.3,0",
-                    "Tags": "particles",
+                    "Tags": "particles,light_point,light",
                     "Enabled": true,
                     "Components": [
                       {
@@ -2553,6 +2575,16 @@
                         },
                         "RenderType": "On",
                         "Tint": "1,1,1,1"
+                      },
+                      {
+                        "__type": "Sandbox.PointLight",
+                        "__guid": "4ee35545-8d7e-4e36-a657-529cd1642449",
+                        "Attenuation": 1,
+                        "FogMode": "Enabled",
+                        "FogStrength": 1,
+                        "LightColor": "1,0.51163,0.51163,1",
+                        "Radius": 400,
+                        "Shadows": true
                       }
                     ]
                   }

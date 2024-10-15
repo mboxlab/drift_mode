@@ -8,8 +8,6 @@ public sealed class ExhaustComponent : Component
 {
 	[Property, Group( "Smoke" )] public List<ParticleEffect> Emitters { get; set; }
 	[Property, Group( "Smoke" )] public EngineComponent Engine { get; set; }
-	[Property, Group( "Smoke" )] public float MinRate { get; set; } = 5;
-	[Property, Group( "Smoke" )] public float MaxRate { get; set; } = 50;
 
 	/// <summary>
 	/// How much soot is emitted when throttle is pressed.
@@ -41,6 +39,7 @@ public sealed class ExhaustComponent : Component
 	[Property, Range( 0, 1 ), Group( "Flash" )] public float FlashChance = 0.2f;
 	[Property, Group( "Flash" )] public List<ModelRenderer> FlashRenderers { get; set; }
 	[Property, Group( "Flash" )] public List<Material> FlashMaterials { get; set; }
+	[Property, Group( "Flash" )] public List<Light> FlashLights { get; set; }
 	[Property, Group( "Flash" )] public List<SoundFile> PopSounds { get; set; }
 
 	private float _initStartSpeedMin;
@@ -48,7 +47,6 @@ public sealed class ExhaustComponent : Component
 	private float _initStartSizeMin;
 	private float _initStartSizeMax;
 	private float _sootAmount;
-	private float _vehicleSpeed;
 	private ParticleFloat _minMaxCurve;
 
 	protected override void OnStart()
@@ -62,6 +60,8 @@ public sealed class ExhaustComponent : Component
 		_initStartSizeMax = Emitters[0].Scale.ConstantB;
 
 		foreach ( var item in FlashRenderers )
+			item.Enabled = false;
+		foreach ( var item in FlashLights )
 			item.Enabled = false;
 
 	}
@@ -109,11 +109,15 @@ public sealed class ExhaustComponent : Component
 				snd.Occlusion = false;
 				snd.Volume = 10f;
 			}
+			foreach ( var item in FlashLights )
+				item.Enabled = true;
+
 			await GameTask.Delay( 100 );
+
 			foreach ( var item in FlashRenderers )
-			{
 				item.Enabled = false;
-			}
+			foreach ( var item in FlashLights )
+				item.Enabled = false;
 		}
 	}
 }

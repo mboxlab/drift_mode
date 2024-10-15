@@ -1,14 +1,17 @@
 {
-  "SlotsOver": "BrakeDisk",
+  "SlotsOver": "Wheel",
+  "HideBody": "RL, RR, FL, FR",
+  "Category": "Wheel",
   "SlotsUnder": 0,
-  "Title": null,
+  "Title": "Wheel 13",
   "Subtitle": null,
-  "Category": "BrakeDisk",
+  "CarAffected": "Sport",
+  "Exclusive": false,
   "ConditionalModels": {},
   "Tags": null,
   "SubCategory": null,
   "Parent": null,
-  "AllowTintSelect": false,
+  "AllowTintSelect": true,
   "TintSelection": {
     "color": [
       {
@@ -19,8 +22,7 @@
     "alpha": []
   },
   "TintDefault": 0.5,
-  "HideBody": "BrakeDisk",
-  "Model": "models/tuning/wheels/wheel01/models/brakedisk.vmdl",
+  "Model": "models/tuning/wheels/models/lp_veh_wheel_13.vmdl",
   "__references": [],
   "__version": 0
 }

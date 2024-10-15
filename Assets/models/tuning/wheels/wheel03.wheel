@@ -1,0 +1,28 @@
+{
+  "SlotsOver": "Wheel",
+  "HideBody": "RL, RR, FL, FR",
+  "Category": "Wheel",
+  "SlotsUnder": 0,
+  "Title": "Wheel 3",
+  "Subtitle": null,
+  "CarAffected": "Sport",
+  "Exclusive": false,
+  "ConditionalModels": {},
+  "Tags": null,
+  "SubCategory": null,
+  "Parent": null,
+  "AllowTintSelect": true,
+  "TintSelection": {
+    "color": [
+      {
+        "t": 0.5,
+        "c": "1,1,1,1"
+      }
+    ],
+    "alpha": []
+  },
+  "TintDefault": 0.5,
+  "Model": "models/tuning/wheels/models/lp_veh_wheel_03.vmdl",
+  "__references": [],
+  "__version": 0
+}

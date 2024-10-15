@@ -14,12 +14,12 @@
 						remaps = 
 						[
 							{
-								from = "wh.vmat"
-								to = "materials/car/lp_cars_texture.vmat"
-							},
-							{
 								from = "tire.vmat"
 								to = "materials/car/black.vmat"
+							},
+							{
+								from = "wh.vmat"
+								to = "materials/car/lp_cars_texture.vmat"
 							},
 						]
 						use_global_default = false
@@ -33,7 +33,7 @@
 				[
 					{
 						_class = "RenderMeshFile"
-						filename = "models/tuning/wheels/wheel01/models/lp_veh_wheel_01.fbx"
+						filename = "models/tuning/wheels/models/lp_veh_wheel_05.fbx"
 						import_translation = [ 0.0, 0.0, 0.0 ]
 						import_rotation = [ 0.0, -90.0, 0.0 ]
 						import_scale = 1.0
@@ -46,7 +46,7 @@
 							exclude_by_default = true
 							exception_list = 
 							[
-								"LP_Veh_Wheel_01",
+								"LP_Veh_Wheel_05",
 							]
 						}
 					},

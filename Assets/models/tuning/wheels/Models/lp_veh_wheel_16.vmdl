@@ -14,6 +14,10 @@
 						remaps = 
 						[
 							{
+								from = "tire.vmat"
+								to = "materials/car/black.vmat"
+							},
+							{
 								from = "wh.vmat"
 								to = "materials/car/lp_cars_texture.vmat"
 							},
@@ -29,20 +33,29 @@
 				[
 					{
 						_class = "RenderMeshFile"
-						filename = "models/tuning/wheels/wheel01/models/lp_veh_wheel_01.fbx"
+						filename = "models/tuning/wheels/models/lp_veh_wheel_16.fbx"
 						import_translation = [ 0.0, 0.0, 0.0 ]
-						import_rotation = [ 0.0, 0.0, 0.0 ]
+						import_rotation = [ 0.0, -90.0, 0.0 ]
 						import_scale = 1.0
-						align_origin_x_type = "BoundsCenter"
-						align_origin_y_type = "BoundsCenter"
-						align_origin_z_type = "BoundsCenter"
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
 						parent_bone = ""
 						import_filter = 
 						{
 							exclude_by_default = true
 							exception_list = 
 							[
-								"LP_Veh_Brake_disk_01",
+								"LP_Veh_Wheel_07",
+								"LP_Veh_Wheel_08",
+								"LP_Veh_Wheel_09",
+								"LP_Veh_Wheel_10",
+								"LP_Veh_Wheel_11",
+								"LP_Veh_Wheel_12",
+								"LP_Veh_Wheel_13",
+								"LP_Veh_Wheel_14",
+								"LP_Veh_Wheel_15",
+								"LP_Veh_Wheel_16",
 							]
 						}
 					},
@@ -54,7 +67,7 @@
 				[
 					{
 						_class = "ModelModifier_ScaleAndMirror"
-						scale = 39.369999
+						scale = 0.3937
 						mirror_x = false
 						mirror_y = false
 						mirror_z = false

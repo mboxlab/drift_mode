@@ -76,6 +76,7 @@ public sealed class ExhaustComponent : Component
 		_sootAmount = engineLoad * SootIntensity;
 		foreach ( var item in Emitters )
 		{
+			item.Enabled = Engine.Enabled;
 			// Color
 			item.Tint = Color.Lerp( item.Tint, Color.Lerp( NormalColor, SootColor, _sootAmount ), Time.Delta * 7f );
 			item.Tint = item.Tint.WithAlphaMultiplied( 10 / (Engine.CarController.CurrentSpeed + 10) );

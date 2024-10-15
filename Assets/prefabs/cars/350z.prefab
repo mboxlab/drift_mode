@@ -89,7 +89,7 @@
           "go": "9129ed10-c30b-4dd2-9800-b160f93b3376",
           "component_type": "Rigidbody"
         },
-        "SideCd": 0.75,
+        "SideCd": 1.05,
         "SlipThreshold": 0.1,
         "SoundInterpolator": {
           "_type": "component",

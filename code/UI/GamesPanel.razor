@@ -21,6 +21,7 @@
 	}
 	private async void JoinRace()
 	{
+		Log.Info("Starting race...");
 		await Networking.JoinBestLobby(Game.Ident);
 		Scene.Load(Race);
 	}
@@ -34,5 +35,5 @@
 	/// <summary>
 	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
 	/// </summary>
-	protected override int BuildHash() => System.HashCode.Combine( InteractiveCamera.Target );
+	protected override int BuildHash() => System.HashCode.Combine(InteractiveCamera.Target);
 }

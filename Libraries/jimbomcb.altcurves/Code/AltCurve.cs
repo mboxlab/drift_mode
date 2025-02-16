@@ -1,6 +1,4 @@
-﻿using Sandbox;
-using Sandbox.UI;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
@@ -39,7 +37,7 @@ public readonly partial record struct AltCurve
 	/// <summary>
 	/// The total timespan of the curve, from the first keyframe to the last
 	/// </summary>
-	public float TimeSpan => TimeRange.Max - TimeRange.Min;
+	public float TimeSpan { get; init; }
 
 	/// <summary>
 	/// The min/max value observed across all keyframes, including curves that extend above/below their keyframes.
@@ -53,19 +51,43 @@ public readonly partial record struct AltCurve
 	/// </summary>
 	public ImmutableArray<(float Min, float Max)> KeyframeValueRanges { get; init; }
 
+	/// <summary>
+	/// Binary search comparer for keyframes by time
+	/// </summary>
+	private readonly IComparer<Keyframe> _keyframeTimeComparer;
+
 	public AltCurve( IEnumerable<Keyframe> keyframes, Extrapolation preInfinity, Extrapolation postInfinity )
 	{
 		// Don't allow a curve consisting of 0 keyframes, if none exist then add one default keyframe.
 		Keyframes = keyframes.Any() ? keyframes.ToImmutableArray() : ImmutableArray.Create( new Keyframe() );
 		PreInfinity = preInfinity;
 		PostInfinity = postInfinity;
+		_keyframeTimeComparer = new KeyframeTimeComparer();
 
+		// Check for out-of-order or duplicate keyframes
+		for ( int i = 0; i < Keyframes.Length - 1; i++ )
+		{
+			if ( Keyframes[i].Time > Keyframes[i + 1].Time )
+			{
+				throw new ArgumentException( $"Keyframes are out of order at index {i}. Keyframe times must be in ascending order." );
+			}
+
+			if ( Keyframes[i].Time == Keyframes[i + 1].Time )
+			{
+				throw new ArgumentException( $"Duplicate keyframe time found at index {i} and {i + 1}. Keyframe times must be unique." );
+			}
+		}
+
+		TimeSpan = Keyframes[^1].Time - Keyframes[0].Time;
 		TimeRange = (Keyframes[0].Time, Keyframes[^1].Time);
 		ValueRange = (Keyframes[0].Value, Keyframes[0].Value);
 
 		if ( Keyframes.Length > 1 )
 		{
-			var ranges = new List<(float Min, float Max)>( Keyframes.Length );
+			float totalMin = float.MaxValue;
+			float totalMax = float.MinValue;
+
+			List<(float Min, float Max)> ranges = new( Keyframes.Length );
 			for ( int i = 0; i < Keyframes.Length - 1; i++ )
 			{
 				// Bare minimum this value range should contain the min/max of the values themselves
@@ -76,19 +98,23 @@ public readonly partial record struct AltCurve
 				if ( Keyframes[i].Interpolation == Interpolation.Cubic )
 				{
 					const int steps = 10;
+					float timeDiff = Keyframes[i + 1].Time - Keyframes[i].Time;
 					for ( float t = 0.0f; t <= 1.0f; t += (1.0f / steps) )
 					{
-						float value = GetInterpolatedValue( Keyframes[i], Keyframes[i + 1], Keyframes[i].Time + (Keyframes[i + 1].Time - Keyframes[i].Time) * t );
+						float interpolatedTime = Keyframes[i].Time + timeDiff * t;
+						float value = GetInterpolatedValue( Keyframes[i], Keyframes[i + 1], interpolatedTime );
 						min = Math.Min( min, value );
 						max = Math.Max( max, value );
 					}
 				}
 
+				totalMin = Math.Min( totalMin, min );
+				totalMax = Math.Max( totalMax, max );
 				ranges.Add( (min, max) );
 			}
 
 			KeyframeValueRanges = ranges.ToImmutableArray();
-			ValueRange = (ranges.Min( r => r.Min ), ranges.Max( r => r.Max ));
+			ValueRange = (totalMin, totalMax);
 		}
 	}
 
@@ -102,6 +128,16 @@ public readonly partial record struct AltCurve
 	public AltCurve( AltCurve copy, IEnumerable<Keyframe> replacementKeyframes ) :
 		this( replacementKeyframes, copy.PreInfinity, copy.PostInfinity )
 	{
+	}
+
+	/// <summary>
+	/// Return a sanitized enumerable of the input keyframes, in particular:
+	/// - No keys may share an identical time
+	/// - All keys must be in ascending time order
+	/// </summary>
+	public static IEnumerable<Keyframe> SanitizeKeyframes( IEnumerable<Keyframe> keyframes )
+	{
+		return keyframes.DistinctBy( x => x.Time ).OrderBy( x => x.Time );
 	}
 
 	/// <summary>
@@ -143,8 +179,8 @@ public readonly partial record struct AltCurve
 			return Keyframes[0].Value; // Only one keyframe, return its value
 
 		// Normalize the time & calculate offset for any times that fall outside our keyframe range
-		var normalizedTime = time;
-		var accumulatedOffset = 0.0f;
+		float normalizedTime = time;
+		float accumulatedOffset = 0.0f;
 
 		if ( time < TimeRange.Min )
 			(normalizedTime, accumulatedOffset) = HandlePreInfinity( time );
@@ -152,7 +188,7 @@ public readonly partial record struct AltCurve
 			(normalizedTime, accumulatedOffset) = HandlePostInfinity( time );
 
 		// Binary search for the given time (or the next index)
-		int baseIndex = Keyframes.BinarySearch( new() { Time = normalizedTime }, new KeyframeTimeComparer() );
+		int baseIndex = Keyframes.BinarySearch( new() { Time = normalizedTime }, _keyframeTimeComparer );
 		if ( baseIndex >= 0 )
 			return Keyframes[baseIndex].Value + accumulatedOffset; // Exact match found
 
@@ -188,7 +224,7 @@ public readonly partial record struct AltCurve
 				return (TimeRange.Max - (cycleOffset % TimeSpan), 0.0f);
 
 			case Extrapolation.CycleOffset:
-				var cycleOffsetOffset = TimeRange.Min - time;
+				float cycleOffsetOffset = TimeRange.Min - time;
 				float cycleVerticalOffset = -(float)((Math.Floor( cycleOffsetOffset / TimeSpan ) + 1.0) * (Keyframes[^1].Value - Keyframes[0].Value));
 				return (TimeRange.Max - (cycleOffsetOffset % TimeSpan), cycleVerticalOffset);
 
@@ -245,7 +281,8 @@ public readonly partial record struct AltCurve
 	/// <summary>
 	/// Interpolates the value between two keyframes at a given time.
 	/// </summary>
-	private static float GetInterpolatedValue( Keyframe keyframeA, Keyframe keyframeB, float time )
+	[MethodImpl( MethodImplOptions.AggressiveInlining )]
+	private static float GetInterpolatedValue( in Keyframe keyframeA, in Keyframe keyframeB, float time )
 	{
 		switch ( keyframeA.Interpolation )
 		{
@@ -255,15 +292,15 @@ public readonly partial record struct AltCurve
 			case Interpolation.Linear:
 				{
 					// The intermediate math operations are done with doubles to help preserve accuracy
-					var interpTime = (time - keyframeA.Time) / (keyframeB.Time - keyframeA.Time);
+					float interpTime = (time - keyframeA.Time) / (keyframeB.Time - keyframeA.Time);
 					return keyframeA.Value + (keyframeB.Value - keyframeA.Value) * interpTime;
 				}
 
 			case Interpolation.Cubic:
 				{
 					// Build the cubic Bezier curve where the first/last points are the keyframe values, and the middle points are the tangent offset positions
-					var interpTime = (time - keyframeA.Time) / (keyframeB.Time - keyframeA.Time);
-					var tangentFactor = 0.4f;
+					float interpTime = (time - keyframeA.Time) / (keyframeB.Time - keyframeA.Time);
+					const float tangentFactor = 0.4f;
 					return Bezier1D( interpTime,
 						keyframeA.Value,
 						keyframeA.Value + (keyframeA.TangentOut * (keyframeB.Time - keyframeA.Time) * tangentFactor),
@@ -277,58 +314,17 @@ public readonly partial record struct AltCurve
 	}
 
 	/// <summary>
-	/// Return a version of this AltCurve but with a sanitized set of keyframes, in particular:
-	/// - No keys may share an identical time
-	/// - All keys must be in ascending time order
-	/// </summary>
-	public readonly AltCurve Sanitize( bool silent = false )
-	{
-		var cleanKeyframes = SanitizedKeyframes;
-
-#if DEBUG
-		if ( !silent )
-		{
-			// Warnings if we're actually making any modifications
-			if ( cleanKeyframes.Count() != Keyframes.Length )
-			{
-				Log.Warning( "Removed invalid AltCurve keyframes, multiple keyframes can not share a time. Either move the invalid keyframe, or it will be removed automatically." );
-			}
-			else
-			{
-				for ( int i = 1; i < cleanKeyframes.Count(); i++ )
-				{
-					if ( cleanKeyframes.ElementAt( i ).Time != Keyframes[i].Time )
-					{
-						Log.Warning( "Invalid AltCurve keyframe ordering detected, times were automatically reordered." );
-						break;
-					}
-				}
-			}
-		}
-#endif
-
-		return new( this, cleanKeyframes );
-	}
-
-	/// <summary>
-	/// Return an enumerable of the sanitized keys of this AltCurve, in particular:
-	/// - No keys may share an identical time
-	/// - All keys must be in ascending time order
-	/// </summary>
-	public readonly IEnumerable<Keyframe> SanitizedKeyframes => Keyframes.DistinctBy( x => x.Time ).OrderBy( x => x.Time );
-
-	/// <summary>
 	/// De Casteljau's algorithm bezier curve (6 lerps)
 	/// </summary>
 	[MethodImpl( MethodImplOptions.AggressiveInlining )]
 	private static float Bezier1D( float t, float p0, float p1, float p2, float p3 )
 	{
-		var line1Frac = p0 + t * (p1 - p0);
-		var line2Frac = p1 + t * (p2 - p1);
-		var line3Frac = p2 + t * (p3 - p2);
+		float line1Frac = p0 + t * (p1 - p0);
+		float line2Frac = p1 + t * (p2 - p1);
+		float line3Frac = p2 + t * (p3 - p2);
 
-		var subLine1Frac = line1Frac + t * (line2Frac - line1Frac);
-		var subLine2Frac = line2Frac + t * (line3Frac - line2Frac);
+		float subLine1Frac = line1Frac + t * (line2Frac - line1Frac);
+		float subLine2Frac = line2Frac + t * (line3Frac - line2Frac);
 
 		return subLine1Frac + t * (subLine2Frac - subLine1Frac);
 	}

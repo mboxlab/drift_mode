@@ -2,6 +2,31 @@
   "__guid": "fa021218-f3ed-4643-aa7e-2cea4620bec8",
   "GameObjects": [
     {
+      "__guid": "4b3e331f-e3c3-49fa-aba4-a05a93c12f1e",
+      "Flags": 0,
+      "Name": "Scene Information",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SceneInformation",
+          "__guid": "a756cb36-8754-4c26-8540-10057a581465",
+          "Author": null,
+          "Changes": null,
+          "Description": "",
+          "Group": null,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "SceneTags": "",
+          "Title": "dev",
+          "Version": null
+        }
+      ]
+    },
+    {
       "__guid": "a1cceb41-7977-4237-9d1a-9ab26891d79f",
       "Flags": 0,
       "Name": "2D Skybox",
@@ -11,13 +36,19 @@
         {
           "__type": "Sandbox.SkyBox2D",
           "__guid": "92626bf8-a6be-4816-89b9-61b197c93860",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "SkyIndirectLighting": true,
           "SkyMaterial": "materials/skybox/skybox_day_01.vmat",
           "Tint": "1,1,1,1"
         },
         {
           "__type": "Sandbox.EnvmapProbe",
           "__guid": "6a138f4a-d059-4197-93d5-2c849821b1ab",
-          "Texture": "textures/cubemaps/default2.vtex",
           "Bounds": {
             "Mins": "-512,-512,-512",
             "Maxs": "512,512,512"
@@ -27,8 +58,15 @@
           "FrameInterval": 5,
           "MaxDistance": 512,
           "MultiBounce": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Projection": "Sphere",
           "RenderDynamically": false,
+          "Texture": "textures/cubemaps/default2.vtex",
           "TintColor": "1,1,1,1",
           "UpdateStrategy": "OnEnabled",
           "ZFar": 4096,
@@ -50,26 +88,14 @@
           "FogMode": "Enabled",
           "FogStrength": 1,
           "LightColor": "0.94419,0.97767,1,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Shadows": true,
           "SkyColor": "0.2532,0.32006,0.35349,1"
-        }
-      ]
-    },
-    {
-      "__guid": "6e0024c6-b7c6-4738-92bf-41d47ec266a5",
-      "Flags": 0,
-      "Name": "Networking",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.CarSpawner",
-          "__guid": "cd0f6159-2963-4c32-89b5-42461e6bc74d",
-          "PlayerPrefab": {
-            "_type": "gameobject",
-            "prefab": "prefabs/cars/sport_new.prefab"
-          },
-          "SpawnPoints": [],
-          "StartServer": true
         }
       ]
     },
@@ -86,12 +112,45 @@
           "EnableCollision": true,
           "MapName": "maps/dev_map.vmap",
           "NoOrigin": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "OnMapLoaded": null,
           "OnMapUnloaded": null,
           "UseMapFromLaunch": false
         }
       ],
       "Children": []
+    },
+    {
+      "__guid": "122b75d6-127d-4d50-87c3-a1bebb650e4f",
+      "Flags": 0,
+      "Name": "Networking (1)",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.GamePlay.Street.StreetManager",
+          "__guid": "6cf1e731-cebb-4f3e-86b4-3e8bd215f774",
+          "Arrow": null,
+          "CurrentCheckpoint": null,
+          "FirstCheckpoint": null,
+          "Lap": 0,
+          "MaxLaps": 1,
+          "MaxPlayers": 0,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "SpawnPoints": [],
+          "Started": false,
+          "StartServer": true
+        }
+      ]
     }
   ],
   "SceneProperties": {
@@ -99,9 +158,13 @@
     "MaxFixedUpdates": 5,
     "NetworkFrequency": 300,
     "NetworkInterpolation": true,
+    "PhysicsSubSteps": 1,
     "ThreadedAnimation": true,
     "TimeScale": 1,
     "UseFixedUpdate": true,
+    "Metadata": {
+      "Title": "dev"
+    },
     "NavMesh": {
       "Enabled": false,
       "IncludeStaticBodies": true,
@@ -115,9 +178,9 @@
       "IncludedBodies": ""
     }
   },
+  "ResourceVersion": 2,
   "Title": "dev",
-  "Description": "",
-  "ResourceVersion": 1,
+  "Description": null,
   "__references": [],
-  "__version": 1
+  "__version": 2
 }

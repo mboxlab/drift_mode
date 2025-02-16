@@ -177,7 +177,7 @@ namespace Sandbox.Powertrain
 
 			// Torque (Nm) = Power (W) / Angular Velocity (rad/s)
 			float absAngVel = Math.Abs( angularVelocity );
-			float clampedAngularVelocity = absAngVel > -1f && absAngVel < 1f ? 1f : angularVelocity;
+			float clampedAngularVelocity = (absAngVel > -1f && absAngVel < 1f) ? 1f : angularVelocity;
 			float torque = powerInWatts / clampedAngularVelocity;
 			return torque;
 		}

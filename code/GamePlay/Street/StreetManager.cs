@@ -15,13 +15,13 @@ public sealed class StreetManager : Component, Component.INetworkListener, IMana
 	/// if 0 then == the number of spawnpoints
 	/// </summary>
 	[Property] public int MaxPlayers { get; set; }
-	[Property, HostSync] public bool Started { get => started; set { started = value; if ( started ) StartRace(); } }
+	[Property, Sync( SyncFlags.FromHost )] public bool Started { get => started; set { started = value; if ( started ) StartRace(); } }
 	[Property] public Checkpoint FirstCheckpoint { get; set; }
 	[Property] public Checkpoint CurrentCheckpoint { get; set; }
 	[Property] public GameObject Arrow { get; set; }
 	[Property] public int MaxLaps { get; set; } = 1;
 	[Property] public int Lap { get; set; }
-	[HostSync] public bool CanStart { get; set; } = false;
+	[Sync( SyncFlags.FromHost )] public bool CanStart { get; set; } = false;
 
 	/// <summary>
 	/// Create a server (if we're not joining one)
@@ -43,7 +43,10 @@ public sealed class StreetManager : Component, Component.INetworkListener, IMana
 		{
 			LoadingScreen.Title = "Creating Lobby";
 			await Task.DelayRealtimeSeconds( 0.1f );
-			Networking.CreateLobby();
+			Networking.CreateLobby( new()
+			{
+				MaxPlayers = MaxPlayers
+			} );
 		}
 
 		if ( MaxPlayers == 0 )

@@ -54,7 +54,7 @@ internal static class AltCurveUtils
 	// Honestly I didn't profile this to see if it was worth it, but this caching pattern is used by the stock curve drawing widgets so we'll use it for now 
 	static List<Vector2> pointCache = new();
 
-	public static void DrawFullCurve( this in AltCurve curve, in Rect rect, float spacing = 2.0f )
+	internal static void DrawFullCurve( this in AltCurve curve, in Rect rect, float spacing = 2.0f )
 	{
 		pointCache.Clear();
 
@@ -78,7 +78,7 @@ internal static class AltCurveUtils
 	/// Draw a portion of a curve onto a widget, using the given widget/curve transform
 	/// </summary>
 
-	internal static void DrawPartialCurve( this AltCurve curve, CurveWidgetTransform transform, float spacing = 2.0f, float infinityAlpha = 0.4f )
+	internal static void DrawPartialCurve( this in AltCurve curve, in CurveWidgetTransform transform, float spacing = 2.0f, float infinityAlpha = 0.4f )
 	{
 		pointCache.Clear();
 

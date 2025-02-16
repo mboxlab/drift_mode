@@ -2,6 +2,31 @@
   "__guid": "9b04fdd3-0e57-4f6d-832e-9816c47238b0",
   "GameObjects": [
     {
+      "__guid": "b6c5327b-c885-4d1a-b858-d4a7ff502ebc",
+      "Flags": 0,
+      "Name": "Scene Information",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SceneInformation",
+          "__guid": "39b090fb-1fa4-4244-a3dc-9e02c192cffb",
+          "Author": null,
+          "Changes": null,
+          "Description": "",
+          "Group": null,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "SceneTags": "",
+          "Title": "map1",
+          "Version": null
+        }
+      ]
+    },
+    {
       "__guid": "57078bcc-b4cd-44dd-90d2-0ffa2e1a4b87",
       "Flags": 0,
       "Name": "Map",
@@ -14,6 +39,12 @@
           "EnableCollision": true,
           "MapName": "maps/racetrack.vmap",
           "NoOrigin": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "OnMapLoaded": null,
           "OnMapUnloaded": null,
           "UseMapFromLaunch": false
@@ -49,6 +80,12 @@
           "Lap": 0,
           "MaxLaps": 1,
           "MaxPlayers": 0,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "SpawnPoints": [
             {
               "_type": "gameobject",
@@ -145,6 +182,12 @@
         {
           "__type": "Sandbox.SkyBox2D",
           "__guid": "bbf2eb2b-6b26-47c6-b362-35df63dc426a",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "SkyIndirectLighting": true,
           "SkyMaterial": "materials/skybox/skybox_day_01.vmat",
           "Tint": "1,1,1,1"
@@ -152,7 +195,6 @@
         {
           "__type": "Sandbox.EnvmapProbe",
           "__guid": "b40f4a72-41ec-4ff7-aa9d-9cac2421f0ee",
-          "Texture": "textures/cubemaps/default2.vtex",
           "Bounds": {
             "Mins": "-512,-512,-512",
             "Maxs": "512,512,512"
@@ -162,8 +204,15 @@
           "FrameInterval": 5,
           "MaxDistance": 512,
           "MultiBounce": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Projection": "Sphere",
           "RenderDynamically": false,
+          "Texture": "textures/cubemaps/default2.vtex",
           "TintColor": "1,1,1,1",
           "UpdateStrategy": "OnEnabled",
           "ZFar": 4096,
@@ -182,6 +231,12 @@
           "__type": "Sandbox.ScreenPanel",
           "__guid": "b06577d7-60ea-4ba1-bca8-2a098d2a2d6a",
           "AutoScreenScale": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Opacity": 1,
           "Scale": 1,
           "ScaleStrategy": "ConsistentHeight",
@@ -189,7 +244,13 @@
         },
         {
           "__type": "Sandbox.Gauge",
-          "__guid": "f9b3cab9-0a73-410c-a602-a3277cbb9956"
+          "__guid": "f9b3cab9-0a73-410c-a602-a3277cbb9956",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
         }
       ]
     },
@@ -211,7 +272,13 @@
             {
               "__type": "Sandbox.SpawnPoint",
               "__guid": "234788aa-50d1-4973-987c-be511536f609",
-              "Color": "0.8902,0.31765,0.05098,1"
+              "Color": "0.8902,0.31765,0.05098,1",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
             }
           ]
         },
@@ -225,7 +292,13 @@
             {
               "__type": "Sandbox.SpawnPoint",
               "__guid": "1c394632-1e33-4d78-82b3-3136b76eb1bd",
-              "Color": "0.8902,0.31765,0.05098,1"
+              "Color": "0.8902,0.31765,0.05098,1",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
             }
           ]
         },
@@ -239,7 +312,13 @@
             {
               "__type": "Sandbox.SpawnPoint",
               "__guid": "ced8a2b4-baa1-422a-bf23-7f2bdf4df5f5",
-              "Color": "0.8902,0.31765,0.05098,1"
+              "Color": "0.8902,0.31765,0.05098,1",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
             }
           ]
         },
@@ -253,7 +332,13 @@
             {
               "__type": "Sandbox.SpawnPoint",
               "__guid": "4747ed01-b6aa-4f44-8eb3-46f5cb08da6b",
-              "Color": "0.8902,0.31765,0.05098,1"
+              "Color": "0.8902,0.31765,0.05098,1",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
             }
           ]
         },
@@ -267,7 +352,13 @@
             {
               "__type": "Sandbox.SpawnPoint",
               "__guid": "d1d88b30-58f9-485b-9eb3-52ca3a5639e6",
-              "Color": "0.8902,0.31765,0.05098,1"
+              "Color": "0.8902,0.31765,0.05098,1",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
             }
           ]
         },
@@ -281,7 +372,13 @@
             {
               "__type": "Sandbox.SpawnPoint",
               "__guid": "8e9ec3ee-5e7f-4f7a-9033-5357d38d9c36",
-              "Color": "0.8902,0.31765,0.05098,1"
+              "Color": "0.8902,0.31765,0.05098,1",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
             }
           ]
         },
@@ -295,7 +392,13 @@
             {
               "__type": "Sandbox.SpawnPoint",
               "__guid": "2806ef3c-d9b0-4338-8461-89ed4f8df8f1",
-              "Color": "0.8902,0.31765,0.05098,1"
+              "Color": "0.8902,0.31765,0.05098,1",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
             }
           ]
         },
@@ -309,7 +412,13 @@
             {
               "__type": "Sandbox.SpawnPoint",
               "__guid": "7222186d-3e58-4091-b7bd-2520aa05bc51",
-              "Color": "0.8902,0.31765,0.05098,1"
+              "Color": "0.8902,0.31765,0.05098,1",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
             }
           ]
         },
@@ -323,7 +432,13 @@
             {
               "__type": "Sandbox.SpawnPoint",
               "__guid": "657c9a4a-a321-4ad0-a52a-e7e927d0556c",
-              "Color": "0.8902,0.31765,0.05098,1"
+              "Color": "0.8902,0.31765,0.05098,1",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
             }
           ]
         },
@@ -337,7 +452,13 @@
             {
               "__type": "Sandbox.SpawnPoint",
               "__guid": "eb7b5160-d836-4389-96b5-ef433eb6dae5",
-              "Color": "0.8902,0.31765,0.05098,1"
+              "Color": "0.8902,0.31765,0.05098,1",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
             }
           ]
         },
@@ -351,7 +472,13 @@
             {
               "__type": "Sandbox.SpawnPoint",
               "__guid": "118f13f0-f75d-4ab5-a7e2-79886bc2ee0d",
-              "Color": "0.8902,0.31765,0.05098,1"
+              "Color": "0.8902,0.31765,0.05098,1",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
             }
           ]
         },
@@ -365,7 +492,13 @@
             {
               "__type": "Sandbox.SpawnPoint",
               "__guid": "ad573dc3-5874-4c0e-bfaa-9828f3dd0047",
-              "Color": "0.8902,0.31765,0.05098,1"
+              "Color": "0.8902,0.31765,0.05098,1",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
             }
           ]
         },
@@ -379,7 +512,13 @@
             {
               "__type": "Sandbox.SpawnPoint",
               "__guid": "611ef129-a2b6-4e61-84ab-cce46cf2dfc1",
-              "Color": "0.8902,0.31765,0.05098,1"
+              "Color": "0.8902,0.31765,0.05098,1",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
             }
           ]
         },
@@ -393,7 +532,13 @@
             {
               "__type": "Sandbox.SpawnPoint",
               "__guid": "e2d747ae-4f0f-4568-98f4-d1230d838678",
-              "Color": "0.8902,0.31765,0.05098,1"
+              "Color": "0.8902,0.31765,0.05098,1",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
             }
           ]
         },
@@ -407,7 +552,13 @@
             {
               "__type": "Sandbox.SpawnPoint",
               "__guid": "3cbe4fa9-1329-48c6-bb8e-15d80c5fb0e4",
-              "Color": "0.8902,0.31765,0.05098,1"
+              "Color": "0.8902,0.31765,0.05098,1",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
             }
           ]
         },
@@ -421,7 +572,13 @@
             {
               "__type": "Sandbox.SpawnPoint",
               "__guid": "d4237e33-5948-45ee-848b-187de5d36b16",
-              "Color": "0.8902,0.31765,0.05098,1"
+              "Color": "0.8902,0.31765,0.05098,1",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
             }
           ]
         },
@@ -435,7 +592,13 @@
             {
               "__type": "Sandbox.SpawnPoint",
               "__guid": "f786e0cd-1ea4-4e3c-9e86-bceeb2a17bad",
-              "Color": "0.8902,0.31765,0.05098,1"
+              "Color": "0.8902,0.31765,0.05098,1",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
             }
           ]
         },
@@ -449,7 +612,13 @@
             {
               "__type": "Sandbox.SpawnPoint",
               "__guid": "a0e7eddf-8da2-41a5-bfee-09234f5eb7aa",
-              "Color": "0.8902,0.31765,0.05098,1"
+              "Color": "0.8902,0.31765,0.05098,1",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
             }
           ]
         },
@@ -463,7 +632,13 @@
             {
               "__type": "Sandbox.SpawnPoint",
               "__guid": "fa90eedf-feba-43e4-a81b-e8983acae4d0",
-              "Color": "0.8902,0.31765,0.05098,1"
+              "Color": "0.8902,0.31765,0.05098,1",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
             }
           ]
         },
@@ -477,7 +652,13 @@
             {
               "__type": "Sandbox.SpawnPoint",
               "__guid": "7f712c52-453e-4493-8686-05cc5feef4d1",
-              "Color": "0.8902,0.31765,0.05098,1"
+              "Color": "0.8902,0.31765,0.05098,1",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
             }
           ]
         }
@@ -495,7 +676,7 @@
           "__guid": "d32bea9f-ddf5-4223-a1fe-c505f57907c6",
           "Flags": 0,
           "Name": "Checkpoint (10)",
-          "Position": "-3588.81,58.43689,-77.87426",
+          "Position": "-3588.81,58.43677,-77.87425",
           "Rotation": "-0.00000002980232,-0.7071066,0.00000002980232,-0.7071066",
           "Enabled": true,
           "Components": [
@@ -503,9 +684,22 @@
               "__type": "Sandbox.PlaneCollider",
               "__guid": "96650f8f-d4ff-4d3d-8c22-07c36e4eea8d",
               "Center": "-250,0,5",
+              "Friction": null,
               "IsTrigger": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
               "Scale": "500,900",
-              "Static": true
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
             },
             {
               "__type": "Sandbox.GamePlay.Checkpoint",
@@ -516,6 +710,12 @@
                 "go": "5eea5b44-af82-41c7-b803-c8261381ecb6",
                 "component_type": "Checkpoint"
               },
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
               "Trigger": {
                 "_type": "component",
                 "component_id": "96650f8f-d4ff-4d3d-8c22-07c36e4eea8d",
@@ -529,7 +729,7 @@
           "__guid": "b6c36906-3905-449d-bd04-d4271db117d7",
           "Flags": 0,
           "Name": "Checkpoint (9)",
-          "Position": "-2971.614,2348.292,-77.87649",
+          "Position": "-2971.614,2348.292,-77.87648",
           "Rotation": "-0.6830127,-0.1830128,0.6830127,-0.1830128",
           "Enabled": true,
           "Components": [
@@ -537,9 +737,22 @@
               "__type": "Sandbox.PlaneCollider",
               "__guid": "c6f0eb10-df8c-406e-86dd-8440818a9683",
               "Center": "-250,0,5",
+              "Friction": null,
               "IsTrigger": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
               "Scale": "500,900",
-              "Static": true
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
             },
             {
               "__type": "Sandbox.GamePlay.Checkpoint",
@@ -550,6 +763,12 @@
                 "go": "d32bea9f-ddf5-4223-a1fe-c505f57907c6",
                 "component_type": "Checkpoint"
               },
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
               "Trigger": {
                 "_type": "component",
                 "component_id": "c6f0eb10-df8c-406e-86dd-8440818a9683",
@@ -571,9 +790,22 @@
               "__type": "Sandbox.PlaneCollider",
               "__guid": "8469d945-348a-4699-800f-9df7248912c5",
               "Center": "-250,0,5",
+              "Friction": null,
               "IsTrigger": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
               "Scale": "500,900",
-              "Static": true
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
             },
             {
               "__type": "Sandbox.GamePlay.Checkpoint",
@@ -584,6 +816,12 @@
                 "go": "b6c36906-3905-449d-bd04-d4271db117d7",
                 "component_type": "Checkpoint"
               },
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
               "Trigger": {
                 "_type": "component",
                 "component_id": "8469d945-348a-4699-800f-9df7248912c5",
@@ -597,7 +835,7 @@
           "__guid": "6af55256-968a-4bf8-956f-f9dd4981b1ef",
           "Flags": 0,
           "Name": "Checkpoint (7)",
-          "Position": "6349.598,5241.315,-77.87289",
+          "Position": "6349.597,5241.314,-77.87288",
           "Rotation": "0.596291,0.3800489,-0.596291,0.3800489",
           "Enabled": true,
           "Components": [
@@ -605,9 +843,22 @@
               "__type": "Sandbox.PlaneCollider",
               "__guid": "f2e05aa1-2ad7-4349-8d7b-6e55f9e3c1af",
               "Center": "-250,0,5",
+              "Friction": null,
               "IsTrigger": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
               "Scale": "500,900",
-              "Static": true
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
             },
             {
               "__type": "Sandbox.GamePlay.Checkpoint",
@@ -618,6 +869,12 @@
                 "go": "03940d5d-f70a-4158-b6f1-af94aec83c32",
                 "component_type": "Checkpoint"
               },
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
               "Trigger": {
                 "_type": "component",
                 "component_id": "f2e05aa1-2ad7-4349-8d7b-6e55f9e3c1af",
@@ -631,7 +888,7 @@
           "__guid": "fed1e565-0de6-4a1b-9e97-8ee89c9ff354",
           "Flags": 0,
           "Name": "Checkpoint (6)",
-          "Position": "4292.136,8194.816,-77.87422",
+          "Position": "4292.135,8194.815,-77.87422",
           "Rotation": "0.2989661,-0.640796,-0.2989661,-0.640796",
           "Enabled": true,
           "Components": [
@@ -639,9 +896,22 @@
               "__type": "Sandbox.PlaneCollider",
               "__guid": "6e94bfc5-37c3-4eca-b74c-d5947bca4439",
               "Center": "-250,0,5",
+              "Friction": null,
               "IsTrigger": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
               "Scale": "500,900",
-              "Static": true
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
             },
             {
               "__type": "Sandbox.GamePlay.Checkpoint",
@@ -652,6 +922,12 @@
                 "go": "6af55256-968a-4bf8-956f-f9dd4981b1ef",
                 "component_type": "Checkpoint"
               },
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
               "Trigger": {
                 "_type": "component",
                 "component_id": "6e94bfc5-37c3-4eca-b74c-d5947bca4439",
@@ -665,7 +941,7 @@
           "__guid": "55513c49-f27a-4aa2-aa1e-e79fb4f953ae",
           "Flags": 0,
           "Name": "Checkpoint (5)",
-          "Position": "-2648.671,5045.712,-77.87443",
+          "Position": "-2648.67,5045.712,-77.87442",
           "Rotation": "0.4546293,-0.5415832,-0.4546293,-0.5415832",
           "Enabled": true,
           "Components": [
@@ -673,9 +949,22 @@
               "__type": "Sandbox.PlaneCollider",
               "__guid": "b68d1045-784b-40b7-92ab-a9a342f81164",
               "Center": "-250,0,5",
+              "Friction": null,
               "IsTrigger": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
               "Scale": "500,900",
-              "Static": true
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
             },
             {
               "__type": "Sandbox.GamePlay.Checkpoint",
@@ -686,6 +975,12 @@
                 "go": "fed1e565-0de6-4a1b-9e97-8ee89c9ff354",
                 "component_type": "Checkpoint"
               },
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
               "Trigger": {
                 "_type": "component",
                 "component_id": "b68d1045-784b-40b7-92ab-a9a342f81164",
@@ -699,7 +994,7 @@
           "__guid": "a419f905-3e8a-4b6c-927f-0598e3d42bb4",
           "Flags": 0,
           "Name": "Checkpoint (4)",
-          "Position": "-5921.018,6316.371,-0.01263357",
+          "Position": "-5921.018,6316.371,-0.01263356",
           "Rotation": "-0.5000001,-0.4999999,0.5000001,-0.4999999",
           "Enabled": true,
           "Components": [
@@ -707,9 +1002,22 @@
               "__type": "Sandbox.PlaneCollider",
               "__guid": "2b62e181-78e8-4a35-8891-10c9ef5e02ea",
               "Center": "-250,0,5",
+              "Friction": null,
               "IsTrigger": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
               "Scale": "500,900",
-              "Static": true
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
             },
             {
               "__type": "Sandbox.GamePlay.Checkpoint",
@@ -720,6 +1028,12 @@
                 "go": "55513c49-f27a-4aa2-aa1e-e79fb4f953ae",
                 "component_type": "Checkpoint"
               },
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
               "Trigger": {
                 "_type": "component",
                 "component_id": "2b62e181-78e8-4a35-8891-10c9ef5e02ea",
@@ -733,7 +1047,7 @@
           "__guid": "b367574f-dcb1-400f-a639-cb43e8b13342",
           "Flags": 0,
           "Name": "Checkpoint (3)",
-          "Position": "1620.938,8712.23,-0.01238491",
+          "Position": "1620.938,8712.23,-0.01238489",
           "Rotation": "-0.7071068,0.00000008940697,0.7071068,0.00000008940697",
           "Enabled": true,
           "Components": [
@@ -741,9 +1055,22 @@
               "__type": "Sandbox.PlaneCollider",
               "__guid": "f5dc32ef-0e64-4093-8669-538bc3d874c1",
               "Center": "-250,0,5",
+              "Friction": null,
               "IsTrigger": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
               "Scale": "500,900",
-              "Static": true
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
             },
             {
               "__type": "Sandbox.GamePlay.Checkpoint",
@@ -754,6 +1081,12 @@
                 "go": "a419f905-3e8a-4b6c-927f-0598e3d42bb4",
                 "component_type": "Checkpoint"
               },
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
               "Trigger": {
                 "_type": "component",
                 "component_id": "f5dc32ef-0e64-4093-8669-538bc3d874c1",
@@ -775,9 +1108,22 @@
               "__type": "Sandbox.PlaneCollider",
               "__guid": "506dccce-a1b9-4e09-8b5e-e2f3546cfa98",
               "Center": "-250,0,5",
+              "Friction": null,
               "IsTrigger": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
               "Scale": "500,900",
-              "Static": true
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
             },
             {
               "__type": "Sandbox.GamePlay.Checkpoint",
@@ -788,6 +1134,12 @@
                 "go": "b367574f-dcb1-400f-a639-cb43e8b13342",
                 "component_type": "Checkpoint"
               },
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
               "Trigger": {
                 "_type": "component",
                 "component_id": "506dccce-a1b9-4e09-8b5e-e2f3546cfa98",
@@ -801,7 +1153,7 @@
           "__guid": "6914c5f8-25de-4081-be94-837a0e843f68",
           "Flags": 0,
           "Name": "Checkpoint (11)",
-          "Position": "10610.84,4030.216,0.00138726",
+          "Position": "10610.84,4030.217,0.001387239",
           "Rotation": "-0.4304593,0.5609856,0.4304593,0.5609856",
           "Enabled": true,
           "Components": [
@@ -809,9 +1161,22 @@
               "__type": "Sandbox.PlaneCollider",
               "__guid": "d87e5c56-aa05-406e-9be1-fab3b9459cda",
               "Center": "-250,0,5",
+              "Friction": null,
               "IsTrigger": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
               "Scale": "500,900",
-              "Static": true
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
             },
             {
               "__type": "Sandbox.GamePlay.Checkpoint",
@@ -822,6 +1187,12 @@
                 "go": "293440f3-795d-4958-a969-494b107f5541",
                 "component_type": "Checkpoint"
               },
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
               "Trigger": {
                 "_type": "component",
                 "component_id": "d87e5c56-aa05-406e-9be1-fab3b9459cda",
@@ -835,7 +1206,7 @@
           "__guid": "a61bd9a9-5a12-46fe-a651-01152a70dc42",
           "Flags": 0,
           "Name": "Checkpoint (1)",
-          "Position": "5719.433,0.002929688,0.001701789",
+          "Position": "5719.433,0.003173828,0.001701832",
           "Rotation": "0.00000002980232,0.7071068,-0.00000002980232,0.7071068",
           "Enabled": true,
           "Components": [
@@ -843,9 +1214,22 @@
               "__type": "Sandbox.PlaneCollider",
               "__guid": "4ef11218-45bf-4469-b57f-b68338a9650c",
               "Center": "-250,0,5",
+              "Friction": null,
               "IsTrigger": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
               "Scale": "500,900",
-              "Static": true
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
             },
             {
               "__type": "Sandbox.GamePlay.Checkpoint",
@@ -856,6 +1240,12 @@
                 "go": "6914c5f8-25de-4081-be94-837a0e843f68",
                 "component_type": "Checkpoint"
               },
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
               "Trigger": {
                 "_type": "component",
                 "component_id": "4ef11218-45bf-4469-b57f-b68338a9650c",
@@ -876,9 +1266,22 @@
               "__type": "Sandbox.PlaneCollider",
               "__guid": "a7801aba-432b-4dbf-b490-f7597b906d76",
               "Center": "-250,0,5",
+              "Friction": null,
               "IsTrigger": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnObjectTriggerEnter": null,
+              "OnObjectTriggerExit": null,
+              "OnTriggerEnter": null,
+              "OnTriggerExit": null,
               "Scale": "500,900",
-              "Static": true
+              "Static": true,
+              "Surface": null,
+              "SurfaceVelocity": "0,0,0"
             },
             {
               "__type": "Sandbox.GamePlay.Checkpoint",
@@ -889,6 +1292,12 @@
                 "go": "a61bd9a9-5a12-46fe-a651-01152a70dc42",
                 "component_type": "Checkpoint"
               },
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
               "Trigger": {
                 "_type": "component",
                 "component_id": "a7801aba-432b-4dbf-b490-f7597b906d76",
@@ -920,8 +1329,16 @@
               "__type": "Sandbox.ModelRenderer",
               "__guid": "38431124-dc95-4e53-88a8-5fd280d47f22",
               "BodyGroups": 18446744073709551615,
+              "CreateAttachments": false,
+              "MaterialGroup": null,
               "MaterialOverride": "materials/arrow.vmat",
               "Model": "models/strelka1.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
               "RenderOptions": {
                 "GameLayer": true,
                 "OverlayLayer": false,
@@ -945,6 +1362,9 @@
     "ThreadedAnimation": true,
     "TimeScale": 1,
     "UseFixedUpdate": true,
+    "Metadata": {
+      "Title": "map1"
+    },
     "NavMesh": {
       "Enabled": false,
       "IncludeStaticBodies": true,
@@ -958,9 +1378,9 @@
       "IncludedBodies": ""
     }
   },
+  "ResourceVersion": 2,
   "Title": "map1",
-  "Description": "",
-  "ResourceVersion": 1,
+  "Description": null,
   "__references": [],
-  "__version": 1
+  "__version": 2
 }

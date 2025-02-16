@@ -157,7 +157,7 @@ public class TransmissionComponent : PowertrainComponent
 	/// <summary>
 	/// Current gear ratio.
 	/// </summary>
-	[Property, ReadOnly] public float СurrentGearRatio { get; set; }
+	[Property, ReadOnly] public float CurrentGearRatio { get; set; }
 
 	/// <summary>
 	/// Is the transmission currently in the post-shift phase in which the shifting is disabled/banned to prevent gear hunting?
@@ -271,10 +271,6 @@ public class TransmissionComponent : PowertrainComponent
 		set { gearIndex = GearToIndex( value ); }
 	}
 
-	/// <summary>
-	/// Current gear ratio.
-	/// </summary>
-	[Property, ReadOnly] public float CurrentGearRatio;
 
 	/// <summary>
 	/// Current gear index in the gears list.

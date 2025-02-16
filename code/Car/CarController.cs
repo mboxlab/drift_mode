@@ -24,7 +24,7 @@ public sealed class CarController : Component
 
 	public bool IsBot;
 	public static CarController Local { get; private set; }
-	[Authority]
+	[Rpc.Owner]
 	public void ClientInit()
 	{
 		if ( IsBot )

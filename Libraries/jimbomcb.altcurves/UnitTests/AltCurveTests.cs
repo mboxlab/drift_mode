@@ -1,12 +1,9 @@
-using AltCurves;
 using Sandbox;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Diagnostics;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using static AltCurves.AltCurve;
 
 namespace AltCurves.Tests;
@@ -260,7 +257,7 @@ public partial class AltCurveTests
 		var rand = new Random();
 
 		var positions = new List<Vector2>();
-		for( int i = 0; i < 1; i++ )
+		for ( int i = 0; i < 1; i++ )
 		{
 			positions.Add( new Vector2( Random.Shared.Float( -1000, 1000 ), Random.Shared.Float( -1000, 1000 ) ) );
 		}
@@ -268,7 +265,7 @@ public partial class AltCurveTests
 		var orderedPos = positions.OrderBy( x => x.x );
 
 		var altCurve = new AltCurve( orderedPos.Select( x => new Keyframe( x.x, x.y, Interpolation.Linear ) ).ToList(), Extrapolation.Constant, Extrapolation.Constant );
-		var baseCurve = new Curve( orderedPos.Select(x=> new Curve.Frame(x.x, x.y)).ToList() );
+		var baseCurve = new Curve( orderedPos.Select( x => new Curve.Frame( x.x, x.y ) ).ToList() );
 
 		var times = new List<float>();
 		for ( int i = 0; i < 1000; i++ )
@@ -280,7 +277,7 @@ public partial class AltCurveTests
 		var baseTimeSamples = new List<long>();
 		var ourTimeSamples = new List<long>();
 
-		for ( int i = 0; i < 10000; i++)
+		for ( int i = 0; i < 10000; i++ )
 		{
 			ourTime.Restart();
 			foreach ( var time in times ) altCurve.Evaluate( time );
@@ -304,22 +301,145 @@ public partial class AltCurveTests
 
 		// rough preliminary tests shows that our curves are more performant
 		//								OurTime		TheirTime   
-		// With 1 key, 1000 evals:		30			653			21x faster
+		// With 1 key, 1000 evals:		
+		//								30			653			21x faster
 		//								32			676			21x faster
 		//								33			660			21x faster
 		//								32			700			21x faster
-		// With 10 key, 1000 evals:		521			2121		4.0x faster
+		// With 10 key, 1000 evals:		
+		//								521			2121		4.0x faster
 		//								526			2338		4.4x faster
 		//								546			2394		4.4x faster
 		//								540			1973		3.6x faster
-		// With 50 key, 1000 evals:		704			4169		5.9x faster
-		// 								735			4998		6.8x faster
-		// 								728			4696		6.4x faster
-		// 								710			4959		6.4x faster
-		// With 1000 key, 1000 evals:	1511		189953		125x faster
+		// With 50 key, 1000 evals:		
+		//								704			4169		5.9x faster
+		//								735			4998		6.8x faster
+		//								728			4696		6.4x faster
+		//								710			4959		6.4x faster
+		// With 1000 key, 1000 evals:	
+		//								1511		189953		125x faster
 		//								1560		188484		120x faster
 		//								1653		189336		114x faster
 		//								1500		194617		129x faster
 		//								1657		218923		132x faster
+	}
+
+	[TestMethod]
+	public void SanitizeCurveInput()
+	{
+		// Current sanitization rules so far are that we must have 1 keyframe, no keyframes may share a time, and keyframes must be in ascending time order.
+
+		AltCurve curveNoKeys = new( ImmutableArray.Create<Keyframe>(), Extrapolation.Linear, Extrapolation.Linear );
+		Assert.AreEqual( 1, curveNoKeys.Keyframes.Length, "Constructing a curve with no keyframes should result in 1 keyframe." );
+
+		var overlappingKeyframes = ImmutableArray.Create(
+			new Keyframe( 0.0f, 0.0f, Interpolation.Linear ),
+			new Keyframe( 1.0f, 1.0f, Interpolation.Linear ),
+			new Keyframe( 1.0f, 2.0f, Interpolation.Linear )
+			);
+		var sanitizedOverlap = SanitizeKeyframes( overlappingKeyframes );
+
+		Assert.AreNotEqual( sanitizedOverlap.Count(), overlappingKeyframes.Length, "Sanitizing keyframes should remove all duplicate times" );
+		Assert.AreEqual( 1.0f, sanitizedOverlap.ElementAt( 1 ).Value, 0.0001f, "If multiple times are provided we should always take the first instance." );
+
+		ImmutableArray<Keyframe> keyframesOutOfOrder = ImmutableArray.Create(
+			new Keyframe( 3.0f, 2.0f, Interpolation.Linear ),
+			new Keyframe( 0.0f, 1.0f, Interpolation.Linear ),
+			new Keyframe( 2.0f, 2.0f, Interpolation.Linear ),
+			new Keyframe( 1.0f, 1.0f, Interpolation.Linear )
+		);
+		var sanitizedOrder = SanitizeKeyframes( keyframesOutOfOrder );
+		Assert.AreEqual( keyframesOutOfOrder.Length, sanitizedOrder.Count(), "Sanitization shouldn't incorrectly remove a valid but out of order set of times." );
+		Assert.IsFalse( sanitizedOrder.SequenceEqual( keyframesOutOfOrder ), "Sanitization should correctly reorder out of order keyframes." );
+		Assert.IsTrue( sanitizedOrder.All( san => keyframesOutOfOrder.Contains( san ) ), "Sanitization should not alter any keyframes when reordering." );
+	}
+
+	[TestMethod]
+	public void ValidTimeSpan()
+	{
+		var keyframes = new List<Keyframe>
+		{
+			new( 5.0f, 0.0f, Interpolation.Linear ),
+			new( 10.0f, 1.0f, Interpolation.Linear ),
+			new( 15.0f, 2.0f, Interpolation.Linear ),
+			new( 20.0f, 3.0f, Interpolation.Linear )
+		};
+		AltCurve curve = new( keyframes, Extrapolation.Linear, Extrapolation.Linear );
+		Assert.AreEqual( curve.TimeSpan, 15.0f );
+	}
+
+	[TestMethod]
+	public void ValidTimeRange()
+	{
+		var keyframes = new List<Keyframe>
+		{
+			new( 5.0f, 0.0f, Interpolation.Linear ),
+			new( 10.0f, 1.0f, Interpolation.Linear ),
+			new( 15.0f, 2.0f, Interpolation.Linear ),
+			new( 20.0f, 3.0f, Interpolation.Linear )
+		};
+		AltCurve curve = new( keyframes, Extrapolation.Linear, Extrapolation.Linear );
+		Assert.AreEqual( curve.TimeRange.Min, 5.0f, float.Epsilon );
+		Assert.AreEqual( curve.TimeRange.Max, 20.0f, float.Epsilon );
+	}
+
+	[TestMethod]
+	public void ValidValueRange()
+	{
+		var keyframes = new List<Keyframe>
+		{
+			new( 5.0f, 10.0f, Interpolation.Linear ),
+			new( 10.0f, 51.0f, Interpolation.Linear ),
+			new( 15.0f, 92.0f, Interpolation.Linear ),
+			new( 20.0f, 167.0f, Interpolation.Linear )
+		};
+		AltCurve curve = new( keyframes, Extrapolation.Linear, Extrapolation.Linear );
+		Assert.AreEqual( curve.ValueRange.Min, 10.0f, float.Epsilon );
+		Assert.AreEqual( curve.ValueRange.Max, 167.0f, float.Epsilon );
+	}
+
+	[TestMethod]
+	public void ValidValueRangeCubic()
+	{
+		// The large slopes on the in/out middle tangents will cause a big curving arc that extents well above and below the input values
+		var keyframes = new List<Keyframe>
+		{
+			new( 5.0f, 10.0f, Interpolation.Linear ),
+			new( 10.0f, 51.0f, Interpolation.Cubic, tangentIn: 315f,  tangentOut: 315f ),
+			new( 15.0f, 92.0f, Interpolation.Cubic, tangentIn: 315f, tangentOut: 315f ),
+			new( 20.0f, 167.0f, Interpolation.Linear )
+		};
+		AltCurve curve = new( keyframes, Extrapolation.Linear, Extrapolation.Linear );
+		Assert.IsTrue( curve.ValueRange.Min < -90.0f );
+		Assert.IsTrue( curve.ValueRange.Max > 300.0f );
+	}
+
+	[TestMethod]
+	public void ArgumentExceptionKeyframeOrder()
+	{
+		ImmutableArray<Keyframe> keyframesOutOfOrder = ImmutableArray.Create(
+			new Keyframe( 3.0f, 2.0f, Interpolation.Linear ),
+			new Keyframe( 0.0f, 1.0f, Interpolation.Linear ),
+			new Keyframe( 2.0f, 2.0f, Interpolation.Linear ),
+			new Keyframe( 1.0f, 1.0f, Interpolation.Linear )
+		);
+
+		Assert.ThrowsException<ArgumentException>( () => new AltCurve( keyframesOutOfOrder, Extrapolation.Linear, Extrapolation.Linear ),
+			"AltCurves must always be provided with ascending-time order keyframes" );
+	}
+
+	[TestMethod]
+	public void ArgumentExceptionKeyframeDuped()
+	{
+		ImmutableArray<Keyframe> keyframesSharedTime = ImmutableArray.Create(
+			new Keyframe( 0.0f, 1.0f, Interpolation.Linear ),
+			new Keyframe( 1.0f, 2.0f, Interpolation.Linear ),
+			new Keyframe( 2.0f, 2.0f, Interpolation.Linear ),
+			new Keyframe( 3.0f, 1.0f, Interpolation.Linear ),
+			new Keyframe( 3.0f, 6.0f, Interpolation.Linear )
+		);
+
+		Assert.ThrowsException<ArgumentException>( () => new AltCurve( keyframesSharedTime, Extrapolation.Linear, Extrapolation.Linear ),
+			"AltCurves must always be provided with unique time keyframes" );
 	}
 }

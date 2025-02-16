@@ -4,7 +4,7 @@
   "Org": "meteorlab",
   "Ident": "drift_mode",
   "Schema": 1,
-  "IncludeSourceFiles": false,
+  "IncludeSourceFiles": true,
   "Resources": "",
   "PackageReferences": [],
   "EditorReferences": null,

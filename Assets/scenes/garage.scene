@@ -2,6 +2,31 @@
   "__guid": "a9812438-ab50-47f2-839a-81d2e0a11d70",
   "GameObjects": [
     {
+      "__guid": "e6b9b7db-405f-4b57-8beb-25c57130a518",
+      "Flags": 0,
+      "Name": "Scene Information",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SceneInformation",
+          "__guid": "8fee300e-0f84-427b-976f-fd5c32dc2013",
+          "Author": null,
+          "Changes": "",
+          "Description": "",
+          "Group": null,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "SceneTags": "",
+          "Title": "garage",
+          "Version": null
+        }
+      ]
+    },
+    {
       "__guid": "880573ab-50df-4db4-a444-9cd9bb97d58d",
       "Flags": 0,
       "Name": "DIY audio system",
@@ -13,26 +38,52 @@
           "__type": "Sandbox.BoxCollider",
           "__guid": "85107f65-4118-4291-8ed1-40405ebb6dc0",
           "Center": "0,0,0",
+          "Friction": null,
           "IsTrigger": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
           "Scale": "48,40,16",
-          "Static": false
+          "Static": false,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
         },
         {
           "__type": "Sandbox.UI.InteractiveObject",
           "__guid": "0ce79bc3-f2fd-4ba4-a396-ffb80e268b14",
           "ClampEqual": false,
           "Clamping": true,
+          "ClampMax": "50,0,0",
+          "ClampMin": "0,-60,0",
           "Distance": 64,
           "LocalAngles": "0,-90,0",
           "OffsetPosition": "0,0,0",
-          "TriggerAnimation": true,
-          "ClampMax": "50,0,0",
-          "ClampMin": "0,-60,0"
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Parent": null,
+          "TriggerAnimation": true
         },
         {
           "__type": "Music",
           "__guid": "132bb7df-df92-40c2-a0d1-6ccf6badb6ec",
-          "File": "sound/chingy - i do edited.vsnd"
+          "File": "sound/chingy - i do edited.vsnd",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
         }
       ]
     },
@@ -49,12 +100,19 @@
           "__guid": "539f9870-d382-4ee8-91a0-801819e56781",
           "ClampEqual": true,
           "Clamping": true,
+          "ClampMax": "-0,-0,0",
+          "ClampMin": "0,0,0",
           "Distance": 0,
           "LocalAngles": "0,0,0",
           "OffsetPosition": "0,0,0",
-          "TriggerAnimation": true,
-          "ClampMax": "-0,-0,0",
-          "ClampMin": "0,0,0"
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Parent": null,
+          "TriggerAnimation": true
         }
       ]
     },
@@ -73,6 +131,12 @@
           "ClearFlags": "All",
           "FieldOfView": 90,
           "IsMainCamera": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Orthographic": false,
           "OrthographicHeight": 1204,
           "Priority": 1,
@@ -85,7 +149,13 @@
         },
         {
           "__type": "MouseInput",
-          "__guid": "d72bf29a-f147-4a25-b610-8168b1255065"
+          "__guid": "d72bf29a-f147-4a25-b610-8168b1255065",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
         },
         {
           "__type": "Sandbox.UI.InteractiveCamera",
@@ -98,21 +168,35 @@
           },
           "AnimationCurve": [
             {
+              "x": 0,
+              "y": 0,
               "in": -2.8636377,
-              "out": 2.8636377
+              "out": 2.8636377,
+              "mode": "Mirrored"
             },
             {
               "x": 1,
-              "y": 1
+              "y": 1,
+              "in": 0,
+              "out": 0,
+              "mode": "Mirrored"
             }
-          ]
+          ],
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
         },
         {
           "__type": "Sandbox.Bloom",
           "__guid": "24bdf8c4-a9f3-4f8a-a31c-737b8d7a1e5f",
           "BloomColor": {
+            "blend": "Linear",
             "color": [
               {
+                "t": 0,
                 "c": "1,1,1,1"
               },
               {
@@ -124,14 +208,27 @@
           },
           "BloomCurve": [
             {
-              "y": 0.5
+              "x": 0,
+              "y": 0.5,
+              "in": 0,
+              "out": 0,
+              "mode": "Mirrored"
             },
             {
               "x": 1,
-              "y": 1
+              "y": 1,
+              "in": 0,
+              "out": 0,
+              "mode": "Mirrored"
             }
           ],
           "Mode": "Additive",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Strength": 0.5,
           "Threshold": 0.5,
           "ThresholdWidth": 0.5
@@ -147,19 +244,40 @@
           "MaximumExposure": 2,
           "MinimumExposure": 1,
           "Mode": "Legacy",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Rate": 1
         },
         {
           "__type": "Sandbox.AmbientOcclusion",
           "__guid": "b76b12f6-9ee9-41ee-b104-36c59aebf929",
-          "FalloffDistance": 1,
-          "Intensity": 12,
+          "__version": 1,
+          "DenoiseMode": "Temporal",
+          "FalloffRange": 0.75,
+          "Intensity": 0.15,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Quality": "High",
-          "Radius": 32
+          "Radius": 128,
+          "ThinCompensation": 0
         },
         {
           "__type": "Sandbox.Highlight",
-          "__guid": "1bf9182c-1500-4ce8-a10c-786f0273c2fd"
+          "__guid": "1bf9182c-1500-4ce8-a10c-786f0273c2fd",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
         }
       ]
     },
@@ -184,16 +302,15 @@
             {
               "_type": "gameobject",
               "prefab": "prefabs/cars/350z.prefab"
-            },
-            {
-              "_type": "gameobject",
-              "prefab": "prefabs/cars/bmw_e30.prefab"
-            },
-            {
-              "_type": "gameobject",
-              "prefab": "prefabs/cars/huracan.prefab"
             }
-          ]
+          ],
+          "OnCarChanged": null,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
         }
       ]
     },
@@ -211,21 +328,41 @@
           "__type": "Sandbox.PlaneCollider",
           "__guid": "b73137b6-d9dd-4913-95d4-6d25b2706c17",
           "Center": "0,0,0",
+          "Friction": null,
           "IsTrigger": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
           "Scale": "50,50",
-          "Static": true
+          "Static": true,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
         },
         {
           "__type": "Sandbox.UI.InteractiveObject",
           "__guid": "1a65a2f7-f77c-4e51-a903-348ea4ad26ca",
           "ClampEqual": false,
           "Clamping": true,
+          "ClampMax": "20,20,0",
+          "ClampMin": "-20,-20,0",
           "Distance": 160,
           "LocalAngles": "90,0,0",
           "OffsetPosition": "0,0,14",
-          "TriggerAnimation": true,
-          "ClampMax": "20,20,0",
-          "ClampMin": "-20,-20,0"
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Parent": null,
+          "TriggerAnimation": true
         }
       ]
     },
@@ -243,6 +380,12 @@
           "EnableCollision": true,
           "MapName": "maps/garage.vmap",
           "NoOrigin": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "OnMapLoaded": null,
           "OnMapUnloaded": null,
           "UseMapFromLaunch": true
@@ -264,6 +407,12 @@
           "HorizontalAlign": "Center",
           "InteractionRange": 1000,
           "LookAtCamera": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "PanelSize": "512,128",
           "RenderOptions": {
             "GameLayer": true,
@@ -279,16 +428,29 @@
           "__guid": "04b262d9-00fd-49f4-93e8-c1c17ab6d2ff",
           "ClampEqual": true,
           "Clamping": false,
+          "ClampMax": "-0,-90,0",
+          "ClampMin": "0,90,0",
           "Distance": 64,
           "LocalAngles": "0,0,0",
           "OffsetPosition": "0,0,0",
-          "TriggerAnimation": true,
-          "ClampMax": "-0,-90,0",
-          "ClampMin": "0,90,0"
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Parent": null,
+          "TriggerAnimation": true
         },
         {
           "__type": "Sandbox.GamesPanel",
           "__guid": "38a41dd4-823b-48bc-a20a-832e8dad234b",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Race": "scenes/games/sprint_mode/001.scene"
         }
       ]
@@ -303,6 +465,9 @@
     "ThreadedAnimation": true,
     "TimeScale": 1,
     "UseFixedUpdate": true,
+    "Metadata": {
+      "Title": "garage"
+    },
     "NavMesh": {
       "Enabled": false,
       "IncludeStaticBodies": true,
@@ -316,9 +481,9 @@
       "IncludedBodies": ""
     }
   },
+  "ResourceVersion": 2,
   "Title": "garage",
-  "Description": "",
-  "ResourceVersion": 1,
+  "Description": null,
   "__references": [],
-  "__version": 1
+  "__version": 2
 }

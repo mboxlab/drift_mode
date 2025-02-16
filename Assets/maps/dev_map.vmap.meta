@@ -13,7 +13,8 @@
       "EditorReferences": [],
       "IsWhitelistDisabled": false,
       "Metadata": {
-        "SingleAssetSource": "maps/dev_map.vmap"
+        "SingleAssetSource": "maps/dev_map.vmap",
+        "ParentPackage": "meteorlab.drift_mode"
       }
     }
   }

@@ -64,7 +64,7 @@ internal class InterpolationControl : Widget
 		{
 			VerticalSizeMode = SizeMode.CanGrow,
 			Enabled = _hasSelectedKeyframe,
-			ButtonType = _highlightedInterp.HasValue && _highlightedInterp == new InterpTangentMode( Interpolation.Cubic, TangentMode.Automatic ) ? "primary" : "",
+			//ButtonType = _highlightedInterp.HasValue && _highlightedInterp == new InterpTangentMode( Interpolation.Cubic, TangentMode.Automatic ) ? "primary" : "",
 			Pressed = () => SelectedInterp?.Invoke( new( Interpolation.Cubic, TangentMode.Automatic ) ),
 			ToolTip = "Cubic - Automatic (Shortcut: 1): Smoothly interpolate, automatically calculate tangents based on surrounding keyframes."
 		} ).SetIcon( CurveTextures.Instance.CurveCubicAutoPixmap );
@@ -73,7 +73,7 @@ internal class InterpolationControl : Widget
 		{
 			VerticalSizeMode = SizeMode.CanGrow,
 			Enabled = _hasSelectedKeyframe,
-			ButtonType = _highlightedInterp.HasValue && _highlightedInterp == new InterpTangentMode( Interpolation.Cubic, TangentMode.Mirrored ) ? "primary" : "",
+			//ButtonType = _highlightedInterp.HasValue && _highlightedInterp == new InterpTangentMode( Interpolation.Cubic, TangentMode.Mirrored ) ? "primary" : "",
 			Pressed = () => SelectedInterp?.Invoke( new( Interpolation.Cubic, TangentMode.Mirrored ) ),
 			ToolTip = "Cubic - Mirror (Shortcut: 2): Smoothly interpolate with mirrored tangents."
 		} ).SetIcon( CurveTextures.Instance.CurveCubicMirrorPixmap );
@@ -82,7 +82,7 @@ internal class InterpolationControl : Widget
 		{
 			VerticalSizeMode = SizeMode.CanGrow,
 			Enabled = _hasSelectedKeyframe,
-			ButtonType = _highlightedInterp.HasValue && _highlightedInterp == new InterpTangentMode( Interpolation.Cubic, TangentMode.Split) ? "primary" : "",
+			//ButtonType = _highlightedInterp.HasValue && _highlightedInterp == new InterpTangentMode( Interpolation.Cubic, TangentMode.Split) ? "primary" : "",
 			Pressed = () => SelectedInterp?.Invoke( new( Interpolation.Cubic, TangentMode.Split ) ),
 			ToolTip = "Cubic - Split (Shortcut: 3): Smoothly interpolate with split/broken tangents."
 		} ).SetIcon( CurveTextures.Instance.CurveCubicBrokenPixmap );
@@ -91,7 +91,7 @@ internal class InterpolationControl : Widget
 		{
 			VerticalSizeMode = SizeMode.CanGrow,
 			Enabled = _hasSelectedKeyframe,
-			ButtonType = _highlightedInterp.HasValue && _highlightedInterp.Value.Interp == Interpolation.Linear ? "primary" : "",
+			//ButtonType = _highlightedInterp.HasValue && _highlightedInterp.Value.Interp == Interpolation.Linear ? "primary" : "",
 			Pressed = () => SelectedInterp?.Invoke( new( Interpolation.Linear ) ),
 			ToolTip = "Linear (Shortcut: 4): Linearly interpolate from one keyframe to another."
 		} ).SetIcon( CurveTextures.Instance.CurveLinearPixmap );
@@ -100,7 +100,7 @@ internal class InterpolationControl : Widget
 		{
 			VerticalSizeMode = SizeMode.CanGrow,
 			Enabled = _hasSelectedKeyframe,
-			ButtonType = _highlightedInterp.HasValue && _highlightedInterp.Value.Interp == Interpolation.Constant ? "primary" : "",
+			//ButtonType = _highlightedInterp.HasValue && _highlightedInterp.Value.Interp == Interpolation.Constant ? "primary" : "",
 			Pressed = () => SelectedInterp?.Invoke( new( Interpolation.Constant ) ),
 			ToolTip = "Constant/Stepped (Shortcut: 5): Stair-stepping between keyframes."
 		} ).SetIcon( CurveTextures.Instance.CurveConstantPixmap );
